@@ -291,11 +291,11 @@ if ($estado == "Pagado") {
         <div class="modal__wrapper">
             <div class="modal__first">
                 <div class="modal__logoclose">
-                    <img class="modal__close" src="../../img/close.png" alt="pencil" width="32" height="30">
+                    <img class="modal__close" src="../../img/perfilCliente/close.png" alt="pencil" width="32" height="30">
                 </div>
                 <div class="modal__profile">
-                    <img src="../../img/profile.png" class="modal__img" width="95" height="89">
-                    <img class="" src="../../img/pencil.png" width="32" height="30">
+                    <img src="../../img/perfilCliente/profile.png" class="modal__img" width="95" height="89">
+                    <img class="" src="../../img/perfilCliente/pencil.png" width="32" height="30">
                 </div>
                 <span class="modal__user"><?=$_SESSION['usuario']?></span>
             </div>
@@ -319,6 +319,6 @@ if ($estado == "Pagado") {
 </section>
 
 
-<script src="../../js/main.js"></script>
+<script src="../../js/modalCliente.js"></script>
 </body>
 </html>

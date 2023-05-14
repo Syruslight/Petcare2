@@ -94,7 +94,11 @@ Falta implementarlo y solo es necesario ponerlo en la pagina principal y los dem
             <div class="swiper mySwiper">
                 <div class="swiper-wrapper">
                 <div class="swiper-slide">
-        <img src="../../img/perfilAdmin/dog1.png" alt="">
+                 <img src="../../img/perfilAdmin/dog1.png" alt="" width="172" height="190">
+                 <button>
+                    Editar
+                 </button>
+                 <img src="../../img/perfilAdmin/eliminar.png" alt="">
                     
                 </div>
                 <div class="swiper-slide">Slide 2</div>
