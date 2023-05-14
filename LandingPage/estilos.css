@@ -1,0 +1,280 @@
+
+/* Estilos generales */
+*{
+    font-family: sans-serif;
+}
+.container {
+    max-width: 1100px;
+}
+.row { 
+    margin: 0;/*ELMINAMOS LA BARRA DE NAVEGACION HORIZONTAL FEAAAAAAAAA*/
+}
+h1{
+    color: #815AC0;
+}
+a{
+    text-decoration: none;
+}
+.btn {
+    background-color: #815AC0;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    padding:5px 20px 5px 20px;
+    width: 175px;
+    height: 48px;
+}
+.btn:hover{
+    background-color: rgb(226, 207, 230);
+    color: black;
+    transform: scale(1.1);
+}
+
+/* Barra de navegación */
+.logo {
+    width: 200px;
+}
+.tittle {
+    color: #6D4DA4;
+    font-size: 28px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.tittle h1{
+    color: rgb(0, 0, 0);
+    font-size: 4.5rem;
+    font-weight: bold;
+}
+.tittle p{
+    color: white;
+}
+.nav-link .nav-item a{
+    color: white; 
+}
+
+.navbar .navbar-nav .nav-item a{
+    padding: 15px;
+    margin: 0 25px 0 25px;
+    font-weight: bold;
+    color: white;
+}
+.navbar-nav .nav-item .nav-link:hover{
+    color: #131111;
+}
+.top-nav-collapse {
+    padding: .4rem 0rem .4rem 0rem;
+    box-shadow: 0 0 0.375rem 0 rgba(0, 0, 0,1);
+    background: rgba(177, 133, 219, 0.67);
+}
+.navbar-toggler span{
+    display: block;
+    width: 22px;
+    height: 2px;
+    border: 2px;
+    background: #815AC0;
+}
+.navbar-toggler span + span{
+    margin-top: 4px;
+    width: 18px;
+    margin-left: 4px;
+}
+.navbar-toggler span + span + span{
+    width: 10px;
+    margin-left: 10px;
+}
+.navbar-expand-lg .navbar-nav .nav-link:hover{
+    transform: scale(1); 
+    border-top: 4px solid rgb(240, 222, 243);
+}
+.navbar-expand-lg .navbar-nav .nav-link.active{ 
+    border-top: 4px solid rgb(240, 222, 243);
+    color: white;
+}
+.border{
+    border: 2px;
+    background-color: white;
+}
+
+/* Carrusel */
+.shad{
+    font-size: 2.5rem;
+	color: #000000;
+	text-shadow: -3px -3px 3px #fff, 3px -3px 3px #fff, -3px 3px 3px #fff, 3px 3px 3px #fff;
+}
+.wimg{
+    width: 100%;
+    height: 100vh;
+    background: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.ig1{
+    background-image:linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url('Imagenes/vetyperro.jpg');
+}
+.ig2{
+    background-image:linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url('Imagenes/perroCarrusel.jpg');
+}
+.ig3{
+    background-image:linear-gradient(
+        0deg,
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)
+    )
+    ,url('Imagenes/carru2.webp');
+}
+
+/* Sobre Nosotros */
+#row-nosotros{
+    background-color: rgb(204, 211, 211);
+    background-image: url('https://bondvet.com/static/cta-d04bc5a9a03020b6a8ed217bc421b814.svg');
+    background-position: 100% 100%;
+    background-repeat: no-repeat;
+    padding: 4.5rem 0rem 4.5rem 0rem;
+}
+#row-nosotros p{
+    font-size: 17px;
+}
+#row-nosotros img{
+    border-radius:15px;
+    width: 500px;
+}
+/* Servicios */
+#row-servicios {
+    background-color: rgb(229, 234, 238);
+    padding: 4.5rem 0rem 4.5rem 0rem;
+}
+.card{
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    cursor: default;
+    transition: all 400ms ease;
+    padding: 0;
+    margin: 10px;  
+    border-radius: 20px;
+}
+.card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+.card .img{
+    width: 100%; 
+    border-radius: 20px;
+}
+.card .conte-servicio{
+    padding: 15px;
+    text-align: center;
+}
+/* Frase */
+#row-frase {
+    background-image:linear-gradient(
+        0deg,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.6)
+    )
+    ,url('Imagenes/gatito.jpg');
+    background-position: 60% 40%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10rem 0rem 10rem 0rem;   
+    color: white;
+}
+#row-frase .container h3{
+        font-size: 2.0rem;
+        color: white;
+
+}
+/* Producto */
+.box .image{
+    width: 100%;
+    background: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #7b9c7f;
+}
+.content img{
+    width: 100px;
+}
+.box .content p{
+    font-size: 25px !important;
+}
+.box .content h3{
+    font-weight: bold;
+}
+.heading {
+    text-align: center;
+    font-size: 3.5rem;
+    padding: 1rem;
+}
+.heading span{
+    color: red;
+}
+.productos .container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+.productos .container .box{
+    flex: 1 1 30rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0.5rem 1rem rgba(0,0,0,0.1);
+    border: 0.1rem solid rgba(0,0,0,0.3);
+    cursor: pointer;
+    border-radius: 0.5rem;
+}
+.productos .container .box .image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: -100%; left: 0;
+}
+.productos .container .box .content{
+    text-align: center;
+    background: #fff;
+    padding: 2rem;
+}
+.productos .container .box .content img{
+    margin: 1.5rem 0;
+}
+.productos .container .box .content h3{
+    font-size: 2.5rem;
+    color: #333;
+}
+.productos .container .box .content p{
+    font-size: 1.6rem;
+    color: #666;
+    padding: 1rem 0;
+}
+.productos .container .box:hover .image{
+    transition: .3s;
+    top: 0;
+}
+.productos .container .box:hover{
+    transform: translateY(-3%);
+}
+
+/* Footer */
+.social-red {
+    font-size: 22px;
+}
+
+
+
+
+
+
+
+
+
