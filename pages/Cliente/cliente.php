@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='perfil.css'>
+    <link rel="stylesheet" href='cliente.css'>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script> -->
     <title>Pagina del cliente</title>
@@ -209,8 +209,8 @@ if ($estado == "Pagado") {
                     </div>
             </div>
         </div>    
-        <div class="add-pet">
-            <img src="../../img/perfilCliente/Ellipse.png" alt="Circle" width="115" height="115">
+        <div >
+        <img class="add-pet" src="https://img.icons8.com/ios/50/plus-2-math.png" alt="plus-2-math"/>
         </div>
     </div>
 
@@ -232,7 +232,7 @@ if ($estado == "Pagado") {
             </div>
         </div>
         <div class="info-activities">
-           <div class="noseega">
+           <div class="scheme">
                 <h1 class="tittle-activities">
                 Producto
                 </h1>
@@ -240,7 +240,7 @@ if ($estado == "Pagado") {
                 <span>Peluqueria</span>
                 <span>Paquete 4 (baño+corte)</span>
            </div>
-           <div class="noseega">
+           <div class="scheme">
                 <h1 class="tittle-activities">
                 Fecha-Hora
                 </h1>
@@ -248,7 +248,7 @@ if ($estado == "Pagado") {
                 <span>26/02/2023 - 18:00</span>
                 <span>01/03/2023 - 20:00</span>
            </div>
-           <div class="noseega">
+           <div class="scheme">
                 <h1 class="tittle-activities">
                 Precio
                 </h1>
@@ -256,7 +256,7 @@ if ($estado == "Pagado") {
                 <span>s./ 40.00</span>
                 <span>s./ 110.00</span>
            </div>
-           <div class="noseega">
+           <div class="scheme">
                 <h1 class="tittle-activities">
                 Estado
                 </h1>
@@ -264,7 +264,7 @@ if ($estado == "Pagado") {
                 <span id="miTexto"> Inactivo</span>
                 <span id="miTexto"> Activo </span>
            </div>
-           <div class="noseega">
+           <div class="scheme">
                 <h1 class="tittle-activities">
                 Puntos
                 </h1>
