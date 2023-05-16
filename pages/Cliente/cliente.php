@@ -30,14 +30,14 @@ $conn = conectar();
                 <div class="logo">
                     <img src="../../imagenes/perfilCliente/logo.png" alt="Logo" width="168" height="46">
                 </div>
-                <img src="../../imagenes/perfilCliente/profile.png" alt="profile" width="217" height="227">
-                <div class="profile-information">
-                    <!--Codigo php para obtener la variable usuario-->
-                    <?php
+                     <!--Codigo php para obtener la variable usuario-->
+                     <?php
                     session_start();
                     $email = $_SESSION['email'];
                     foreach (listarCliente($email, $conn) as $key => $value) {
                         ?>
+                <img src="../../imagenes/fotosperfil/cliente/<?=$value[6]?>" alt="profile" width="217" height="227">
+                <div class="profile-information">
                         <span class="user">
                             <?=$value[0]?>  <?=$value[1]?>
                         </span>
@@ -46,9 +46,6 @@ $conn = conectar();
                     </div>
                     
                 <span class="id">DNI: <?=$value[2]?></span>
-                <?php
-                    }
-                    ?>
             </div>
             <div class="second-seccion">
                 <div class="categories">
@@ -95,10 +92,13 @@ $conn = conectar();
         <div class="dash-information">
             <div class="dash-header">
                 <span class="tittle-header">
-                    <?= $_SESSION['usuario'] ?>
+                <?=$value[0]?>  <?=$value[1]?>
                 </span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
-                <img src="../../imagenes/perfilCliente/profile.png" alt="profile" width="38" height="39">
+                <img src="../../imagenes/fotosperfil/cliente/<?=$value[6]?>" alt="profile" width="38" height="39">
             </div>
+            <?php
+                    }
+                    ?>
             <div class="wrapper-petypuntos">
                 <div class="petypuntos-top">
                     <span class="tittle-petypuntos"> Mis pety Puntos </span>

@@ -52,7 +52,7 @@ function agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$dire
 
 //Funcion para listar los datos del cliente
 function listarCliente($email,$conn) {
-    $sql="SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email
+    $sql="SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email, cliente.foto
     FROM     cliente INNER JOIN
                       usuario ON cliente.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";

@@ -242,16 +242,16 @@
 
                             <!-- vista registro de usuario -->
                         <div class="form-wrapper registro">
-                            <form action="">
+                            <form action="llamadas/proceso_registrousuario.php">
                                 <b><h2 class="texto-h2">Registrar datos</h2></b>
                                 <p class="textoparrafo">Únete a la familia de Pet&Care para conocer todos los beneficios que tenemos</p>
                                 <div class="input-group">
-                                    <input class="estilo-separado" type="text" required>
+                                    <input class="estilo-separado" type="text" name="email" required>
                                     <i class="fa-solid fa-envelope icono-reg"></i>
                                     <label for="">Correo electronico</label>
                                 </div>
                                 <div class="input-group">
-                                    <input class="estilo-separado" type="password" required>
+                                    <input class="estilo-separado" type="password" name="pass" required>
                                     <i class="fa-solid fa-lock icono-reg"></i>
                                     <label for="">Contraseña</label>
                                 </div>
