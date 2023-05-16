@@ -41,7 +41,7 @@
             } else{
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;
-                header("location:../paginas/paginaPrincipalCliente.php");}
+                header("location:../pages/Cliente/cliente.php");}
             break;
             
 
