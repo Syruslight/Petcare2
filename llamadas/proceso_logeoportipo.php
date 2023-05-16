@@ -31,7 +31,7 @@
             } else { //Cuenta activada con 
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;
-                header("location:../paginas/pagAdministrador.php");}
+                header("location:../pages/Administrador/administrador.php");}
             break;                 
         case 'Cliente':
             if ($estadoUsuario == 1) { //No tiene datoss

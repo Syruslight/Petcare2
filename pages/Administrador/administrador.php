@@ -1,3 +1,7 @@
+<?php
+require('../../controlador/conexion.php');
+$conn = conectar();
+?>
 <!--Perfil del administrador (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
 <html lang="en">
@@ -20,10 +24,19 @@
             </div>
             <img src="../../imagenes/perfilAdmin/profileAdmin.png" alt="profile" width="217" height="227">
         <div class="profile-information">
-            <span class="user"><?=$_SESSION['usuario']?></span>
+               <!--Codigo php para obtener la variable usuario-->
+               <?php
+                    session_start();
+                    $email = $_SESSION['email'];
+                    foreach (listarAdministrador($email, $conn) as $key => $value) {
+                        ?>   
+            <span class="user"><?=$value[0]?>  <?=$value[1]?></span>
             <img src="../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30">
         </div >
-        <span class="id">ID: 1334134123</span>
+        <span class="id">DNI: <?=$value[2]?></span>
+        <?php
+                    }
+                    ?>
         </div>
         <div class="second-seccion">
             <div class="categories">
