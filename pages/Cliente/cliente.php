@@ -17,41 +17,17 @@
     margin-right: 0px;
     ">
 
-<!--Codigo php para hacer la conexión a la bd y mostrar los datos del usuario
-Falta implementarlo y solo es necesario ponerlo en la pagina principal y los demas lo heredan con el include-->
-<?php
-    require('../../controlador/conexion.php');
-    $conn = conectar();
-  //  $id = $_REQUEST['id'];
-?>
 
-<!--Codigo para obtener la sesion del usuario ingresado-->
-<?php		
-    session_start();
-    if(!isset($_SESSION['usuario'])) { //Se busca si hay un envio con el nombre 'usuario'
-        header("location:../login/login.php"); //Localizacion del envio
-    }
-?>
-<?php
-$estado = "Pagado";	// Asignamos un valor a la variable $estado
-
- // Definimos los colores para cada estado
-if ($estado == "Pagado") {
-    $color = "green";
-  } elseif ($estado == "Pendiente") {
-    $color = "red";
-  } 
-?>
 <div class="wrapper">
     <div class="profile">
         <div class="first-seccion">
             <div class="logo">
-                <img  src="../../img/perfilCliente/logo.png" alt="Logo" width="168" height="46">
+                <img  src="../../imagenes/perfilCliente/logo.png" alt="Logo" width="168" height="46">
             </div>
-            <img src="../../img/perfilCliente/profile.png" alt="profile" width="217" height="227">
+            <img src="../../imagenes/perfilCliente/profile.png" alt="profile" width="217" height="227">
         <div class="profile-information">
             <span class="user"><?=$_SESSION['usuario']?></span>
-            <img class="image-profile" src="../../img/perfilCliente/pencil.png" alt="pencil" width="32" height="30">
+            <img class="image-profile" src="../../imagenes/perfilCliente/pencil.png" alt="pencil" width="32" height="30">
         </div >
         <span class="id">ID: 1334134123</span>
         </div>
@@ -99,7 +75,7 @@ if ($estado == "Pagado") {
     <div class="dash-information">
         <div class="dash-header">
             <span class="tittle-header"><?=$_SESSION['usuario']?></span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
-            <img src="../../img/perfilCliente/profile.png" alt="profile" width="38" height="39">
+            <img src="../../imagenes/perfilCliente/profile.png" alt="profile" width="38" height="39">
         </div>
         <div class="wrapper-petypuntos">
             <div class="petypuntos-top">
@@ -107,7 +83,7 @@ if ($estado == "Pagado") {
             </div>
             <div class="petypuntos-bot">
                 <div class="petyscore-img">
-                    <img src="../../img/perfilCliente/CHANCHITO1.png" alt="Chanchito"width="212" height="184">
+                    <img src="../../imagenes/perfilCliente/CHANCHITO1.png" alt="Chanchito"width="212" height="184">
                 </div>
                 <div class="canjear-petypuntos">
                     <div class="petypuntos-uno">
@@ -154,7 +130,7 @@ if ($estado == "Pagado") {
          
             <div class="ballot-pets">  <!--Primer pet -->
                     <div class="picture-pet">
-                        <img src="../../img/perfilCliente/dog.png" alt="Logo" width="119" height="120">
+                        <img src="../../imagenes/perfilCliente/dog.png" alt="Logo" width="119" height="120">
                         <span>Nombre: Colita</span>
                     </div>
         
@@ -165,15 +141,15 @@ if ($estado == "Pagado") {
                         <span>Peso:12kg</span>
                     </div>
                     <div >
-                    <img class="edits-pets"src="../../img/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
-                    <img class="pdf-pets"src="../../img/perfilCliente/pdf.png" alt="Logo" width="46" height="42">
+                    <img class="edits-pets"src="../../imagenes/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
+                    <img class="pdf-pets"src="../../imagenes/perfilCliente/pdf.png" alt="Logo" width="46" height="42">
                     </div>
                     </div>
             </div>
         
             <div class="ballot-pets">  <!--segundo pet -->
                     <div class="picture-pet">
-                    <img src="../../img/perfilCliente/cat.png" alt="Logo" width="119" height="120">
+                    <img src="../../imagenes/perfilCliente/cat.png" alt="Logo" width="119" height="120">
                     <span>Nombre: Nube</span>
                     </div>
         
@@ -184,15 +160,15 @@ if ($estado == "Pagado") {
                         <span>Peso:5kg</span>
                     </div>
                     <div >
-                    <img class="edits-pets"src="../../img/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
-                    <img class="pdf-pets"src="../../img/perfilCliente/pdf.png" alt="Logo" width="46" height="42">
+                    <img class="edits-pets"src="../../imagenes/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
+                    <img class="pdf-pets"src="../../imagenes/perfilCliente/pdf.png" alt="Logo" width="46" height="42">
                     </div>
                     </div>
             </div>
         
             <div class="ballot-pets">  <!--TERCER pet -->
                     <div class="picture-pet">
-                    <img src="../../img/perfilCliente/rabbit.png" alt="Logo" width="119" height="120">
+                    <img src="../../imagenes/perfilCliente/rabbit.png" alt="Logo" width="119" height="120">
                     <span>Nombre: Copo</span>
                     </div>
         
@@ -203,8 +179,8 @@ if ($estado == "Pagado") {
                         <span>Peso:3kg</span>
                     </div>
                     <div >
-                    <img class="edits-pets"src="../../img/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
-                    <img class="pdf-pets"src="../../img/perfilCliente/pdf.png" alt="Logo" width="46" height="42">
+                    <img class="edits-pets"src="../../imagenes/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
+                    <img class="pdf-pets"src="../../imagenes/perfilCliente/pdf.png" alt="Logo" width="46" height="42">
                     </div>
                     </div>
             </div>
@@ -291,11 +267,11 @@ if ($estado == "Pagado") {
         <div class="modal__wrapper">
             <div class="modal__first">
                 <div class="modal__logoclose">
-                    <img class="modal__close" src="../../img/perfilCliente/close.png" alt="pencil" width="32" height="30">
+                    <img class="modal__close" src="../../imagenes/perfilCliente/close.png" alt="pencil" width="32" height="30">
                 </div>
                 <div class="modal__profile">
-                    <img src="../../img/perfilCliente/profile.png" class="modal__img" width="95" height="89">
-                    <img class="" src="../../img/perfilCliente/pencil.png" width="32" height="30">
+                    <img src="../../imagenes/perfilCliente/profile.png" class="modal__img" width="95" height="89">
+                    <img class="" src="../../imagenes/perfilCliente/pencil.png" width="32" height="30">
                 </div>
                 <span class="modal__user"><?=$_SESSION['usuario']?></span>
             </div>

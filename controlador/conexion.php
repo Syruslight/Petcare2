@@ -1,14 +1,11 @@
-<?php //Inicio codigo php
- 
-//Función conexion: cambiar "" en caso de tener contraseña
+<?php 
 function conectar() {
-    $conn= mysqli_connect ("127.0.0.1", "root", "", "probandojsf");
+    $conn= mysqli_connect ("127.0.0.1", "root", "", "petcare");
     return $conn; 
 }
 
-//Función de listado de producto
-function listarProducto($conn) {
-    $sql="select idProducto, categoria.NombreCategoria, Nombre from producto INNER JOIN categoria ON producto.CatProducto = 	categoria.CatProducto";
+function listarProducto($conn,$precio) {
+    $sql="SELECT * FROM productoservicio where precio < $precio";
     $res= mysqli_query($conn, $sql);
     $vec=array();
     while($f= mysqli_fetch_array($res))
@@ -16,54 +13,82 @@ function listarProducto($conn) {
     return $vec;
 }
 
-// Consultas relacionados a la tabla de usuario:
+#-------Consultas correspondientes al logeo del usuario-------
 
-//Agregar usuario
-function agregarUsuario($nombre, $contra, $correo, $estado, $conn){
-    $sql="insert into usuarios(nombre,contraseña,correo,estado) values('$nombre','$contra','$correo','$estado')";   
-    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+//Función para validar el usuario y en base a esto hacer el redireccionamiento
+function validarUsuario($email,$pass,$conn){
+    $sql="SELECT tipousuario.nombre as tipoUsuario, usuario.estado as estado
+    FROM tipousuario INNER JOIN
+         usuario on tipousuario.idtipousuario= usuario.idtipousuario
+         where usuario.email ='$email' AND usuario.pass ='$pass'";
+   $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+   $fila = mysqli_fetch_assoc($res); // Utilizar mysqli_fetch_assoc en lugar de mysqli_fetch_row
+   return $fila; // Devolver la fila completa como un array asociativo
 }
-
-//Para el logeo hay 3 estados : administrador, usuario y veterinario, la validación se hace en proceso_logeo.php
-function validarUsuario($usu,$pas,$conn){
-    $sql="select estado from usuarios where nombre='$usu' and contraseña='$pas'";
+//Función para obtener el idUsuario y mostrar sus datos personales posteriormente 
+function obteneridUsuario($email,$pass,$conn){
+    $sql="SELECT usuario.idusuario
+    FROM tipousuario INNER JOIN
+         usuario on tipousuario.idtipousuario= usuario.idtipousuario
+         where usuario.email LIKE '$email' AND usuario.pass LIKE '$pass'";
     $res=mysqli_query($conn, $sql) or die(mysqli_error($conn));
     $fila = mysqli_fetch_row($res);
     return $fila[0];
 }
-//El administrador podra ver las cuentas ?
 
-//Consultas relacionadas al cliente
+#-------Consultas relacionadas al registro del cliente-------
 
-//Listar cliente
-function listarCliente($conn){
-    $sql="select nombres, apellidos, dni, telefono, direccion from cliente";
-    $res=mysqli_query($conn, $sql) or die(mysqli_error($conn));
-    $vec=array();
-    while($f= mysqli_fetch_array($res)){
-        $vec[]=$f;
-    }
-    return $vec;
-}
+//Función para agregar al cliente porque el veterinario y administrador lo crea el del área de sistemas
+function agregarCliente($idTipoUsuario, $email, $pass,$estado, $conn){
+        $sql="insert into usuario(idtipousuario,email,pass,estado) values('$idTipoUsuario','$email','$pass','$estado')";   
+        mysqli_query($conn, $sql) or die(mysqli_error($conn));}
 
-//Busqueda por dni
-function busquedadni($dni, $conn){
-    $sql="select nombres, apellidos, dni, telefono, direccion from cliente where dni='$dni'";
-    $res=mysqli_query($conn, $sql) or die(mysqli_error($conn));
-    $vec=array();
-    while($f= mysqli_fetch_array($res)){
-        $vec[]=$f;
-    }
-    return $vec;
-}
-
-//Consultas relacionadas a la tabla mascota
-//Falta implementar funcionarlidad del id usuario, por aqui por defecto le enviare el 1
-//Y falta añadir el peso
-function agregarMascota($idusuario,$nombre,$foto,$conn){
-    $sql="insert into mascota(idUsuario,mombre,foto) values ('$idusuario','$nombre','$foto')";
+//Esta funcion agrega los datos personales del cliente cuando se logee por primera vez | estado : 1
+function agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$estado,$conn)
+{
+    $sql="insert into cliente(idusuario,nombres,apellidos,dni,telefono,direccion,foto,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$estado')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
-//INSERT INTO `mascota` (`idMascota`, `idUsuario`, `mombre`, `foto`, `peso`) VALUES (NULL, '1', 'Copper', './imagenes/mas...', NULL);
+}
+
+//Funcion para listar los datos del cliente
+function listarCliente($email,$conn) {
+    $sql="SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email
+    FROM     cliente INNER JOIN
+                      usuario ON cliente.idusuario = usuario.idusuario
+                      where usuario.email LIKE '$email'";
+    $res= mysqli_query($conn, $sql);
+    $vec=array();
+    while($f= mysqli_fetch_array($res))
+        $vec[]=$f;
+    return $vec;
+}
+
+//Esta funcion actualiza el estado del cliente de 1 a 2 al insertar datos personales
+function actualizarEstadoCliente($idusuario,$estado,$conn){
+    $sql = "UPDATE usuario SET estado = '$estado' WHERE idusuario = '$idusuario'";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+//Función para cuando se agreguen los datos del cliente se actualice el estado del usuario de 1 ---> 2
+#-------Consultas relacionadas a la pagina principal de administrador-------
+
+//Función para añadir los datos personales del administrador cuando se logee por primera vez
+function agregarDatosAdministrador($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$estado,$conn){
+    $sql="insert into administrador(idusuario,nombres,apellidos,dni,telefono,direccion,foto,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$estado')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+//Función para listar los datos del cliente por idusuario
+function listarAdministrador($email,$conn) {
+    $sql="SELECT administrador.nombres, administrador.apellidos, administrador.dni, administrador.telefono, administrador.direccion, usuario.email
+    FROM     administrador INNER JOIN
+                      usuario ON administrador.idusuario = usuario.idusuario
+                      where usuario.email LIKE '$email'";
+    $res= mysqli_query($conn, $sql);
+    $vec=array();
+    while($f= mysqli_fetch_array($res))
+        $vec[]=$f;
+    return $vec;
 }
 
 ?>
