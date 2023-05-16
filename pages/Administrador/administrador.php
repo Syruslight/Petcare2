@@ -91,37 +91,95 @@ Falta implementarlo y solo es necesario ponerlo en la pagina principal y los dem
 
 
             <!-- Swiper -->
-            <div class="swiper mySwiper">
+            <div class="swiper">
                 <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                 <img src="../../img/perfilAdmin/dog1.png" alt="" width="172" height="190">
-                 <button>
-                    Editar
-                 </button>
-                 <img src="../../img/perfilAdmin/eliminar.png" alt="">
+                <div class="swiper-slide">  <!--Primer Slide-->
+                    <div class="cardpet">
+                        <img src="../../img/perfilAdmin/dog1.png" alt="" width="172" height="190">
+                        <div class="semicrud-pet">
+                            <button class="button-edit">
+                               Editar
+                            </button>
+                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                        </div>
+                    </div>
                     
                 </div>
-                <div class="swiper-slide">Slide 2</div>
-                <div class="swiper-slide">Slide 3</div>
-                <div class="swiper-slide">Slide 4</div>
-                <div class="swiper-slide">Slide 5</div>
-                <div class="swiper-slide">Slide 6</div>
-                <div class="swiper-slide">Slide 7</div>
-                <div class="swiper-slide">Slide 8</div>
-                <div class="swiper-slide">Slide 9</div>
+                <div class="swiper-slide"><!--Segundo Slide-->
+                <div class="cardpet">
+                        <img src="../../img/perfilAdmin/dog2.png" alt="" width="172" height="190">
+                        <div class="semicrud-pet">
+                            <button class="button-edit">
+                               Editar
+                            </button>
+                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                        </div>
+                    </div>
                 </div>
+
+                <div class="swiper-slide"> <!--Tercer Slide-->
+                
+                <div class="cardpet">
+                        <img src="../../img/perfilAdmin/dog3.png" alt="" width="172" height="190">
+                        <div class="semicrud-pet">
+                            <button class="button-edit">
+                               Editar
+                            </button>
+                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="swiper-slide"> <!--Cuarto Slide-->
+                    
+                <div class="cardpet">
+                        <img src="../../img/perfilAdmin/dog4.png" alt="" width="172" height="190">
+                        <div class="semicrud-pet">
+                            <button class="button-edit">
+                               Editar
+                            </button>
+                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="swiper-slide"> <!--Quinto Slide-->
+                    
+                <div class="cardpet">
+                        <img src="../../img/perfilAdmin/dog5.png" alt="" width="172" height="190">
+                        <div class="semicrud-pet">
+                            <button class="button-edit">
+                               Editar
+                            </button>
+                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-            </div>
+            </div> <!-- Finish Swiper -->
 
-    </div>
-    <!-- Swiper JS -->
+        </div>
+
+        <div>
+            <div>
+
+            </div> 
+            <div>
+                
+            </div> 
+            </div>
          
 
 
 
 
-        </div>
+</div>
 
 <!-- <div class="footer">
     <span class="copyrigth">©</span>
@@ -137,13 +195,7 @@ Falta implementarlo y solo es necesario ponerlo en la pagina principal y los dem
 
 <!-- <h1> Cuenta de administrador : <?=$_SESSION['usuario']?></h1> Se abre codigo php para invocar a la sesion del 'usuario' -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-<script>
-    var swiper = new Swiper(".mySwiper", {
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-    });
-  </script>
+
+<script src="../../js/swiperAdmin.js"></script>
 </body>
 </html>

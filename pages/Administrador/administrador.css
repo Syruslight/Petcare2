@@ -135,54 +135,70 @@
 }
 .wrapper-drawer {
   width: 1088px;
-  height: 275px;
+  height: 290px;
   margin-left: 44px;
+  background: rgba(254, 250, 224, 0.85);
+  box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 19px;
+  & h1 {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 21px;
+    margin: 0;
+    margin-left: 8px;
+    margin-top: 14px;
+  }
+}
+.swiper {
+  width: 1088px;
+  height: 230px;
+  margin-top: 13px;
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+}
+.swiper-slide {
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.cardpet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.semicrud-pet {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15px;
+}
+.button-edit {
+  height: 25px;
+  width: 50px;
+}
+.option-delete {
+  margin-left: 10px;
+  height: 20px;
+  width: 20px;
 }
 
-.container {
-  width: 900px;
-  /* display: flex; */
-}
-.container .swiper-container {
-  width: 172px;
-  height: 192px;
-}
-.container .swiper-slide {
-  position: relative;
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  border-radius: 15px;
-  text-align: start;
-  box-shadow: 0px 4px 4px rgba(196, 196, 196, 0.25);
-}
-.container .swiper-slide img {
-  display: block;
-  width: 172px;
-  height: 162px;
+.swiper-slide img {
+  /* display: block; */
   object-fit: cover;
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
 }
-.container .swiper-slide .card-description {
-  padding: 1rem 1rem;
-}
-/* .container .swiper-slide .card-title,
-  .container .swiper-slide .card-text {
-    margin-bottom: 0.5rem;
-  } */
-.container .swiper-slide .card-link {
-  text-align: center;
-}
-.container .swiper-slide .card-link a {
-  text-decoration: none;
-  color: #1d6ce2;
-}
-.swiper-button-next {
-  right: 26px;
-}
+.swiper-button-next,
 .swiper-button-prev {
-  left: 26px;
+  color: #ffffff;
 }
 
 .footer {
