@@ -1,3 +1,7 @@
+<?php
+require('../../controlador/conexion.php');
+$conn = conectar();
+?>
 <!--Perfil del administrador (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
 <html lang="en">
@@ -11,34 +15,28 @@
 </head>
 <body>
 
-<!--Codigo php para hacer la conexión a la bd y mostrar los datos del usuario
-Falta implementarlo y solo es necesario ponerlo en la pagina principal y los demas lo heredan con el include-->
-<?php
-    require('../../controlador/conexion.php');
-    $conn = conectar();
-  //  $id = $_REQUEST['id'];
-?>
-
-<!--Codigo para obtener la sesion del usuario ingresado-->
-<?php		
-    session_start();
-    if(!isset($_SESSION['usuario'])) { //Se busca si hay un envio con el nombre 'usuario'
-        header("location:../login/login.php"); //Localizacion del envio
-    }
-?>
 
 <div class="wrapper">
     <div class="profile">
         <div class="first-seccion">
             <div class="logo">
-                <img src="../../img/perfilAdmin/logo.png" alt="Logo" width="168" height="46">
+                <img src="../../imagenes/perfilAdmin/logo.png" alt="Logo" width="168" height="46">
             </div>
-            <img src="../../img/perfilAdmin/profileAdmin.png" alt="profile" width="217" height="227">
+            <img src="../../imagenes/perfilAdmin/profileAdmin.png" alt="profile" width="217" height="227">
         <div class="profile-information">
-            <span class="user"><?=$_SESSION['usuario']?></span>
-            <img src="../../img/perfilAdmin/pencil.png" alt="pencil" width="32" height="30">
+               <!--Codigo php para obtener la variable usuario-->
+               <?php
+                    session_start();
+                    $email = $_SESSION['email'];
+                    foreach (listarAdministrador($email, $conn) as $key => $value) {
+                        ?>   
+            <span class="user"><?=$value[0]?>  <?=$value[1]?></span>
+            <img src="../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30">
         </div >
-        <span class="id">ID: 1334134123</span>
+        <span class="id">DNI: <?=$value[2]?></span>
+        <?php
+                    }
+                    ?>
         </div>
         <div class="second-seccion">
             <div class="categories">
@@ -84,7 +82,7 @@ Falta implementarlo y solo es necesario ponerlo en la pagina principal y los dem
 <div class="dash-information">
         <div class="dash-header">
             <span class="tittle-header"><?=$_SESSION['usuario']?></span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
-            <img src="../../img/perfilAdmin/profileAdmin.png" alt="profile" width="38" height="39">
+            <img src="../../imagenes/perfilAdmin/profileAdmin.png" alt="profile" width="38" height="39">
         </div>
         <div class="wrapper-drawer">
             <h1>Mis servicios</h1>
@@ -95,24 +93,24 @@ Falta implementarlo y solo es necesario ponerlo en la pagina principal y los dem
                 <div class="swiper-wrapper">
                 <div class="swiper-slide">  <!--Primer Slide-->
                     <div class="cardpet">
-                        <img src="../../img/perfilAdmin/dog1.png" alt="" width="172" height="190">
+                        <img src="../../imagenes/perfilAdmin/dog1.png" alt="" width="172" height="190">
                         <div class="semicrud-pet">
                             <button class="button-edit">
                                Editar
                             </button>
-                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                            <img class="option-delete"src="../../imagenes/perfilAdmin/eliminar.png" alt="">
                         </div>
                     </div>
                     
                 </div>
                 <div class="swiper-slide"><!--Segundo Slide-->
                 <div class="cardpet">
-                        <img src="../../img/perfilAdmin/dog2.png" alt="" width="172" height="190">
+                        <img src="../../imagenes/perfilAdmin/dog2.png" alt="" width="172" height="190">
                         <div class="semicrud-pet">
                             <button class="button-edit">
                                Editar
                             </button>
-                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                            <img class="option-delete"src="../../imagenes/perfilAdmin/eliminar.png" alt="">
                         </div>
                     </div>
                 </div>
@@ -120,12 +118,12 @@ Falta implementarlo y solo es necesario ponerlo en la pagina principal y los dem
                 <div class="swiper-slide"> <!--Tercer Slide-->
                 
                 <div class="cardpet">
-                        <img src="../../img/perfilAdmin/dog3.png" alt="" width="172" height="190">
+                        <img src="../../imagenes/perfilAdmin/dog3.png" alt="" width="172" height="190">
                         <div class="semicrud-pet">
                             <button class="button-edit">
                                Editar
                             </button>
-                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                            <img class="option-delete"src="../../imagenes/perfilAdmin/eliminar.png" alt="">
                         </div>
                     </div>
 
@@ -134,12 +132,12 @@ Falta implementarlo y solo es necesario ponerlo en la pagina principal y los dem
                 <div class="swiper-slide"> <!--Cuarto Slide-->
                     
                 <div class="cardpet">
-                        <img src="../../img/perfilAdmin/dog4.png" alt="" width="172" height="190">
+                        <img src="../../imagenes/perfilAdmin/dog4.png" alt="" width="172" height="190">
                         <div class="semicrud-pet">
                             <button class="button-edit">
                                Editar
                             </button>
-                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                            <img class="option-delete"src="../../imagenes/perfilAdmin/eliminar.png" alt="">
                         </div>
                     </div>
                     
@@ -148,12 +146,12 @@ Falta implementarlo y solo es necesario ponerlo en la pagina principal y los dem
                 <div class="swiper-slide"> <!--Quinto Slide-->
                     
                 <div class="cardpet">
-                        <img src="../../img/perfilAdmin/dog5.png" alt="" width="172" height="190">
+                        <img src="../../imagenes/perfilAdmin/dog5.png" alt="" width="172" height="190">
                         <div class="semicrud-pet">
                             <button class="button-edit">
                                Editar
                             </button>
-                            <img class="option-delete"src="../../img/perfilAdmin/eliminar.png" alt="">
+                            <img class="option-delete"src="../../imagenes/perfilAdmin/eliminar.png" alt="">
                         </div>
                     </div>
                     

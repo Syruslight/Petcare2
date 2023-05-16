@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Urbanist', sans-serif;
+}
+
+.boton-login{
+    background-color: #815AC0;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+    padding:5px 20px 5px 20px;
+    width: 175px;
+    height: 48px;
+}
+
+.boton-login:hover{
+    background-color: white;
+    color: #815AC0;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .6s .9s;
+    --transform: translateY(-100vh);
+    --transition: transform .8s;
+}
+
+.modal--show{
+    opacity: 2;
+    pointer-events: unset;
+    transition: opacity .6s;
+    --transform: translateY(0);
+    --transition: transform .8s .8s;
+}
+
+.modal__container{
+    margin: auto;
+    width: 400px;
+    height: 500px;
+    max-width: 400px;
+    max-height: 500px;
+    background-color: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: var(--transform);
+    transition:var(--transition);
+
+}
+
+
+
+.top-form{
+    display: flex;
+    justify-content: flex-end;
+}
+#close-modal:hover{
+background-color: #783b9bc0;
+color: #ffffff;
+}
+#close-modal{
+    display: inline-flex;
+    align-items: center;
+    border-radius: 50%;
+    justify-content: center;
+    color: #878787;
+    font-size: 17px;
+    background: #f2f3fb;
+    height: 33px;
+    width: 33px;
+    cursor: pointer;
+
+}
+
+.wrapper{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    background-color: rgba (255,255,255,.2);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0,0,0,.1);
+    padding: 40px;
+
+}
+.form-wrapper {
+    
+    width: 100%;
+    height: 100%;
+    transition: 1s ease-in-out;
+
+}
+
+.wrapper.active .form-wrapper.logeo{
+    transform: scale(0) translate(200px, -500px);
+}
+
+.wrapper .form-wrapper.registro{
+    position: absolute;
+    top: 10%;
+    left: 0;
+        transform: scale(0) translate(-300px, 500px);
+}
+.wrapper.active .form-wrapper.registro{
+    transform: scale(0.85) translate(0,0);
+}
+
+
+.texto-h2{
+font-size: 30px;
+color: #6131af;
+text-align: center;
+}
+
+.input-group{
+    position: relative;
+    margin: 30px 0;
+    border-bottom: 2px solid #6131af;
+    
+}
+
+.input-group label{
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #581380d3;
+    pointer-events: none;
+    transition: .5s;
+}
+.input-group input{
+    width: 120px;
+    height: 40px;
+    font-size: 16px;
+    color: #6131af;
+    padding: 0 5px;
+    background: transparent;
+    border: none;
+    outline: none;
+    
+
+}
+.estilo-separado:focus~label{
+    top:-5px;
+}
+
+.estilo-separado:valid~label{
+    top:-5px;
+}
+.icono-log{
+    color: #815AC0;
+    padding-left: 170px;
+}
+
+.icono-reg{
+    color: #815AC0;
+    padding-left: 250px;
+}
+
+
+
+.btnlogin{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background-color: #6131af;
+     
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+
+.textoparrafo{
+    text-align: center;
+    color: grey;
+}
+
+.btnregistro{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    background-color: #6131af;
+    font-size: 16px;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    padding: 10px;
+}
+.link{
+    
+    font-size: 14px;
+    text-align: center;
+    margin: 20px;
+
+}
+
+.terminos{
+    font-size: 15px;
+    text-align: left;
+    margin: -5px 0 15px 5px;
+
+}
+
+.terminos label input{
+accent-color: #6131af;
+
+}
+.link p a{
+color: #6131af;
+text-decoration: none;
+font-weight: 500;
+}
+.login-link p a:hover{
+    text-decoration: underline;
+}
