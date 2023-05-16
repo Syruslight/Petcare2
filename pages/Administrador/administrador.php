@@ -22,21 +22,20 @@ $conn = conectar();
             <div class="logo">
                 <img src="../../imagenes/perfilAdmin/logo.png" alt="Logo" width="168" height="46">
             </div>
-            <img src="../../imagenes/perfilAdmin/profileAdmin.png" alt="profile" width="217" height="227">
-        <div class="profile-information">
-               <!--Codigo php para obtener la variable usuario-->
-               <?php
+             <!--Codigo php para obtener la variable usuario-->
+             <?php
                     session_start();
                     $email = $_SESSION['email'];
                     foreach (listarAdministrador($email, $conn) as $key => $value) {
                         ?>   
+            <img src="../../imagenes/fotosperfil/administrador/<?=$value[6]?>" alt="profile" width="217" height="227">
+        <div class="profile-information">
+              
             <span class="user"><?=$value[0]?>  <?=$value[1]?></span>
             <img src="../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30">
         </div >
         <span class="id">DNI: <?=$value[2]?></span>
-        <?php
-                    }
-                    ?>
+
         </div>
         <div class="second-seccion">
             <div class="categories">
@@ -81,9 +80,12 @@ $conn = conectar();
     </div>
 <div class="dash-information">
         <div class="dash-header">
-            <span class="tittle-header"><?=$_SESSION['usuario']?></span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
-            <img src="../../imagenes/perfilAdmin/profileAdmin.png" alt="profile" width="38" height="39">
+            <span class="tittle-header"><?=$value[0]?>  <?=$value[1]?></span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
+            <img src="../../imagenes/fotosperfil/administrador/<?=$value[6]?>" alt="profile" width="38" height="39">
         </div>
+        <?php
+                    }
+                    ?>
         <div class="wrapper-drawer">
             <h1>Mis servicios</h1>
 

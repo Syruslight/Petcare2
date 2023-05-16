@@ -80,7 +80,7 @@ function agregarDatosAdministrador($idusuario,$nombres,$apellidos,$dni,$telefono
 
 //Función para listar los datos del cliente por idusuario
 function listarAdministrador($email,$conn) {
-    $sql="SELECT administrador.nombres, administrador.apellidos, administrador.dni, administrador.telefono, administrador.direccion, usuario.email
+    $sql="SELECT administrador.nombres, administrador.apellidos, administrador.dni, administrador.telefono, administrador.direccion, usuario.email, administrador.foto
     FROM     administrador INNER JOIN
                       usuario ON administrador.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";
