@@ -312,16 +312,20 @@ $conn = conectar();
             </div>
             <div class="modal__data">
                 <div class="moda__info">
-                    <span>Nombre</span>
-                    <input type="text" name="nombre" value="John Doe">
+                    <span>Nombres</span>
+                    <input type="text" name="nombres" value="John">
+                </div>
+                <div class="moda__info">
+                    <span>Apellidos</span>
+                    <input type="text" name="apellidos" value="Doe">
                 </div>
                 <div class="moda__info">
                     <span>Telefono</span>
-                    <input type="text" name="nombre" value="John Doe">
+                    <input type="text" name="telefono" value="123456789">
                 </div>
                 <div class="moda__info">
                     <span>Direccion</span>
-                    <input type="text" name="nombre" value="John Doe">
+                    <input type="text" name="direccion" value="Calle Falsa 123">
                 </div>
             </div>
             <button class="modal__button">Actualizar Datos</button>
