@@ -1,17 +1,14 @@
-<?php
-require('../../../controlador/conexion.php');
-$conn = conectar();
-?>
-<!--Perfil del administrador (deriva o esta incluido de su pagina principal)-->
+
+<!--Perfil del veterinario (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='administradorService.css'>
+    <link rel="stylesheet" href='veterinario.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <title>Pagina de administrador</title>
+    <title>Pagina de Veterinario</title>
 </head>
 <body>
 
@@ -20,37 +17,35 @@ $conn = conectar();
     <div class="profile">
         <div class="first-seccion">
             <div class="logo">
-                <img src="../../../imagenes/perfilAdmin/logo.png" alt="Logo" width="168" height="46">
+                <img src="../../imagenes/perfilVeterinario/logo.png" alt="Logo" width="168" height="46">
             </div>
-             <!--Codigo php para obtener la variable usuario-->
-             <?php
-                    session_start();
-                    $email = $_SESSION['email'];
-                    foreach (listarAdministrador($email, $conn) as $key => $value) {
-                        ?>   
-            <img src="../../../imagenes/fotosperfil/administrador/<?=$value[6]?>" alt="profile" width="217" height="227">
+           
+            <img src="../../imagenes/perfilVeterinario/veterinario.png" alt="profile" width="217" height="227">
         <div class="profile-information">
               
-            <span class="user"><?=$value[0]?>  <?=$value[1]?></span>
-            <img class="image-profile"src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30">
+            <span class="user">Luis Alberto :V</span>
+            <img class="image-profile"src="../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
         </div >
-        <span class="id">DNI: <?=$value[2]?></span>
+        <span class="id">DNI:64545454465 </span>
 
         </div>
         <div class="second-seccion">
             <div class="categories">
                 <div class="icons">  
                  <img src="https://img.icons8.com/ios/50/null/health-data.png" width="25" height="25"/>
-                 <span class="list">Principal</span>
+                 <span class="principal">Principal</span>
                 </div>
-                
+                <div class="icons">
+                            <img src="https://img.icons8.com/ios/50/null/conference-call--v1.png" width="25" height="25" />
+                            <span class="list">Mis mascotas</span>
+                        </div>
                 <div class="icons">
                 <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25"/>
                 <span class="list">Productos</span>
                 </div>
                 <div class="icons">
                         <img src="https://img.icons8.com/ios/50/null/database--v1.png" width="25" height="25" />
-                        <span class="services">Servicios</span>
+                        <span class="list">Servicios</span>
                     </div>
                 <div class="icons">
                 <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png"width="25" height="25"/>
@@ -77,23 +72,43 @@ $conn = conectar();
     </div>
 <div class="dash-information">
         <div class="dash-header">
-            <span class="tittle-header"><?=$value[0]?>  <?=$value[1]?></span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
-            <img src="../../../imagenes/fotosperfil/administrador/<?=$value[6]?>" alt="profile" width="38" height="39">
+            <span class="tittle-header">Luis Alberto :V</span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
+            <img src="../../imagenes/perfilVeterinario/veterinario.png" alt="profile" width="38" height="39">
         </div>
-        <?php
-                    }
-                    ?>
+       
   
-<div class="wrapper-services">
-   <div class="header-services">
-        <h1>Mis Servicios</h1> 
-        <div class="edit-create">
-            <img src="../../../imagenes/perfilAdmin/editPencil.png" width="74" height="62">
-            <button class="button-create">Crear</button>
-        </div>
-   </div>
-</div>
+<div class="wrapper-corpes">
+    <div class="wrapper-quotes">
+        <div class="corpes-quotes">
+            <div class="search-quotes">
+                <div class="edit-dni">
+                    <div class="search-dni">
+                        <span >Ingrese DNI: </span>
+                    </div>
+                    <input class="input-search" type="search" name="busqueadaDNI" placeholder="DNI">
+                </div>
+                <div class="edit-filter">
+                <img src="../../imagenes/perfilVeterinario/filtrar.png" width=50 height=35>
+                    <span class="apply-filter">Filtrar</span>
+                </div>
+                <button class="add-quotes">+Generar Citas</button>
+            </div>
+            <div> 
 
+            </div>
+        </div>
+
+
+        <div>
+            hkjgfghghfaghjf
+        </div>
+    </div>
+    <div>
+        <span>
+            Calendario
+        </span>
+    </div>
+</div>
 
         <!-- <div class="footer">
             <span class="copyrigth">©</span>
