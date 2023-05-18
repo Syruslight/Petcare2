@@ -23,6 +23,7 @@
  
      #ObteneridUsuario
      $idUsuario = obteneridUsuario($email, $pass, $conn);
+     $_SESSION['email']=$email;
      $_SESSION['idUsuario'] = $idUsuario;
      $_SESSION['tipoUsuario']= $tipoUsuario;
 	header('location:../pages/Usuario/registroNewUs.php');

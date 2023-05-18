@@ -17,16 +17,27 @@
 	$fechaNac = $_REQUEST['fechaNac'];
 	$estado = 1; //Cuenta Activada
     $fotuser = "";
+	
+	
+	$email= $_REQUEST['email'];
+	$_SESSION['usuario'] = $usu;
+	$_SESSION['email'] = $email;
+	
 	if(!empty($foto)) {
-		$fotuser = "../imagenes/fotosperfil/administrador/".$foto;
+		if($tipoUsuario=="Admin"){
+			$fotuser = "../imagenes/fotosperfil/administrador/".$foto;
+		}
+		else if($tipoUsuario=="Cliente"){
+			$fotuser = "../imagenes/fotosperfil/cliente/".$foto;
+		}
 		copy($ruta, $fotuser);
 	}
 	else {
 		if($sexo =="Masculino"){
-			$foto= "perfil2.png";
+			$foto= "predeterminadoHombre.jpg";
 		}
 		else if ($sexo=="Femenino"){
-			$foto= "perfil.png";
+			$foto= "predeterminadoMujer.jpg";
 		}
 	}
 
