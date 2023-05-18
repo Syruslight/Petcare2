@@ -20,24 +20,24 @@
     #ObteneridUsuario
     $idUsuario = obteneridUsuario($email, $pass, $conn);
     $_SESSION['idUsuario'] = $idUsuario;
-    
+    $_SESSION['tipoUsuario']= $tipoUsuario;
     
     switch ($tipoUsuario) {
         case 'Admin':
             if ($estadoUsuario == 1) { //No tiene datoss
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;
-                header("location:../paginas/paginaPreviaAdmin.php");
+                header("location:../pages/Usuario/registroNewUs.php");
             } else { //Cuenta activada con 
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;
-                header("location:../pages/Administrador/administrador.php");}
+                header("location:../pages/Administrador/administradorIndex/administrador.php");}
             break;                 
         case 'Cliente':
             if ($estadoUsuario == 1) { //No tiene datoss
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;
-                header("location:../paginas/paginaPreviaCliente.php");
+                header("location:../pages/Usuario/registroNewUs.php");
             } else{
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;

@@ -44,9 +44,9 @@ function agregarCliente($idTipoUsuario, $email, $pass,$estado, $conn){
         mysqli_query($conn, $sql) or die(mysqli_error($conn));}
 
 //Esta funcion agrega los datos personales del cliente cuando se logee por primera vez | estado : 1
-function agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$estado,$conn)
+function agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaNac,$estado,$conn)
 {
-    $sql="insert into cliente(idusuario,nombres,apellidos,dni,telefono,direccion,foto,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$estado')";
+    $sql="insert into cliente(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac','$estado')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
@@ -69,12 +69,11 @@ function actualizarEstadoCliente($idusuario,$estado,$conn){
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
-//Función para cuando se agreguen los datos del cliente se actualice el estado del usuario de 1 ---> 2
 #-------Consultas relacionadas a la pagina principal de administrador-------
 
 //Función para añadir los datos personales del administrador cuando se logee por primera vez
-function agregarDatosAdministrador($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$estado,$conn){
-    $sql="insert into administrador(idusuario,nombres,apellidos,dni,telefono,direccion,foto,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$estado')";
+function agregarDatosAdministrador($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaNac,$estado,$conn){
+    $sql="insert into administrador(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac','$estado')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
@@ -83,6 +82,28 @@ function listarAdministrador($email,$conn) {
     $sql="SELECT administrador.nombres, administrador.apellidos, administrador.dni, administrador.telefono, administrador.direccion, usuario.email, administrador.foto
     FROM     administrador INNER JOIN
                       usuario ON administrador.idusuario = usuario.idusuario
+                      where usuario.email LIKE '$email'";
+    $res= mysqli_query($conn, $sql);
+    $vec=array();
+    while($f= mysqli_fetch_array($res))
+        $vec[]=$f;
+    return $vec;
+}
+
+
+#-------Consultas relacionadas a la pagina principal de administrador-------
+
+//Función para añadir los datos personales del administrador cuando se logee por primera vez
+function agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaNac,$estado,$conn){
+    $sql="insert into veterinario(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac','$estado')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+//Función para listar los datos del cliente por idusuario
+function listarVeterinario($email,$conn) {
+    $sql="SELECT veterinario.nombres, veterinario.apellidos, veterinario.dni, veterinario.telefono, veterinario.direccion, usuario.email, veterinario.foto
+    FROM     veterinario INNER JOIN
+                      usuario ON veterinario.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";
     $res= mysqli_query($conn, $sql);
     $vec=array();
