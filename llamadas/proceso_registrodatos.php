@@ -21,6 +21,14 @@
 		$fotuser = "../imagenes/fotosperfil/administrador/".$foto;
 		copy($ruta, $fotuser);
 	}
+	else {
+		if($sexo =="Masculino"){
+			$foto= "perfil2.png";
+		}
+		else if ($sexo=="Femenino"){
+			$foto= "perfil.png";
+		}
+	}
 
 
 	//Cambio de fecha: 
@@ -34,7 +42,8 @@
 		header("location:../pages/Cliente/cliente.php");
 	}
 	else if($tipoUsuario=="Veterinario"){
-		agregarDatosVeterinario();
+		agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$estado,$conn);
+		//Aqui va la ruta de registro datos a veterinario  
 	}
 
 
