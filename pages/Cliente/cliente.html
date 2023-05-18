@@ -304,41 +304,58 @@ $conn = conectar();
         <div class="modal__container">
             <div class="cuadro_modal">
                 <div class="top-form">
-                    <div id="close-modal">
-                        &#10006
+                    <div class="titulo-h2">
+                        <h2 class="tituloform">Editar Datos</h2>
                     </div>
+                <div id="close-modal">
+                        &#10006
+                    </div> 
                 </div>
-                <div class="form-wrapper logeo">
-                            <form action="llamadas/proceso_logeoportipo.php">
-                            <div class="modal__profile">
-                    <img src="../../imagenes/perfilCliente/profile.png" class="modal__img" width="95" height="89">
-                    <img class="" src="../../imagenes/perfilCliente/pencil.png" width="32" height="30">
-                </div>
-                <span class="modal__user">
-                    <?= $_SESSION['usuario'] ?>
-                </span>
+                    <form action="">
+                        <div class="editheader">
+                            <aside class="contfoto">
+                                <img class="fotous" src="../../imagenes/perfilCliente/profile.png" class="modal__img" width="95" height="89">
+                                <input type="file">
+                            </aside>
+                            <section class="textonomap">
+                                <div class="infous">
+                                <span>Nombres:</span>
+                                <input type="text" name="" value="John Doe">
+                            </div>
+                            <div class="infoUs">
+                                <span>Apellidos</span>
+                                <input type="text" name="" value="John Doe">
+                            </div>
+                            </section>
+                            
+                        </div>
+                        <div class="modalsup">
+                            <div>
+                                <div class="moda__info">
+                                <span>DNI:</span>
+                                <input type="text" name="nombre" value="John Doe">
+                            </div>
+                            <div class="moda__info">
+                                <span>Telefono</span>
+                                <input type="text" name="nombre" value="John Doe">
+                            </div>
+                            </div>
+                            <div class="modalFoot">
+                                <span>Direccion</span>
+                                <input type="text" name="nombre" value="Las delecias 550, San aurelio - Chorrillos">
+                            </div>
+                        </div>
+                        <button class="modal__button">Actualizar Datos</button>
+                    </form>
+    
             </div>
-            <div class="modal__data">
-                <div class="moda__info">
-                    <span>Nombre</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-                <div class="moda__info">
-                    <span>Telefono</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-                <div class="moda__info">
-                    <span>Direccion</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-            </div>
-            <button class="modal__button">Actualizar Datos</button>
         </div>
     </section>
-    </section>
-
-
-    <script src="../../js/Modal.js"></script>
-</body>
+                    </section>
+                    
+                    
+                    <script src="../../js/Modal.js"></script>
+                    
+                    </body>
 
 </html>

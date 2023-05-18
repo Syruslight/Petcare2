@@ -223,13 +223,13 @@
                                 <p class="textoparrafo">Entérate de las novedades que tenemos en Pet&Care para tí y tus mascotas</p>
                                 <div class="input-group">
                                     <input class="estilo-separado" type="text" name="email" required>
-                                    <i class="fa-solid fa-envelope icono-log"></i>
-                                    <label for="">Correo electronico</label>
+                                    
+                                    <label for=""><i class="fa-solid fa-envelope icono-log"></i> Correo electronico</label>
                                 </div>
                                 <div class="input-group">
                                     <input class="estilo-separado" type="password" name="pass" required>
-                                    <i class="fa-solid fa-lock icono-log"></i>
-                                    <label for="">Contraseña</label>
+                                    
+                                    <label for=""><i class="fa-solid fa-lock icono-log"></i> Contraseña</label>
                                 </div>
                                 <button class="btnlogin">INICIAR SESIÓN</button>
                             <div class="link">
@@ -247,19 +247,19 @@
                                 <p class="textoparrafo">Únete a la familia de Pet&Care para conocer todos los beneficios que tenemos</p>
                                 <div class="input-group">
                                     <input class="estilo-separado" type="text" name="email" required>
-                                    <i class="fa-solid fa-envelope icono-reg"></i>
-                                    <label for="">Correo electronico</label>
+                                  
+                                    <label for="">   <i class="fa-solid fa-envelope icono-reg"></i> Correo electronico</label>
                                 </div>
                                 <div class="input-group">
                                     <input class="estilo-separado" type="password" name="pass" required>
-                                    <i class="fa-solid fa-lock icono-reg"></i>
-                                    <label for="">Contraseña</label>
+                                    
+                                    <label for=""><i class="fa-solid fa-lock icono-reg"></i> Contraseña</label>
                                 </div>
                             <div class="terminos">
                                 <label for=""><input type="checkbox"> Estoy de acuerdo con los terminos & condiciones</label>
                             </div>
                             <!-- Llamada por a la vista login por si tiene cuenta -->
-                                <button class="btnregistro">Registrar</button>
+                                <button class="btnregistro">REGISTRAR</button>
                             <div class="link">
                                 <p>¿Ya tienes cuenta? <a class="btnregistrolink" href="#">Iniciar sesión</a></p>
                             </div>

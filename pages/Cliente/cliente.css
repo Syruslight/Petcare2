@@ -517,7 +517,7 @@
 
 .modal__container{
   margin: auto;
-  width: 400px;
+  width: 100%;
   height: 500px;
   max-width: 400px;
   max-height: 500px;
@@ -534,21 +534,41 @@
 
 
 .top-form{
-  display: flex;
-  justify-content: flex-end;
+height: 60px; 
+  width:100%;
+  display: flex; /*Convertimos al menú en flexbox*/
+    justify-content: space-between; /*Con esto le indicamos que margine todos los items que se encuentra adentro hacia la derecha e izquierda*/
+    align-items:flex-start; /*con esto alineamos de manera vertical*/
+    background-color: #57b8ace3;
 }
+
+.titulo-h2{
+  align-content: center;
+  margin-left: 110px;
+  display: inline-block;
+  margin-top: -15px;
+
+}
+.tituloform{
+  text-align: center;
+  font-size: 32px;
+  color: #ffffff;
+}
+
 #close-modal:hover{
-background-color: #783b9bc0;
+background-color: #e70505ee;
 color: #ffffff;
 }
 #close-modal{
+margin-top: 8px;
+margin-right: 10px;
   display: inline-flex;
   align-items: center;
-  border-radius: 50%;
   justify-content: center;
-  color: #878787;
+  border-radius: 10px;
+  color: #ffffff;
   font-size: 17px;
-  background: #f2f3fb;
+  background: #df2a2ae3;
   height: 33px;
   width: 33px;
   cursor: pointer;
@@ -556,12 +576,65 @@ color: #ffffff;
 }
 
 .cuadro_modal{
+  
   position: relative;
-  width: 400px;
+  width: 100%;
   height: 500px;
   background-color: rgba (255,255,255,.2);
   border-radius: 20px;
   box-shadow: 0 0 50px rgba(0,0,0,.1);
-  padding: 40px;
+  
 
+}
+/*inicio del formulario*/
+.editheader{
+ 
+  width:100%;
+  height: 30vh;
+  display: flex; /*Convertimos al menú en flexbox*/
+}
+
+/*CONTENEDOR DEL USUARIO*/
+.contfoto{
+ 
+  width: 50%;
+  height: 100%;
+ 
+
+}
+/*FOTO DEL USUARIO*/
+
+.fotous{
+  margin-top: 7px;
+  height: 75%;
+  width: 75%;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border: 3px solid #2a9d8f ;
+  
+}
+
+.contfoto input{
+  margin-top: 5px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+ 
+}
+.textonomap{
+
+
+
+
+  width: 50%;
+  background-color: #eb8055;
+  height: 100%;
+  
+}
+.infous{
+  
+ 
 }
