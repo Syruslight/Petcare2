@@ -316,26 +316,23 @@ $conn = conectar();
                 </div>
                 <span class="modal__user">
                     <?= $_SESSION['usuario'] ?>
-                        </span>
-                </div>
-                <div class="modal__data">
-                    <div class="moda__info">
-                        <span>Nombre</span>
-                        <input type="text" name="nombre" value="John Doe">
-                    </div>
-                    <div class="moda__info">
-                        <span>Telefono</span>
-                        <input type="text" name="nombre" value="John Doe">
-                    </div>
-                    <div class="moda__info">
-                        <span>Direccion</span>
-                        <input type="text" name="nombre" value="John Doe">
-                    </div>
-                </div>
-                <button type="submit" class="modal__button">Actualizar Datos</button>
-                </form>
+                </span>
             </div>
-        </div>
+            <div class="modal__data">
+                <div class="moda__info">
+                    <span>Nombre</span>
+                    <input type="text" name="nombre" value="John Doe">
+                </div>
+                <div class="moda__info">
+                    <span>Telefono</span>
+                    <input type="text" name="nombre" value="John Doe">
+                </div>
+                <div class="moda__info">
+                    <span>Direccion</span>
+                    <input type="text" name="nombre" value="John Doe">
+                </div>
+            </div>
+            <button class="modal__button">Actualizar Datos</button>
         </div>
     </section>
     </section>

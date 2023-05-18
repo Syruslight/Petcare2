@@ -56,9 +56,10 @@ session_start();
           <div class="fotoPos">
             <div class="foto"></div>
           </div>
-          <input id="idUser" type="hidden" name="idUsuario" value="<?php echo isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : ''; ?>">
+          <input id="email" type="text" name="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
+          <input id="idUser" type="text" name="idUsuario" value="<?php echo isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : ''; ?>">
           <input id="foto" type="file" name="foto">
-          <input id="idUser" type="hidden" name="tipoUsuario" value="<?php echo isset($_SESSION['tipoUsuario']) ? $_SESSION['tipoUsuario'] : ''; ?>">
+          <input id="idUser" type="text" name="tipoUsuario" value="<?php echo isset($_SESSION['tipoUsuario']) ? $_SESSION['tipoUsuario'] : ''; ?>">
           <div class="field">
             <button class="firstNext next">Siguiente</button>
           </div>

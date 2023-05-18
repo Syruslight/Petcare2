@@ -17,9 +17,28 @@
 	$fechaNac = $_REQUEST['fechaNac'];
 	$estado = 1; //Cuenta Activada
     $fotuser = "";
+	
+	
+	$email= $_REQUEST['email'];
+	$_SESSION['usuario'] = $usu;
+	$_SESSION['email'] = $email;
+	
 	if(!empty($foto)) {
-		$fotuser = "../imagenes/fotosperfil/administrador/".$foto;
+		if($tipoUsuario=="Admin"){
+			$fotuser = "../imagenes/fotosperfil/administrador/".$foto;
+		}
+		else if($tipoUsuario=="Cliente"){
+			$fotuser = "../imagenes/fotosperfil/cliente/".$foto;
+		}
 		copy($ruta, $fotuser);
+	}
+	else {
+		if($sexo =="Masculino"){
+			$foto= "predeterminadoHombre.jpg";
+		}
+		else if ($sexo=="Femenino"){
+			$foto= "predeterminadoMujer.jpg";
+		}
 	}
 
 
@@ -34,7 +53,8 @@
 		header("location:../pages/Cliente/cliente.php");
 	}
 	else if($tipoUsuario=="Veterinario"){
-		agregarDatosVeterinario();
+		agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$estado,$conn);
+		//Aqui va la ruta de registro datos a veterinario  
 	}
 
 
