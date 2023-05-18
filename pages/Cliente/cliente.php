@@ -42,7 +42,7 @@ $conn = conectar();
                             <?= $value[0] ?>
                             <?= $value[1] ?>
                         </span>
-                        <img class="image-profile" src="../../imagenes/perfilCliente/pencil.png" alt="pencil" width="32"
+                        <img class="boton-modal" src="../../imagenes/perfilCliente/pencil.png" alt="pencil" width="32"
                             height="30">
                     </div>
 
@@ -301,41 +301,47 @@ $conn = conectar();
 
     </div>
     <section class="modal">
-        <div class="modal__wrapper">
-            <div class="modal__first">
-                <div class="modal__logoclose">
-                    <img class="modal__close" src="../../imagenes/perfilCliente/close.png" alt="pencil" width="32"
-                        height="30">
+        <div class="modal__container">
+            <div class="cuadro_modal">
+                <div class="top-form">
+                    <div id="close-modal">
+                        &#10006
+                    </div>
                 </div>
-                <div class="modal__profile">
+                <div class="form-wrapper logeo">
+                            <form action="llamadas/proceso_logeoportipo.php">
+                            <div class="modal__profile">
                     <img src="../../imagenes/perfilCliente/profile.png" class="modal__img" width="95" height="89">
                     <img class="" src="../../imagenes/perfilCliente/pencil.png" width="32" height="30">
                 </div>
                 <span class="modal__user">
                     <?= $_SESSION['usuario'] ?>
-                </span>
+                        </span>
+                </div>
+                <div class="modal__data">
+                    <div class="moda__info">
+                        <span>Nombre</span>
+                        <input type="text" name="nombre" value="John Doe">
+                    </div>
+                    <div class="moda__info">
+                        <span>Telefono</span>
+                        <input type="text" name="nombre" value="John Doe">
+                    </div>
+                    <div class="moda__info">
+                        <span>Direccion</span>
+                        <input type="text" name="nombre" value="John Doe">
+                    </div>
+                </div>
+                <button type="submit" class="modal__button">Actualizar Datos</button>
+                </form>
             </div>
-            <div class="modal__data">
-                <div class="moda__info">
-                    <span>Nombre</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-                <div class="moda__info">
-                    <span>Telefono</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-                <div class="moda__info">
-                    <span>Direccion</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-            </div>
-            <button class="modal__button">Actualizar Datos</button>
+        </div>
         </div>
     </section>
     </section>
 
 
-    <script src="../../js/modalCliente.js"></script>
+    <script src="../../js/Modal.js"></script>
 </body>
 
 </html>

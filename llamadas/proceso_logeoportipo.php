@@ -48,10 +48,13 @@
     #Para el tercer sprint
         case 'Veterinario':
             if($estadoUsuario ==1){
-
+                $_SESSION['usuario'] = $usu;
+                $_SESSION['email'] = $email;
+                header("location:../pages/Usuario/registroNewUs.php");
             }
                 $_SESSION['usuario'] = $usu;
-                header("location:../paginas/paginaPrincipalVeterinario.php");
+                $_SESSION['email'] = $email;
+                header("location:../paginas/paginaPrincipalVeterinario.php"); //Cambiar ruta 
                 break;
         
         default:

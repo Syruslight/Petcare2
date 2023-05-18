@@ -10,7 +10,7 @@ body{
     font-family: 'Urbanist', sans-serif;
 }
 
-.boton-login{
+.boton-modal{
     background-color: #815AC0;
     border: none;
     border-radius: 10px;
@@ -21,7 +21,7 @@ body{
     height: 48px;
 }
 
-.boton-login:hover{
+.boton-modal:hover{
     background-color: white;
     color: #815AC0;
 }
