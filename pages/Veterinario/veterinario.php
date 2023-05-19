@@ -1,4 +1,7 @@
-
+<?php
+require('../../controlador/conexion.php');
+$conn = conectar();
+?>
 <!--Perfil del veterinario (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
 <html lang="en">
@@ -7,27 +10,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='veterinario.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de Veterinario</title>
 </head>
 <body>
-
-
 <div class="wrapper">
     <div class="profile">
         <div class="first-seccion">
             <div class="logo">
                 <img src="../../imagenes/perfilVeterinario/logo.png" alt="Logo" width="168" height="46">
             </div>
-           
-            <img src="../../imagenes/perfilVeterinario/veterinario.png" alt="profile" width="217" height="227">
+            <?php
+                session_start();
+                $email = $_SESSION['email'];
+                foreach (listarVeterinario($email, $conn) as $key => $value) {
+                    ?>
+
+            <img src="../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile" width="217" height="227">
         <div class="profile-information">
               
-            <span class="user">Luis Alberto :V</span>
+            <span class="user"><?= $value[0] ?>
+                            <?= $value[1] ?></span>
             <img class="image-profile"src="../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
         </div >
-        <span class="id">DNI:64545454465 </span>
-
+        <span class="id"> <?= $value[2] ?> </span>
+        <?php
+                }
+                ?>
         </div>
         <div class="second-seccion">
             <div class="categories">
@@ -70,6 +78,8 @@
             </div>
         </div>
     </div>
+
+    
 <div class="dash-information">
         <div class="dash-header">
             <span class="tittle-header">Luis Alberto :V</span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->

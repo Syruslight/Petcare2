@@ -54,7 +54,7 @@
 	}
 	else if($tipoUsuario=="Veterinario"){
 		agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$estado,$conn);
-		//Aqui va la ruta de registro datos a veterinario  
+		header('location:../pages/Veterinario/veterinario.php');
 	}
 
 

@@ -43,7 +43,6 @@
                 $_SESSION['email'] = $email;
                 header("location:../pages/Cliente/cliente.php");}
             break;
-            
 
     #Para el tercer sprint
         case 'Veterinario':
@@ -52,10 +51,11 @@
                 $_SESSION['email'] = $email;
                 header("location:../pages/Usuario/registroNewUs.php");
             }
+            else {
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;
-                header("location:../paginas/paginaPrincipalVeterinario.php"); //Cambiar ruta 
-                break;
+                header("location:../pages/Veterinario/veterinario.php"); //Cambiar ruta 
+            }   break;
         
         default:
             echo('<script>alert("Usuario o contraseña incorrecta"); window.history.back()</script>');

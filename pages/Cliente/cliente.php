@@ -101,9 +101,7 @@ $conn = conectar();
                     </span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
                     <img src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="38" height="39">
                 </div>
-                <?php
-                }
-                ?>
+                
             <div class="wrapper-petypuntos">
                 <div class="petypuntos-top">
                     <span class="tittle-petypuntos"> Mis pety Puntos </span>
@@ -319,11 +317,11 @@ $conn = conectar();
                             </aside>
                             <section class="textonomap">
                                 <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="" required>
+                                    <input class="estilo-separado" type="text" name="" value="<?= $value[0] ?>" required>
                                     <label for=""> Nombres</label>
                                 </div>
                                 <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="" required>
+                                    <input class="estilo-separado" type="text" name=""  value="<?= $value[1] ?>" required>
                                     <label for=""> Apellidos</label>
                                 </div>
                         
@@ -333,7 +331,7 @@ $conn = conectar();
                             <div>
                                 <div class="moda__info">
                                 <span>DNI:</span>
-                                <input type="text" name="nombre" value="John Doe">
+                                <input type="text" name="nombre" value="John Doe"  value="<?= $value[2] ?>>
                             </div>
                             <div class="moda__info">
                                 <span>Telefono</span>
@@ -346,6 +344,10 @@ $conn = conectar();
                             </div>
                         </div>
                         <button class="modal__button">Actualizar Datos</button>
+                        <?php
+                }
+                ?>
+            
                     </form>
     
             </div>
