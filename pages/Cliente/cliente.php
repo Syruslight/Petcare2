@@ -309,7 +309,7 @@ $conn = conectar();
             <div class="cuadro_modal">
                 <div class="top-form">
                     <div class="titulo-h2">
-                        <h2 class="tituloform">Editar Datos</h2>
+                        <h2 class="tituloform">Editarr Datos</h2>
                     </div>
                 <div id="close-modal">
                         &#10006
