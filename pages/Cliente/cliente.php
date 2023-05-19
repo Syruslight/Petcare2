@@ -59,10 +59,12 @@ $conn = conectar();
                             <img src="https://img.icons8.com/ios/50/null/health-data.png" width="25" height="25" />
                             <span class="principal">Principal</span>
                         </div>
+                        <a href="../Mascota/mascotaIndex.php">
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/conference-call--v1.png" width="25" height="25" />
-                            <a href="/pages/Mascota/mascotaIndex.php"><span class="list">Mis mascotas</span></a>
+                            <span class="list">Mis mascotas</span>
                         </div>
+            </a>
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
                             <span class="list">Productos</span>
@@ -315,7 +317,7 @@ $conn = conectar();
                     <form action="">
                         <div class="editheader">
                             <aside class="contfoto">
-                                <img class="fotous" src="../../imagenes/perfilCliente/profile.png" class="modal__img" width="95" height="89">
+                                <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" class="modal__img" width="95" height="89">
                                 <input type="file">
                             </aside>
                             <section class="textonomap">
@@ -330,53 +332,27 @@ $conn = conectar();
                         
                             </section>                                       
                                  </div>
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD:pages/Cliente/cliente.html
->>>>>>> Stashed changes
                         <div class="modalinf">
                             <div class="input-group1">
-                                <input class="estilo-separado1" type="TEXT" name="" required>
+                                <input class="estilo-separado1" type="TEXT" name=""  value="<?= $value[3] ?>" required>
                                 <label for=""> Telefono</label>
-<<<<<<< Updated upstream
-=======
-=======
-                        <div class="modalsup">
-                            <div>
-                                <div class="moda__info">
-                                <span>DNI:</span>
-                                <input type="text" name="nombre" value="John Doe"  value="<?= $value[2] ?>>
->>>>>>> 5f57b415e91ff365a587475509a54161e8dd3e02:pages/Cliente/cliente.php
->>>>>>> Stashed changes
                             </div>
                             <div class="input-group2">
-                                <input class="estilo-separado1" type="TEXT" name="" required>
+                                <input class="estilo-separado1" type="TEXT" name=""  value="<?= $value[2] ?> "required>
                                 <label for=""> DNI</label>
-                            </div>                         
+                            </div>
+                           
                         </div> 
                         <div class="modalFoot">
                                 <div class="input-group3">
-                                <input class="estilo-separado" type="text" name="" required>
+                                <input class="estilo-separado" type="text" name=""  value="<?= $value[4] ?>" required>
                                 <label for=""> Dirección</label>
                             </div>
                             </div>
                             <div class="contbtn">
                                 <button class="btn-mod">ACTUALIZAR DATOS</button>
                             </div>
-<<<<<<< Updated upstream
                             
-=======
-<<<<<<< HEAD:pages/Cliente/cliente.html
-                            
-=======
-                        </div>
-                        <button class="modal__button">Actualizar Datos</button>
-                        <?php
-                
-                ?>
-            
->>>>>>> 5f57b415e91ff365a587475509a54161e8dd3e02:pages/Cliente/cliente.php
->>>>>>> Stashed changes
                     </form>
     
             </div>
