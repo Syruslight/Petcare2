@@ -1,4 +1,7 @@
-
+<?php
+require('../../controlador/conexion.php');
+$conn = conectar();
+?>
 <!--Perfil del veterinario (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
 <html lang="en">
@@ -7,27 +10,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='veterinario.css'>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de Veterinario</title>
 </head>
 <body>
-
-
 <div class="wrapper">
     <div class="profile">
         <div class="first-seccion">
             <div class="logo">
                 <img src="../../imagenes/perfilVeterinario/logo.png" alt="Logo" width="168" height="46">
             </div>
-           
-            <img src="../../imagenes/perfilVeterinario/veterinario.png" alt="profile" width="217" height="227">
+            <?php
+                session_start();
+                $email = $_SESSION['email'];
+                foreach (listarVeterinario($email, $conn) as $key => $value) {
+                    ?>
+
+            <img src="../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile" width="217" height="227">
         <div class="profile-information">
               
-            <span class="user">Luis Alberto :V</span>
+            <span class="user"><?= $value[0] ?>
+                            <?= $value[1] ?></span>
             <img class="image-profile"src="../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
         </div >
-        <span class="id">DNI:64545454465 </span>
-
+        <span class="id"> <?= $value[2] ?> </span>
+        <?php
+                }
+                ?>
         </div>
         <div class="second-seccion">
             <div class="categories">
@@ -70,6 +78,8 @@
             </div>
         </div>
     </div>
+
+    
 <div class="dash-information">
         <div class="dash-header">
             <span class="tittle-header">Luis Alberto :V</span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
@@ -93,20 +103,155 @@
                 </div>
                 <button class="add-quotes">+Generar Citas</button>
             </div>
-            <div> 
+            <div class="table-quotes"> 
+                <div class="header-table">
+                    <div class="quotes-header">
+                    Mis citas
+                    </div>
+                    <div >
 
+                        <button class="button-seeall">Ver todo</button>
+                    </div>
+                </div>
+                <div class="corpes-table">
+                    <div class="tittle-table">
+                      
+                            <span class="title-client">Cliente</span>
+                       
+                            <span class="title-service">Servicio</span>
+                      
+                            <span class="title-schedule">Horario</span>
+                        
+                            <span class="title-state">Estado</span>     
+                    </div>
+                    <div class="content-table">
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                        <hr class="linea">
+
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                        <hr class="linea">
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                        <hr class="linea">
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                        <hr class="linea">
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
 
-        <div>
-            hkjgfghghfaghjf
+        <div class="wrapper-bookings">
+            <div class="booked-appointments"> <!-- Citas Confirmadas-->
+            
+                <div class="quotes-confirmed">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">CONFIRMADAS</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
+            <div class="booked-appointments"> <!-- Citas en proceso-->
+            
+                <div class="quotes-process">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">EN PROCESO</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
+            <div class="booked-appointments"> <!-- Citas Canceladas-->
+            
+                <div class="quotes-canceled">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">CANCELADAS</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
         </div>
     </div>
-    <div>
-        <span>
-            Calendario
-        </span>
+    <div class="wrapper-calendar">
+        
+    <img src="../../imagenes/perfilVeterinario/headerCalendar.png"width="1093px"height="56px">
+    <img src="../../imagenes/perfilVeterinario/bodyCalendar.png"width="1069px"height="395px">
     </div>
 </div>
 

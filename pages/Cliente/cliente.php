@@ -101,9 +101,7 @@ $conn = conectar();
                     </span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
                     <img src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="38" height="39">
                 </div>
-                <?php
-                }
-                ?>
+                
             <div class="wrapper-petypuntos">
                 <div class="petypuntos-top">
                     <span class="tittle-petypuntos"> Mis pety Puntos </span>
@@ -319,20 +317,28 @@ $conn = conectar();
                             </aside>
                             <section class="textonomap">
                                 <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="" required>
+                                    <input class="estilo-separado" type="text" name="" value="<?= $value[0] ?>" required>
                                     <label for=""> Nombres</label>
                                 </div>
                                 <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="" required>
+                                    <input class="estilo-separado" type="text" name=""  value="<?= $value[1] ?>" required>
                                     <label for=""> Apellidos</label>
                                 </div>
                         
                             </section>                                       
                                  </div>
+<<<<<<< HEAD:pages/Cliente/cliente.html
                         <div class="modalinf">
                             <div class="input-group1">
                                 <input class="estilo-separado1" type="TEXT" name="" required>
                                 <label for=""> Telefono</label>
+=======
+                        <div class="modalsup">
+                            <div>
+                                <div class="moda__info">
+                                <span>DNI:</span>
+                                <input type="text" name="nombre" value="John Doe"  value="<?= $value[2] ?>>
+>>>>>>> 5f57b415e91ff365a587475509a54161e8dd3e02:pages/Cliente/cliente.php
                             </div>
                             <div class="input-group2">
                                 <input class="estilo-separado1" type="TEXT" name="" required>
@@ -349,7 +355,16 @@ $conn = conectar();
                             <div class="contbtn">
                                 <button class="btn-mod">ACTUALIZAR DATOS</button>
                             </div>
+<<<<<<< HEAD:pages/Cliente/cliente.html
                             
+=======
+                        </div>
+                        <button class="modal__button">Actualizar Datos</button>
+                        <?php
+                }
+                ?>
+            
+>>>>>>> 5f57b415e91ff365a587475509a54161e8dd3e02:pages/Cliente/cliente.php
                     </form>
     
             </div>
