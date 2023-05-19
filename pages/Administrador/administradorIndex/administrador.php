@@ -208,22 +208,19 @@ $conn = conectar();
                                 placeholder="Ingrese el dni del cliente"></span>
                     </div>
                     <input type="text" id="busqueda" placeholder="Buscar">
-  <div id="resultados">
-    <div class="wrapper-dates">
-      <div class="dates-name">
-        <span class="text-dates">Nombre</span>
-        <span class="text-dates">Apellido</span>
-      </div>
-    </div>
-  </div>
+                    <div id="resultados">
+                        <div class="wrapper-dates">
+                        <div class="dates-name">
+                            <span class="text-dates">Nombre</span>
+                            <span class="text-dates">Apellido</span>
+                        </div>
+                        </div>
+                    </div>
+
+            </div>
 
 
-
-
-
-
-
-                <div class="subwrapper-product">
+            <div class="subwrapper-product">
                     <h1 class="tittle-products">Productos populares</h1>
                     <div class="product-price">
                         <div class="subtittle-proprice">
@@ -299,23 +296,18 @@ $conn = conectar();
                         </div>
                         <hr class="line">
 
-
-
                     </div>
                     <button class="button-product">Todos los Productos</button>
                 </div>
-            </div>
 
-
-
-            <div class="footer">
-                <span class="copyrigth">©</span>
-                <span> Vet&Care, todos los derechos reservados.</span>
-            </div>
+           
 
 
         </div>
-
+        <div class="footer">
+                <span class="copyrigth">©</span>
+                <span> Vet&Care, todos los derechos reservados.</span>
+            </div>
 
         <!-- <div>
 
