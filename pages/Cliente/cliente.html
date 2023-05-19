@@ -318,17 +318,17 @@ $conn = conectar();
                                 <input type="file">
                             </aside>
                             <section class="textonomap">
-                                <div class="infous">
-                                <span>Nombres:</span>
-                                <input type="text" name="" value="John Doe">
-                            </div>
-                            <div class="infoUs">
-                                <span>Apellidos</span>
-                                <input type="text" name="" value="John Doe">
-                            </div>
-                            </section>
-                            
-                        </div>
+                                <div class="input-group">
+                                    <input class="estilo-separado" type="text" name="" required>
+                                    <label for=""> Nombres</label>
+                                </div>
+                                <div class="input-group">
+                                    <input class="estilo-separado" type="text" name="" required>
+                                    <label for=""> Apellidos</label>
+                                </div>
+                        
+                            </section>                                       
+                                 </div>
                         <div class="modalsup">
                             <div>
                                 <div class="moda__info">
