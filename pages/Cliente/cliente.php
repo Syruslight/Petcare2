@@ -49,6 +49,9 @@ $conn = conectar();
                     <span class="id">DNI:
                         <?= $value[2] ?>
                     </span>
+                    <?php
+                }
+                ?>
                 </div>
                 <div class="second-seccion">
                     <div class="categories">
@@ -327,18 +330,10 @@ $conn = conectar();
                         
                             </section>                                       
                                  </div>
-<<<<<<< HEAD:pages/Cliente/cliente.html
                         <div class="modalinf">
                             <div class="input-group1">
                                 <input class="estilo-separado1" type="TEXT" name="" required>
                                 <label for=""> Telefono</label>
-=======
-                        <div class="modalsup">
-                            <div>
-                                <div class="moda__info">
-                                <span>DNI:</span>
-                                <input type="text" name="nombre" value="John Doe"  value="<?= $value[2] ?>>
->>>>>>> 5f57b415e91ff365a587475509a54161e8dd3e02:pages/Cliente/cliente.php
                             </div>
                             <div class="input-group2">
                                 <input class="estilo-separado1" type="TEXT" name="" required>
@@ -355,16 +350,7 @@ $conn = conectar();
                             <div class="contbtn">
                                 <button class="btn-mod">ACTUALIZAR DATOS</button>
                             </div>
-<<<<<<< HEAD:pages/Cliente/cliente.html
                             
-=======
-                        </div>
-                        <button class="modal__button">Actualizar Datos</button>
-                        <?php
-                }
-                ?>
-            
->>>>>>> 5f57b415e91ff365a587475509a54161e8dd3e02:pages/Cliente/cliente.php
                     </form>
     
             </div>
