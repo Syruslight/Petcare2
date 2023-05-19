@@ -1,0 +1,448 @@
+/* SCROLL BAR */
+body::-webkit-scrollbar{
+  width: 10px;
+}
+body::-webkit-scrollbar-thumb{
+  background: #464E5F;
+  border-radius: 2px;
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    max-width: 1440px;
+    margin: 0 auto;
+    background: rgba(232, 232, 229, 1);
+  }
+  .profile {
+    width: 20%;
+    height: 1024px;
+  }
+  .first-seccion {
+    background: #2a9d8f;
+    box-shadow: 14px -2px 18px rgba(0, 0, 0, 0.16);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    border-radius: 10px 0px 0px 0px;
+  }
+  .logo {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 22px;
+    padding-top: 10px;
+    padding-bottom: 14px;
+  }
+  .profile-information {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-top: 7px;
+    padding-right: 22px;
+  }
+  .user {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 22px;
+    padding-right: 7px;
+  }
+  .image-profile {
+    cursor: pointer;
+  }
+  .id {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 11px;
+  }
+  .second-seccion {
+    background: #f0feff;
+    height: 61%;
+    width: 100%;
+    /* align-content: center; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .categories {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    row-gap: 40px;
+    padding-left: 32px;
+    padding-top: 10px;
+  }
+  .icons {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .second-seccion .principal {
+    font-family: "Poppins";
+    font-style: normal;
+    color: #264653;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    padding-left: 8px;
+  }
+  .list {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    color: rgba(42, 45, 55, 0.6);
+    padding-left: 8px;
+  }
+  .sign-off {
+    display: flex;
+    margin-top: 125px;
+  }
+
+/* NAV */
+.dash-information {
+    height: 1024px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .dash-header {
+    width: 100%;
+    height: 60px;
+    background: #94d2bd;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    margin-bottom: 28px;
+  
+    & img {
+      margin-right: 54px;
+      margin-top: 8px;
+    }
+  }
+  .tittle-header {
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 21px;
+    color: #264653;
+    padding-right: 17px;
+    padding-top: 24px;
+  }
+
+/* Servicios */
+#row-servicios {
+    background-color: rgb(229, 234, 238);
+    padding: 0rem 0rem 0rem 0rem;
+    width: 100%;
+    height: 40vh;
+}
+#row-servicios .row{
+    flex-wrap: nowrap;
+}
+#row-servicios span{
+    font-size: 33px;
+}
+#row-servicios .card{
+    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    cursor: default;
+    background-color: #2A9D8F;
+    transition: all 400ms ease;
+    padding: 0;
+    margin: 10px;  
+    border-radius: 20px;
+    width: 16%;
+    height: 32vh;
+}
+#row-servicios .card:hover{
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
+    transform: translateY(-3%);
+}
+#row-servicios .row .card img{
+    width: 100%; 
+    border-radius: 20px;
+    padding: 15px;
+    height: 25vh;
+    background-size: cover;
+    
+}
+
+#row-servicios .centxt{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card .conte-servicio{
+    padding: 15px;
+    text-align: center;
+}
+
+/* Tabla mascotas */
+#row-tablaMascota{
+  padding: 0rem 0rem 0rem 0rem;
+  width: 100%;
+  height: 60vh;
+}
+
+#row-tablaMascota{
+  overflow-y: auto;
+}
+#row-tablaMascota::-webkit-scrollbar{
+  width: 10px;
+}
+#row-tablaMascota::-webkit-scrollbar-thumb{
+  background: #C0DFD5;
+  border-radius: 2px;
+}
+#row-tablaMascota::-webkit-scrollbar-thumb:hover{
+  background: #2A9D8F;
+  border-radius: 2px;
+}
+#row-tablaMascota .row{
+  margin: 0rem 2rem 0rem 2rem;
+}
+#row-tablaMascota .card{
+  background-color:#C0DFD5;;
+}
+#row-tablaMascota h4{
+  font-size: 40px;
+  font-weight: 500px;
+}
+#row-tablaMascota table{
+  color: #464E5F;
+}
+#row-tablaMascota .card-header a{
+  margin: 4px;
+  color: white;
+  width: 105px;
+  height: 41px;
+  font-size: 18px;
+  font-weight: 600;
+}
+#row-tablaMascota .six{
+  margin: 1rem 0rem 1rem 0rem;
+}
+#row-tablaMascota input{
+  width: 20%;
+  margin-left:5px;
+  display:inline;
+  background-color: #edf3f5;
+  font-size: 15px;
+}
+#row-tablaMascota thead{
+  background-color: #F3F6F9;
+}
+#row-tablaMascota tbody a{
+  font-size: 13px;
+  font-weight: 680;
+  height: 32px;
+}
+.td{
+  padding: 8px 0px 8px 0px;
+  width: 18%;
+}
+.th{
+  width: 5%;
+}
+#row-tablaMascota table tbody td{
+  padding: 14px 0px 14px 0px;
+  vertical-align: middle;
+}
+.dimg{
+  width: 60px;
+  height: 45px;
+}
+.toget{
+  width: 64px;
+}
+
+/* Modal Register */
+.modalMascota {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s 0.9s;
+  --transform: translateY(-100vh);
+  --transition: transform 0.8s;
+  z-index: 2;
+}
+.modalMascotaEd {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.6s 0.9s;
+  --transform: translateY(-100vh);
+  --transition: transform 0.8s;
+  z-index: 2;
+}
+.modal--show {
+  opacity: 1;
+  pointer-events: unset;
+  transition: opacity 0.6s;
+  --transform: translateY(0);
+  --transition: transform 0.8s 0.8s;
+}
+#modal-Register{
+  margin:auto;
+  border-radius: 15px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 600px;
+  height: 780px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  transform: var(--transform);
+  transition: var(--transition);
+}
+#modal-Register .container{
+  background-color: #2A9D8F;
+  background: linear-gradient(rgba(42, 157, 143, 0.5), rgba(42,157,143,0.5));
+  width: 415px;
+  height: 620px;
+  border-radius: 15px;
+}
+#modal-Register .button .btn{
+  background-color:#1BC5BD; 
+  width: 100px;
+  height: 40;
+  color:#1D3534;
+  border: 2px solid #1D3534;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+#modal-Register .row .button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#modal-Register .row h3{
+  font-size: 40px;
+  font-weight: 600;
+  color: #ffffff;
+  text-align: center;
+}
+#modal-Register .row form input,select,label{
+  margin: 0px 0px 18px 0px;
+  font-weight: 600;
+  color: #000000;
+}
+.form-control{
+  width: 189px;
+  display: inline;
+}
+.form-select{
+  display: inline;
+}
+#modal-Register .cont-radio .form-check-input{
+  margin-left: 0px !important;
+  font-size: 16px;
+}
+#modal-Register .cont-radio label{
+  margin-left: 0px !important;
+  font-size: 16px;
+}
+.cont-radio{
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+#modal-Register form .row{
+  justify-content: center;
+  align-items: center;
+}
+#modal-Register .form-control-sm{
+  width: 78%;
+  margin-bottom: 0px !important;
+}
+#modal-Register .cont-este{
+  margin-right: 20px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+
+.foto{
+  align-items: center;
+  align-content: center;
+  border-radius: 15px;
+  display: flex;
+  background-color: #ffffff;
+  border: 10px solid #000000;
+  width: 180px;
+  height: 180px;
+  padding: 10px;
+  margin: 20px;
+  margin-top: 10px;
+}
+.fotoPos{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  .footer {
+    margin-top: 16px;
+    width: 1177px;
+    height: 47px;
+    background: #94d2bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    & span {
+      font-family: "Poppins";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 21px;
+      color: #000000;
+    }
+  }
+  .copyrigth {
+    margin-right: 22.5px;
+  }
+
