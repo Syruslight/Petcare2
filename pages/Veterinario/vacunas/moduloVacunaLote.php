@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='../veterinario.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Veterinario</title>
 </head>
 
@@ -83,41 +84,79 @@
             </div>
 
 
-            <form action="">
+            <form action="../../../llamadas/proceso_registrarvacuna.php">
                 <h2 class="titulo_form">Registro de Lote</h2>
                 <div class="grupotex">
                     <label for="" class="etiqueta_nombre">Lote:</label>
-                    <input type="text" name="" id="" class="ingreso_datos">
+                    <input type="text" name="lote" id="" class="ingreso_datos">
 
                 </div>
                 <div class="grupotex">
                     <label for="" class="etiqueta_nombre">Tipo:</label>
-                    <input type="texto" name="" id="" class="ingreso_datos">
+                    <input type="texto" name="tipo" id="" class="ingreso_datos">
                 </div>
                 <div class="grupotex">
                     <label for="" class="etiqueta_nombre">Descripción:</label>
-                    <input type="text" name="" id="" class="ingreso_datos">
+                    <input type="text" name="descripcion" id="" class="ingreso_datos">
                 </div>
                 <button type="submit" class="btn_envio">Agregar</button>
 
             </form>
+            
+--------------------------------------------------------------
+<form action="" method="post">
+  <h2 class="titulo_detallevac">Formulario vacuna</h2>
+  <p class="textobusqueda">Ingrese el RENIAN de la mascota:</p>
+  <input type="search" name="busqueda" id="busqueda" class="busqueda" required>
+  <br>
+  <input type="text" name="idMascota" id="idMascota" placeholder="ID Mascota" readonly>
+  <div class="grupotex">
+  <input type="text" name="nombreMascota" id="nombreMascota" placeholder="Nombre de la mascota" readonly>
+  </div>
+  <input type="search" name="busqueda2" id="busqueda2" class="busqueda" required>
+  <br>
+  <input type="text" name="idVacuna" id="idVacuna" placeholder="ID Mascota" readonly>
+</form>
+
+<script>
+  $(document).ready(function() {
+    $('#busqueda').keyup(function() {
+      var query = $(this).val();
+
+      if (query !== '') {
+        $.ajax({
+          url: 'proceso_busquedaMascotaRenian.php',
+          method: 'POST',
+          data: { query: query },
+          success: function(response) {
+            if (response !== 'No se encontraron resultados.') {
+              // Separar la respuesta en ID y Nombre de mascota
+              var result = response.split(';');
+              var idMascota = result[0];
+              var nombreMascota = result[1];
+
+              // Actualizar los valores de los campos del formulario
+              $('#idMascota').val(idMascota);
+              $('#nombreMascota').val(nombreMascota);
+            } else {
+              // Limpiar los campos si no se encontraron resultados
+              $('#idMascota').val('');
+              $('#nombreMascota').val('');
+            }
+          }
+        });
+      } else {
+        // Limpiar los campos si no hay entrada de búsqueda
+        $('#idMascota').val('');
+        $('#nombreMascota').val('');
+      }
+    });
+  });
+</script>
+----------------------------------------------------------
 
 
-            <form action="" method="post">
-                <h2 class="titulo_detallevac">Formulario vacuna</h2>
-                <P class="textobusqueda">Ingrese el RENIAN de la mascota:</P>
-                <!--Se filtra por  LA  MASCOTA - RENINAN-->
-                <input type="search" name="" id="" class="busqueda" required>
-                <input type="text" placeholder="id_lote"><input type="text" placeholder="iDmascota">
-                <div class="grupotex">
-                    <label for="" class="etiquenom">Nombre de la mascota</label>
-                    <input type="text" name="" id="" class="etiquelec">
-
-                </div>
-                <div class="grupotex">
-                    <label for="" class="etiqueta_nombre">Lote:</label>
-                    <input type="text" name="" id="" class="ingreso_datos">
-                </div>
+<form action="" method="post">
                 <div class="grupotex">
                     <label for="" class="etiqueta_nombre">Tipo:</label>
                     <input type="texto" name="" id="" class="ingreso_datos">

@@ -112,5 +112,11 @@ function listarVeterinario($email,$conn) {
     return $vec;
 }
 
+#Vacunas
+//Ingresar datos de la vacuna
+function agregarDatosVacuna($lote,$tipo,$descripcion,$conn){
+    $sql="insert into vacuna(lote,tipo,descripcion) values ('$lote','$tipo','$descripcion')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
 ?>
 
