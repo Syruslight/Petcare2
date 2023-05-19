@@ -93,20 +93,155 @@
                 </div>
                 <button class="add-quotes">+Generar Citas</button>
             </div>
-            <div> 
+            <div class="table-quotes"> 
+                <div class="header-table">
+                    <div class="quotes-header">
+                    Mis citas
+                    </div>
+                    <div >
 
+                        <button class="button-seeall">Ver todo</button>
+                    </div>
+                </div>
+                <div class="corpes-table">
+                    <div class="tittle-table">
+                      
+                            <span class="title-client">Cliente</span>
+                       
+                            <span class="title-service">Servicio</span>
+                      
+                            <span class="title-schedule">Horario</span>
+                        
+                            <span class="title-state">Estado</span>     
+                    </div>
+                    <div class="content-table">
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                        <hr class="linea">
+
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                        <hr class="linea">
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                        <hr class="linea">
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                        <hr class="linea">
+                        <div class="dates-table">
+                            <div class="table-name">
+                                <span>Juan Pablo </span>
+                                <span>Trelles Rueda</span>
+                            </div>
+                            <span class="table-service">Desmontado</span>
+                            <div class="table-schedule">
+
+                                <span>13/04/2022</span>
+                                <span>8:00 am - 9:00 am</span>
+                            </div>
+                            <span class="table-state"> Cancelado </span>
+                            <button class="button-table">Ver mas</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
 
-        <div>
-            hkjgfghghfaghjf
+        <div class="wrapper-bookings">
+            <div class="booked-appointments"> <!-- Citas Confirmadas-->
+            
+                <div class="quotes-confirmed">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">CONFIRMADAS</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
+            <div class="booked-appointments"> <!-- Citas en proceso-->
+            
+                <div class="quotes-process">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">EN PROCESO</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
+            <div class="booked-appointments"> <!-- Citas Canceladas-->
+            
+                <div class="quotes-canceled">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">CANCELADAS</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
         </div>
     </div>
-    <div>
-        <span>
-            Calendario
-        </span>
+    <div class="wrapper-calendar">
+        
+    <img src="../../imagenes/perfilVeterinario/headerCalendar.png"width="1093px"height="56px">
+    <img src="../../imagenes/perfilVeterinario/bodyCalendar.png"width="1069px"height="395px">
     </div>
 </div>
 
