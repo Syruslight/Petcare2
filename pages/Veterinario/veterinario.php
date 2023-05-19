@@ -45,7 +45,7 @@ $conn = conectar();
                 </div>
                 <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/conference-call--v1.png" width="25" height="25" />
-                            <span class="list">Mis mascotas</span>
+                            <a href="../../pages/Veterinario/vacunas/moduloVacunaLote.php"><span class="list">Vacunas</span></a>
                         </div>
                 <div class="icons">
                 <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25"/>
@@ -67,13 +67,12 @@ $conn = conectar();
                 <img src="https://img.icons8.com/ios/50/null/help--v1.png"width="25" height="25"/>
                 <span class="list">Ayuda</span>
                 </div>         
-             
-              
+
                 <div class="sign-off">
                 
                     <img src="https://img.icons8.com/ios/50/null/shutdown--v1.png" width="25" height="25"/>
                     <span class="list">Cerrar sesion</span>   
-       
+
                 </div>
             </div>
         </div>
@@ -85,8 +84,7 @@ $conn = conectar();
             <span class="tittle-header">Luis Alberto :V</span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
             <img src="../../imagenes/perfilVeterinario/veterinario.png" alt="profile" width="38" height="39">
         </div>
-       
-  
+
 <div class="wrapper-corpes">
     <div class="wrapper-quotes">
         <div class="corpes-quotes">
@@ -115,11 +113,8 @@ $conn = conectar();
                 </div>
                 <div class="corpes-table">
                     <div class="tittle-table">
-                      
                             <span class="title-client">Cliente</span>
-                       
                             <span class="title-service">Servicio</span>
-                      
                             <span class="title-schedule">Horario</span>
                         
                             <span class="title-state">Estado</span>     
@@ -130,7 +125,7 @@ $conn = conectar();
                                 <span>Juan Pablo </span>
                                 <span>Trelles Rueda</span>
                             </div>
-                            <span class="table-service">Desmontado</span>
+                            <span class="table-service">Desmotado</span>
                             <div class="table-schedule">
 
                                 <span>13/04/2022</span>
