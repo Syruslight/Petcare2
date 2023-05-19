@@ -21,21 +21,27 @@ body{
 }
 
 .foto{
-  align-items: center;
-  align-content: center;
+  overflow: hidden;
   border-radius: 50%;
-  display: flex;
+
   background-color: #ffffff;
   border: 3px solid #4b0877;
   width: 150px;
   height: 150px;
-  padding: 10px;
-  margin: 20px;
+  margin:0px auto;
+}
+
+.foto img{
+  
+  display: block;
+  width: 100%;
+  margin: auto;
 }
 .fotoPos{
-  width: 100%;
-  display: flex;
+  display: block;
   justify-content: center;
+  width: 100%;
+  
 }
 .container{
   width: 330px;

@@ -54,11 +54,15 @@ session_start();
         <div class="page slide-page">
           <div class="title">Seleccionar una foto</div>
           <div class="fotoPos">
-            <div class="foto"></div>
-          </div>
+            <div class="foto">
+            <img src="https://lh5.googleusercontent.com/proxy/9vqIPeIeHQHyGEo43DlSgD-DUtidieclv56O6UoAcYNGPXGNnZwFJL2V7oSodehCB1YT28jit7pMSVjNTnrBOnlBxW0CiRmOeH22FlPockzEbfdQPHLkDMPcgMwWdNfVHF1r2QpUk6W_aY_J87A9lFtYKMHf8_xhkMB7l_4=s0-d" alt="avatar" id="img">
+          </div>  
+          <input id="foto" type="file" name="foto">
+          <label for="foto">Cambiar foto</label>
+        
+        </div>
           <input id="email" type="hidden" name="email" value="<?php echo isset($_SESSION['email']) ? $_SESSION['email'] : ''; ?>">
           <input id="idUser" type="hidden" name="idUsuario" value="<?php echo isset($_SESSION['idUsuario']) ? $_SESSION['idUsuario'] : ''; ?>">
-          <input id="foto" type="file" name="foto">
           <input id="idUser" type="hidden" name="tipoUsuario" value="<?php echo isset($_SESSION['tipoUsuario']) ? $_SESSION['tipoUsuario'] : ''; ?>">
           <div class="field">
             <button class="firstNext next">Siguiente</button>
