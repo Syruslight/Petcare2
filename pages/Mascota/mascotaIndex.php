@@ -50,7 +50,7 @@ $conn = conectar();
                         </div>
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/conference-call--v1.png" width="25" height="25" />
-                            <span class="list">Mis mascotas</span>
+                            <a href=""></a><span class="list">Mis mascotas</span>
                         </div>
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />

@@ -247,7 +247,7 @@
                                 <p class="textoparrafo">Únete a la familia de Pet&Care para conocer todos los beneficios que tenemos</p>
                                 <div class="input-group">
                                     <input class="estilo-separado" type="text" name="email" required>
-                                  
+                                
                                     <label for="">   <i class="fa-solid fa-envelope icono-reg"></i> Correo electronico</label>
                                 </div>
                                 <div class="input-group">
