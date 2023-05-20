@@ -11,20 +11,20 @@ body{
   justify-content: center;
   min-height: 100vh;
 
-  background-color: rgb(247, 238, 255);
+  background-color: rgb(238, 255, 254);
 }
 
 
 ::selection{
   color: #fff;
-  background: #9237e7;
+  background: #949696;
 }
 
 .foto{
   overflow: hidden;
 
   background-color: #ffffff;
-  border: 3px solid #9344c0be;
+  border: 3px solid #44c0babe;
   width: 125px;
   height: 125px;
   margin:0px auto;
@@ -56,7 +56,7 @@ body{
   font-size: 25px;
   font-weight: 600;
   margin: 0 0 3px 0;
-  color: #ce314b;
+  color: #eb145c;
 
 }
 .container p{
@@ -107,7 +107,7 @@ form .page .field .label{
   padding-left: 10px;
   padding-right: 10px;
   width: 300px;
-  border: 1px solid #7532a1;
+  border: 1px solid #2bc4bc;
   font-weight: 500;
   font-size: 18px;
 }
@@ -118,7 +118,7 @@ form .page .field .label{
   width: 100%;
   border-radius: 15px;
   border: none;
-  border-bottom:1px solid #8f31ce;
+  border-bottom:1px solid #eb144a;
 color: rgb(100, 100, 100);
   background-color: rgba(231, 229, 229, 0.863);
   font-weight: 500;
@@ -130,7 +130,7 @@ form .page .field select{
   width: 100%;
   border-radius: 15px;
   border: none;
-  border-bottom:1px solid #8f31ce;
+  border-bottom:1px solid #eb144a;
 color: rgb(100, 100, 100);
   background-color: rgba(231, 229, 229, 0.863);
   font-weight: 500;
@@ -154,7 +154,7 @@ color: rgb(100, 100, 100);
 }
 #cambiar-foto img:hover{
 opacity: .8;
-
+transform: scale(1.1);
 }
 
 form .page .field button{
@@ -163,7 +163,7 @@ form .page .field button{
   width: 100%;
   height: calc(100% + 5px);
   border: none;
-  background: #b05ed6;
+  background: #0fb4b9;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
@@ -174,10 +174,11 @@ form .page .field button{
   transition: 0.5s ease;
 }
 form .page .field button:hover{
-  background: #fff;
+  background: #079185;
   border-radius: 5px;
-  border: 1px solid #9237e7;
-  color: #b05ed6;
+  border: 1px solid #02bdb3;
+  color: #ffffff;
+  transform: scale(1.1);
 }
 
 .primary-container{

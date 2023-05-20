@@ -47,11 +47,11 @@ session_start();
           <div class="primary-container">
             <div class="field">
               <div class="label">Nombres:</div>
-              <input class="textbox1" type="text" name="nombres">
+              <input class="textbox1" type="text" name="nombres" required>
             </div>
             <div class="field">
               <div class="label">Apellidos:</div>
-              <input class="textbox2" type="text" name="apellidos">
+              <input class="textbox2" type="text" name="apellidos" required>
             </div>
 
           </div>
@@ -59,11 +59,11 @@ session_start();
           <div class="primary-container1">
             <div class="field">
               <div class="label">DNI:</div>
-              <input type="text" name="dni">
+              <input type="text" name="dni" required>
             </div>
             <div class="field">
               <div class="label">Fecha de Nacimiento</div>
-              <input type="date" name="fechaNac">
+              <input type="date" name="fechaNac" required>
             </div>
           </div>
 
@@ -71,14 +71,14 @@ session_start();
           <div class="primary-container2">
             <div class="field">
               <div class="label">Genero</div>
-              <select name="sexo">
-                <option>Masculino</option>
-                <option>Femenino</option>
+              <select name="sexo" required>
+                <option required>Masculino</option>
+                <option required>Femenino</option>
               </select>
             </div>
             <div class="field">
               <div class="label">Número telefónico</div>
-              <input type="tel" name="telefono" id="">
+              <input type="tel" name="telefono" id="" required>
             </div>
 
           </div>
@@ -87,7 +87,7 @@ session_start();
           <div class="texDir">
             <div class="field">
               <div class="label">Dirección:</div>
-              <input type="text" name="direccion">
+              <input type="text" name="direccion" required>
             </div>
           </div>
 

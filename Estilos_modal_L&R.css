@@ -11,7 +11,7 @@ body{
 }
 
 .boton-modal{
-    background-color: #815AC0;
+    background-color: #308b84;
     border: none;
     border-radius: 10px;
     color: white;
@@ -23,7 +23,7 @@ body{
 
 .boton-modal:hover{
     background-color: white;
-    color: #815AC0;
+    color: #5ac0aa;
 }
 
 .modal{
@@ -72,7 +72,7 @@ body{
     justify-content: flex-end;
 }
 #close-modal:hover{
-background-color: #783b9bc0;
+background-color: #3b9b93c0;
 color: #ffffff;
 }
 #close-modal{
@@ -124,15 +124,16 @@ color: #ffffff;
 
 .texto-h2{
 font-size: 30px;
-color: #6131af;
+color: #dd228f;
 text-align: center;
+font-weight: 500;
 }
 
 .input-group{
     width: 100%;
     position: relative;
     margin: 30px 0;
-    border-bottom: 2px solid #6131af;
+    border-bottom: 2px solid #31afa4;
     
 }
 
@@ -143,7 +144,7 @@ text-align: center;
     left: 5px;
     transform: translateY(-50%);
     font-size: 16px;
-    color: #581380d3;
+    color: #138077d3;
     pointer-events: none;
     transition: .5s;
 }
@@ -171,19 +172,19 @@ text-align: center;
     top:-5px;
 }
 .icono-log{
-    color: #815AC0;
+    color: #5ac0bb;
     margin-right: auto;
 }
 
 .icono-reg{
-    color: #815AC0;
+    color: #5ac0aa;
     margin-right: auto;
 }
 
 
 
 .btnlogin{
-    background: #6131af; /* color de fondo */
+    background: #31afa9; /* color de fondo */
     color: #ffffff; /* color de fuente */
     border: none;
     padding: 12px 70px;
@@ -201,8 +202,8 @@ text-align: center;
 
 .btnlogin:hover{
     border-radius: 15px;
-    border: 2px solid #6131af;
-   color: #6131af;/* color de fuente hover */
+    border: 2px solid #31afa4;
+   color: #31afa4;/* color de fuente hover */
 }
 
 .btnlogin::after{
@@ -231,7 +232,7 @@ text-align: center;
 
 .btnregistro{
     font-size: 20px;
-    background: #6131af; /* color de fondo */
+    background: #31afaf; /* color de fondo */
     color: #ffffff; /* color de fuente */
     border: none;
     padding: 13px 120px;
@@ -249,8 +250,8 @@ text-align: center;
 
 .btnregistro:hover{
     border-radius: 15px;
-    border: 2px solid #6131af;
-   color: #6131af;/* color de fuente hover */
+    border: 2px solid #31af9e;
+   color: #31af9a;/* color de fuente hover */
 }
 .btnregistro::after {
     content: "";
@@ -289,11 +290,11 @@ text-align: center;
 }
 
 .terminos label input{
-accent-color: #6131af;
+accent-color: #d42b72;
 
 }
 .link p a{
-color: #6131af;
+color: #31afaf;
 text-decoration: none;
 font-weight: 500;
 font-size: 15px;
@@ -304,7 +305,7 @@ font-size: 15px;
 }
 .btnregistrolink:hover{
     text-decoration: underline;
-    color: rgb(12, 15, 194);
+    color: rgb(194, 12, 149);
 }
 .link p{
    

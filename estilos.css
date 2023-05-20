@@ -10,13 +10,14 @@
     margin: 0;/*ELMINAMOS LA BARRA DE NAVEGACION HORIZONTAL FEAAAAAAAAA*/
 }
 h1{
-    color: #815AC0;
+    color: #5ac0aa;
+    font-weight: 500;
 }
 a{
     text-decoration: none;
 }
 .btn {
-    background-color: #815AC0;
+    background-color: #5ac0aa;
     border-radius: 10px;
     color: white;
     font-weight: bold;
@@ -25,7 +26,7 @@ a{
     height: 48px;
 }
 .btn:hover{
-    background-color: rgb(226, 207, 230);
+    background-color: rgb(207, 230, 227);
     color: black;
     transform: scale(1.1);
 }
@@ -35,7 +36,7 @@ a{
     width: 200px;
 }
 .tittle {
-    color: #6D4DA4;
+    color: #5ac0aa;
     font-size: 28px;
     position: absolute;
     top: 50%;
@@ -65,14 +66,14 @@ a{
 .top-nav-collapse {
     padding: .4rem 0rem .4rem 0rem;
     box-shadow: 0 0 0.375rem 0 rgba(0, 0, 0,1);
-    background: rgba(177, 133, 219, 0.67);
+    background: rgba(81, 197, 191, 0.863);
 }
 .navbar-toggler span{
     display: block;
     width: 22px;
     height: 2px;
     border: 2px;
-    background: #815AC0;
+    background: #5ac0aa;
 }
 .navbar-toggler span + span{
     margin-top: 4px;
@@ -85,10 +86,10 @@ a{
 }
 .navbar-expand-lg .navbar-nav .nav-link:hover{
     transform: scale(1); 
-    border-top: 4px solid rgb(240, 222, 243);
+    border-top: 4px solid rgb(222, 243, 240);
 }
 .navbar-expand-lg .navbar-nav .nav-link.active{ 
-    border-top: 4px solid rgb(240, 222, 243);
+    border-top: 4px solid rgb(222, 243, 240);
     color: white;
 }
 .border{
