@@ -243,11 +243,11 @@ $conn = conectar();
                                  </div>
                         <div class="modalinf">
                             <div class="input-group1">
-                                <input class="estilo-separado1" type="TEXT" name="telefono"  value="<?= $value[3] ?>" required>
+                                <input class="estilo-separado1" type="TEXT" name="telefono"  value="<?= $value[4] ?>" required>
                                 <label for=""> Telefono</label>
                             </div>
                             <div class="input-group2">
-                                <input class="estilo-separado1" type="TEXT" name="dni"  value="<?= $value[2] ?> "required>
+                                <input class="estilo-separado1" type="TEXT" name="dni"  value="<?= $value[3] ?> "required>
                                 <label for=""> DNI</label>
                             </div>
                             
@@ -256,7 +256,7 @@ $conn = conectar();
                         </div> 
                         <div class="modalFoot">
                                 <div class="input-group3">
-                                <input class="estilo-separado" type="text" name="direccion"  value="<?= $value[4] ?>" required>
+                                <input class="estilo-separado" type="text" name="direccion"  value="<?= $value[5] ?>" required>
                                 <label for=""> Dirección</label>
                             </div>
                             </div>
