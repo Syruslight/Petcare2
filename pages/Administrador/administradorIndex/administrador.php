@@ -255,43 +255,71 @@ $conn = conectar();
 
 
 
-    <section class="modal">
-        <div class="modal__wrapper">
-            <div class="modal__first">
-                <div class="modal__logoclose">
-                    <img class="modal__close" src="../../../imagenes/perfilCliente/close.png" alt="pencil" width="32"
-                        height="30">
+<section class="modal">
+        <div class="modal__container">
+            <div class="cuadro_modal">
+                <div class="top-form">
+                    <div class="titulo-h2">
+                        <h2 class="tituloform">Editar Datos</h2>
+                    </div>
+                <div id="close-modal">
+                        &#10006
+                    </div> 
                 </div>
-                <div class="modal__profile">
-                    <img src="../../../imagenes/perfilCliente/profile.png" class="modal__img" width="95" height="89">
-                    <img class="" src="../../../imagenes/perfilCliente/pencil.png" width="32" height="30">
-                </div>
-                <span class="modal__user">
-                    <?= $_SESSION['usuario'] ?>
-                </span>
+                    <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data" method="POST">
+                        
+                        <div class="editheader">
+                            <aside class="contfoto">
+                                <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" class="modal__img" width="95" height="89">
+                                <input id="foto" type="file" name="foto">
+                                
+                            </aside>
+                            <section class="textonomap">
+                                <div class="input-group">
+                                    <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>" required>
+                                    <label for=""> Nombres</label>
+                                    
+                                </div>
+                                <div class="input-group">
+                                    <input class="estilo-separado" type="text" name="apellidos"  value="<?= $value[1] ?>" required>
+                                    <label for=""> Apellidos</label>
+                                </div>
+
+                            </section>                                       
+                                 </div>
+                        <div class="modalinf">
+                            <div class="input-group1">
+                                <input class="estilo-separado1" type="TEXT" name="telefono"  value="<?= $value[3] ?>" required>
+                                <label for=""> Telefono</label>
+                            </div>
+                            <div class="input-group2">
+                                <input class="estilo-separado1" type="TEXT" name="dni"  value="<?= $value[2] ?> "required>
+                                <label for=""> DNI</label>
+                            </div>
+                            
+                            <input hidden name="idcliente"  value="<?= $value[7] ?> "required>
+                            
+                        </div> 
+                        <div class="modalFoot">
+                                <div class="input-group3">
+                                <input class="estilo-separado" type="text" name="direccion"  value="<?= $value[4] ?>" required>
+                                <label for=""> Dirección</label>
+                            </div>
+                            </div>
+                            <div class="contbtn">
+                                <button class="btn-mod">ACTUALIZAR DATOS</button>
+                            </div>
+                            
+                    </form>
+    
             </div>
-            <div class="modal__data">
-                <div class="moda__info">
-                    <span>Nombre</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-                <div class="moda__info">
-                    <span>Telefono</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-                <div class="moda__info">
-                    <span>Direccion</span>
-                    <input type="text" name="nombre" value="John Doe">
-                </div>
-            </div>
-            <button class="modal__button">Actualizar Datos</button>
         </div>
     </section>
     </section>
 
 
 
-    <script src="../../../js/modalCliente.js"></script>
+    <script src="../../../js/Modal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/swiperAdmin.js"></script>
 
