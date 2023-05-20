@@ -10,7 +10,7 @@ body{
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  overflow: hidden;
+
   background-color: rgb(247, 238, 255);
 }
 
@@ -22,12 +22,11 @@ body{
 
 .foto{
   overflow: hidden;
-  border-radius: 50%;
 
   background-color: #ffffff;
-  border: 3px solid #4b0877;
-  width: 150px;
-  height: 150px;
+  border: 3px solid #9344c0be;
+  width: 180px;
+  height: 180px;
   margin:0px auto;
 }
 
@@ -44,38 +43,48 @@ body{
   
 }
 .container{
-  width: 330px;
+  margin: auto;
+  height: 880px;
   background: #fff;
   text-align: center;
   border-radius: 5px;
-  padding: 50px 35px 10px 35px;
+  padding: 0px 35px 0px 35px;
+  box-shadow: 0 5px 18px -5px rgba(0, 0, 0, 0.726);
+  overflow: hidden;
 }
 .container header{
   font-size: 35px;
   font-weight: 600;
-  margin: 0 0 30px 0;
+  margin: 0 0 3px 0;
+  color: #ce314b;
+
+}
+.container p{
+  width: auto;
+ color: grey;
+  font-size: 20px;
+
+
 }
 .container .form-outer{
   width: 100%;
-  overflow: hidden;
+
 }
 .container .form-outer form{
   display: flex;
   width: 400%;
 }
-.form-outer form .page{
-  width: 25%;
-  transition: margin-left 0.3s ease-in-out;
-}
+
 .form-outer form .page .title{
   text-align: left;
   font-size: 25px;
   font-weight: 500;
+  color: rgb(53, 53, 53);
 }
 .form-outer form .page .field{
-  width: 330px;
-  height: 45px;
-  margin: 45px 0;
+  width: 100%;
+  height: 42px;
+  margin: 42px 0;
   display: flex;
   position: relative;
 }
@@ -84,129 +93,115 @@ form .page .field .label{
   top: -30px;
   font-weight: 500;
 }
-form .page .field input{
+
+.field{
+
   height: 100%;
-  width: 100%;
-  border: 1px solid lightgrey;
   border-radius: 5px;
   padding-left: 15px;
   font-size: 18px;
 }
-form .page .field select{
-  width: 100%;
+
+.field select{
   padding-left: 10px;
-  font-size: 17px;
+  padding-right: 10px;
+  width: 300px;
+  border: 1px solid #7532a1;
   font-weight: 500;
+  font-size: 18px;
 }
+
+.field input{
+ padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  border-radius: 15px;
+  border: none;
+  border-bottom:1px solid #8f31ce;
+color: rgb(100, 100, 100);
+  background-color: rgba(231, 229, 229, 0.863);
+  font-weight: 500;
+  font-size: 18px;
+}
+form .page .field select{
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 100%;
+  border-radius: 15px;
+  border: none;
+  border-bottom:1px solid #8f31ce;
+color: rgb(100, 100, 100);
+  background-color: rgba(231, 229, 229, 0.863);
+  font-weight: 500;
+  font-size: 18px;
+}
+#cambiar-foto img{
+  margin-left: 190px;
+  margin-top: -30px;
+  width: 45px;
+height: 45px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+
+}
+#cambiar-foto img:hover{
+  cursor: pointer;
+  opacity: .8;
+
+}
+
 form .page .field button{
+  margin-top: -10%;
+  margin-right: 20px;
   width: 100%;
   height: calc(100% + 5px);
   border: none;
   background: #b05ed6;
-  margin-top: -20px;
   border-radius: 5px;
   color: #fff;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 500;
   letter-spacing: 1px;
   text-transform: uppercase;
   transition: 0.5s ease;
 }
 form .page .field button:hover{
-  background: #fff;
+  background: #8211b6;
   border-radius: 5px;
   border: 1px solid #9237e7;
-  color: #b05ed6;
+  color: #ffffff;
 }
-form .page .btns button{
-  margin-top: -20px!important;
-}
-form .page .btns button.prev{
-  margin-right: 3px;
-  font-size: 17px;
-}
-form .page .btns button.next{
-  margin-left: 3px;
-}
-.container .progress-bar{
+
+.primary-container{
+  margin-top: 10px;
+width: auto;
   display: flex;
-  margin: 8px 0;
-  user-select: none;
+  justify-content: space-between;
 }
-.container .progress-bar .step{
-  text-align: center;
-  width: 100%;
-  position: relative;
+
+.primary-container1{
+  margin-top: -35px;
+width: auto;
+  display: flex;
+  justify-content: space-between;
 }
-.container .progress-bar .step p{
-  font-weight: 500;
-  font-size: 18px;
-  color: #000;
-  margin-bottom: 8px;
+.primary-container2{
+  margin-top: -35px;
+width: auto;
+  display: flex;
+  justify-content: space-between;
 }
-.progress-bar .step .bullet{
-  height: 25px;
-  width: 25px;
-  border: 2px solid #000;
-  display: inline-block;
-  border-radius: 50%;
-  position: relative;
-  transition: 0.2s;
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 25px;
-}
-.progress-bar .step .bullet.active{
-  border-color: #4b0877;
-  background: #b05ed6;
-}
-.progress-bar .step .bullet span{
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.progress-bar .step .bullet.active span{
-  display: none;
-}
-.progress-bar .step .bullet:before,
-.progress-bar .step .bullet:after{
-  position: absolute;
-  content: '';
-  bottom: 11px;
-  right: -51px;
-  height: 3px;
-  width: 44px;
-  background: #262626;
-}
-.progress-bar .step .bullet.active:after{
-  background: #965ed6;
-  transform: scaleX(0);
-  transform-origin: left;
-  animation: animate 0.3s linear forwards;
-}
-@keyframes animate {
-  100%{
-    transform: scaleX(1);
-  }
-}
-.progress-bar .step:last-child .bullet:before,
-.progress-bar .step:last-child .bullet:after{
-  display: none;
-}
-.progress-bar .step p.active{
-  color: #7e1bb8;
-  transition: 0.2s linear;
-}
-.progress-bar .step .check{
-  position: absolute;
-  left: 50%;
-  top: 70%;
-  font-size: 15px;
-  transform: translate(-50%, -50%);
-  display: none;
-}
-.progress-bar .step .check.active{
-  display: block;
-  color: #fff;
+.texDir{
+  margin-top: -35px;
+  width: auto;
+    display: flex;
+    justify-content: space-between;
 }
