@@ -266,11 +266,11 @@ $conn = conectar();
                         &#10006
                     </div> 
                 </div>
-                    <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data" method="POST">
+                <form action="../../../llamadas/proceso_actualizarDatosAdministrador.php" enctype="multipart/form-data" method="POST">
                         
                         <div class="editheader">
                             <aside class="contfoto">
-                                <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" class="modal__img" width="95" height="89">
+                                <img class="fotous" src="../../../imagenes/fotosperfil/administrador/<?= $value[6] ?>" class="modal__img" width="95" height="89">
                                 <input id="foto" type="file" name="foto">
                                 
                             </aside>
@@ -297,7 +297,7 @@ $conn = conectar();
                                 <label for=""> DNI</label>
                             </div>
                             
-                            <input hidden name="idcliente"  value="<?= $value[7] ?> "required>
+                            <input hidden name="idadministrador"   value="<?= $value[7] ?> "required>
                             
                         </div> 
                         <div class="modalFoot">

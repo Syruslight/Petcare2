@@ -88,7 +88,7 @@ function agregarDatosAdministrador($idusuario,$nombres,$apellidos,$dni,$telefono
 
 //Función para listar los datos del cliente por idusuario
 function listarAdministrador($email,$conn) {
-    $sql="SELECT administrador.nombres, administrador.apellidos, administrador.dni, administrador.telefono, administrador.direccion, usuario.email, administrador.foto
+    $sql="SELECT administrador.nombres, administrador.apellidos, administrador.dni, administrador.telefono, administrador.direccion, usuario.email, administrador.foto, administrador.idadministrador
     FROM     administrador INNER JOIN
                       usuario ON administrador.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";
@@ -98,6 +98,14 @@ function listarAdministrador($email,$conn) {
         $vec[]=$f;
     return $vec;
 }
+
+//Función para actualizar el cliente por idusuario
+function actualizarDatosAdministrador($idadministrador, $nombres, $apellidos, $telefono, $direccion, $dni,$foto, $conn)
+{
+    $sql = "UPDATE administrador SET nombres = '$nombres', apellidos = '$apellidos', telefono = '$telefono', direccion = '$direccion', dni = '$dni',foto ='$foto' WHERE idadministrador = $idadministrador;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
 
 
 #-------Consultas relacionadas a la pagina principal de administrador-------
