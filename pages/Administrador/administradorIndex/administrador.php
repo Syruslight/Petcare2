@@ -135,119 +135,228 @@ $conn = conectar();
                 </div> <!-- Finish Swiper -->
 
     </div>
-        <div class="wrapper-myclients">
+    <div class="wrapper-myclients">
             <div class="subwrapper-myclients">
-                    <div class="clients-search">
-                        <h1>Mis Clientes</h1>
-                        <button class="button-search">
-                            Buscar
-                        </button>
-                    </div>
-                    <div class="wrapper-search">
-                        <span>Buscar: <input type="search" name="searchuser"
-                                placeholder="Ingrese el dni del cliente"></span>
-                    </div>
-                    <input type="text" id="busqueda" placeholder="Buscar">
-                    <div id="resultados">
-                        <div class="wrapper-dates">
-                        <div class="dates-name">
-                            <span class="text-dates">Nombre</span>
-                            <span class="text-dates">Apellido</span>
-                        </div>
-                        </div>
-                    </div>
+                <div class="clients-search">
+                    <h1>Mis Clientes</h1>
+                    <button class="button-search">
+                        Buscar
+                    </button>
+                </div>
+                <div class="wrapper-search">
+                <span>Buscar: <input type="search" name="searchuser" placeholder="Dni, nombre, telefono..."></span>           
+                </div>
+                <div class="wrapper-dates">
+                    <div class="dates-name">
+                        <span class="text-dates">Nombre</span>
 
-            </div>
+                        <div class="client-information">
+                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/user-male.png" alt="user-male"/>
+                        <div class="name-lastname">
+                            <span class="first-name">Manuel Renato</span>
+                            <span class="last-name">Quintero Quispe</span>
+                        </div>
+
+                        </div>
+                        <div class="client-information">
+                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/businesswoman.png" alt="businesswoman"/>
+                        <div class="name-lastname">
+                            <span class="first-name">Jessie Sophia</span>
+                            <span class="last-name">Sanchez soto</span>
+                        </div>
+
+                        </div>
+                        <div class="client-information">
+                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/user-male.png" alt="user-male"/>
+                        <div class="name-lastname">
+                            <span class="first-name">Manuel Renato</span>
+                            <span class="last-name">Quintero Quispe</span>
+                        </div>
+
+                        </div>
+                        <div class="client-information">
+                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/businesswoman.png" alt="businesswoman"/>
+                        <div class="name-lastname">
+                            <span class="first-name">Jessie Sophia</span>
+                            <span class="last-name">Sanchez soto</span>
+                        </div>
+                        </div>
+
+                        <div class="client-information">
+                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/user-male.png" alt="user-male"/>
+                        <div class="name-lastname">
+                            <span class="first-name">Manuel Renato</span>
+                            <span class="last-name">Quintero Quispe</span>
+                        </div>
+                        </div>
+
+                    </div>
+                    <div class="dates-email">
+                        <span class="text-dates">E-mail</span>
+
+                        <div class="e-mail">
+                            <span>manuel@gmail.com</span>
+                        </div>
+                        <div class="e-mail">
+                            <span>Jessie@gmail.com</span>
+                        </div>
+                        <div class="e-mail">
+                            <span>manuel@gmail.com</span>
+                        </div>
+                        <div class="e-mail">
+                            <span>Jessie@gmail.com</span>
+                        </div>
+                        <div class="e-mail">
+                            <span>manuel@gmail.com</span>
+                        </div>
+                   
+                    </div>
+                    <div class="dates-cellphone">
+                        <span class="text-dates">Telefono</span>
+
+                        <div class="cell-phone">
+                            <span>981424545</span>
+                        </div>
+                        <div class="cell-phone">
+                            <span>981424545</span>
+                        </div>
+                        <div class="cell-phone">
+                            <span>981424545</span>
+                        </div>
+                        <div class="cell-phone">
+                            <span>981424545</span>
+                        </div>
+                        <div class="cell-phone">
+                            <span>981424545</span>
+                        </div>
+
+                    </div>
+                    <div class="dates-info">
+                        <span class="text-dates"> Informacion </span>
+                       <div class="button-see">
+                           <button>Ver Cliente</button>
+                       </div>
+                       <div class="button-see">
+                           <button>Ver Cliente</button>
+                       </div>
+                       <div class="button-see">
+                           <button>Ver Cliente</button>
+                       </div>
+                       <div class="button-see">
+                           <button>Ver Cliente</button>
+                       </div>
+                       <div class="button-see">
+                           <button>Ver Cliente</button>
+                       </div>
+                    </div>
+                </div>
+
+            </div> 
+
+
+
+
+
 
 
             <div class="subwrapper-product">
-                    <h1 class="tittle-products">Productos populares</h1>
-                    <div class="product-price">
-                        <div class="subtittle-proprice">
-                            <span class="subtitle-product">
-                                Productos
-                            </span>
-                            <span class="subtitle-price">
-                                Precio
-                            </span>
-                        </div>
-                        <div class="wrapper-productandprice"><!-- Producto 1 -->
-                            <div class="wrapper-product">
-                                <img src="../../../imagenes/perfilAdmin/producto1.png" width="64.42" height="70">
-                                <div class="subcontainer-product">
-                                    <span class="type-category">
-                                        Product A
-                                    </span>
-                                    <span class="type-product">
-                                        Pelotas
-                                    </span>
-                                </div>
-                            </div>
-                            <span class="price">s/.50.00</span>
-
-                        </div>
-                        <hr class="line">
-                        <div class="wrapper-productandprice"><!-- Producto 1 -->
-                            <div class="wrapper-product">
-                                <img src="../../../imagenes/perfilAdmin/producto1.png" width="64.42" height="70">
-                                <div class="subcontainer-product">
-                                    <span class="type-category">
-                                        Product A
-                                    </span>
-                                    <span class="type-product">
-                                        Pelotas
-                                    </span>
-                                </div>
-                            </div>
-                            <span class="price">s/.50.00</span>
-
-                        </div>
-                        <hr class="line">
-                        <div class="wrapper-productandprice"><!-- Producto 1 -->
-                            <div class="wrapper-product">
-                                <img src="../../../imagenes/perfilAdmin/producto1.png" width="64.42" height="70">
-                                <div class="subcontainer-product">
-                                    <span class="type-category">
-                                        Product A
-                                    </span>
-                                    <span class="type-product">
-                                        Pelotas
-                                    </span>
-                                </div>
-                            </div>
-                            <span class="price">s/.50.00</span>
-
-                        </div>
-                        <hr class="line">
-                        <div class="wrapper-productandprice"><!-- Producto 1 -->
-                            <div class="wrapper-product">
-                                <img src="../../../imagenes/perfilAdmin/producto1.png" width="64.42" height="70">
-                                <div class="subcontainer-product">
-                                    <span class="type-category">
-                                        Product A
-                                    </span>
-                                    <span class="type-product">
-                                        Pelotas
-                                    </span>
-                                </div>
-                            </div>
-                            <span class="price">s/.50.00</span>
-
-                        </div>
-                        <hr class="line">
-
-                    </div>
-                    <button class="button-product">Todos los Productos</button>
+               <h1 class="tittle-products">Productos populares</h1> 
+               <div class="product-price"> 
+                <div class="subtittle-proprice"> 
+                    <span class="subtitle-product">
+                        Productos
+                    </span>   
+                    <span class="subtitle-price">
+                        Precio
+                    </span>  
                 </div>
+                <div class="wrapper-productandprice"><!-- Producto 1 -->
+                    <div class="wrapper-product">
+                        <img src="../../../imagenes/perfilAdmin/producto1.png" width="64.42"height="70">
+                        <div class="subcontainer-product">
+                            <span class="type-category">
+                                Product A
+                            </span>
+                            <span class="type-product">
+                                Pelotas
+                            </span>
+                        </div>
+                    </div>
+                        <span class="price">s/.50.00</span>
+                   
+                </div>
+                <hr class="line">
+                <div class="wrapper-productandprice"><!-- Producto 1 -->
+                    <div class="wrapper-product">
+                        <img src="../../../imagenes/perfilAdmin/producto1.png" width="64.42"height="70">
+                        <div class="subcontainer-product">
+                            <span class="type-category">
+                                Product A
+                            </span>
+                            <span class="type-product">
+                                Pelotas
+                            </span>
+                        </div>
+                    </div>
+                        <span class="price">s/.50.00</span>
+                   
+                </div>
+                <hr class="line">
+                <div class="wrapper-productandprice"><!-- Producto 1 -->
+                    <div class="wrapper-product">
+                        <img src="../../../imagenes/perfilAdmin/producto1.png" width="64.42"height="70">
+                        <div class="subcontainer-product">
+                            <span class="type-category">
+                                Product A
+                            </span>
+                            <span class="type-product">
+                                Pelotas
+                            </span>
+                        </div>
+                    </div>
+                        <span class="price">s/.50.00</span>
+                   
+                </div>
+                <hr class="line">
+                <div class="wrapper-productandprice"><!-- Producto 1 -->
+                    <div class="wrapper-product">
+                        <img src="../../../imagenes/perfilAdmin/producto1.png" width="64.42"height="70">
+                        <div class="subcontainer-product">
+                            <span class="type-category">
+                                Product A
+                            </span>
+                            <span class="type-product">
+                                Pelotas
+                            </span>
+                        </div>
+                    </div>
+                        <span class="price">s/.50.00</span>
+                   
+                </div>
+                <hr class="line">
+                                 
+                
+                
+               </div>
+               <button class="button-product">Todos los Productos</button>
+            </div> 
+        </div>
+         
 
-           
 
+        <div class="footer">
+            <span class="copyrigth">©</span>
+            <span> Vet&Care, todos los derechos reservados.</span>
+        </div>
+
+
+</div>
+
+
+        
 
         </div>
-        <div class="footer">
-                <span class="copyrigth">©</span>
-                <span> Vet&Care, todos los derechos reservados.</span>
-            </div>
+            
     </div>
 
 </div>

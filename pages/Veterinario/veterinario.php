@@ -29,7 +29,7 @@ $conn = conectar();
     
     <div class="dash-information">
         <div class="dash-header">
-            <span class="tittle-header">Luis Alberto :V</span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
+            <span class="tittle-header"><?= $value[0] ?> <?= $value[1] ?></span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
             <img src="../../../imagenes/fotoperfil/veterinario/<?= $value[6] ?>" alt="profile" width="38" height="39">
         </div>
 

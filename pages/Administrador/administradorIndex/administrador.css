@@ -1,4 +1,4 @@
-.wrapper {
+  .wrapper {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -420,8 +420,8 @@
 }
 .button-product {
   width: 223.62px;
-  height: 48px;
-  background: #ffb627;
+  height: 48px; 
+  background: #94d2bd; 
   border: 1px solid #ffb627;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 42px;

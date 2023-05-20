@@ -219,7 +219,7 @@
                     <!-- Proceso de iniciar sesión -->
                         <div class="form-wrapper logeo">
                             <form action="llamadas/proceso_logeoportipo.php">
-                                <b><h2 class="texto-h2">Iniciar sesion</h2></b>
+                                <b><h2 class="texto-h2">Iniciar sesión</h2></b>
                                 <p class="textoparrafo">Entérate de las novedades que tenemos en Pet&Care para tí y tus mascotas</p>
                                 <div class="input-group">
                                     <input class="estilo-separado" type="text" name="email" required>
