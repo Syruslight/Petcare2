@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-05-2023 a las 06:49:36
--- Versión del servidor: 10.4.27-MariaDB
--- Versión de PHP: 8.2.0
+-- Tiempo de generación: 20-05-2023 a las 02:30:03
+-- Versión del servidor: 10.4.28-MariaDB
+-- Versión de PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -36,6 +36,8 @@ CREATE TABLE `administrador` (
   `telefono` char(9) DEFAULT NULL,
   `direccion` varchar(50) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
+  `sexo` varchar(9) NOT NULL,
+  `fechaNac` date DEFAULT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -43,8 +45,9 @@ CREATE TABLE `administrador` (
 -- Volcado de datos para la tabla `administrador`
 --
 
-INSERT INTO `administrador` (`idadministrador`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `estado`) VALUES
-(1, 2, 'Liz', 'Ancajima', '78456123', '987654123', 'Lima', 'perfil.png', '1');
+INSERT INTO `administrador` (`idadministrador`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`, `estado`) VALUES
+(1, 21, 'Pedro', 'Suarez Vertiz', '45987321', '987458621', 'Av. Amancaes 852', 'admin1.jpg', 'Masculino', '1990-05-04', '1'),
+(2, 22, 'Vanesa', 'Perez', '85274136', '963852741', 'Av. Izaguirre 1230', 'admin2.jpg', 'Femenino', '1997-12-08', '1');
 
 -- --------------------------------------------------------
 
@@ -58,7 +61,7 @@ CREATE TABLE `cita` (
   `idmascota` int(11) DEFAULT NULL,
   `idhorario` int(11) DEFAULT NULL,
   `estado` varchar(15) DEFAULT NULL,
-  `fechacreacion` date DEFAULT current_timestamp()
+  `fechacreacion` datetime DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -76,6 +79,8 @@ CREATE TABLE `cliente` (
   `telefono` char(9) DEFAULT NULL,
   `direccion` varchar(50) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
+  `sexo` varchar(9) NOT NULL,
+  `fechaNac` date DEFAULT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='			';
 
@@ -83,8 +88,27 @@ CREATE TABLE `cliente` (
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idcliente`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `estado`) VALUES
-(1, 1, 'Cristhian', 'Valladoli', '12345678', '987654123', 'Lima', 'perfil2.png', '1');
+INSERT INTO `cliente` (`idcliente`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`, `estado`) VALUES
+(1, 1, 'Cristhian', 'Valladolid', '12345678', '987654123', 'Lima', 'perfil2.png', 'Masculino', '2023-05-17', '1'),
+(2, 2, 'Jorge', 'Cortez', '76016369', '975462500', 'Av. Amaliga Puga 613', 'cliente2.jpg', 'Masculino', '1997-05-04', '1'),
+(3, 3, 'Alexis Erickson', 'Perez Bazalar', '96385241', '987654321', 'Calle Perricholli 523', 'cliente3.jpg', 'Masculino', '1997-08-20', '1'),
+(4, 4, 'Alexis', 'Bazalar Torres', '85274163', '987654321', 'Calle Perricholli 523', 'cliente3.jpg', 'Masculino', '1996-07-30', '1'),
+(5, 5, 'Dylan ', 'Pacheco Pacheco', '56432178', '987654321', 'Av. Colonial 3525', 'cliente4.jpg', 'Masculino', '1993-06-15', '1'),
+(6, 6, 'Celia', 'Cruz', '56932147', '998752632', 'Calle Amancaes 369', 'cliente5.png', 'Femenino', '1988-07-21', '1'),
+(7, 7, 'Paula', 'Heredia', '68754123', '995651660', 'Jr. Washington 289', 'cliente6.jpg', 'Femenino', '1999-03-25', '1'),
+(8, 8, 'Luisa', 'Martinez', '45698712', '987654123', 'Calle Castilla 852', 'cliente7.jpg', 'Femenino', '1992-06-05', '1'),
+(9, 9, 'Samuel', 'Becerra', '65432178', '923456987', 'Av. Benavides 1236', 'cliente8_h.jpg', 'Masculino', '1996-08-23', '1'),
+(10, 10, 'Drake', 'Bell', '78945612', '998877665', 'Jr. Castilla 789', 'cliente9_h.jpg', 'Masculino', '2001-12-20', '1'),
+(11, 11, 'Josh', 'Bell', '36985214', '998765421', 'Jr. de la Unión 523', 'cliente10_h.jpg', 'Masculino', '1998-07-14', '1'),
+(12, 12, 'Bryan', 'Perez', '52367894', '998822331', 'Las Malvinas 4532', 'cliente11_h.jpg', 'Masculino', '1996-03-13', '1'),
+(13, 13, 'Jorge', 'Pacheco', '85274196', '998765421', 'Av. Los Jardines', 'cliente12_h.jpg', 'Masculino', '1999-12-23', '1'),
+(14, 14, 'Ricardo', 'Osorio', '96385274', '987475862', 'Calle las flores', 'cliente13_h.jpg', 'Masculino', '1995-12-11', '1'),
+(15, 15, 'Pedro', 'Osorio', '65432178', '987654321', 'Calle Machu Picchu 654', 'cliente14_h.jpg', 'Masculino', '1992-02-18', '1'),
+(16, 16, 'Diana', 'Barrientos', '45612308', '987654123', 'Av. Los insurgentes 963', 'cliente15_m.jpg', 'Femenino', '1994-11-14', '1'),
+(17, 17, 'Gabriela', 'Rosario', '98745612', '996654213', 'Av. Argentina 1200', 'cliente16_m.jpg', 'Femenino', '1994-11-19', '1'),
+(18, 18, 'Tina', 'Duarte', '45632178', '998765412', 'Jr. Las Palmera 500', 'cliente18_m.jpg', 'Femenino', '1984-10-23', '1'),
+(19, 19, 'Mirtha', 'Reyes', '78945612', '998877552', 'Av. Venezuela 3210', 'cliente19_m.jpg', 'Femenino', '1996-06-17', '1'),
+(20, 20, 'Teresa', 'Moreno', '74185236', '998822550', 'Jr. Las Casuarinas 5230', 'cliente20_m.jpg', 'Femenino', '1997-02-04', '1');
 
 -- --------------------------------------------------------
 
@@ -98,6 +122,7 @@ CREATE TABLE `detallevacuna` (
   `idvacuna` int(11) DEFAULT NULL,
   `idveterinario` int(11) DEFAULT NULL,
   `fecha` date DEFAULT current_timestamp(),
+  `proxFecha` datetime DEFAULT NULL,
   `observacion` varchar(55) DEFAULT NULL,
   `restricciones` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -127,6 +152,15 @@ CREATE TABLE `especie` (
   `nombre` varchar(15) DEFAULT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `especie`
+--
+
+INSERT INTO `especie` (`idespecie`, `nombre`, `estado`) VALUES
+(1, 'Perro', '1'),
+(2, 'Gato', '1'),
+(3, 'Conejo', '1');
 
 -- --------------------------------------------------------
 
@@ -162,8 +196,22 @@ CREATE TABLE `mascota` (
   `esterilizado` char(2) DEFAULT NULL,
   `etapa` varchar(15) DEFAULT NULL,
   `fechaRegistro` date DEFAULT current_timestamp(),
+  `renian` int(11) NOT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `mascota`
+--
+
+INSERT INTO `mascota` (`idmascota`, `idcliente`, `idraza`, `nombre`, `fechaNac`, `peso`, `color`, `fotoPerfil`, `esterilizado`, `etapa`, `fechaRegistro`, `renian`, `estado`) VALUES
+(1, 1, 1, 'Cookie', '2013-05-02', 5.00, 'marrón', 'Chihuahua.jpeg', 'Si', 'Adulto', '2023-05-19', 20345678, '1'),
+(2, 2, 2, 'Pelusa', '2020-05-01', 10.50, 'negro', 'cocker.jpeg', 'No', 'Juvenil', '2023-05-19', 10236547, '1'),
+(3, 3, 3, 'Boby', '2022-05-04', 9.00, 'crema', 'Labrador.jpeg', 'No', 'Juvenil', '2023-05-19', 23657410, '1'),
+(4, 4, 4, 'Speedy', '2020-05-01', 10.20, 'marrón oscuro', 'Pastor alemán.jpeg', 'No', 'Adulto', '2023-05-19', 74125896, '1'),
+(5, 5, 5, 'Motita', '2018-05-09', 12.00, 'Plomo', 'Schnauzer.jpeg', 'Si', 'Juvenil', '2023-05-19', 12365478, '1'),
+(6, 6, 6, 'Lobo', '2015-05-15', 20.00, 'Plomo', 'Siberiano.jpeg', 'Si', 'Adulto', '2023-05-19', 36985214, '1'),
+(7, 7, 7, 'Michi', '2020-05-08', 8.00, 'blanco', 'Elfo.jpg', 'Si', 'Juvenil', '2023-05-19', 23654178, '1');
 
 -- --------------------------------------------------------
 
@@ -192,6 +240,29 @@ CREATE TABLE `raza` (
   `nombre` varchar(20) DEFAULT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `raza`
+--
+
+INSERT INTO `raza` (`idraza`, `idespecie`, `nombre`, `estado`) VALUES
+(1, 1, 'Chihuahua', '1'),
+(2, 1, 'Cocker', '1'),
+(3, 1, 'Labrador', '1'),
+(4, 1, 'Pastor alemán', '1'),
+(5, 1, 'Schnauzer', '1'),
+(6, 1, 'Siberiano', '1'),
+(7, 2, 'Elfo', '1'),
+(8, 2, 'Gato británico', '1'),
+(9, 2, 'Himalayo', '1'),
+(10, 2, 'Levkoy ucraniano', '1'),
+(11, 2, 'Maine coon', '1'),
+(12, 2, 'Persa', '1'),
+(13, 3, 'Belier', '1'),
+(14, 3, 'Blanco de Hotot', '1'),
+(15, 3, 'Cabeza de león', '1'),
+(16, 3, 'Gigante de flandes', '1'),
+(17, 3, 'Rex', '1');
 
 -- --------------------------------------------------------
 
@@ -243,6 +314,7 @@ CREATE TABLE `usuario` (
   `idtipousuario` int(11) NOT NULL,
   `email` varchar(25) NOT NULL,
   `pass` varchar(20) NOT NULL,
+  `fechaCre` datetime NOT NULL DEFAULT current_timestamp(),
   `estado` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -250,11 +322,35 @@ CREATE TABLE `usuario` (
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `email`, `pass`, `estado`) VALUES
-(1, 1, 'cristhian@gmail.com', '123', '2'),
-(2, 2, 'liz@gmail.com', '321', '2'),
-(3, 3, 'alonso@gmail.com', '12', '1'),
-(4, 1, 'luis@gmail.com', '123', '1');
+INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `email`, `pass`, `fechaCre`, `estado`) VALUES
+(1, 1, 'cristhian@gmail.com', '123', '2023-05-16 23:11:20', '2'),
+(2, 1, 'jorgecortez@gmail.com', 'jorge', '2023-05-19 14:57:41', '2'),
+(3, 1, 'alexisperez@gmail.com', 'alexis', '2023-05-19 15:00:06', '2'),
+(4, 1, 'alexisperez@outlook.com', 'alexis', '2023-05-19 15:19:36', '2'),
+(5, 1, 'dylanpacheco@gmail.com', 'dylan', '2023-05-19 15:22:44', '2'),
+(6, 1, 'celiacruz@gmail.com', 'celia', '2023-05-19 15:24:58', '2'),
+(7, 1, 'paolaheredia@outlook.com', 'paola', '2023-05-19 15:27:43', '2'),
+(8, 1, 'luisamartinez@gmail.com', 'luisa', '2023-05-19 15:30:44', '2'),
+(9, 1, 'samuelbecerra@outlook.com', 'samuel', '2023-05-19 15:36:29', '2'),
+(10, 1, 'drakebell@gmail.com', 'drake', '2023-05-19 15:39:09', '2'),
+(11, 1, 'joshbell@outlook.com', 'josh', '2023-05-19 15:42:30', '2'),
+(12, 1, 'bryanperez@gmail.com', 'bryan', '2023-05-19 15:45:30', '2'),
+(13, 1, 'jorgepacheco@outlook.com', 'jorge', '2023-05-19 15:52:04', '2'),
+(14, 1, 'ricardoosorio@gmail.com', 'ricardo', '2023-05-19 16:05:47', '2'),
+(15, 1, 'pedroosorio@outlook.com', 'pedro', '2023-05-19 16:18:47', '2'),
+(16, 1, 'dianabarrientos@gmail.com', 'diana', '2023-05-19 16:31:05', '2'),
+(17, 1, 'gabrielarubio@gmail.com', 'gabriela', '2023-05-19 16:35:56', '2'),
+(18, 1, 'tina@hotmail.com', 'tina', '2023-05-19 16:40:51', '2'),
+(19, 1, 'mirtha@gmail.com', 'mirtha', '2023-05-19 16:46:43', '2'),
+(20, 1, 'teresamoreno@gmail.com', 'teresa', '2023-05-19 16:50:03', '2'),
+(21, 2, 'josue@gmail.com', 'josue', '2023-05-19 16:56:13', '2'),
+(22, 2, 'vanesaperez@gmail.com', 'vanesa', '2023-05-19 17:02:09', '2'),
+(23, 3, 'marymartinez@gmail.com', 'mary', '2023-05-19 17:08:38', '2'),
+(25, 3, 'luisgonzales@gmail.com', 'luis', '2023-05-19 17:26:55', '2'),
+(26, 3, 'cynthiamamani@gmail.com', 'cynthia', '2023-05-19 17:29:16', '2'),
+(27, 3, 'manuelgarcia@gmail.com', 'manuel', '2023-05-19 17:33:37', '2'),
+(28, 3, 'oscarfernandez@gmail.com', 'oscar', '2023-05-19 17:36:39', '2'),
+(29, 3, 'oliviamamani@gmail.com', 'olivia', '2023-05-19 17:39:52', '2');
 
 -- --------------------------------------------------------
 
@@ -265,15 +361,18 @@ INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `email`, `pass`, `estado`) 
 CREATE TABLE `vacuna` (
   `idvacuna` int(11) NOT NULL,
   `lote` varchar(15) DEFAULT NULL,
-  `tipo` varchar(15) DEFAULT NULL
+  `tipo` varchar(15) DEFAULT NULL,
+  `descripcion` varchar(200) DEFAULT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `vacuna`
 --
 
-INSERT INTO `vacuna` (`idvacuna`, `lote`, `tipo`) VALUES
-(1, 'H1N1K2', 'COVID');
+INSERT INTO `vacuna` (`idvacuna`, `lote`, `tipo`, `descripcion`, `fecha`) VALUES
+(1, 'H1N1K2', 'COVID', NULL, '2023-05-17 00:46:47'),
+(2, 'ABC123', 'Viruela', 'Aplica solo a raza adulta', '2023-05-19 19:18:07');
 
 -- --------------------------------------------------------
 
@@ -286,7 +385,7 @@ CREATE TABLE `venta` (
   `idcliente` int(11) DEFAULT NULL,
   `idveterinario` int(11) DEFAULT NULL,
   `total` decimal(7,2) DEFAULT NULL,
-  `fecha` date DEFAULT current_timestamp(),
+  `fecha` datetime DEFAULT current_timestamp(),
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -304,8 +403,23 @@ CREATE TABLE `veterinario` (
   `dni` char(8) DEFAULT NULL,
   `telefono` char(9) DEFAULT NULL,
   `direccion` varchar(50) DEFAULT NULL,
+  `foto` varchar(100) DEFAULT NULL,
+  `sexo` varchar(9) NOT NULL,
+  `fechaNac` date NOT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `veterinario`
+--
+
+INSERT INTO `veterinario` (`idveterinario`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`, `estado`) VALUES
+(1, 23, 'Mary', 'Martinez', '96325874', '987456321', 'Calle Bellavista', 'vet1.jpg', 'Femenino', '1995-10-02', '1'),
+(2, 25, 'Luis', 'Gonzales', '45632178', '998741256', 'Calle Uruguay 321', 'vet2.jpg', 'Masculino', '1996-01-05', '1'),
+(3, 26, 'Cynthia', 'Mamani', '65412396', '963852147', 'Jr. Los Tulipanes 741', 'vet3.jpg', 'Femenino', '2000-12-12', '1'),
+(4, 27, 'Manuel', 'Garcia', '85214796', '987456123', 'Calle Atocongo 412', 'vet4.jpg', 'Masculino', '1997-02-12', '1'),
+(5, 28, 'Oscar ', 'Fernandez', '46325874', '996633251', 'Jr. Los Angeles', 'vet5.jpg', 'Masculino', '1985-08-25', '1'),
+(6, 29, 'Olivia', 'Mamani', '74125896', '997845123', 'Av. Los insurgentes 741', 'vet6.jpg', 'Femenino', '1992-05-02', '1');
 
 --
 -- Índices para tablas volcadas
@@ -435,7 +549,7 @@ ALTER TABLE `veterinario`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `cita`
@@ -447,7 +561,7 @@ ALTER TABLE `cita`
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de la tabla `detallevacuna`
@@ -465,7 +579,7 @@ ALTER TABLE `detalleventa`
 -- AUTO_INCREMENT de la tabla `especie`
 --
 ALTER TABLE `especie`
-  MODIFY `idespecie` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idespecie` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `horario`
@@ -477,7 +591,7 @@ ALTER TABLE `horario`
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de la tabla `productoservicio`
@@ -489,7 +603,7 @@ ALTER TABLE `productoservicio`
 -- AUTO_INCREMENT de la tabla `raza`
 --
 ALTER TABLE `raza`
-  MODIFY `idraza` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idraza` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `tipoproductoservicio`
@@ -507,13 +621,13 @@ ALTER TABLE `tipousuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `vacuna`
 --
 ALTER TABLE `vacuna`
-  MODIFY `idvacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idvacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
@@ -525,7 +639,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `veterinario`
 --
 ALTER TABLE `veterinario`
-  MODIFY `idveterinario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idveterinario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
