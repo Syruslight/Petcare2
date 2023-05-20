@@ -19,7 +19,7 @@
                             <?= $value[0] ?>
                             <?= $value[1] ?>
                         </span>
-                        <img class="image-profile" src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32"
+                        <img class="boton-modal" src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32"
                             height="30">
                     </div>
                     <span class="id">DNI:
@@ -31,10 +31,12 @@
 </div>
 <div class="second-seccion">
                     <div class="categories">
+                        <a href="../administradorIndex/administrador.php">
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/health-data.png" width="25" height="25" />
                             <span class="principal">Principal</span>
                         </div>
+                        </a>
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
                             <span class="list">Productos</span>

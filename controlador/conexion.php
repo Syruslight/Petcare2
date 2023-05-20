@@ -50,9 +50,18 @@ function agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$dire
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
+//Funcion para actualizar el cliente por idusuario 
+// Función para actualizar el cliente por idusuario
+function actualizarDatosCliente($idCliente, $nombres, $apellidos, $telefono, $direccion, $dni,$foto, $conn)
+{
+    $sql = "UPDATE cliente SET nombres = '$nombres', apellidos = '$apellidos', telefono = '$telefono', direccion = '$direccion', dni = '$dni',foto ='$foto' WHERE idcliente = $idCliente;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+
 //Funcion para listar los datos del cliente
 function listarCliente($email,$conn) {
-    $sql="SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email, cliente.foto
+    $sql="SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email, cliente.foto, cliente.idcliente
     FROM     cliente INNER JOIN
                       usuario ON cliente.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";
@@ -79,7 +88,7 @@ function agregarDatosAdministrador($idusuario,$nombres,$apellidos,$dni,$telefono
 
 //Función para listar los datos del cliente por idusuario
 function listarAdministrador($email,$conn) {
-    $sql="SELECT administrador.nombres, administrador.apellidos, administrador.dni, administrador.telefono, administrador.direccion, usuario.email, administrador.foto
+    $sql="SELECT administrador.nombres, administrador.apellidos, administrador.dni, administrador.telefono, administrador.direccion, usuario.email, administrador.foto, administrador.idadministrador
     FROM     administrador INNER JOIN
                       usuario ON administrador.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";
@@ -89,6 +98,14 @@ function listarAdministrador($email,$conn) {
         $vec[]=$f;
     return $vec;
 }
+
+//Función para actualizar el cliente por idusuario
+function actualizarDatosAdministrador($idadministrador, $nombres, $apellidos, $telefono, $direccion, $dni,$foto, $conn)
+{
+    $sql = "UPDATE administrador SET nombres = '$nombres', apellidos = '$apellidos', telefono = '$telefono', direccion = '$direccion', dni = '$dni',foto ='$foto' WHERE idadministrador = $idadministrador;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
 
 
 #-------Consultas relacionadas a la pagina principal de administrador-------
@@ -101,7 +118,7 @@ function agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$
 
 //Función para listar los datos del cliente por idusuario
 function listarVeterinario($email,$conn) {
-    $sql="SELECT veterinario.nombres, veterinario.apellidos, veterinario.dni, veterinario.telefono, veterinario.direccion, usuario.email, veterinario.foto
+    $sql="SELECT veterinario.nombres, veterinario.apellidos, veterinario.dni, veterinario.telefono, veterinario.direccion, usuario.email, veterinario.foto,veterinario.idveterinario
     FROM     veterinario INNER JOIN
                       usuario ON veterinario.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";
@@ -112,5 +129,11 @@ function listarVeterinario($email,$conn) {
     return $vec;
 }
 
+#Vacunas
+//Ingresar datos de la vacuna
+function agregarDatosVacuna($lote,$tipo,$descripcion,$conn){
+    $sql="insert into vacuna(lote,tipo,descripcion) values ('$lote','$tipo','$descripcion')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
 ?>
 

@@ -30,6 +30,9 @@
 		else if($tipoUsuario=="Cliente"){
 			$fotuser = "../imagenes/fotosperfil/cliente/".$foto;
 		}
+		else if($tipoUsuario=="Veterinario"){
+			$fotuser = "../imagenes/fotosperfil/veterinario/".$foto;
+		}
 		copy($ruta, $fotuser);
 	}
 	else {
