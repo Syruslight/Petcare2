@@ -250,9 +250,10 @@ $conn = conectar();
                                 <input class="estilo-separado1" type="TEXT" name="dni"  value="<?= $value[3] ?> "required>
                                 <label for=""> DNI</label>
                             </div>
-                            
                             <input hidden name="idveterinario"  value="<?= $value[7] ?> "required>
-                            
+
+                            <input hidden name="foto2"  value="<?= $value[6] ?> "required>
+
                         </div> 
                         <div class="modalFoot">
                                 <div class="input-group3">
