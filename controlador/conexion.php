@@ -101,7 +101,7 @@ function agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$
 
 //Función para listar los datos del cliente por idusuario
 function listarVeterinario($email,$conn) {
-    $sql="SELECT veterinario.nombres, veterinario.apellidos, veterinario.dni, veterinario.telefono, veterinario.direccion, usuario.email, veterinario.foto
+    $sql="SELECT veterinario.nombres, veterinario.apellidos, veterinario.dni, veterinario.telefono, veterinario.direccion, usuario.email, veterinario.foto,veterinario.idveterinario
     FROM     veterinario INNER JOIN
                       usuario ON veterinario.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";

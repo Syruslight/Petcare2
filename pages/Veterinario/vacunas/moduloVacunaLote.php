@@ -1,3 +1,7 @@
+<?php
+require('../../../controlador/conexion.php');
+$conn = conectar();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,20 +22,24 @@
                 <div class="logo">
                     <img src="../../imagenes/perfilVeterinario/logo.png" alt="Logo" width="168" height="46">
                 </div>
-                
+                <?php
+                session_start();
+                $email = $_SESSION['email'];
+                foreach (listarVeterinario($email, $conn) as $key => $value) {
+                    ?>
 
-                    <img src="" alt="profile" width="217"
-                        height="227">
-                    <div class="profile-information">
-
-                        <span class="user">
-                          
-                        <img class="image-profile" src="../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32"
-                            height="30">
-                    </div>
-                    <span class="id"> 
-                
-            </div>
+<img src="../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile" width="217" height="227">
+        <div class="profile-information">
+              
+            <span class="user"><?= $value[0] ?>
+                            <?= $value[1] ?></span>
+            <img class="image-profile"src="../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
+        </div >
+        <span class="id"> <?= $value[2] ?> </span>
+        <?php
+                }
+                ?>
+        </div>
             <div class="second-seccion">
                 <div class="categories">
                     <div class="icons">
@@ -106,16 +114,27 @@
 --------------------------------------------------------------
 <form action="" method="post">
   <h2 class="titulo_detallevac">Formulario vacuna</h2>
-  <p class="textobusqueda">Ingrese el RENIAN de la mascota:</p>
-  <input type="search" name="busqueda" id="busqueda" class="busqueda" required>
+  <p class="textobusqueda" >Ingrese el RENIAN de la mascota:</p>
+  <input type="search" name="busqueda" id="busqueda" class="busqueda" placeholder="Renian mascota" required>
   <br>
   <input type="text" name="idMascota" id="idMascota" placeholder="ID Mascota" readonly>
   <div class="grupotex">
   <input type="text" name="nombreMascota" id="nombreMascota" placeholder="Nombre de la mascota" readonly>
   </div>
-  <input type="search" name="busqueda2" id="busqueda2" class="busqueda" required>
+  <input type="search" name="busqueda2" id="busqueda2" class="busqueda" placeholder="lote de la vacuna" required>
   <br>
-  <input type="text" name="idVacuna" id="idVacuna" placeholder="ID Mascota" readonly>
+  <input type="text" name="idVacuna" id="idVacuna" placeholder="ID vacuna" readonly>
+  <div class="grupotex">
+<input  type="text" name="idVeterinario"  value="   <?= $value[7] ?>">
+<label for="" class="etiqueta_nombre">Proxima fecha:</label>
+<input type="date" name="fechaVacuna" id="" class="ingreso_datos">
+</div>
+<div class="grupotex">
+<label for="" class="etiqueta_nombre">Observación</label>
+<input type="text" name="Observacion" id="" class="ingreso_datos">
+</div>
+<label for="" class="etiqueta_nombre">Restricciones</label>
+<input type="text" name="Restricciones" id="" class="ingreso_datos">
 </form>
 
 <script>
@@ -153,28 +172,43 @@
     });
   });
 </script>
+
+
+<script>
+  $(document).ready(function() {
+    $('#busqueda2').keyup(function() {
+      var query = $(this).val();
+
+      if (query !== '') {
+        $.ajax({
+          url: 'proceso_busquedaIdVacuna.php',
+          method: 'POST',
+          data: { query: query },
+          success: function(response) {
+            if (response !== 'No se encontraron resultados.') {
+              // Separar la respuesta en ID y Nombre de mascota
+              var result = response.split(';');
+              var idVacuna = result[0];
+
+              // Actualizar los valores de los campos del formulario
+              $('#idVacuna').val(idVacuna);
+            } else {
+              // Limpiar los campos si no se encontraron resultados
+              $('#idMascota').val('');
+            }
+          }
+        });
+      } else {
+        // Limpiar los campos si no hay entrada de búsqueda
+        $('#idMascota').val('');
+        $('#nombreMascota').val('');
+      }
+    });
+  });
+</script>
 ----------------------------------------------------------
 
 
-<form action="" method="post">
-                <div class="grupotex">
-                    <label for="" class="etiqueta_nombre">Tipo:</label>
-                    <input type="texto" name="" id="" class="ingreso_datos">
-                </div>
-                <div class="grupotex">
-
-                    <label for="" class="etiqueta_nombre">Proxima fecha:</label>
-                    <input type="date" name="" id="" class="ingreso_datos">
-                </div>
-                <div class="grupotex">
-                    <label for="" class="etiqueta_nombre">Observación</label>
-                    <input type="text" name="" id="" class="ingreso_datos">
-                </div>
-                <label for="" class="etiqueta_nombre">Restricciones</label>
-                <input type="text" name="" id="" class="ingreso_datos">
-
-
-            </form>
 
             <script src="../../../js/modalCliente.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

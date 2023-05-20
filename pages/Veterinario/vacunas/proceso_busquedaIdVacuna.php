@@ -1,7 +1,7 @@
 <?php
 // Conexión a la base de datos (ajusta los datos de conexión según tu configuración)
 $servername = 'localhost';
-$username = 'usuario';
+$username = 'root';
 $password = '';
 $dbname = 'petcare';
 
@@ -15,24 +15,16 @@ if ($conn->connect_error) {
 $query = $_POST['query'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT idmascota,nombre FROM mascota WHERE renian LIKE '%$query%'";
+$sql = "SELECT idvacuna FROM vacuna WHERE lote LIKE '%$query%'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  // Construir la tabla de resultados
-  $output = '<table>';
-  $output .= '<tr><th>Columna 1</th><th>Columna 2</th></tr>';
+  $output = '';
 
   while ($row = $result->fetch_assoc()) {
-    $output .= '<tr>';
-    $output .= '<td>' . $row['idmascota'] . '</td>';
-    $output .= '<td>' . $row['nombre'] . '</td>';
-    $output .= '</tr>';
+    $output .= $row['idvacuna'];
   }
-
-  $output .= '</table>';
 } else {
-  // No se encontraron resultados
   $output = 'No se encontraron resultados.';
 }
 
