@@ -44,7 +44,7 @@ $conn = conectar();
 <div class="wrapper">
     <div class="profile">
     <?php
-            include('../components/navList.php');
+            include('../components/navListAdministrador.php');
         ?>
     </div>
     <div class="dash-information">
@@ -55,8 +55,7 @@ $conn = conectar();
                     </span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
                     <img src="../../../imagenes/fotosperfil/administrador/<?= $value[6] ?>" alt="profile" width="38"
                         height="39">
-            </div>
-               
+            </div>               
         <div class="wrapper-drawer">
                 <h1>Mis servicios</h1>
 
