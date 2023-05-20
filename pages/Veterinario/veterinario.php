@@ -30,7 +30,7 @@ $conn = conectar();
     <div class="dash-information">
         <div class="dash-header">
             <span class="tittle-header">Luis Alberto :V</span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
-            <img src="../../imagenes/perfilVeterinario/veterinario.png" alt="profile" width="38" height="39">
+            <img src="../../../imagenes/fotoperfil/veterinario/<?= $value[6] ?>" alt="profile" width="38" height="39">
         </div>
 
 <div class="wrapper-corpes">
@@ -220,11 +220,11 @@ $conn = conectar();
                         &#10006
                     </div> 
                 </div>
-                    <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data" method="POST">
+                    <form action="../../llamadas/proceso_actualizarDatosVeterinario.php" enctype="multipart/form-data" method="POST">
                         
                         <div class="editheader">
                             <aside class="contfoto">
-                                <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" class="modal__img" width="95" height="89">
+                                <img class="fotous" src="../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" class="modal__img" width="95" height="89">
                                 <input id="foto" type="file" name="foto">
                                 
                             </aside>
@@ -251,7 +251,7 @@ $conn = conectar();
                                 <label for=""> DNI</label>
                             </div>
                             
-                            <input hidden name="idcliente"  value="<?= $value[7] ?> "required>
+                            <input hidden name="idveterinario"  value="<?= $value[7] ?> "required>
                             
                         </div> 
                         <div class="modalFoot">

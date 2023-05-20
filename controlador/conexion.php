@@ -128,7 +128,11 @@ function listarVeterinario($email,$conn) {
         $vec[]=$f;
     return $vec;
 }
-
+//Funcion para actualizar los datos del veterinario
+function actualizarVeterinario($idveterinario, $nombres, $apellidos,$telefono, $direccion, $dni, $foto, $conn){
+    $sql= "UPDATE veterinario SET nombres = '$nombres', apellidos = '$apellidos', telefono = '$telefono', direccion = '$direccion', dni = '$dni',foto ='$foto' WHERE idveterinario = $idveterinario;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
 #Vacunas
 //Ingresar datos de la vacuna
 function agregarDatosVacuna($lote,$tipo,$descripcion,$conn){
