@@ -309,44 +309,49 @@ $conn = conectar();
             <div class="cuadro_modal">
                 <div class="top-form">
                     <div class="titulo-h2">
-                        <h2 class="tituloform">Editarr Datos</h2>
+                        <h2 class="tituloform">Editar Datos</h2>
                     </div>
                 <div id="close-modal">
                         &#10006
                     </div> 
                 </div>
-                    <form action="">
+                    <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data" method="POST">
+                        
                         <div class="editheader">
                             <aside class="contfoto">
                                 <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" class="modal__img" width="95" height="89">
-                                <input type="file">
+                                <input id="foto" type="file" name="foto">
+                                
                             </aside>
                             <section class="textonomap">
                                 <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="" value="<?= $value[0] ?>" required>
+                                    <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>" required>
                                     <label for=""> Nombres</label>
+                                    
                                 </div>
                                 <div class="input-group">
-                                    <input class="estilo-separado" type="text" name=""  value="<?= $value[1] ?>" required>
+                                    <input class="estilo-separado" type="text" name="apellidos"  value="<?= $value[1] ?>" required>
                                     <label for=""> Apellidos</label>
                                 </div>
-                        
+
                             </section>                                       
                                  </div>
                         <div class="modalinf">
                             <div class="input-group1">
-                                <input class="estilo-separado1" type="TEXT" name=""  value="<?= $value[3] ?>" required>
+                                <input class="estilo-separado1" type="TEXT" name="telefono"  value="<?= $value[3] ?>" required>
                                 <label for=""> Telefono</label>
                             </div>
                             <div class="input-group2">
-                                <input class="estilo-separado1" type="TEXT" name=""  value="<?= $value[2] ?> "required>
+                                <input class="estilo-separado1" type="TEXT" name="dni"  value="<?= $value[2] ?> "required>
                                 <label for=""> DNI</label>
                             </div>
-                           
+                            
+                            <input hidden name="idcliente"  value="<?= $value[7] ?> "required>
+                            
                         </div> 
                         <div class="modalFoot">
                                 <div class="input-group3">
-                                <input class="estilo-separado" type="text" name=""  value="<?= $value[4] ?>" required>
+                                <input class="estilo-separado" type="text" name="direccion"  value="<?= $value[4] ?>" required>
                                 <label for=""> Dirección</label>
                             </div>
                             </div>

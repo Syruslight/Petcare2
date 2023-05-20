@@ -50,9 +50,18 @@ function agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$dire
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
+//Funcion para actualizar el cliente por idusuario 
+// Función para actualizar el cliente por idusuario
+function actualizarDatosCliente($idCliente, $nombres, $apellidos, $telefono, $direccion, $dni,$foto, $conn)
+{
+    $sql = "UPDATE cliente SET nombres = '$nombres', apellidos = '$apellidos', telefono = '$telefono', direccion = '$direccion', dni = '$dni',foto ='$foto' WHERE idcliente = $idCliente;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+
 //Funcion para listar los datos del cliente
 function listarCliente($email,$conn) {
-    $sql="SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email, cliente.foto
+    $sql="SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email, cliente.foto, cliente.idcliente
     FROM     cliente INNER JOIN
                       usuario ON cliente.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";
