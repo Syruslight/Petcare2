@@ -22,7 +22,7 @@ $conn = conectar();
     <title>Pagina de administrador</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-  $(document).ready(function() {
+    $(document).ready(function() {
       $('#busqueda').on('input', function() {
         var query = $(this).val();
         $.ajax({
@@ -144,8 +144,9 @@ $conn = conectar();
                     </button>
                 </div>
                 <div class="wrapper-search">
-                <span>Buscar: <input type="search" name="searchuser" placeholder="Dni, nombre, telefono..."></span>           
+                <span>Buscar: <input type="search" id="busqueda" name="searchuser" placeholder="Dni, nombre, telefono..."></span>           
                 </div>
+                <div id="resultados">
                 <div class="wrapper-dates">
                     <div class="dates-name">
                         <span class="text-dates">Nombre</span>
@@ -250,7 +251,7 @@ $conn = conectar();
                        </div>
                     </div>
                 </div>
-
+                </div>
             </div> 
 
 
