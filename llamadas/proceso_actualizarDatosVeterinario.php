@@ -25,6 +25,6 @@
         $foto = $foto_anterior;
     }
 
-    actualizarVeterinario($idveterinario, $nombres, $apellidos, $dni, $telefono, $direccion, $foto, $conn);
+    actualizarVeterinario($idveterinario, $nombres, $apellidos, $telefono, $direccion,$dni, $foto, $conn);
     header('Location: ../pages/Veterinario/veterinario.php');
 ?>

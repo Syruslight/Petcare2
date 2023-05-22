@@ -26,7 +26,7 @@ $conn = conectar();
       $('#busqueda').on('input', function() {
         var query = $(this).val();
         $.ajax({
-          url: 'proceso_busqueda.php',
+          url: '../../../llamadas/proceso_busqueda_cliente.php',
           method: 'POST',
           data: { query: query },
           success: function(response) {
@@ -147,110 +147,7 @@ $conn = conectar();
                 <span>Buscar: <input type="search" id="busqueda" name="searchuser" placeholder="Dni, nombre, telefono..."></span>           
                 </div>
                 <div id="resultados">
-                <div class="wrapper-dates">
-                    <div class="dates-name">
-                        <span class="text-dates">Nombre</span>
-
-                        <div class="client-information">
-                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/user-male.png" alt="user-male"/>
-                        <div class="name-lastname">
-                            <span class="first-name">Manuel Renato</span>
-                            <span class="last-name">Quintero Quispe</span>
-                        </div>
-
-                        </div>
-                        <div class="client-information">
-                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/businesswoman.png" alt="businesswoman"/>
-                        <div class="name-lastname">
-                            <span class="first-name">Jessie Sophia</span>
-                            <span class="last-name">Sanchez soto</span>
-                        </div>
-
-                        </div>
-                        <div class="client-information">
-                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/user-male.png" alt="user-male"/>
-                        <div class="name-lastname">
-                            <span class="first-name">Manuel Renato</span>
-                            <span class="last-name">Quintero Quispe</span>
-                        </div>
-
-                        </div>
-                        <div class="client-information">
-                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/businesswoman.png" alt="businesswoman"/>
-                        <div class="name-lastname">
-                            <span class="first-name">Jessie Sophia</span>
-                            <span class="last-name">Sanchez soto</span>
-                        </div>
-                        </div>
-
-                        <div class="client-information">
-                        <img width="50" height="50" src="https://img.icons8.com/bubbles/50/user-male.png" alt="user-male"/>
-                        <div class="name-lastname">
-                            <span class="first-name">Manuel Renato</span>
-                            <span class="last-name">Quintero Quispe</span>
-                        </div>
-                        </div>
-
-                    </div>
-                    <div class="dates-email">
-                        <span class="text-dates">E-mail</span>
-
-                        <div class="e-mail">
-                            <span>manuel@gmail.com</span>
-                        </div>
-                        <div class="e-mail">
-                            <span>Jessie@gmail.com</span>
-                        </div>
-                        <div class="e-mail">
-                            <span>manuel@gmail.com</span>
-                        </div>
-                        <div class="e-mail">
-                            <span>Jessie@gmail.com</span>
-                        </div>
-                        <div class="e-mail">
-                            <span>manuel@gmail.com</span>
-                        </div>
-                   
-                    </div>
-                    <div class="dates-cellphone">
-                        <span class="text-dates">Telefono</span>
-
-                        <div class="cell-phone">
-                            <span>981424545</span>
-                        </div>
-                        <div class="cell-phone">
-                            <span>981424545</span>
-                        </div>
-                        <div class="cell-phone">
-                            <span>981424545</span>
-                        </div>
-                        <div class="cell-phone">
-                            <span>981424545</span>
-                        </div>
-                        <div class="cell-phone">
-                            <span>981424545</span>
-                        </div>
-
-                    </div>
-                    <div class="dates-info">
-                        <span class="text-dates"> Informacion </span>
-                       <div class="button-see">
-                           <button>Ver Cliente</button>
-                       </div>
-                       <div class="button-see">
-                           <button>Ver Cliente</button>
-                       </div>
-                       <div class="button-see">
-                           <button>Ver Cliente</button>
-                       </div>
-                       <div class="button-see">
-                           <button>Ver Cliente</button>
-                       </div>
-                       <div class="button-see">
-                           <button>Ver Cliente</button>
-                       </div>
-                    </div>
-                </div>
+   
                 </div>
             </div> 
 
@@ -408,7 +305,7 @@ $conn = conectar();
                             </div>
                             
                             <input hidden name="idadministrador"   value="<?= $value[7] ?> "required>
-                            
+                            <input hidden name="foto2"  value="<?= $value[6] ?> "required>
                         </div> 
                         <div class="modalFoot">
                                 <div class="input-group3">

@@ -286,7 +286,7 @@ $conn = conectar();
                             </div>
                             
                             <input hidden name="idcliente"  value="<?= $value[7] ?> "required>
-                            
+                            <input hidden name="foto2"  value="<?= $value[6] ?> "required>
                         </div> 
                         <div class="modalFoot">
                                 <div class="input-group3">
