@@ -15,10 +15,14 @@ if ($conn->connect_error) {
 $query = $_POST['query'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT *
-FROM cliente, usuario
-WHERE nombres LIKE '%$query%' AND cliente.idusuario = usuario.idusuario
-LIMIT 5;";
+$sql = "SELECT u.email, c.nombres, c.apellidos, c.dni, c.telefono,c.foto
+FROM cliente c
+INNER JOIN usuario u ON c.idusuario = u.idusuario
+WHERE c.dni LIKE '%$query%' OR c.nombres LIKE '%$query%'
+LIMIT 5;
+";
+
+
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

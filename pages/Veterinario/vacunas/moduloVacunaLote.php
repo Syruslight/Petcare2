@@ -97,12 +97,12 @@ $conn = conectar();
             if (response !== 'No se encontraron resultados.') {
               // Separar la respuesta en ID y Nombre de mascota
               var result = response.split(';');
-              var idMascota = result[0];
-              var nombreMascota = result[1];
+              var idMascotaRenian = result[0];
+              var nombreMascotaRenian = result[1];
 
               // Actualizar los valores de los campos del formulario
-              $('#idMascota').val(idMascota);
-              $('#nombreMascota').val(nombreMascota);
+              $('#idMascota').val(idMascotaRenian);
+              $('#nombreMascota').val(nombreMascotaRenian);
             } else {
               // Limpiar los campos si no se encontraron resultados
               $('#idMascota').val('');
@@ -132,7 +132,7 @@ $conn = conectar();
           data: { query: query },
           success: function(response) {
             if (response !== 'No se encontraron resultados.') {
-              // Separar la respuesta en ID y Nombre de mascota
+              // Separar la respuesta en ID de vacuna
               var result = response.split(';');
               var idVacuna = result[0];
 
@@ -140,18 +140,18 @@ $conn = conectar();
               $('#idVacuna').val(idVacuna);
             } else {
               // Limpiar los campos si no se encontraron resultados
-              $('#idMascota').val('');
+              $('#idVacuna').val('');
             }
           }
         });
       } else {
         // Limpiar los campos si no hay entrada de búsqueda
-        $('#idMascota').val('');
-        $('#nombreMascota').val('');
+        $('#idVacuna').val('');
       }
     });
   });
 </script>
+
 ----------------------------------------------------------
 
 

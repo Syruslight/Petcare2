@@ -22,21 +22,28 @@ $conn = conectar();
     <title>Pagina de administrador</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-    $(document).ready(function() {
-      $('#busqueda').on('input', function() {
-        var query = $(this).val();
-        $.ajax({
-          url: '../../../llamadas/proceso_busqueda_cliente.php',
-          method: 'POST',
-          data: { query: query },
-          success: function(response) {
-            $('#resultados').html(response);
-          }
-        });
-      });
-    });
+$(document).ready(function() {
+  // Ejecutar la búsqueda al cargar la página
+  buscarClientes('');
 
-    </script>
+  $('#busqueda').on('input', function() {
+    var query = $(this).val();
+    buscarClientes(query);
+  });
+});
+
+function buscarClientes(query) {
+  $.ajax({
+    url: '../../../llamadas/proceso_busqueda_cliente.php',
+    method: 'POST',
+    data: { query: query },
+    success: function(response) {
+      $('#resultados').html(response);
+    }
+  });
+}
+</script>
+
 </head>
 
 <body>
