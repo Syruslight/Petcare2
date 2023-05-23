@@ -199,7 +199,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
 
         <!-- MODAL REGISTRO -->
         <section class="modalMascota">
-            <div class="row" id="modal-Register" style="background-image: url(../../imagenes/perroCarrusel.jpg);"">
+            <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);"">
         <div class=" container">
                 <div class="row justify-content-end">
                     <span class="btn btn-dark modal__close" style="width: 50px;">X</span>
@@ -216,7 +216,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         <input hidden value="<?= $value[7] ?>" name="idCliente">
 
                         <!-- Combo de especies -->
-                        <select name="especie" id="especie" class="form-select" style="width: 189px;"
+                        <div class="select-RaEs">
+                        <select name="especie" id="especie" class="form-select" style="width: 193px;"
                             onchange="cargarRazas()">
                             <option selected>Selecciona Especie</option>
                             <?php
@@ -235,9 +236,10 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         </select>
 
                         <!-- Combo de razas -->
-                        <select name="raza" id="raza" class="form-select" style="width: 189px;">
+                        <select name="raza" id="raza" class="form-select" style="width: 193px;">
                             <option selected>Selecciona Raza</option>
                         </select>
+                        </div>
 
                         <!-- JavaScript -->
                         <script>
@@ -278,11 +280,15 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         </script>
 
 
+                        <div class="row-short">
+                        <input type="text" class="form-control ip" name="peso" placeholder="Peso">
+                        <input type="text" class="form-control ip" name="color" placeholder="Color">
+                        </div>
+                        <input type="text" class="form-control" id="renian" name="renian" placeholder="Renian">
+                        
 
-                        <input type="text" class="form-control" name="peso" placeholder="Peso">
-                        <input type="text" class="form-control" name="color" placeholder="Color">
                         <div class="cont-radio">
-                            <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 189px;">
+                            <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 193px;">
                                 <option selected>Selecciona Etapa</option>
                                 <option value="Cria">Cría</option>
                                 <option value="Juvenil">Juvenil</option>
@@ -296,11 +302,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                 <label class="form-check-label" for="no">No</label>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-12">
-                                <input type="text" class="form-control" id="renian" name="renian" placeholder="Renian">
-                            </div>
-                        </div>
+
 
 
                         <div class="row">
@@ -322,7 +324,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     </section>
     <!-- MODAL EDITAR -->
     <section class="modalMascotaEd">
-        <div class="row" id="modal-Register" style="background-image: url(../../imagenes/perroCarrusel.jpg);"">
+        <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);"">
         <div class=" container">
             <div class="row justify-content-end">
                 <span class="btn btn-dark modal__closeE" style="width: 50px;">X</span>
@@ -335,12 +337,12 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 <form action="" method="post">
                     <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre">
                     <input type="date" class="form-control">
-                    <select name="expecie" id="especie" class="form-select" style="width: 189px;">
+                    <select name="expecie" id="especie" class="form-select" style="width: 193px;">
                         <option selected>Selecciona Especie</option>
                         <option value="si">Perro</option>
                         <option value="no">Gato</option>
                     </select>
-                    <select name="raza" id="raza" class="form-select" style="width: 189px;">
+                    <select name="raza" id="raza" class="form-select" style="width: 193px;">
                         <option selected>Selecciona Raza</option>
                         <option value="si">Pitbull</option>
                         <option value="no">Golden</option>
@@ -349,7 +351,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                     <input type="text" class="form-control" name="color" placeholder="Color">
 
                     <div class="cont-radio">
-                        <select name="etapa" id="etapa" class="form-select" style="width: 189px;">
+                        <select name="etapa" id="etapa" class="form-select" style="width: 193px;">
                             <option selected>Selecciona Etapa</option>
                             <option value="si">Cría</option>
                             <option value="si">Juvenil</option>
