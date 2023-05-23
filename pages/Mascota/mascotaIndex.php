@@ -100,6 +100,37 @@ $conn = conectar();
                 }
                 ?>
 
+            <!-- Servicios -->
+            <div class="row align-items-center" id="row-servicios">
+                <div class="conte-servicio text-center">
+                    <!-- Items Servicio-->
+                    <div class="row justify-content-center">
+                        <div class="col-12 col-md-6 col-lg-3 card">
+                            <img src="../../Imagenes/mujer-corta-perro-perro-sentado-sofa-raza-yorkshire-terrier.jpg"
+                                alt="Baño y Corte">
+                            <h4 class="mt-3">Baño y Corte</h4>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 card">
+                            <img src="../../Imagenes/cerca-veterinario-cuidando-perro.jpg" alt="Consultas">
+                            <h4 class="mt-3">Consultas</h4>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-2 centxt animate__heartBeat">
+                            <h4 class="mt-3"><span>Servicios
+                                    <br>Disponibles</span></h4>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 card">
+                            <img src="../../Imagenes/lavar-perro-mascota-casa.jpg" alt="Enmotado">
+                            <h4 class="mt-3">Baño Medicado</h4>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3 card">
+                            <img src="../../Imagenes/perro-negro-grande-obteniendo-procedimiento-salon-peluqueria-mujer-joven-camiseta-blanca-peinando-perro-perro-atado-mesa-azul.jpg"
+                                alt="Enmotado">
+                            <h4 class="mt-3">Deslanado</h4>
+                        </div>
+                    </div>
+                    <!-- Fin Items Servicio-->
+                </div>
+            </div>
 
             <div class="container" id="row-tablaMascota">
                 <div class="row">
@@ -195,44 +226,28 @@ $conn = conectar();
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <td class="toget"><img src="../../imagenes/perrito.jpg" alt="" class="dimg">
+                                            </td>
+                                            <td>Lola</td>
+                                            <td>10/05/2021</td>
+                                            <td>8</td>
+                                            <td>9.5k</td>
+                                            <td>Marron oscuro</td>
+                                            <td class="th">Si</td>
+                                            <td class="td">
+                                                <a href="" class="butModalE btn btn-sm"
+                                                    style="background-color:#1BC5BD; color:#1D3534;">editar</a>
+                                                <a href="" class="btn btn-sm"
+                                                    style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
 
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <!-- Servicios -->
-            <div class="row align-items-center" id="row-servicios">
-                <div class="conte-servicio text-center">
-                    <!-- Items Servicio-->
-                    <div class="row justify-content-center">
-                        <div class="col-12 col-md-6 col-lg-3 card">
-                            <img src="../../Imagenes/mujer-corta-perro-perro-sentado-sofa-raza-yorkshire-terrier.jpg"
-                                alt="Baño y Corte">
-                            <h4 class="mt-1">Baño y Corte</h4>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3 card">
-                            <img src="../../Imagenes/cerca-veterinario-cuidando-perro.jpg" alt="Consultas">
-                            <h4 class="mt-1">Consultas</h4>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-2 centxt animate__heartBeat">
-                            <h4 class="mt-1"><span>Servicios
-                                    <br>Disponibles</span></h4>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3 card">
-                            <img src="../../Imagenes/lavar-perro-mascota-casa.jpg" alt="Enmotado">
-                            <h4 class="mt-1">Baño Medicado</h4>
-                        </div>
-                        <div class="col-12 col-md-6 col-lg-3 card">
-                            <img src="../../Imagenes/perro-negro-grande-obteniendo-procedimiento-salon-peluqueria-mujer-joven-camiseta-blanca-peinando-perro-perro-atado-mesa-azul.jpg"
-                                alt="Enmotado">
-                            <h4 class="mt-1">Deslanado</h4>
-                        </div>
-                    </div>
-                    <!-- Fin Items Servicio-->
                 </div>
             </div>
             <div class="footer">
