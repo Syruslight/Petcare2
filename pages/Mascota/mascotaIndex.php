@@ -2,6 +2,11 @@
 require('../../controlador/conexion.php');
 $conn = conectar();
 ?>
+  <?php
+                session_start();
+                $email = $_SESSION['email'];
+                foreach (listarCliente($email, $conn) as $key => $value) {
+                }?>
 <!--Perfil del cliente (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
 <html lang="en">
@@ -21,84 +26,18 @@ $conn = conectar();
 <body>
     <div class="wrapper">
         <div class="profile">
-            <div class="first-seccion">
-                <div class="logo">
-                    <img src="../../imagenes/perfilCliente/logo.png" alt="Logo" width="168" height="46">
-                </div>
-                <!--Codigo php para obtener la variable usuario-->
-                <?php
-                session_start();
-                $email = $_SESSION['email'];
-                foreach (listarCliente($email, $conn) as $key => $value) {
-                    ?>
-                <img src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="217" height="227">
-                <div class="profile-information">
-                    <span class="user">
-                        <?= $value[0] ?>
-                        <?= $value[1] ?>
-                    </span>
-                    <img class="boton-modal" src="../../imagenes/perfilCliente/pencil.png" alt="pencil" width="32"
-                        height="30">
-                </div>
-
-                <span class="id">DNI:
-                    <?= $value[2] ?>
-                </span>
-            </div>
-            <div class="second-seccion">
-                <div class="categories">
-                    <div class="icons">
-                        <img src="https://img.icons8.com/ios/50/null/health-data.png" width="25" height="25" />
-                        <span class="principal">Principal</span>
-                    </div>
-                    <div class="icons">
-                        <img src="https://img.icons8.com/ios/50/null/conference-call--v1.png" width="25" height="25" />
-                        <a href=""></a><span class="list">Mis mascotas</span>
-                    </div>
-                    <div class="icons">
-                        <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
-                        <span class="list">Productos</span>
-                    </div>
-                    <div class="icons">
-                        <img src="https://img.icons8.com/ios/50/null/database--v1.png" width="25" height="25" />
-                        <span class="list">servicios</span>
-                    </div>
-                    <div class="icons">
-                        <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25"
-                            height="25" />
-                        <span class="list">PetiPuntos </span>
-                    </div>
-                    <div class="icons">
-                        <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
-                        <span class="list">Reserva una cita</span>
-                    </div>
-                    <div class="icons">
-                        <img src="https://img.icons8.com/ios/50/null/help--v1.png" width="25" height="25" />
-                        <span class="list">Ayuda</span>
-                    </div>
-
-
-                    <div class="sign-off">
-
-                        <img src="https://img.icons8.com/ios/50/null/shutdown--v1.png" width="25" height="25" />
-                        <form action="../../llamadas/proceso_cerrar_sesion.php" method="POST">
-                            <button type="submit" class="list" name="">Cerrar sesión</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
+        <?php
+            include('components/navListMascota.php');
+        ?> 
         </div>
         <div class="dash-information">
-            <div class="dash-header">
-                <span class="tittle-header">
-                    <?= $value[0] ?>
-                    <?= $value[1] ?>
-                </span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
-                <img src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="38" height="39">
-            </div>
-            <?php
-                }
-                ?>
+        <div class="dash-header">
+                    <span class="tittle-header">
+                        <?= $value[0] ?>
+                        <?= $value[1] ?>
+                    </span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
+                    <img src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="38" height="39">
+                </div>
 
             <!-- Servicios -->
             <div class="row align-items-center" id="row-servicios">
@@ -434,46 +373,70 @@ $conn = conectar();
     </section>
     <!-- Modal Editar Cliente -->
     <section class="modal">
-        <div class="modal__container">
-            <div class="cuadro_modal">
-                <div class="top-form">
-                    <div id="close-modal">
-                        &#10006
-                    </div>
-                </div>
-                <div class="form-wrapper logeo">
-                    <form action="llamadas/proceso_logeoportipo.php">
-                        <div class="modal__profile">
-                            <img src="../../imagenes/perfilCliente/profile.png" class="modal__img" width="95"
-                                height="89">
-                            <img class="" src="../../imagenes/perfilCliente/pencil.png" width="32" height="30">
+            <div class="modal__container">
+                <div class="cuadro_modal">
+                    <div class="top-form">
+                        <div class="titulo-h2">
+                            <h2 class="tituloform">Editar Datos</h2>
                         </div>
-                        <span class="modal__user">
-                            <?= $_SESSION['usuario'] ?>
-                        </span>
+                    <div id="close-modal">
+                            &#10006
+                        </div> 
+                    </div>
+                        <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data" method="POST">
+                            
+                            <div class="editheader">
+                                <aside class="contfoto">
+                                    <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" class="modal__img" width="95" height="89">
+                                    <input id="foto" type="file" name="foto">
+                                    
+                                </aside>
+                                <section class="textonomap">
+                                    <div class="input-group">
+                                        <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>" required>
+                                        <label for=""> Nombres</label>
+                                        
+                                    </div>
+                                    <div class="input-group">
+                                        <input class="estilo-separado" type="text" name="apellidos"  value="<?= $value[1] ?>" required>
+                                        <label for=""> Apellidos</label>
+                                    </div>
+
+                                </section>                                       
+                                    </div>
+                            <div class="modalinf">
+                                <div class="input-group1">
+                                    <input class="estilo-separado1" type="TEXT" name="telefono"  value="<?= $value[3] ?>" required>
+                                    <label for=""> Telefono</label>
+                                </div>
+                                <div class="input-group2">
+                                    <input class="estilo-separado1" type="TEXT" name="dni"  value="<?= $value[2] ?> "required>
+                                    <label for=""> DNI</label>
+                                </div>
+                                
+                                <input hidden name="idcliente"  value="<?= $value[7] ?> "required>
+                                <input hidden name="foto2"  value="<?= $value[6] ?> "required>
+                            </div> 
+                            <div class="modalFoot">
+                                    <div class="input-group3">
+                                    <input class="estilo-separado" type="text" name="direccion"  value="<?= $value[4] ?>" required>
+                                    <label for=""> Dirección</label>
+                                </div>
+                                </div>
+                                <div class="contbtn">
+                                    <button class="btn-mod">ACTUALIZAR DATOS</button>
+                                </div>
+                                
+                        </form>
+        
                 </div>
-                <div class="modal__data">
-                    <div class="moda__info">
-                        <span>Nombre</span>
-                        <input type="text" name="nombre" value="John Doe">
-                    </div>
-                    <div class="moda__info">
-                        <span>Telefono</span>
-                        <input type="text" name="nombre" value="John Doe">
-                    </div>
-                    <div class="moda__info">
-                        <span>Direccion</span>
-                        <input type="text" name="nombre" value="John Doe">
-                    </div>
-                </div>
-                <button class="modal__button">Actualizar Datos</button>
             </div>
+        </section>
     </section>
-    </section>
 
 
 
-
+    <script src="../../js/Modal.js"></script>
     <script src="../../js/modalMascota.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
