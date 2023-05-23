@@ -45,9 +45,10 @@
   line-height: 22px;
   padding-right: 7px;
 }
-.image-profile {
-  cursor: pointer;
+.photo-profile {
+  border-radius: 50%;
 }
+
 .id {
   font-family: "Poppins";
   font-style: normal;
@@ -493,6 +494,7 @@
 
 .boton-modal {
   background-image: url("../../imagenes/perfilCliente/pencil.png");
+  cursor: pointer;
 }
 .modal {
   position: fixed;

@@ -39,7 +39,9 @@ $conn = conectar();
         ?> 
         </div>
             <div class="dash-information">
-
+            <?php
+            include('components/headerCliente.php');
+        ?> 
                 
             <div class="wrapper-petypuntos">
                 <div class="petypuntos-top">
