@@ -108,24 +108,24 @@ $conn = conectar();
                         <div class="col-12 col-md-6 col-lg-3 card">
                             <img src="../../Imagenes/mujer-corta-perro-perro-sentado-sofa-raza-yorkshire-terrier.jpg"
                                 alt="Baño y Corte">
-                            <h4 class="mt-3">Baño y Corte</h4>
+                            <h4 class="mt-2">Baño y Corte</h4>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 card">
                             <img src="../../Imagenes/cerca-veterinario-cuidando-perro.jpg" alt="Consultas">
-                            <h4 class="mt-3">Consultas</h4>
+                            <h4 class="mt-2">Consultas</h4>
                         </div>
                         <div class="col-12 col-md-6 col-lg-2 centxt animate__heartBeat">
-                            <h4 class="mt-3"><span>Servicios
+                            <h4 class="mt-2"><span>Servicios
                                     <br>Disponibles</span></h4>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 card">
                             <img src="../../Imagenes/lavar-perro-mascota-casa.jpg" alt="Enmotado">
-                            <h4 class="mt-3">Baño Medicado</h4>
+                            <h4 class="mt-2">Baño Medicado</h4>
                         </div>
                         <div class="col-12 col-md-6 col-lg-3 card">
                             <img src="../../Imagenes/perro-negro-grande-obteniendo-procedimiento-salon-peluqueria-mujer-joven-camiseta-blanca-peinando-perro-perro-atado-mesa-azul.jpg"
                                 alt="Enmotado">
-                            <h4 class="mt-3">Deslanado</h4>
+                            <h4 class="mt-2">Deslanado</h4>
                         </div>
                     </div>
                     <!-- Fin Items Servicio-->
@@ -138,9 +138,9 @@ $conn = conectar();
                         <div class="card">
                             <div class="card-header">
                                 <h4>Mis mascotas
-                                    <a href="" class="butModal btn float-end"
+                                    <a href="" class="butModal btn float-end sa"
                                         style="background-color:#399731;">Agregar</a>
-                                    <a href="" class="btn float-end" style="background-color:#C01C1C">Eliminar</a>
+                                    <a href="" class="btn float-end sa" style="background-color:#C01C1C">Eliminar</a>
                                 </h4>
                             </div>
                             <div class="card-body">

@@ -138,11 +138,11 @@ body::-webkit-scrollbar-thumb{
     font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 21px;
-    color: #264653;
-    padding-right: 17px;
-    padding-top: 24px;
+    color: #2c515f;
+    padding-right: 8px;
+    padding-top: 18px;
   }
 
 /* Servicios */
@@ -167,11 +167,14 @@ body::-webkit-scrollbar-thumb{
     margin: 10px;  
     border-radius: 20px;
     width: 16%;
-    height: 32vh;
+    height: 30vh;
 }
 #row-servicios .card:hover{
     box-shadow: 5px 5px 20px rgba(0,0,0,0.4);
     transform: translateY(-3%);
+}
+#row-servicios .card:hover h4{
+  color: #ffffff;
 }
 #row-servicios .row .card img{
     width: 100%; 
@@ -252,6 +255,16 @@ body::-webkit-scrollbar-thumb{
   font-size: 13px;
   font-weight: 680;
   height: 32px;
+}
+#row-tablaMascota .btn:hover{
+  /* transform: translate(-3%); */
+  transition: 0.3s;
+  transform: scale(1.1);
+  color: #000000;
+}
+tbody tr:hover{
+  color: #000000;
+  font-weight: 700;
 }
 .td{
   padding: 8px 0px 8px 0px;
