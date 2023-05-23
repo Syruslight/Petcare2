@@ -2,11 +2,11 @@
 require('../../controlador/conexion.php');
 $conn = conectar();
 ?>
-  <?php
-                session_start();
-                $email = $_SESSION['email'];
-                foreach (listarCliente($email, $conn) as $key => $value) {
-                }?>
+<?php
+session_start();
+$email = $_SESSION['email'];
+foreach (listarCliente($email, $conn) as $key => $value) {
+} ?>
 <!--Perfil del cliente (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
 <html lang="en">
@@ -26,18 +26,18 @@ $conn = conectar();
 <body>
     <div class="wrapper">
         <div class="profile">
-        <?php
+            <?php
             include('components/navListMascota.php');
-        ?> 
+            ?>
         </div>
         <div class="dash-information">
-        <div class="dash-header">
-                    <span class="tittle-header">
-                        <?= $value[0] ?>
-                        <?= $value[1] ?>
-                    </span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
-                    <img src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="38" height="39">
-                </div>
+            <div class="dash-header">
+                <span class="tittle-header">
+                    <?= $value[0] ?>
+                    <?= $value[1] ?>
+                </span> <!--Se abre codigo php para invocar a la sesion del 'usuario'-->
+                <img src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="38" height="39">
+            </div>
 
             <!-- Servicios -->
             <div class="row align-items-center" id="row-servicios">
@@ -209,28 +209,29 @@ $conn = conectar();
                     <h3 class="mt-1 mb-4"><span>Registro Mascota</span></h3>
                 </div>
                 <div class="row data">
-                    <form action="" method="post">
-                        <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre">
-                        <input type="date" class="form-control">
-                        <input hidden value="<?= $value[7]?>" name="idCliente">
+                    <form action="../../llamadas/proceso_registromascota.php" method="post"
+                        enctype="multipart/form-data">
+                        <input type="text" id="nombre" class="form-control" name="nombreMascota" placeholder="Nombre">
+                        <input type="date" name="fechaNac" class="form-control">
+                        <input hidden value="<?= $value[7] ?>" name="idCliente">
 
                         <!-- Combo de especies -->
                         <select name="especie" id="especie" class="form-select" style="width: 189px;"
                             onchange="cargarRazas()">
                             <option selected>Selecciona Especie</option>
                             <?php
-    // Obtener los datos de la tabla de la base de datos
-    $queryEspecies = "SELECT * FROM especie"; // Reemplaza "tabla_especie" con el nombre de tu tabla
-    $resultEspecies = mysqli_query($conn, $queryEspecies);
+                            // Obtener los datos de la tabla de la base de datos
+                            $queryEspecies = "SELECT * FROM especie"; // Reemplaza "tabla_especie" con el nombre de tu tabla
+                            $resultEspecies = mysqli_query($conn, $queryEspecies);
 
-    // Generar las opciones del select utilizando los datos obtenidos
-    while ($rowEspecie = mysqli_fetch_assoc($resultEspecies)) {
-        $nombreEspecie = $rowEspecie['nombre']; // Reemplaza "nombre_especie" con el nombre de columna correspondiente
-        $valorEspecie = $rowEspecie['idespecie']; // Reemplaza "valor_especie" con el nombre de columna correspondiente
-
-        echo "<option value=\"$valorEspecie\">$nombreEspecie</option>";
-    }
-    ?>
+                            // Generar las opciones del select utilizando los datos obtenidos
+                            while ($rowEspecie = mysqli_fetch_assoc($resultEspecies)) {
+                                $nombreEspecie = $rowEspecie['nombre']; // Reemplaza "nombre_especie" con el nombre de columna correspondiente
+                                $valorEspecie = $rowEspecie['idespecie']; // Reemplaza "valor_especie" con el nombre de columna correspondiente
+                            
+                                echo "<option value=\"$valorEspecie\">$nombreEspecie</option>";
+                            }
+                            ?>
                         </select>
 
                         <!-- Combo de razas -->
@@ -256,12 +257,14 @@ $conn = conectar();
                                             razaSelect.innerHTML = '<option selected>Selecciona Raza</option>';
 
                                             // Generar las opciones del combo de razas utilizando los datos obtenidos
+                                            // Generar las opciones del combo de razas utilizando los datos obtenidos
                                             razas.forEach(function (raza) {
                                                 var option = document.createElement('option');
-                                                option.value = raza.idraza;
+                                                option.value = raza.idraza + '-' + raza.nombre; // Concatena el id y el nombre con un guion
                                                 option.text = raza.nombre;
                                                 razaSelect.appendChild(option);
                                             });
+
                                         } else {
                                             console.log('Error al cargar las razas');
                                         }
@@ -279,33 +282,41 @@ $conn = conectar();
                         <input type="text" class="form-control" name="peso" placeholder="Peso">
                         <input type="text" class="form-control" name="color" placeholder="Color">
                         <div class="cont-radio">
-                            <select name="etapa" id="etapa" class="form-select" style="width: 189px;">
+                            <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 189px;">
                                 <option selected>Selecciona Etapa</option>
-                                <option value="si">Cría</option>
-                                <option value="si">Juvenil</option>
-                                <option value="no">Adulto</option>
+                                <option value="Cria">Cría</option>
+                                <option value="Juvenil">Juvenil</option>
+                                <option value="Adulto">Adulto</option>
                             </select>
                             <div class="cont-este">
                                 <label class="form-check-label">Esterilizado:</label>
-                                <input type="radio" name="esteri" class="form-check-input" id="si">
+                                <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI">
                                 <label class="form-check-label" for="si">Si</label>
-                                <input type="radio" name="esteri" class="form-check-input" id="no">
+                                <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO">
                                 <label class="form-check-label" for="no">No</label>
                             </div>
                         </div>
                         <div class="row">
+                            <div class="col-12">
+                                <input type="text" class="form-control" id="renian" name="renian" placeholder="Renian">
+                            </div>
+                        </div>
+
+
+                        <div class="row">
                             <input class="form-control form-control-sm" id="foto" type="file" name="foto">
+                        </div>
+                        <div class="row">
+                            <div class="fotoPos">
+                                <div class="foto"></div>
+                            </div>
+                            <div class="button">
+                                <input type="submit" name="registrar" value="Registrar" class="btn">
+                            </div>
                         </div>
                     </form>
                 </div>
-                <div class="row">
-                    <div class="fotoPos">
-                        <div class="foto"></div>
-                    </div>
-                    <div class="button">
-                        <input type="submit" name="registrar" value="Registrar" class="btn">
-                    </div>
-                </div>
+
             </div>
     </div>
     </section>
@@ -373,65 +384,71 @@ $conn = conectar();
     </section>
     <!-- Modal Editar Cliente -->
     <section class="modal">
-            <div class="modal__container">
-                <div class="cuadro_modal">
-                    <div class="top-form">
-                        <div class="titulo-h2">
-                            <h2 class="tituloform">Editar Datos</h2>
-                        </div>
-                    <div id="close-modal">
-                            &#10006
-                        </div> 
+        <div class="modal__container">
+            <div class="cuadro_modal">
+                <div class="top-form">
+                    <div class="titulo-h2">
+                        <h2 class="tituloform">Editar Datos</h2>
                     </div>
-                        <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data" method="POST">
-                            
-                            <div class="editheader">
-                                <aside class="contfoto">
-                                    <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" class="modal__img" width="95" height="89">
-                                    <input id="foto" type="file" name="foto">
-                                    
-                                </aside>
-                                <section class="textonomap">
-                                    <div class="input-group">
-                                        <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>" required>
-                                        <label for=""> Nombres</label>
-                                        
-                                    </div>
-                                    <div class="input-group">
-                                        <input class="estilo-separado" type="text" name="apellidos"  value="<?= $value[1] ?>" required>
-                                        <label for=""> Apellidos</label>
-                                    </div>
-
-                                </section>                                       
-                                    </div>
-                            <div class="modalinf">
-                                <div class="input-group1">
-                                    <input class="estilo-separado1" type="TEXT" name="telefono"  value="<?= $value[3] ?>" required>
-                                    <label for=""> Telefono</label>
-                                </div>
-                                <div class="input-group2">
-                                    <input class="estilo-separado1" type="TEXT" name="dni"  value="<?= $value[2] ?> "required>
-                                    <label for=""> DNI</label>
-                                </div>
-                                
-                                <input hidden name="idcliente"  value="<?= $value[7] ?> "required>
-                                <input hidden name="foto2"  value="<?= $value[6] ?> "required>
-                            </div> 
-                            <div class="modalFoot">
-                                    <div class="input-group3">
-                                    <input class="estilo-separado" type="text" name="direccion"  value="<?= $value[4] ?>" required>
-                                    <label for=""> Dirección</label>
-                                </div>
-                                </div>
-                                <div class="contbtn">
-                                    <button class="btn-mod">ACTUALIZAR DATOS</button>
-                                </div>
-                                
-                        </form>
-        
+                    <div id="close-modal">
+                        &#10006
+                    </div>
                 </div>
+                <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data"
+                    method="POST">
+
+                    <div class="editheader">
+                        <aside class="contfoto">
+                            <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>"
+                                class="modal__img" width="95" height="89">
+                            <input id="foto" type="file" name="foto">
+
+                        </aside>
+                        <section class="textonomap">
+                            <div class="input-group">
+                                <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>"
+                                    required>
+                                <label for=""> Nombres</label>
+
+                            </div>
+                            <div class="input-group">
+                                <input class="estilo-separado" type="text" name="apellidos" value="<?= $value[1] ?>"
+                                    required>
+                                <label for=""> Apellidos</label>
+                            </div>
+
+                        </section>
+                    </div>
+                    <div class="modalinf">
+                        <div class="input-group1">
+                            <input class="estilo-separado1" type="TEXT" name="telefono" value="<?= $value[3] ?>"
+                                required>
+                            <label for=""> Telefono</label>
+                        </div>
+                        <div class="input-group2">
+                            <input class="estilo-separado1" type="TEXT" name="dni" value="<?= $value[2] ?> " required>
+                            <label for=""> DNI</label>
+                        </div>
+
+                        <input hidden name="idcliente" value="<?= $value[7] ?> " required>
+                        <input hidden name="foto2" value="<?= $value[6] ?> " required>
+                    </div>
+                    <div class="modalFoot">
+                        <div class="input-group3">
+                            <input class="estilo-separado" type="text" name="direccion" value="<?= $value[4] ?>"
+                                required>
+                            <label for=""> Dirección</label>
+                        </div>
+                    </div>
+                    <div class="contbtn">
+                        <button class="btn-mod">ACTUALIZAR DATOS</button>
+                    </div>
+
+                </form>
+
             </div>
-        </section>
+        </div>
+    </section>
     </section>
 
 

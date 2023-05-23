@@ -63,5 +63,5 @@
 
 	//Despues de agregar los datos se actualiza el id del usuario:    
     $estadonuevo= 2;
-    actualizarEstadoCliente($idusuario,$estadonuevo,$conn);
+    actualizarEstado($idusuario,$estadonuevo,$conn);
 ?>

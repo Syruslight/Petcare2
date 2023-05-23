@@ -1,33 +1,45 @@
-
 <?php
-	require '../controlador/conexion.php';
-	$conn =conectar();
+require '../controlador/conexion.php';
+$conn = conectar();
 
-	$idusuario = 1; //Enviando por defecto le usuario 1 , falta ponerlo dinamico
-    $nombre = $_REQUEST['nombre'];
-    $foto = $_FILES['foto']['name'];
-	$ruta = $_FILES['foto']['tmp_name'];
+$idcliente = $_POST['idCliente'];
 
-    $fotuser = "";
-	if(!empty($foto)) {
-		$fotuser = "../imagenes/mascota/".$foto;
-		copy($ruta, $fotuser);
-	}
+$razaSeleccionada = $_POST['raza'];
+$razaData = explode('-', $razaSeleccionada);
+$idraza = $razaData[0];
 
-    agregarMascota($idusuario, $nombre, $fotuser,$conn);
-	
-    header('Location: ../paginas/mascota/perfil.php'); //falta ponerle el ? para navegar hacia la mascota creada
-?>
-<!--Ejmplo para implementar el id-->
-<?php
-	require '../controlador/conexion.php';
-	$conn =conectar();
+$nombre = $_POST['nombreMascota'];
+$fechaNac = $_POST['fechaNac'];
+$peso = $_POST['peso'];
+$color = $_POST['color'];
 
-	session_start();
-    $user = $_SESSION['usuario'];
-	
-	$title= $_REQUEST['title'];
-	$text= $_REQUEST['text'];
-    	
-	header('Location: ../paginas/notas/notas.php');
+$etapa = $_POST['etapa'];
+$renian = $_POST['renian'];
+$estado = 1;
+
+$esterilizado = "";
+if (isset($_POST['esterilizado'])) {
+    $esterilizado = $_POST['esterilizado'];
+}
+
+$fotoPerfil = "";
+if (!empty($_FILES['foto']['name'])) {
+    $fotoPerfil = $_FILES['foto']['name'];
+    $ruta = $_FILES['foto']['tmp_name'];
+}
+
+$fechaActualizada = date('Y-m-d', strtotime(str_replace('-', '/', $fechaNac)));
+
+if (!empty($fotoPerfil)) {
+    $rutaDestino = "../imagenes/fotosperfil/mascota/";
+    if (!is_dir($rutaDestino)) {
+        mkdir($rutaDestino, 0755, true);
+    }
+    $fotRutaMascota = $rutaDestino . $fotoPerfil;
+    move_uploaded_file($ruta, $fotRutaMascota);
+}
+
+agregarDatosMascota($idcliente, $idraza, $nombre, $fechaActualizada, $peso, $color, $fotoPerfil, $esterilizado, $etapa, $renian, $estado, $conn);
+
+header('Location: ../pages/Mascota/mascotaIndex.php');
 ?>
