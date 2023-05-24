@@ -438,6 +438,192 @@ align-items: center;
   justify-content: center;
 }
 
+/* Modal Carnet */
+#modal-Carnet{
+  margin:auto;
+  border-radius: 20px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  width: 950px;
+  height: 710px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  transform: var(--transform);
+  transition: var(--transition);
+}
+#modal-Carnet .container{
+  background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg) !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  width: 950px;
+  height: 520px;
+  border-radius: 15px;
+}
+.modal-SaludMascota .row .card-mascota{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32%;
+  height: 100%;
+}
+.modal-SaludMascota .row .card{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:95% !important;
+  /* width: 288px; */
+  text-align: center;
+  height: 100% !important;
+  border-radius: 20px;
+  background-color: #2A9D8F;
+  background: linear-gradient(rgba(42, 157, 143, 0.5), rgba(42,157,143,0.5));
+}
+.modal-SaludMascota .row .card-title{
+  width: 100%;
+  height: 9%;
+  margin-top: 20px;
+  margin-bottom: 0px;
+  font-size: 30px;
+  font-weight: 640;
+}
+.modal-SaludMascota .row .img-card{
+  width: 85%;
+  height: 50%;
+}
+
+.modal-SaludMascota .row .card-body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40%;
+}
+.modal-SaludMascota .row .card-body ul{
+  margin-bottom: 0px;
+  font-size: 18px;
+  font-weight: 600;
+}
+.modal-SaludMascota .row .card-body ul span{
+  background-color: #94d2bd;
+}
+.modal-SaludMascota .card .img-card img{
+  width: 90%;
+  height: 100%;
+  background-size: cover;
+  border: 8px solid #000000;
+  border-radius: 15px;
+}
+/* ------------------------------------------ */
+.modal-SaludMascota .row .card-carnet{
+  width: 68%;
+  height: 100%;
+  padding: 0px 0px 0px 0px;
+  border-radius: 20px;
+}
+.modal-SaludMascota .row .carnet-tit {
+  width: 100%;
+  height: 15%;
+  margin-left: 0px;
+  text-align: center;
+}
+.modal-SaludMascota .row .carnet-tit h1{
+  margin-top: 10px;
+  font-size: 44px;
+}
+.modal-SaludMascota .row .carnet-tabla{
+  width: 95%;
+  height: 82%;
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: center;
+  background-color: #C0DFD5;
+  margin-bottom: 1rem;
+  border-radius: 10px;
+}
+.modal-SaludMascota .row .header-tabla{
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  width: 90%;
+  height: 20%;
+  margin: 0px;
+}
+.modal-SaludMascota .row .header-tabla span{
+  vertical-align: middle;
+  font-size: 1.4rem;
+}
+.modal-SaludMascota .row .header-tabla .col{
+  width: 21%;
+  height: 42px;
+}
+/* ------------------------------------------- */
+.modal-SaludMascota .row .container-carnet{
+  height: 85%;
+  width: 100%;
+}
+.modal-SaludMascota .row .carnet-data{
+  width: 100% !important;
+}
+.modal-SaludMascota .row .table-data{
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.modal-SaludMascota table{
+  color: #2c313d;
+  width: 100%;
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+.modal-SaludMascota thead{
+  background-color: #F3F6F9;
+}
+.modal-SaludMascota .head-table{
+  position: absolute;
+}
+.modal-SaludMascota tbody a{
+  font-size: 13px;
+  font-weight: 680;
+  height: 32px;
+}
+.modal-SaludMascota .td{
+  padding: 8px 0px 8px 0px;
+  width: 18%;
+}
+.modal-SaludMascota .table-data tbody td{
+  padding-left: 4px;
+}
+.modal-SaludMascota .th{
+  width: 20%;
+  max-width: 22%;
+  overflow: hidden;
+}
+.modal-SaludMascota table tbody td{
+  padding: 14px 0px 14px 0px;
+  vertical-align: middle;
+}
+
+.modal-SaludMascota .carnet-tabla{
+  overflow-y: auto;
+}
+.modal-SaludMascota .carnet-tabla::-webkit-scrollbar{
+  width: 10px;
+}
+.modal-SaludMascota .carnet-tabla::-webkit-scrollbar-thumb{
+  background: #C0DFD5;
+  border-radius: 2px;
+}
+.modal-SaludMascota .carnet-tabla::-webkit-scrollbar-thumb:hover{
+  background: #2A9D8F;
+  border-radius: 2px;
+}
+
 /* MODAL EDITAR CLIENTE */
 .modal {
   position: fixed;

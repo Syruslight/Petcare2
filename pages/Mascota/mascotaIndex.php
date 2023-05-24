@@ -77,7 +77,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         <div class="card">
                             <div class="card-header">
                                 <h4>Mis mascotas
-                                    <a href="" class="butModal btn float-end sa"
+                                    <a href="" class="butModal btn float-end sa" data-modal=".modalMascotaAgre"
                                         style="background-color:#399731;">Agregar</a>
                                     <a href="" class="btn float-end sa" style="background-color:#C01C1C">Eliminar</a>
                                 </h4>
@@ -111,7 +111,23 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <td>Marron oscuro</td>
                                             <td class="th">Si</td>
                                             <td class="td">
-                                                <a href="" class="butModalE btn btn-sm"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
+                                                    style="background-color:#1BC5BD; color:#1D3534;">editar</a>
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
+                                                    style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="toget"><img src="../../imagenes/perrito.jpg" alt="" class="dimg">
+                                            </td>
+                                            <td>Lola</td>
+                                            <td>10/05/2021</td>
+                                            <td>8</td>
+                                            <td>9.5k</td>
+                                            <td>Marron oscuro</td>
+                                            <td class="th">Si</td>
+                                            <td class="td">
+                                                <a href="" class="butModalE btn btn-sm" data-modal=".modalMascotaEdit"
                                                     style="background-color:#1BC5BD; color:#1D3534;">editar</a>
                                                 <a href="" class="btn btn-sm"
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
@@ -127,7 +143,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <td>Marron oscuro</td>
                                             <td class="th">Si</td>
                                             <td class="td">
-                                                <a href="" class="butModalE btn btn-sm"
+                                                <a href="" class="butModalE btn btn-sm" data-modal=".modalMascotaEdit"
                                                     style="background-color:#1BC5BD; color:#1D3534;">editar</a>
                                                 <a href="" class="btn btn-sm"
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
@@ -143,7 +159,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <td>Marron oscuro</td>
                                             <td class="th">Si</td>
                                             <td class="td">
-                                                <a href="" class="butModalE btn btn-sm"
+                                                <a href="" class="butModalE btn btn-sm" data-modal=".modalMascotaEdit"
                                                     style="background-color:#1BC5BD; color:#1D3534;">editar</a>
                                                 <a href="" class="btn btn-sm"
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
@@ -159,23 +175,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <td>Marron oscuro</td>
                                             <td class="th">Si</td>
                                             <td class="td">
-                                                <a href="" class="butModalE btn btn-sm"
-                                                    style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="btn btn-sm"
-                                                    style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="toget"><img src="../../imagenes/perrito.jpg" alt="" class="dimg">
-                                            </td>
-                                            <td>Lola</td>
-                                            <td>10/05/2021</td>
-                                            <td>8</td>
-                                            <td>9.5k</td>
-                                            <td>Marron oscuro</td>
-                                            <td class="th">Si</td>
-                                            <td class="td">
-                                                <a href="" class="butModalE btn btn-sm"
+                                                <a href="" class="butModalE btn btn-sm" data-modal=".modalMascotaEdit"
                                                     style="background-color:#1BC5BD; color:#1D3534;">editar</a>
                                                 <a href="" class="btn btn-sm"
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
@@ -183,7 +183,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         </tr>
                                     </tbody>
                                 </table>
-
                             </div>
                         </div>
                     </div>
@@ -198,9 +197,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
 
 
         <!-- MODAL REGISTRO -->
-        <section class="modalMascota">
+        <section class="moda modalMascota modalMascotaAgre">
             <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);"">
-        <div class=" container">
+            <div class=" container">
                 <div class="row justify-content-end">
                     <span class="btn btn-dark modal__close" style="width: 50px;">X</span>
                 </div>
@@ -320,14 +319,14 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 </div>
 
             </div>
-    </div>
-    </section>
+            </div>
+        </section>
     <!-- MODAL EDITAR -->
-    <section class="modalMascotaEd">
+    <section class="moda modalMascotaEd modalMascotaEdit">
         <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);"">
         <div class=" container">
             <div class="row justify-content-end">
-                <span class="btn btn-dark modal__closeE" style="width: 50px;">X</span>
+                <span class="btn btn-dark modal__close" style="width: 50px;">X</span>
             </div>
 
             <div class="row">
@@ -384,6 +383,141 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         </div>
         </div>
     </section>
+
+    <!-- Modal Masacota Carnet -->
+    <section class="moda modalMascota modalMascotaCarne">
+        <div class="row modal-SaludMascota" id="modal-Carnet">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <span class="modal__close btn btn-dark " style="width: 50px;">X</span>
+                </div>
+                <div class="row" style="width:100%; height: 88%">
+                    <div class="card-mascota">
+                        <div class="card">
+                                <h5 class="card-title">
+                                    Colita
+                                </h5>
+                            <div class="img-card">
+                                <img src="../../imagenes/perrito.jpg" alt="" class="card-img-bottom img">
+                            </div>
+                            <div class="card-body">
+                                <span class="card-text">
+                                    <ul class="list-unstyled"> 
+                                        <li>Edad: <span>2año(s)</span></li>
+                                        <li>Sexo: <span>Hembra</span></li>
+                                        <li>Peso: <span>12(kg)</span></li>
+                                        <li>Raza: <span>Pastor Aleman</span></li>
+                                        <li>Esterilizado: <span>Si</span></li>
+                                    </ul>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-carnet">                       
+                        <div class="row carnet-tit">
+                            <h1>CARNET DE SALUD</h1>
+                        </div>
+                    <div class="container-carnet">
+                        <div class="card carnet-data">
+                            <div class="row header-tabla">
+                                <img src="../../imagenes/PHlogo.png" alt="logo" class="col">
+                                <span class="col" style="color: #ffffff;">Mis vacunas</span>
+                                <img src="../../imagenes/PHlogo.png" alt="logo" class="col">
+                            </div>
+                            <div class="row carnet-tabla">
+                                <div class="row table-data">
+                                    <table class="table table-borderless table-striped table-responsive text-center">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Fecha</th>
+                                                    <th scope="col">Lote</th>
+                                                    <th scope="col">Tipo</th>
+                                                    <th scope="col">Proxima</th>
+                                                    <th scope="col" class="th">Observación</th>
+                                                    <th scope="col" class="th">Restricción</th>
+                                                </tr>
+                                            </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>10/05/2021</td>
+                                                <td>COVId</td>
+                                                <td>10/05/2021</td>
+                                                <td>15/05/2021</td>
+                                                <td>Lleva una receta para comida</td>
+                                                <td class="th">No pasear por lodo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/05/2021</td>
+                                                <td>COVId</td>
+                                                <td>10/05/2021</td>
+                                                <td>15/05/2021</td>
+                                                <td>Lleva una receta para comida</td>
+                                                <td class="th">No pasear por lodo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/05/2021</td>
+                                                <td>COVId</td>
+                                                <td>10/05/2021</td>
+                                                <td>15/05/2021</td>
+                                                <td>Lleva una receta para comida</td>
+                                                <td class="th">No pasear por lodo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/05/2021</td>
+                                                <td>COVId</td>
+                                                <td>10/05/2021</td>
+                                                <td>15/05/2021</td>
+                                                <td>Lleva una receta para comida</td>
+                                                <td class="th">No pasear por lodo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/05/2021</td>
+                                                <td>COVId</td>
+                                                <td>10/05/2021</td>
+                                                <td>15/05/2021</td>
+                                                <td>Lleva una receta para comida</td>
+                                                <td class="th">No pasear por lodo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/05/2021</td>
+                                                <td>COVId</td>
+                                                <td>10/05/2021</td>
+                                                <td>15/05/2021</td>
+                                                <td>Lleva una receta para comida</td>
+                                                <td class="th">No pasear por lodo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/05/2021</td>
+                                                <td>COVId</td>
+                                                <td>10/05/2021</td>
+                                                <td>15/05/2021</td>
+                                                <td>Lleva una receta para comida</td>
+                                                <td class="th">No pasear por lodo</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10/05/2021</td>
+                                                <td>COVId</td>
+                                                <td>10/05/2021</td>
+                                                <td>15/05/2021</td>
+                                                <td>Lleva una receta para comida</td>
+                                                <td class="th">No pasear por lodo</td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>   
+                </div>                
+                </div> 
+            </div>
+        </div>
+</section>
+
+
+
+
     <!-- Modal Editar Cliente -->
     <section class="modal">
         <div class="modal__container">
