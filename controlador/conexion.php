@@ -141,8 +141,8 @@ function agregarDatosVacuna($lote,$tipo,$descripcion,$conn){
 #-------Consultas correspondientes a la mascota------
 
 //Función de registrar los datos de la mascota desde el Perfil del Cliente
-function agregarDatosMascota($idcliente,$idraza,$nombre,$fechaNac,$peso,$color,$fotoPerfil,$esterilizado,$etapa,$renian,$estado,$conn){
-    $sql="insert into mascota(idcliente,idraza,nombre,fechaNac,peso,color,fotoPerfil,esterilizado,etapa,renian,estado) values ('$idcliente','$idraza','$nombre','$fechaNac','$peso','$color','$fotoPerfil','$esterilizado','$etapa','$renian','$estado')";
+function agregarDatosMascota($idcliente,$idraza,$nombre,$fechaNac,$peso,$color,$fotoPerfil,$esterilizado,$etapa,$renian,$sexo,$estado,$conn){
+    $sql="insert into mascota(idcliente,idraza,nombre,fechaNac,peso,color,fotoPerfil,esterilizado,etapa,renian,sexo,estado) values ('$idcliente','$idraza','$nombre','$fechaNac','$peso','$color','$fotoPerfil','$esterilizado','$etapa','$renian','$sexo','$estado')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 ?>
