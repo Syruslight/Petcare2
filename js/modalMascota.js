@@ -42,7 +42,6 @@ function closeModalM(modal) {
 // Event listeners para abrir los modales
 document.addEventListener("DOMContentLoaded", () => {
     const openModalButtons = document.querySelectorAll('.butModal');
-
     openModalButtons.forEach((button) => {
         button.addEventListener("click", (e) => {
             e.preventDefault();
