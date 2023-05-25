@@ -13,6 +13,7 @@ $fechaNac = $_POST['fechaNac'];
 $peso = $_POST['peso'];
 $color = $_POST['color'];
 
+$sexo=$_POST['sexo'];
 $etapa = $_POST['etapa'];
 $renian = $_POST['renian'];
 $estado = 1;
@@ -39,7 +40,7 @@ if (!empty($fotoPerfil)) {
     move_uploaded_file($ruta, $fotRutaMascota);
 }
 
-agregarDatosMascota($idcliente, $idraza, $nombre, $fechaActualizada, $peso, $color, $fotoPerfil, $esterilizado, $etapa, $renian, $estado, $conn);
+agregarDatosMascota($idcliente, $idraza, $nombre, $fechaActualizada, $peso, $color, $fotoPerfil, $esterilizado, $etapa, $renian,$sexo, $estado, $conn);
 
 header('Location: ../pages/Mascota/mascotaIndex.php');
 ?>

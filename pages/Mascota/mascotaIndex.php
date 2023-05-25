@@ -143,9 +143,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <td>Marron oscuro</td>
                                             <td class="th">Si</td>
                                             <td class="td">
-                                                <a href="" class="butModalE btn btn-sm" data-modal=".modalMascotaEdit"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
                                                     style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="btn btn-sm"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
                                             </td>
                                         </tr>
@@ -159,9 +159,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <td>Marron oscuro</td>
                                             <td class="th">Si</td>
                                             <td class="td">
-                                                <a href="" class="butModalE btn btn-sm" data-modal=".modalMascotaEdit"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
                                                     style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="btn btn-sm"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
                                             </td>
                                         </tr>
@@ -175,9 +175,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <td>Marron oscuro</td>
                                             <td class="th">Si</td>
                                             <td class="td">
-                                                <a href="" class="butModalE btn btn-sm" data-modal=".modalMascotaEdit"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
                                                     style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="btn btn-sm"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
                                             </td>
                                         </tr>
@@ -191,9 +191,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <td>Marron oscuro</td>
                                             <td class="th">Si</td>
                                             <td class="td">
-                                                <a href="" class="butModalE btn btn-sm" data-modal=".modalMascotaEdit"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
                                                     style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="btn btn-sm"
+                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
                                                     style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
                                             </td>
                                         </tr>
@@ -212,123 +212,139 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         </div>
 
 
-        <!-- MODAL REGISTRO -->
-        <section class="moda modalMascota modalMascotaAgre">
-            <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);"">
+<!-- MODAL REGISTRO -->
+<section class="moda  modalMascota modalMascotaAgre">
+            <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);">
             <div class=" container">
-                <div class="row justify-content-end">
-                    <span class="btn btn-dark modal__close" style="width: 50px;">X</span>
-                </div>
-
-                <div class="row">
-                    <h3 class="mt-1 mb-4"><span>Registro Mascota</span></h3>
+                <div class="row header-ReMas justify-content-end">
+                    <div class="row close-btn">
+                        <span class="btn btn-dark modal__close" style="width: 50px;">X</span>
+                    </div>
+    
+                    <div class="row">
+                        <h3 class="mb-4"><span>Registro Mascota</span></h3>
+                    </div>
                 </div>
                 <div class="row data">
                     <form action="../../llamadas/proceso_registromascota.php" method="post"
                         enctype="multipart/form-data">
-                        <input type="text" id="nombre" class="form-control" name="nombreMascota" placeholder="Nombre">
-                        <input type="date" name="fechaNac" class="form-control">
-                        <input hidden value="<?= $value[7] ?>" name="idCliente">
-
-                        <!-- Combo de especies -->
-                        <div class="select-RaEs">
-                        <select name="especie" id="especie" class="form-select" style="width: 193px;"
-                            onchange="cargarRazas()">
-                            <option selected>Selecciona Especie</option>
-                            <?php
-                            // Obtener los datos de la tabla de la base de datos
-                            $queryEspecies = "SELECT * FROM especie"; // Reemplaza "tabla_especie" con el nombre de tu tabla
-                            $resultEspecies = mysqli_query($conn, $queryEspecies);
-
-                            // Generar las opciones del select utilizando los datos obtenidos
-                            while ($rowEspecie = mysqli_fetch_assoc($resultEspecies)) {
-                                $nombreEspecie = $rowEspecie['nombre']; // Reemplaza "nombre_especie" con el nombre de columna correspondiente
-                                $valorEspecie = $rowEspecie['idespecie']; // Reemplaza "valor_especie" con el nombre de columna correspondiente
-                            
-                                echo "<option value=\"$valorEspecie\">$nombreEspecie</option>";
-                            }
-                            ?>
-                        </select>
-
-                        <!-- Combo de razas -->
-                        <select name="raza" id="raza" class="form-select" style="width: 193px;">
-                            <option selected>Selecciona Raza</option>
-                        </select>
-                        </div>
-
-                        <!-- JavaScript -->
-                        <script>
-                            function cargarRazas() {
-                                var especieSeleccionada = document.getElementById('especie').value;
-
-                                // Crear una instancia de XMLHttpRequest
-                                var xhr = new XMLHttpRequest();
-                                xhr.onreadystatechange = function () {
-                                    if (xhr.readyState === XMLHttpRequest.DONE) {
-                                        if (xhr.status === 200) {
-                                            // Convertir la respuesta JSON en un objeto JavaScript
-                                            var razas = JSON.parse(xhr.responseText);
-
-                                            // Limpiar el combo de razas
-                                            var razaSelect = document.getElementById('raza');
-                                            razaSelect.innerHTML = '<option selected>Selecciona Raza</option>';
-
-                                            // Generar las opciones del combo de razas utilizando los datos obtenidos
-                                            // Generar las opciones del combo de razas utilizando los datos obtenidos
-                                            razas.forEach(function (raza) {
-                                                var option = document.createElement('option');
-                                                option.value = raza.idraza + '-' + raza.nombre; // Concatena el id y el nombre con un guion
-                                                option.text = raza.nombre;
-                                                razaSelect.appendChild(option);
-                                            });
-
-                                        } else {
-                                            console.log('Error al cargar las razas');
-                                        }
-                                    }
-                                };
-
-                                // Realizar la solicitud AJAX para obtener las razas correspondientes a la especie seleccionada
-                                xhr.open('GET', 'obtener_razas.php?idespecie=' + especieSeleccionada);
-                                xhr.send();
-                            }
-                        </script>
-
-
-                        <div class="row-short">
-                        <input type="text" class="form-control ip" name="peso" placeholder="Peso">
-                        <input type="text" class="form-control ip" name="color" placeholder="Color">
-                        </div>
-                        <input type="text" class="form-control" id="renian" name="renian" placeholder="Renian">
-                        
-
-                        <div class="cont-radio">
-                            <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 193px;">
-                                <option selected>Selecciona Etapa</option>
-                                <option value="Cria">Cría</option>
-                                <option value="Juvenil">Juvenil</option>
-                                <option value="Adulto">Adulto</option>
+                        <div class="data-col2">
+                            <input type="text" id="nombre" class="form-control" name="nombreMascota" placeholder="Nombre">
+                            <input type="date" name="fechaNac" class="form-control">
+                            <input hidden value="<?= $value[7] ?>" name="idCliente">
+    
+                            <!-- Combo de especies -->
+                            <div class="select-RaEs">
+                            <select name="especie" id="especie" class="form-select" style="width: 193px;"
+                                onchange="cargarRazas()">
+                                <option selected>Selecciona Especie</option>
+                                <?php
+                                // Obtener los datos de la tabla de la base de datos
+                                $queryEspecies = "SELECT * FROM especie"; // Reemplaza "tabla_especie" con el nombre de tu tabla
+                                $resultEspecies = mysqli_query($conn, $queryEspecies);
+    
+                                // Generar las opciones del select utilizando los datos obtenidos
+                                while ($rowEspecie = mysqli_fetch_assoc($resultEspecies)) {
+                                    $nombreEspecie = $rowEspecie['nombre']; // Reemplaza "nombre_especie" con el nombre de columna correspondiente
+                                    $valorEspecie = $rowEspecie['idespecie']; // Reemplaza "valor_especie" con el nombre de columna correspondiente
+                                
+                                    echo "<option value=\"$valorEspecie\">$nombreEspecie</option>";
+                                }
+                                ?>
                             </select>
-                            <div class="cont-este">
-                                <label class="form-check-label">Esterilizado:</label>
-                                <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI">
-                                <label class="form-check-label" for="si">Si</label>
-                                <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO">
-                                <label class="form-check-label" for="no">No</label>
+    
+                            <!-- Combo de razas -->
+                            <select name="raza" id="raza" class="form-select" style="width: 193px;">
+                                <option selected>Selecciona Raza</option>
+                            </select>
+                            </div>
+    
+                            <!-- JavaScript -->
+                            <script>
+                                function cargarRazas() {
+                                    var especieSeleccionada = document.getElementById('especie').value;
+    
+                                    // Crear una instancia de XMLHttpRequest
+                                    var xhr = new XMLHttpRequest();
+                                    xhr.onreadystatechange = function () {
+                                        if (xhr.readyState === XMLHttpRequest.DONE) {
+                                            if (xhr.status === 200) {
+                                                // Convertir la respuesta JSON en un objeto JavaScript
+                                                var razas = JSON.parse(xhr.responseText);
+    
+                                                // Limpiar el combo de razas
+                                                var razaSelect = document.getElementById('raza');
+                                                razaSelect.innerHTML = '<option selected>Selecciona Raza</option>';
+    
+                                                // Generar las opciones del combo de razas utilizando los datos obtenidos
+                                                // Generar las opciones del combo de razas utilizando los datos obtenidos
+                                                razas.forEach(function (raza) {
+                                                    var option = document.createElement('option');
+                                                    option.value = raza.idraza + '-' + raza.nombre; // Concatena el id y el nombre con un guion
+                                                    option.text = raza.nombre;
+                                                    razaSelect.appendChild(option);
+                                                });
+    
+                                            } else {
+                                                console.log('Error al cargar las razas');
+                                            }
+                                        }
+                                    };
+    
+                                    // Realizar la solicitud AJAX para obtener las razas correspondientes a la especie seleccionada
+                                    xhr.open('GET', 'obtener_razas.php?idespecie=' + especieSeleccionada);
+                                    xhr.send();
+                                }
+                            </script>
+    
+    
+                            <div class="row-short">
+                                <div class="cont-radio ip">
+                                    <select name="sexo" id="sexo" value="sexo" class="form-select" style="width: 109px;">
+                                        <option selected>Sexo</option>
+                                        <option value="Cria">Hembra</option>
+                                        <option value="Juvenil">Macho</option>
+                                    </select>
+                                </div>
+                            <input type="text" class="form-control ip" name="color" placeholder="Color">
+                            </div>
+                            <div class="row-short">
+                                <input type="text" class="form-control ip" name="peso" placeholder="Peso">
+                                <input type="text" class="form-control" style="width: 109px;" id="renian" name="renian" placeholder="Renian">
+
+                            </div>
+
+                            
+    
+                            <div class="cont-radio">
+                                <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 193px;">
+                                    <option selected>Selecciona Etapa</option>
+                                    <option value="Cria">Cría</option>
+                                    <option value="Juvenil">Juvenil</option>
+                                    <option value="Adulto">Adulto</option>
+                                </select>
+                                <div class="cont-este">
+                                    <label class="form-check-label">Esterilizado:</label>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI">
+                                    <label class="form-check-label" for="si">Si</label>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO">
+                                    <label class="form-check-label" for="no">No</label>
+                                </div>
                             </div>
                         </div>
 
 
-
-                        <div class="row">
-                            <input class="form-control form-control-sm" id="foto" type="file" name="foto">
-                        </div>
-                        <div class="row">
-                            <div class="fotoPos">
-                                <div class="foto"></div>
+                        <div class="data-col1">
+                            <div class="row">
+                                <input class="form-control form-control-sm" id="foto" type="file" name="foto">
                             </div>
-                            <div class="button">
-                                <input type="submit" name="registrar" value="Registrar" class="btn">
+                            <div class="row">
+                                <div class="fotoPos">
+                                    <div class="foto"></div>
+                                </div>
+                                <div class="button">
+                                    <input type="submit" name="registrar" value="Registrar" class="btn">
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -337,68 +353,66 @@ foreach (listarCliente($email, $conn) as $key => $value) {
             </div>
             </div>
         </section>
+
     <!-- MODAL EDITAR -->
-    <section class="moda modalMascotaEd modalMascotaEdit">
-        <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);"">
-        <div class=" container">
-            <div class="row justify-content-end">
-                <span class="btn btn-dark modal__close" style="width: 50px;">X</span>
-            </div>
-
-            <div class="row">
-                <h3 class="mt-1 mb-4"><span>Editar Mascota</span></h3>
-            </div>
-            <div class="row data">
-                <form action="" method="post">
-                    <input type="text" id="nombre" class="form-control" name="nombre" placeholder="Nombre">
-                    <input type="date" class="form-control">
-                    <select name="expecie" id="especie" class="form-select" style="width: 193px;">
-                        <option selected>Selecciona Especie</option>
-                        <option value="si">Perro</option>
-                        <option value="no">Gato</option>
-                    </select>
-                    <select name="raza" id="raza" class="form-select" style="width: 193px;">
-                        <option selected>Selecciona Raza</option>
-                        <option value="si">Pitbull</option>
-                        <option value="no">Golden</option>
-                    </select>
-                    <input type="text" class="form-control" name="peso" placeholder="Peso">
-                    <input type="text" class="form-control" name="color" placeholder="Color">
-
-                    <div class="cont-radio">
-                        <select name="etapa" id="etapa" class="form-select" style="width: 193px;">
-                            <option selected>Selecciona Etapa</option>
-                            <option value="si">Cría</option>
-                            <option value="si">Juvenil</option>
-                            <option value="no">Adulto</option>
-                        </select>
-                        <div class="cont-este">
-                            <label class="form-check-label">Esterilizado:</label>
-                            <input type="radio" name="esteri" class="form-check-input" id="si">
-                            <label class="form-check-label" for="si">Si</label>
-                            <input type="radio" name="esteri" class="form-check-input" id="no">
-                            <label class="form-check-label" for="no">No</label>
+    <section class="moda modalMascota modalMascotaEdit">
+            <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);">
+            <div class=" container">
+                <div class="row header-ReMas justify-content-end">
+                    <div class="row close-btn">
+                        <span class="btn btn-dark modal__close" style="width: 50px;">X</span>
+                    </div>
+    
+                    <div class="row">
+                        <h3 class="mb-4"><span>Editar Mascota</span></h3>
+                    </div>
+                </div>
+                <div class="row data">
+                    <form action="../../llamadas/proceso_registromascota.php" method="post"
+                        enctype="multipart/form-data">
+                        <div class="data-col2">
+                            <input type="text" id="nombre" class="form-control" name="nombreMascota" placeholder="Nombre">    
+                            <div class="row-short">
+                                <input type="text" class="form-control ip" name="peso" placeholder="Peso">
+                                <input type="text" class="form-control" style="width: 109px;" id="edad" name="edad" placeholder="Edad" disabled>
+                            </div>                   
+                            <div class="cont-radio">
+                                <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 193px;">
+                                    <option selected>Selecciona Etapa</option>
+                                    <option value="Cria">Cría</option>
+                                    <option value="Juvenil">Juvenil</option>
+                                    <option value="Adulto">Adulto</option>
+                                </select>
+                                <div class="cont-este">
+                                    <label class="form-check-label">Esterilizado:</label>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI">
+                                    <label class="form-check-label" for="si">Si</label>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO">
+                                    <label class="form-check-label" for="no">No</label>
+                                </div>
+                            </div>
+                            <div class="button">
+                                    <input type="submit" name="editar" value="Editar" class="btn">
+                                </div>
                         </div>
 
-                    </div>
-                    <div class="row">
-                        <input class="form-control form-control-sm" id="foto" type="file" name="foto">
 
-                    </div>
+                        <div class="data-col1">
+                            <div class="row">
+                                <input class="form-control form-control-sm" id="foto" type="file" name="foto">
+                            </div>
+                            <div class="row">
+                                <div class="fotoPos">
+                                    <div class="foto"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-                </form>
             </div>
-            <div class="row">
-                <div class="fotoPos">
-                    <div class="foto"></div>
-                </div>
-                <div class="button">
-                    <input type="submit" name="registrar" value="Registrar" class="btn">
-                </div>
             </div>
-        </div>
-        </div>
-    </section>
+        </section>
 
     <!-- Modal Masacota Carnet -->
     <section class="moda modalMascota modalMascotaCarne">
@@ -418,13 +432,26 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             </div>
                             <div class="card-body">
                                 <span class="card-text">
-                                    <ul class="list-unstyled"> 
-                                        <li>Edad: <span>2año(s)</span></li>
-                                        <li>Sexo: <span>Hembra</span></li>
-                                        <li>Peso: <span>12(kg)</span></li>
-                                        <li>Raza: <span>Pastor Aleman</span></li>
-                                        <li>Esterilizado: <span>Si</span></li>
-                                    </ul>
+                                    <div class="co1">
+                                        <ul class="list-unstyled"> 
+                                            <li>Renian</li>
+                                            <li>Edad:</li>
+                                            <li>Sexo:</li>
+                                            <li>Peso:</li>
+                                            <li>Raza:</li>
+                                            <li>Esterilizado:</li>
+                                        </ul>
+                                    </div>
+                                    <div class="co2">
+                                        <ul class="list-unstyled"> 
+                                            <li><span>56145875</span></li>
+                                            <li><span>2año(s)</span></li>
+                                            <li><span>Hembra</span></li>
+                                            <li><span>12(kg)</span></li>
+                                            <li><span>Pastor Aleman</span></li>
+                                            <li><span>Si</span></li>
+                                        </ul>
+                                    </div>
                                 </span>
                             </div>
                         </div>
