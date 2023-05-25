@@ -21,6 +21,22 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
     <title>Pagina del Cliente</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#busqueda').on('input', function() {
+            var query = $(this).val();
+            $.ajax({
+            url: '../../llamadas/proceso_busqueda_mascota.php',
+            method: 'POST',
+            data: { query: query },
+            success: function(response) {
+                $('#resultados').html(response);
+            }
+            });
+        });
+        });
+    </script>
 </head>
 
 <body>
@@ -84,10 +100,10 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             </div>
                             <div class="card-body">
                                 <div class="six">
-                                    <span>Buscar: <input type="text" class="form-control"
+                                    <span>Buscar: <input type="text" id="busqueda" class="form-control"
                                             placeholder="Ingrese nombre mascota..."></span>
                                 </div>
-                                <table class="table table-borderless table-striped table-responsive text-center">
+                                <table id="resultados" class="table table-borderless table-striped table-responsive text-center">
                                     <thead>
                                         <tr>
                                             <th class="toget">Imagen</th>
