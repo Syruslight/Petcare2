@@ -284,7 +284,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     
                             <div class="row-short">
                                 <div class="cont-radio ip">
-                                    <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 109px;">
+                                    <select name="sexo" id="sexo" value="sexo" class="form-select" style="width: 109px;">
                                         <option selected>Sexo</option>
                                         <option value="Cria">Hembra</option>
                                         <option value="Juvenil">Macho</option>
