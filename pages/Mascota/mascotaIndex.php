@@ -355,35 +355,10 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                     <form action="../../llamadas/proceso_registromascota.php" method="post"
                         enctype="multipart/form-data">
                         <div class="data-col2">
-                            <input type="text" id="nombre" class="form-control" name="nombreMascota" placeholder="Nombre">
-                            <input type="date" name="fechaNac" class="form-control">
-                            <input hidden value="" name="idCliente">
-    
-                            <!-- Combo de especies -->
-                            <div class="select-RaEs">
-                            <select name="especie" id="especie" class="form-select" style="width: 193px;"
-                                >
-                                <option selected>Selecciona Especie</option>                               
-                            </select>
-    
-                            <!-- Combo de razas -->
-                            <select name="raza" id="raza" class="form-select" style="width: 193px;">
-                                <option selected>Selecciona Raza</option>
-                            </select>
-                            </div>      
-                            <div class="row-short">
-                                <div class="cont-radio ip">
-                                    <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 109px;">
-                                        <option selected>Sexo</option>
-                                        <option value="Cria">Hembra</option>
-                                        <option value="Juvenil">Macho</option>
-                                    </select>
-                                </div>
-                            <input type="text" class="form-control ip" name="color" placeholder="Color">
-                            </div>
+                            <input type="text" id="nombre" class="form-control" name="nombreMascota" placeholder="Nombre">    
                             <div class="row-short">
                                 <input type="text" class="form-control ip" name="peso" placeholder="Peso">
-                                <input type="text" class="form-control" style="width: 109px;" id="renian" name="renian" placeholder="Renian">
+                                <input type="text" class="form-control" style="width: 109px;" id="edad" name="edad" placeholder="Edad" disabled>
                             </div>                   
                             <div class="cont-radio">
                                 <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 193px;">
@@ -400,6 +375,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     <label class="form-check-label" for="no">No</label>
                                 </div>
                             </div>
+                            <div class="button">
+                                    <input type="submit" name="editar" value="Editar" class="btn">
+                                </div>
                         </div>
 
 
@@ -410,9 +388,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             <div class="row">
                                 <div class="fotoPos">
                                     <div class="foto"></div>
-                                </div>
-                                <div class="button">
-                                    <input type="submit" name="registrar" value="Registrar" class="btn">
                                 </div>
                             </div>
                         </div>
@@ -441,13 +416,26 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             </div>
                             <div class="card-body">
                                 <span class="card-text">
-                                    <ul class="list-unstyled"> 
-                                        <li>Edad: <span>2año(s)</span></li>
-                                        <li>Sexo: <span>Hembra</span></li>
-                                        <li>Peso: <span>12(kg)</span></li>
-                                        <li>Raza: <span>Pastor Aleman</span></li>
-                                        <li>Esterilizado: <span>Si</span></li>
-                                    </ul>
+                                    <div class="co1">
+                                        <ul class="list-unstyled"> 
+                                            <li>Renian</li>
+                                            <li>Edad:</li>
+                                            <li>Sexo:</li>
+                                            <li>Peso:</li>
+                                            <li>Raza:</li>
+                                            <li>Esterilizado:</li>
+                                        </ul>
+                                    </div>
+                                    <div class="co2">
+                                        <ul class="list-unstyled"> 
+                                            <li><span>56145875</span></li>
+                                            <li><span>2año(s)</span></li>
+                                            <li><span>Hembra</span></li>
+                                            <li><span>12(kg)</span></li>
+                                            <li><span>Pastor Aleman</span></li>
+                                            <li><span>Si</span></li>
+                                        </ul>
+                                    </div>
                                 </span>
                             </div>
                         </div>
