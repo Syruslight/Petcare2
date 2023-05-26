@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
 
   while ($row = $result->fetch_assoc()) {
     $output .= '<tr>
-    <td class="toget"><img src="../imagenes/Especie perro/Raza/'.$row['fotoPerfil'].'" alt="" class="dimg">
+    <td class="toget"><img src="../../imagenes/fotosperfil/mascota/'.$row['fotoPerfil'].'" alt="" class="dimg">
     </td>
     <td>' . $row['nombre'] . '</td>
     <td>' . $row['fechaNac'] . '</td>
