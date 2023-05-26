@@ -13,9 +13,10 @@ if ($conn->connect_error) {
 
 // Obtener el término de búsqueda enviado por Ajax
 $query = $_POST['query'];
+$idCliente = $_POST['idCliente'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT * FROM mascota WHERE nombre LIKE '%$query%'";
+$sql = "SELECT * FROM mascota WHERE nombre LIKE '%$query%' AND idcliente LIKE '%$idCliente%'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -43,7 +44,7 @@ if ($result->num_rows > 0) {
     <td>' . $row['etapa'] . '</td>
     <td>' . $row['peso'] . '</td>
     <td>' . $row['color'] . '</td>
-    <td class="th">Si</td>
+    <td class="th">'. $row['esterilizado'] .'</td>
     <td class="td">
         <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
             style="background-color:#1BC5BD; color:#1D3534;">editar</a>
@@ -56,6 +57,7 @@ if ($result->num_rows > 0) {
   $output .= '</tbody>';
 } else {
   // No se encontraron resultados
+  echo $idCliente;
   $output = 'No se encontraron resultados.';
 }
 

@@ -6,6 +6,9 @@ $conn = conectar();
 session_start();
 $email = $_SESSION['email'];
 foreach (listarCliente($email, $conn) as $key => $value) {
+    // Obtener el ID del cliente
+    $idCliente = $value[7];
+
 } ?>
 <!--Perfil del cliente (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
@@ -26,10 +29,11 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         $(document).ready(function() {
         $('#busqueda').on('input', function() {
             var query = $(this).val();
+            var idCliente = <?php echo $idCliente; ?>; // Obtener el valor de $idCliente
             $.ajax({
             url: '../../llamadas/proceso_busqueda_mascota.php',
             method: 'POST',
-            data: { query: query },
+            data: { query: query, idCliente: idCliente},
             success: function(response) {
                 $('#resultados').html(response);
             }
