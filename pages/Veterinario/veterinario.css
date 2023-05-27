@@ -123,6 +123,9 @@
     margin-top: 8px;
   }
 }
+.photo-profileheader {
+  border-radius: 50%;
+}
 .tittle-header {
   font-family: "Poppins";
   font-style: normal;
