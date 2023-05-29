@@ -3,10 +3,13 @@ require('../../controlador/conexion.php');
 $conn = conectar();
 ?>
   <?php
-                session_start();
-                $email = $_SESSION['email'];
-                foreach (listarCliente($email, $conn) as $key => $value) {
-                }?>
+session_start();
+$email = $_SESSION['email'];
+$cliente = listarCliente($email, $conn);
+$idCliente = $cliente[0]['idcliente'];
+
+$mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
+?>
 
 
 <!--Perfil del cliente (deriva o esta incluido de su pagina principal)-->
@@ -93,80 +96,45 @@ $conn = conectar();
 
             </div>
             <div class="wrapper-pets">
-                <h1>Mis Mascotas</h1>
-                <div class="my-pets">
-
-                    <div class="subwrapper-pets">
-
-                        <div class="ballot-pets"> <!--Primer pet -->
-                            <div class="picture-pet">
-                                <img src="../../imagenes/perfilCliente/dog.png" alt="Logo" width="119" height="120">
-                                <span>Nombre: Colita</span>
-                            </div>
-
-                            <div class="info-pets">
-                                <div class="info-text">
-                                    <span>Edad:2 años(s)</span>
-                                    <span>Sexo:Masculino</span>
-                                    <span>Peso:12kg</span>
-                                </div>
-                                <div>
-                                    <img class="edits-pets" src="../../imagenes/perfilCliente/edit-pencil.png"
-                                        alt="Logo" width="35" height="34">
-                                    <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo"
-                                        width="46" height="42">
-                                </div>
-                            </div>
+        <h1>Mis Mascotas</h1>
+        <div class="my-pets">
+            <div class="subwrapper-pets">
+                <?php
+                foreach ($mascotas as $mascota) {
+                    $nombre = $mascota['nombre'];
+                    $fotoPerfil = $mascota['fotoPerfil'];
+                    $edad = $mascota['edad'];
+                    $sexo = $mascota['sexo'];
+                    $peso = $mascota['peso'];
+                    $idmascota = $mascota['idmascota'];
+                ?>
+                    <div class="ballot-pets">
+                        <div class="picture-pet">
+                            <img src="../../imagenes/fotosperfil/mascota/<?php echo $fotoPerfil; ?>" alt="Logo" width="119" height="120">
+                            <span>Nombre: <?php echo $nombre; ?></span>
                         </div>
 
-                        <div class="ballot-pets"> <!--segundo pet -->
-                            <div class="picture-pet">
-                                <img src="../../imagenes/perfilCliente/cat.png" alt="Logo" width="119" height="120">
-                                <span>Nombre: Nube</span>
+                        <div class="info-pets">
+                            <div class="info-text">
+                                <span>Edad: <?php echo $edad; ?></span>
+                                <span>Sexo: <?php echo $sexo; ?></span>
+                                <span>Peso: <?php echo $peso; ?></span>
                             </div>
-
-                            <div class="info-pets">
-                                <div class="info-text">
-                                    <span>Edad:1 años(s)</span>
-                                    <span>Sexo:Femenino</span>
-                                    <span>Peso:5kg</span>
-                                </div>
-                                <div>
-                                    <img class="edits-pets" src="../../imagenes/perfilCliente/edit-pencil.png"
-                                        alt="Logo" width="35" height="34">
-                                    <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo"
-                                        width="46" height="42">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="ballot-pets"> <!--TERCER pet -->
-                            <div class="picture-pet">
-                                <img src="../../imagenes/perfilCliente/rabbit.png" alt="Logo" width="119" height="120">
-                                <span>Nombre: Copo</span>
-                            </div>
-
-                            <div class="info-pets">
-                                <div class="info-text">
-                                    <span>Edad:3 años(s)</span>
-                                    <span>Sexo:Masculino</span>
-                                    <span>Peso:3kg</span>
-                                </div>
-                                <div>
-                                    <img class="edits-pets" src="../../imagenes/perfilCliente/edit-pencil.png"
-                                        alt="Logo" width="35" height="34">
-                                    <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo"
-                                        width="46" height="42">
-                                </div>
+                            <div>
+                                <img class="edits-pets" src="../../imagenes/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
+                                <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo" width="46" height="42">
                             </div>
                         </div>
                     </div>
-                    <div>
-                        <img class="add-pet" src="https://img.icons8.com/ios/50/plus-2-math.png" alt="plus-2-math" />
-                    </div>
-                </div>
-
+                <?php
+                }
+                ?>
             </div>
+            <div>
+                <img class="add-pet" src="https://img.icons8.com/ios/50/plus-2-math.png" alt="plus-2-math" />
+            </div>
+        </div>
+    </div>
 
             <div class="header-activities">
                 <span>Actividad Reciente:</span>

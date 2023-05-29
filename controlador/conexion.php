@@ -177,4 +177,48 @@ function listarMascota($idMascota, $conn)
         $vec[] = $f;
     return $vec;
 }
+
+//Función para listar los datos de la mascota (top3) desde el dashboard principal del cliente
+function listarDatosMascotaDasboardCliente($idCliente, $conn) {
+    $sql = "SELECT nombre, fotoPerfil, fechaNac, sexo, peso, idmascota FROM `mascota` WHERE idcliente = '$idCliente' LIMIT 3";
+    $result = mysqli_query($conn, $sql);
+
+    $mascotas = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $edad = calcularEdadMascota($row['fechaNac']);
+        $row['edad'] = $edad;
+        $mascotas[] = $row;
+    }
+
+    return $mascotas;
+}
+
+function calcularEdadMascota($fechaNacimiento) {
+    $fechaActual = date('Y-m-d');
+    $diff = date_diff(date_create($fechaNacimiento), date_create($fechaActual));
+
+    $anios = $diff->y;
+    $meses = $diff->m;
+
+    $edad = "";
+    if ($anios > 0) {
+        $edad .= $anios . " año";
+        if ($anios > 1) {
+            $edad .= "s";
+        }
+    }
+
+    if ($meses > 0) {
+        if ($anios > 0) {
+            $edad .= " y ";
+        }
+        $edad .= $meses . " mes";
+        if ($meses > 1) {
+            $edad .= "es";
+        }
+    }
+
+    return $edad;
+}
+
 ?>
