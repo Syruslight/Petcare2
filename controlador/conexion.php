@@ -221,4 +221,25 @@ function calcularEdadMascota($fechaNacimiento) {
     return $edad;
 }
 
+
+#   Productos
+
+////Función para listar los datos de la mascota (top3) desde el dashboard principal del cliente
+function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo de la tabla detalle venta  y el estado ==1
+    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre AS nombreproducto, tipoproductoservicio.nombre AS nombretipoproducto, productoservicio.precio FROM productoservicio INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio where productoservicio.idtipoproductoservicio like '4' LIMIT 3";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res)) {
+        $vec[] = array(
+            'foto' => $f['fotoProductoServicio'],
+            'nombre' => $f['nombreproducto'],
+            'tipo' => $f['nombretipoproducto'],
+            'precio' => $f['precio']
+        );
+    }
+    return $vec;
+}
+
+//Para insertar productos : INSERT INTO `productoservicio` (`idproductoservicio`, `idtipoproductoservicio`, `nombre`, `fotoProductoServicio`, `precio`, `descripcion`, `estado`) VALUES (NULL, '4', 'Playology Dri-Tech - Soga Sabor Carne De Res', 'playology-dri-tech.jpg', '59.90', 'PLAYOLOGY Dri-Tech Dog Toy perfumado con la exclusiva tecnología Encapsiscent. Cada juguete está infundido con un aroma totalmente natural, fabricado con materiales seguros para perros extra duraderos y diseñado para un juego más duradero.', '1');
+
 ?>
