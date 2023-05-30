@@ -34,8 +34,7 @@ $conn = conectar();
             include('../components/headerAdministrador.php');
         ?>
        
-  
-<div class="wrapper-services">
+       <div class="wrapper-services">
    <div class="header-services">
         <h1>Mis Servicios</h1> 
         <div class="edit-create">
@@ -44,50 +43,22 @@ $conn = conectar();
         </div>
    </div>
    <div class="wrapper-deck">
-            <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Baño</h5>
-                <p class="card-text">s/.20.</p>
-            </div>
-            </div>
-            <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Baño</h5>
-                <p class="card-text">s/.20.</p>
-            </div>
-            </div>
-            <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Baño</h5>
-                <p class="card-text">s/.20.</p>
-            </div>
-            </div>
-            <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Baño</h5>
-                <p class="card-text">s/.20.</p>
-            </div>
-            </div>
-            <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Baño</h5>
-                <p class="card-text">s/.20.</p>
-            </div>
-            </div>
-            <div class="card">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Baño</h5>
-                <p class="card-text">s/.20.</p>
-            </div>
-            </div>
+       <?php
+       $servicios = listarServicios($conn);
+       foreach ($servicios as $servicio) {
+           echo '<div class="card">';
+           echo '<img src="../../../imagenes/productos_servicios/servicios/' . $servicio['foto'] . '" class="card-img-top" alt="...">';
+           echo '<div class="card-body">';
+           echo '<h5 class="card-title">' . $servicio['nombre'] . '</h5>';
+           echo '<p class="card-text">' . $servicio['descripcion'] . '</p>';
+           echo '<p class="card-text">s/.' . $servicio['precio'] . '</p>';
+           echo '</div>';
+           echo '</div>';
+       }
+       ?>
    </div>
 </div>
+
 
 
         <!-- <div class="footer">

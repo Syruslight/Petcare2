@@ -241,5 +241,20 @@ function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo
 }
 
 //Para insertar productos : INSERT INTO `productoservicio` (`idproductoservicio`, `idtipoproductoservicio`, `nombre`, `fotoProductoServicio`, `precio`, `descripcion`, `estado`) VALUES (NULL, '4', 'Playology Dri-Tech - Soga Sabor Carne De Res', 'playology-dri-tech.jpg', '59.90', 'PLAYOLOGY Dri-Tech Dog Toy perfumado con la exclusiva tecnología Encapsiscent. Cada juguete está infundido con un aroma totalmente natural, fabricado con materiales seguros para perros extra duraderos y diseñado para un juego más duradero.', '1');
+//Funcion para listar servicios //modifciar el idtiposervicio
+function listarServicios($conn) {
+    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio FROM productoservicio WHERE productoservicio.idtipoproductoservicio = '3'";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res)) {
+        $vec[] = array(
+            'foto' => $f['fotoProductoServicio'],
+            'nombre' => $f['nombre'],
+            'descripcion' => $f['descripcion'],
+            'precio' => $f['precio']
+        );
+    }
+    return $vec;
+}
 
 ?>
