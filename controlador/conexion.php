@@ -178,6 +178,12 @@ function listarMascota($idMascota, $conn)
     return $vec;
 }
 
+//Función para actualizar los datos de la mascota
+function actualizarDatosMascota($idMascota, $nombre, $peso, $color, $fotoPerfil, $conn){
+    $sql = "UPDATE mascota SET nombre = '$nombre', peso = '$peso', color = '$color', fotoPerfil = '$fotoPerfil' WHERE idmascota = $idMascota;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
 //Función para listar los datos de la mascota (top3) desde el dashboard principal del cliente
 function listarDatosMascotaDasboardCliente($idCliente, $conn) {
     $sql = "SELECT nombre, fotoPerfil, fechaNac, sexo, peso, idmascota FROM `mascota` WHERE idcliente = '$idCliente' LIMIT 3";
@@ -221,6 +227,72 @@ function calcularEdadMascota($fechaNacimiento) {
     return $edad;
 }
 
+function evaluarEdadEtapa($fechaNacimiento, $esPerro, $esGato, $esConejo){
+    //Calculando la edad en años y meses
+    $fechaActual = new DateTime();
+    $fechaNacimiento = new DateTime($fechaNacimiento);
+    $diferencia = $fechaNacimiento->diff($fechaActual);
+    $edadYear = $diferencia->y;
+    $edadMonth = $diferencia->m;
+  
+    //Evaluando la etapa segun la especie
+    if($esPerro){
+        if($edadYear == 0){
+            if($edadMonth >= 2 && $edadMonth <= 6){
+            $etapa = 'Cachorro';
+        } else {
+            $etapa = 'Recien Nacido';
+       }
+    } elseif ($edadYear == 1 && $edadMonth >= 0 && $edadMonth <= 30){
+        $etapa = 'Adolescente';
+    } elseif ($edadYear >= 1 && $edadMonth >= 3 && $edadYear <= 6){
+        $etapa = 'Adulto';
+    } elseif ($edadYear >= 7){
+        $etapa = 'Senior';
+    } else {
+        $etapa = 'No definida';
+    }
+    } elseif ($esGato) {
+        if($edadYear == 0){
+            if($edadMonth >= 0 && $edadMonth <= 6){
+                $etapa = 'Cachorro';
+            } else {
+                $etapa = 'Recien Nacido';
+            }
+        } elseif ($edadYear == 0 && $edadMonth >= 6){
+            $etapa = 'Joven';
+        } elseif ($edadYear == 1 && $edadYear <= 2){
+            $etapa = 'Joven';
+        } elseif ($edadYear >= 2 && $edadYear <= 6){
+            $etapa = 'Adulto';
+        } elseif ($edadYear >= 6 && $edadYear <= 10){
+            $etapa = 'Maduro';
+        } elseif ($edadYear >= 10 && $edadYear <= 14){
+            $etapa = 'Senior';
+        } elseif ($edadYear >= 14){
+            $etapa = 'Geriatrico';
+        } else {
+            $etapa = 'No definida';
+        }
+  } else {
+        if($edadYear == 0){
+            if ($edadYear >= 0 && $edadMonth <= 6){
+                $etapa = 'bebé';
+            } else {
+                $etapa ='Recien Nacido';
+            }
+        } elseif ($edadYear == 0 && $edadMonth <= 9){
+            $etapa = 'adolescente';
+        } elseif ($edadMonth == 9 && $edadYear <= 2){
+            $etapa = 'adolescente';
+        } elseif ($edadYear >= 3 && $edadYear <= 5){
+            $etapa = 'adulto';
+        } elseif ($edadYear >= 6){
+            $etapa = 'anciano';
+        }
+  }
+    return [$edadYear, $edadMonth, $etapa];
+}
 
 #   Productos
 
