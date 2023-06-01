@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -205,8 +205,7 @@
         <!-- Fin Productos -->
     </main>
 
-
-<!-- Iplementando un login modal en la pw -->
+<!-- Iplementando un login modal en la pagina web -->
 
     <section class="modal ">
         <div class="modal__container">
@@ -270,8 +269,6 @@
         </div>
     </section>
 
-
-
     <!-- FOOTER -->
     <footer class="bg-dark text-white py-4">
         <div class="container text-center mt-3">
@@ -321,11 +318,6 @@
             </div>
         </div>
     </footer>
-
-
-
-
-
 
     <script src="js/Registro_Login_int.js"></script>
     <script src="js/Modal.js"></script>

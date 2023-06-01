@@ -31,7 +31,8 @@ body{
 }
 
 .foto img{
-  
+  object-fit: cover;
+  height:100%;
   display: block;
   width: 100%;
   margin: auto;

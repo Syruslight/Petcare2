@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
     $output .= '</div>';
          $output .= '<div class="dates-email">
                     <span class="text-dates">E-mail</span>';
-                   
+
                     
                     foreach ($result as $row) {
                         
