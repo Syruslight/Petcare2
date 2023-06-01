@@ -11,7 +11,7 @@
                
                 foreach (listarAdministrador($email, $conn) as $key => $value) {
                     ?>
-                    <img src="../../../imagenes/fotosperfil/administrador/<?= $value[6] ?>" alt="profile" width="217"
+                    <img class="photo-profile porky"src="../../../imagenes/fotosperfil/administrador/<?= $value[6] ?>" alt="profile" width="217"
                         height="227">
                     <div class="profile-information">
 
