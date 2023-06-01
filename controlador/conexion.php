@@ -177,4 +177,156 @@ function listarMascota($idMascota, $conn)
         $vec[] = $f;
     return $vec;
 }
+
+//Función para actualizar los datos de la mascota
+function actualizarDatosMascota($idMascota, $nombre, $peso, $color, $fotoPerfil, $conn){
+    $sql = "UPDATE mascota SET nombre = '$nombre', peso = '$peso', color = '$color', fotoPerfil = '$fotoPerfil' WHERE idmascota = $idMascota;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+//Función para listar los datos de la mascota (top3) desde el dashboard principal del cliente
+function listarDatosMascotaDasboardCliente($idCliente, $conn) {
+    $sql = "SELECT nombre, fotoPerfil, fechaNac, sexo, peso, idmascota FROM `mascota` WHERE idcliente = '$idCliente' LIMIT 3";
+    $result = mysqli_query($conn, $sql);
+
+    $mascotas = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $edad = calcularEdadMascota($row['fechaNac']);
+        $row['edad'] = $edad;
+        $mascotas[] = $row;
+    }
+
+    return $mascotas;
+}
+
+function calcularEdadMascota($fechaNacimiento) {
+    $fechaActual = date('Y-m-d');
+    $diff = date_diff(date_create($fechaNacimiento), date_create($fechaActual));
+
+    $anios = $diff->y;
+    $meses = $diff->m;
+
+    $edad = "";
+    if ($anios > 0) {
+        $edad .= $anios . " año";
+        if ($anios > 1) {
+            $edad .= "s";
+        }
+    }
+
+    if ($meses > 0) {
+        if ($anios > 0) {
+            $edad .= " y ";
+        }
+        $edad .= $meses . " mes";
+        if ($meses > 1) {
+            $edad .= "es";
+        }
+    }
+
+    return $edad;
+}
+
+function evaluarEdadEtapa($fechaNacimiento, $esPerro, $esGato, $esConejo){
+    //Calculando la edad en años y meses
+    $fechaActual = new DateTime();
+    $fechaNacimiento = new DateTime($fechaNacimiento);
+    $diferencia = $fechaNacimiento->diff($fechaActual);
+    $edadYear = $diferencia->y;
+    $edadMonth = $diferencia->m;
+  
+    //Evaluando la etapa segun la especie
+    if($esPerro){
+        if($edadYear == 0){
+            if($edadMonth >= 2 && $edadMonth <= 6){
+            $etapa = 'Cachorro';
+        } else {
+            $etapa = 'Recien Nacido';
+       }
+    } elseif ($edadYear == 1 && $edadMonth >= 0 && $edadMonth <= 30){
+        $etapa = 'Adolescente';
+    } elseif ($edadYear >= 1 && $edadMonth >= 3 && $edadYear <= 6){
+        $etapa = 'Adulto';
+    } elseif ($edadYear >= 7){
+        $etapa = 'Senior';
+    } else {
+        $etapa = 'No definida';
+    }
+    } elseif ($esGato) {
+        if($edadYear == 0){
+            if($edadMonth >= 0 && $edadMonth <= 6){
+                $etapa = 'Cachorro';
+            } else {
+                $etapa = 'Recien Nacido';
+            }
+        } elseif ($edadYear == 0 && $edadMonth >= 6){
+            $etapa = 'Joven';
+        } elseif ($edadYear == 1 && $edadYear <= 2){
+            $etapa = 'Joven';
+        } elseif ($edadYear >= 2 && $edadYear <= 6){
+            $etapa = 'Adulto';
+        } elseif ($edadYear >= 6 && $edadYear <= 10){
+            $etapa = 'Maduro';
+        } elseif ($edadYear >= 10 && $edadYear <= 14){
+            $etapa = 'Senior';
+        } elseif ($edadYear >= 14){
+            $etapa = 'Geriatrico';
+        } else {
+            $etapa = 'No definida';
+        }
+  } else {
+        if($edadYear == 0){
+            if ($edadYear >= 0 && $edadMonth <= 6){
+                $etapa = 'bebé';
+            } else {
+                $etapa ='Recien Nacido';
+            }
+        } elseif ($edadYear == 0 && $edadMonth <= 9){
+            $etapa = 'adolescente';
+        } elseif ($edadMonth == 9 && $edadYear <= 2){
+            $etapa = 'adolescente';
+        } elseif ($edadYear >= 3 && $edadYear <= 5){
+            $etapa = 'adulto';
+        } elseif ($edadYear >= 6){
+            $etapa = 'anciano';
+        }
+  }
+    return [$edadYear, $edadMonth, $etapa];
+}
+
+#   Productos
+
+////Función para listar los datos de la mascota (top3) desde el dashboard principal del cliente
+function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo de la tabla detalle venta  y el estado ==1
+    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre AS nombreproducto, tipoproductoservicio.nombre AS nombretipoproducto, productoservicio.precio FROM productoservicio INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio where productoservicio.idtipoproductoservicio like '3' LIMIT 3";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res)) {
+        $vec[] = array(
+            'foto' => $f['fotoProductoServicio'],
+            'nombre' => $f['nombreproducto'],
+            'tipo' => $f['nombretipoproducto'],
+            'precio' => $f['precio']
+        );
+    }
+    return $vec;
+}
+
+//Para insertar productos : INSERT INTO `productoservicio` (`idproductoservicio`, `idtipoproductoservicio`, `nombre`, `fotoProductoServicio`, `precio`, `descripcion`, `estado`) VALUES (NULL, '4', 'Playology Dri-Tech - Soga Sabor Carne De Res', 'playology-dri-tech.jpg', '59.90', 'PLAYOLOGY Dri-Tech Dog Toy perfumado con la exclusiva tecnología Encapsiscent. Cada juguete está infundido con un aroma totalmente natural, fabricado con materiales seguros para perros extra duraderos y diseñado para un juego más duradero.', '1');
+//Funcion para listar servicios //modifciar el idtiposervicio
+function listarServicios($conn) {
+    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio FROM productoservicio WHERE productoservicio.idtipoproductoservicio = '4'";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res)) {
+        $vec[] = array(
+            'foto' => $f['fotoProductoServicio'],
+            'nombre' => $f['nombre'],
+            'descripcion' => $f['descripcion'],
+            'precio' => $f['precio']
+        );
+    }
+    return $vec;
+}
+
 ?>

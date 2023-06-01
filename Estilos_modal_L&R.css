@@ -65,15 +65,13 @@ body{
 
 }
 
-
-
 .top-form{
     display: flex;
     justify-content: flex-end;
 }
-#close-modal:hover{
-background-color: #3b9b93c0;
-color: #ffffff;
+#close-modal:hover {
+    background-color: #3b9b93c0;
+    color: #ffffff;
 }
 #close-modal{
     display: inline-flex;

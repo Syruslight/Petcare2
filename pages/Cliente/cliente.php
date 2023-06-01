@@ -2,11 +2,14 @@
 require('../../controlador/conexion.php');
 $conn = conectar();
 ?>
-  <?php
-                session_start();
-                $email = $_SESSION['email'];
-                foreach (listarCliente($email, $conn) as $key => $value) {
-                }?>
+<?php
+session_start();
+$email = $_SESSION['email'];
+$cliente = listarCliente($email, $conn);
+$idCliente = $cliente[0]['idcliente'];
+
+$mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
+?>
 
 
 <!--Perfil del cliente (deriva o esta incluido de su pagina principal)-->
@@ -16,7 +19,7 @@ $conn = conectar();
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='cliente.css'>
     <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
@@ -34,15 +37,15 @@ $conn = conectar();
 
     <div class="wrapper">
         <div class="profile">
-        <?php
+            <?php
             include('components/navListCliente.php');
-        ?> 
+            ?>
         </div>
-            <div class="dash-information">
+        <div class="dash-information">
             <?php
             include('components/headerCliente.php');
-        ?> 
-                
+            ?>
+
             <div class="wrapper-petypuntos">
                 <div class="petypuntos-top">
                     <span class="tittle-petypuntos"> Mis pety Puntos </span>
@@ -95,77 +98,59 @@ $conn = conectar();
             <div class="wrapper-pets">
                 <h1>Mis Mascotas</h1>
                 <div class="my-pets">
-
                     <div class="subwrapper-pets">
+                        <?php
+                        if (empty($mascotas)) {
+                            echo "<p>No hay mascotas registradas.</p>";
+                        } else {
+                            foreach ($mascotas as $mascota) {
+                                $nombre = $mascota['nombre'];
+                                $fotoPerfil = $mascota['fotoPerfil'];
+                                $edad = $mascota['edad'];
+                                $sexo = $mascota['sexo'];
+                                $peso = $mascota['peso'];
+                                $idmascota = $mascota['idmascota'];
+                                ?>
+                                <div class="ballot-pets">
+                                    <div class="picture-pet">
+                                        <img src="../../imagenes/fotosperfil/mascota/<?php echo $fotoPerfil; ?>" alt="Logo"
+                                            width="119" height="120">
+                                        <span>Nombre:
+                                            <?php echo $nombre; ?>
+                                        </span>
+                                    </div>
 
-                        <div class="ballot-pets"> <!--Primer pet -->
-                            <div class="picture-pet">
-                                <img src="../../imagenes/perfilCliente/dog.png" alt="Logo" width="119" height="120">
-                                <span>Nombre: Colita</span>
-                            </div>
-
-                            <div class="info-pets">
-                                <div class="info-text">
-                                    <span>Edad:2 años(s)</span>
-                                    <span>Sexo:Masculino</span>
-                                    <span>Peso:12kg</span>
+                                    <div class="info-pets">
+                                        <div class="info-text">
+                                            <span>Edad:
+                                                <?php echo $edad; ?>
+                                            </span>
+                                            <span>Sexo:
+                                                <?php echo $sexo; ?>
+                                            </span>
+                                            <span>Peso:
+                                                <?php echo $peso; ?>
+                                            </span>
+                                        </div>
+                                        <div>
+                                            <img class="edits-pets" src="../../imagenes/perfilCliente/edit-pencil.png"
+                                                alt="Logo" width="35" height="34">
+                                            <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo"
+                                                width="46" height="42">
+                                        </div>
+                                    </div>
                                 </div>
-                                <div>
-                                    <img class="edits-pets" src="../../imagenes/perfilCliente/edit-pencil.png"
-                                        alt="Logo" width="35" height="34">
-                                    <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo"
-                                        width="46" height="42">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="ballot-pets"> <!--segundo pet -->
-                            <div class="picture-pet">
-                                <img src="../../imagenes/perfilCliente/cat.png" alt="Logo" width="119" height="120">
-                                <span>Nombre: Nube</span>
-                            </div>
-
-                            <div class="info-pets">
-                                <div class="info-text">
-                                    <span>Edad:1 años(s)</span>
-                                    <span>Sexo:Femenino</span>
-                                    <span>Peso:5kg</span>
-                                </div>
-                                <div>
-                                    <img class="edits-pets" src="../../imagenes/perfilCliente/edit-pencil.png"
-                                        alt="Logo" width="35" height="34">
-                                    <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo"
-                                        width="46" height="42">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="ballot-pets"> <!--TERCER pet -->
-                            <div class="picture-pet">
-                                <img src="../../imagenes/perfilCliente/rabbit.png" alt="Logo" width="119" height="120">
-                                <span>Nombre: Copo</span>
-                            </div>
-
-                            <div class="info-pets">
-                                <div class="info-text">
-                                    <span>Edad:3 años(s)</span>
-                                    <span>Sexo:Masculino</span>
-                                    <span>Peso:3kg</span>
-                                </div>
-                                <div>
-                                    <img class="edits-pets" src="../../imagenes/perfilCliente/edit-pencil.png"
-                                        alt="Logo" width="35" height="34">
-                                    <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo"
-                                        width="46" height="42">
-                                </div>
-                            </div>
-                        </div>
+                                <?php
+                            }
+                        }
+                        ?>
                     </div>
+
+
                     <div>
                         <img class="add-pet" src="https://img.icons8.com/ios/50/plus-2-math.png" alt="plus-2-math" />
                     </div>
                 </div>
-
             </div>
 
             <div class="header-activities">
@@ -246,64 +231,70 @@ $conn = conectar();
                     <div class="titulo-h2">
                         <h2 class="tituloform">Editar Datos</h2>
                     </div>
-                <div id="close-modal">
+                    <div id="close-modal">
                         &#10006
-                    </div> 
+                    </div>
                 </div>
-                    <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data" method="POST">
-                        
-                        <div class="editheader">
-                            <aside class="contfoto">
-                                <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" class="modal__img" width="95" height="89">
-                                <input id="foto" type="file" name="foto">
-                                
-                            </aside>
-                            <section class="textonomap">
-                                <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>" required>
-                                    <label for=""> Nombres</label>
-                                    
-                                </div>
-                                <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="apellidos"  value="<?= $value[1] ?>" required>
-                                    <label for=""> Apellidos</label>
-                                </div>
+                <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data"
+                    method="POST">
 
-                            </section>                                       
-                                 </div>
-                        <div class="modalinf">
-                            <div class="input-group1">
-                                <input class="estilo-separado1" type="TEXT" name="telefono"  value="<?= $value[3] ?>" required>
-                                <label for=""> Telefono</label>
+                    <div class="editheader">
+                        <aside class="contfoto">
+                            <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>"
+                                class="modal__img" width="95" height="89">
+                            <input id="foto" type="file" name="foto">
+
+                        </aside>
+                        <section class="textonomap">
+                            <div class="input-group">
+                                <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>"
+                                    required>
+                                <label for=""> Nombres</label>
+
                             </div>
-                            <div class="input-group2">
-                                <input class="estilo-separado1" type="TEXT" name="dni"  value="<?= $value[2] ?> "required>
-                                <label for=""> DNI</label>
+                            <div class="input-group">
+                                <input class="estilo-separado" type="text" name="apellidos" value="<?= $value[1] ?>"
+                                    required>
+                                <label for=""> Apellidos</label>
                             </div>
-                            
-                            <input hidden name="idcliente"  value="<?= $value[7] ?> "required>
-                            <input hidden name="foto2"  value="<?= $value[6] ?> "required>
-                        </div> 
-                        <div class="modalFoot">
-                                <div class="input-group3">
-                                <input class="estilo-separado" type="text" name="direccion"  value="<?= $value[4] ?>" required>
-                                <label for=""> Dirección</label>
-                            </div>
-                            </div>
-                            <div class="contbtn">
-                                <button class="btn-mod">ACTUALIZAR DATOS</button>
-                            </div>
-                            
-                    </form>
-    
+
+                        </section>
+                    </div>
+                    <div class="modalinf">
+                        <div class="input-group1">
+                            <input class="estilo-separado1" type="TEXT" name="telefono" value="<?= $value[3] ?>"
+                                required>
+                            <label for=""> Telefono</label>
+                        </div>
+                        <div class="input-group2">
+                            <input class="estilo-separado1" type="TEXT" name="dni" value="<?= $value[2] ?> " required>
+                            <label for=""> DNI</label>
+                        </div>
+
+                        <input hidden name="idcliente" value="<?= $value[7] ?> " required>
+                        <input hidden name="foto2" value="<?= $value[6] ?> " required>
+                    </div>
+                    <div class="modalFoot">
+                        <div class="input-group3">
+                            <input class="estilo-separado" type="text" name="direccion" value="<?= $value[4] ?>"
+                                required>
+                            <label for=""> Dirección</label>
+                        </div>
+                    </div>
+                    <div class="contbtn">
+                        <button class="btn-mod">ACTUALIZAR DATOS</button>
+                    </div>
+
+                </form>
+
             </div>
         </div>
     </section>
-                    </section>
-                    
-                    
-                    <script src="../../js/Modal.js"></script>
-                    
-                    </body>
+    </section>
+
+
+    <script src="../../js/Modal.js"></script>
+
+</body>
 
 </html>

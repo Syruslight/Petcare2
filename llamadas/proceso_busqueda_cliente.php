@@ -18,8 +18,8 @@ $query = $_POST['query'];
 $sql = "SELECT u.email, c.nombres, c.apellidos, c.dni, c.telefono,c.foto
 FROM cliente c
 INNER JOIN usuario u ON c.idusuario = u.idusuario
-WHERE c.dni LIKE '%$query%' OR c.nombres LIKE '%$query%'
-LIMIT 5;
+WHERE c.dni LIKE '%$query%' OR c.nombres LIKE '%$query%' OR c.telefono LIKE '%$query%'
+LIMIT 10;
 ";
 
 
@@ -40,10 +40,11 @@ if ($result->num_rows > 0) {
                     </div>
                     </div>';
         }
+
     $output .= '</div>';
          $output .= '<div class="dates-email">
                     <span class="text-dates">E-mail</span>';
-                   
+
                     
                     foreach ($result as $row) {
                         
@@ -52,6 +53,23 @@ if ($result->num_rows > 0) {
                                   </div>';
                       }
          $output .= '</div>';
+
+         
+         $output .= '<div class="dates-dni">
+         <span class="text-dates">DNI</span>';
+        
+         
+         foreach ($result as $row) {
+             
+             $output .='<div class="dni">
+                       <span>'. $row['dni'] .'</span>
+                       </div>';
+           }
+$output .= '</div>';
+         
+
+
+         
 
         $output .= '<div class="dates-cellphone">
                     <span class="text-dates">Telefono</span>';
@@ -62,15 +80,15 @@ if ($result->num_rows > 0) {
                     }
                     $output .= '</div>';
 
-        $output .='<div class="dates-info">
-                  <span class="text-dates"> Informacion </span>';
-                  foreach($result as $row) {
-                    $output .='<div class="button-see">
-                    <button>Ver Cliente</button>
-                      </div> ';
-                  }
+        // $output .='<div class="dates-info">
+        //           <span class="text-dates"> Informacion </span>';
+        //           foreach($result as $row) {
+        //             $output .='<div class="button-see">
+        //             <button>Ver Cliente</button>
+        //               </div> ';
+        //           }
                   
-                  $output .='</div>';
+        //           $output .='</div>';
         
   $output .= '</div>';
 
