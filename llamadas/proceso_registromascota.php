@@ -18,7 +18,6 @@ $etapa = $_POST['etapa'];
 $renian = $_POST['renian'];
 $estado = 1;
 
-
 $esterilizado = "";
 if (isset($_POST['esterilizado'])) {
     $esterilizado = $_POST['esterilizado'];
@@ -42,12 +41,6 @@ if (!empty($fotoPerfil)) {
 }
 
 agregarDatosMascota($idcliente, $idraza, $nombre, $fechaActualizada, $peso, $color, $fotoPerfil, $esterilizado, $etapa, $renian,$sexo, $estado, $conn);
-
-$especie = "Perro";
-if($especie == "Perro"){
-    $especienuva= evaluarEdadEtapaPerro()
-}
-evaluarEdadEtapa($fechaActualizad, $esPerro, $esGato, $esConejo);
 
 header('Location: ../pages/Mascota/mascotaIndex.php');
 ?>
