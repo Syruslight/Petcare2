@@ -12,3 +12,4 @@ closeModal.addEventListener('click', (e)=>{
     modal.classList.remove('modal--show');
 });
 
+    

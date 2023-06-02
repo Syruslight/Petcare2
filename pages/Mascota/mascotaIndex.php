@@ -26,30 +26,20 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <title>Pagina del Cliente</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(document).ready(function() {
-  $(document).on('click', '.butModal', function(event) {
-    event.preventDefault(); // Evita el comportamiento predeterminado del enlace
-
-    var modalId = $(this).data('modal');
-    // Abre el modal correspondiente utilizando la biblioteca o el código que estés utilizando
-
-    // Resto del código necesario para abrir el modal...
-  });
-
-  $('#busqueda').on('input', function() {
-    var query = $(this).val();
-    var idCliente = <?php echo $idCliente; ?>;
-    $.ajax({
-      url: '../../llamadas/proceso_busqueda_mascota.php',
-      method: 'POST',
-      data: { query: query, idCliente: idCliente },
-      success: function(response) {
-        $('#resultados').html(response);
-      }
-    });
-  });
-});
-
+   $(document).ready(function() {
+        $('#busqueda').on('input', function() {
+            var query = $(this).val();
+            var idCliente = <?php echo $idCliente; ?>; // Obtener el valor de $idCliente
+            $.ajax({
+            url: '../../llamadas/proceso_busqueda_mascota.php',
+            method: 'POST',
+            data: { query: query, idCliente: idCliente},
+            success: function(response) {
+                $('#resultados').html(response);
+            }
+            });
+        });
+        });
     </script>
 </head>
 
@@ -118,7 +108,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             placeholder="Ingrese nombre mascota..."></span>
                                 </div>
                                 <table id="resultados" class="table table-borderless table-striped table-responsive text-center">
-                                    <thead>
+                                <thead>
                                         <tr>
                                             <th class="toget">Imagen</th>
                                             <th>Nombre</th>
@@ -212,6 +202,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             </td>
                                         </tr>
                                     </tbody>
+    
                                 </table>
                             </div>
                         </div>
