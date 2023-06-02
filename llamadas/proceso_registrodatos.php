@@ -15,7 +15,6 @@
 	$ruta = $_FILES['foto']['tmp_name'];
 	$sexo = $_REQUEST['sexo'];
 	$fechaNac = $_REQUEST['fechaNac'];
-	$estado = 1; //Cuenta Activada
     $fotuser = "";
 	
 	
@@ -48,20 +47,20 @@
 	//Cambio de fecha: 
 		$fechaBD = date('Y-m-d', strtotime(str_replace('-', '/', $fechaNac)));
 	if($tipoUsuario=="Admin"){
-		agregarDatosAdministrador($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$estado,$conn);
+		agregarDatosAdministrador($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$conn);
 		header("location:../pages/Administrador/administradorIndex/administrador.php");
 	}
 	else if ($tipoUsuario=="Cliente"){
-		agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$estado,$conn);
+		agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$conn);
 		header("location:../pages/Cliente/cliente.php");
 	}
 	else if($tipoUsuario=="Veterinario"){
-		agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$estado,$conn);
+		agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$conn);
 		header('location:../pages/Veterinario/veterinario.php');
 	}
 
 
-	//Despues de agregar los datos se actualiza el id del usuario:    
+	//Despues de agregar los datos se actualiza el estado de la tabla 'usuario'   
     $estadonuevo= 2;
     actualizarEstado($idusuario,$estadonuevo,$conn);
 ?>
