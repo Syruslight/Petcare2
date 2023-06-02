@@ -240,9 +240,11 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
 
                     <div class="editheader">
                         <aside class="contfoto">
-                            <img class="fotous" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>"
-                                class="modal__img" width="95" height="89">
-                            <input id="foto" type="file" name="foto">
+                            <img id="img" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>"
+                                id=img width="95" height="89">
+                            <input id="foto" type="file" name="foto" hidden>
+                            <label id="cambiar-foto" for="foto"><img class="image-profile"
+                src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30"></label>
 
                         </aside>
                         <section class="textonomap">
@@ -260,6 +262,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
 
                         </section>
                     </div>
+
                     <div class="modalinf">
                         <div class="input-group1">
                             <input class="estilo-separado1" type="TEXT" name="telefono" value="<?= $value[3] ?>"
@@ -294,6 +297,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
 
 
     <script src="../../js/Modal.js"></script>
+    <script src="../../js/registroNewUs.js"></script>
 
 </body>
 

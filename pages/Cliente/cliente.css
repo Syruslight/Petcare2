@@ -113,6 +113,7 @@
   align-items: center;
 }
 .dash-header {
+  position: sticky;
   width: 100%;
   height: 60px;
   background: #94d2bd;
@@ -607,25 +608,38 @@
   max-height: 190px;
 }
 
-.fotous {
-  margin-top: 7px;
-  height: 70%;
-  width: 70%;
-  border-radius: 50%;
+#img {
+  margin-top: 15px;
+  height: 80%;
+  width: 80%;
+  border-radius: 10%;
   margin-left: auto;
   margin-right: auto;
   display: block;
   border: 3px solid #d867c5;
+  overflow-clip-margin: content-box;
+    overflow: clip;
 }
 
-.contfoto input {
-  max-width: 70%;
-  min-width: 70%;
-  margin-top: 5px;
-  width: 65%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
+#cambiar-foto img{
+  margin-left: 145px;
+  margin-top: -100%;
+  width: 35px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: 0.5s ease;
+
+}
+#cambiar-foto img:hover{
+opacity: .8;
+transform: scale(1.1);
 }
 .textonomap {
   width: 100%;
@@ -681,7 +695,7 @@
 .modalinf {
   justify-content: space-between;
   display: flex;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 .input-group1 {
   width: 40%;
@@ -778,6 +792,7 @@
   min-width: 390px;
   min-height: 90px;
   max-height: 90px;
+  margin-top: 10px;
 }
 
 .input-group3 {
