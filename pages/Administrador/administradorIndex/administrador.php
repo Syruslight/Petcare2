@@ -225,10 +225,11 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
                     <div class="editheader">
                         <aside class="contfoto">
-                            <img class="fotous" src="../../../imagenes/fotosperfil/administrador/<?= $value[6] ?>"
+                            <img id="img" src="../../../imagenes/fotosperfil/administrador/<?= $value[6] ?>"
                                 class="modal__img" width="95" height="89">
-                            <input id="foto" type="file" name="foto">
-
+                                <input id="foto" type="file" name="foto" hidden>
+                            <label id="cambiar-foto" for="foto"><img class="image-profile"
+                src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30"></label>
                         </aside>
                         <section class="textonomap">
                             <div class="input-group">
@@ -278,7 +279,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     </section>
 
 
-
+<script src="../../../js/registroNewUs.js"></script>
     <script src="../../../js/Modal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/swiperAdmin.js"></script>

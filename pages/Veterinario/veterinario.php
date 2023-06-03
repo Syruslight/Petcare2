@@ -190,11 +190,7 @@ $conn = conectar();
             </div>
         </div>
     </div>
-    <div class="wrapper-calendar">
-        
-    <img src="../../imagenes/perfilVeterinario/headerCalendar.png"width="1093px"height="56px">
-    <img src="../../imagenes/perfilVeterinario/bodyCalendar.png"width="1069px"height="395px">
-    </div>
+    
 </div>
 
 <?php
@@ -223,8 +219,11 @@ $conn = conectar();
                         
                         <div class="editheader">
                             <aside class="contfoto">
-                                <img class="fotous" src="../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" class="modal__img" width="95" height="89">
-                                <input id="foto" type="file" name="foto">
+                                <img id="img" src="../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" class="modal__img" width="95" height="89">
+                                <input id="foto" type="file" name="foto" hidden>
+                            <label id="cambiar-foto" for="foto"><img class="image-profile"
+                src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30"></label>
+>
                                 
                             </aside>
                             <section class="textonomap">
@@ -272,7 +271,7 @@ $conn = conectar();
     </section>
 
 
-    
+    <script src="../../js/registroNewUs.js"></script>
     <script src="../../js/Modal.js"></script>
 
 </body>

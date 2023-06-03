@@ -39,35 +39,30 @@ if ($result->num_rows > 0) {
             </thead>
             <tbody>';
 
-  while ($row = $result->fetch_assoc()) {
-    $output .= '<tr>
-    <td class="toget"><img src="../../imagenes/fotosperfil/mascota/'.$row['fotoPerfil'].'" alt="" class="dimg">
-    </td>
-    <td>' . $row['nombre'] . '</td>
-    <td>' . $row['fechaNac'] . '</td>
-    <td>' . $row['edad'] . '</td>
-    <td>' . $row['peso'] . ' Kg</td>
-    <td>' . $row['color'] . '</td>
-    <td class="th">'. $row['esterilizado'] .'</td>
-    <td class="td">
-        <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
-            style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-        <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
-            style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-    </td>
-</tr>';
-  }
-
+            while ($row = $result->fetch_assoc()) {
+              $output .= '<tr>
+              <td class="toget"><img src="../../imagenes/fotosperfil/mascota/'.$row['fotoPerfil'].'" alt="" class="dimg">
+              </td>
+              <td>' . $row['nombre'] . '</td>
+              <td>' . $row['fechaNac'] . '</td>
+              <td>' . $row['edad'] . '</td>
+              <td>' . $row['peso'] . ' Kg</td>
+              <td>' . $row['color'] . '</td>
+              <td class="th">'. $row['esterilizado'] .'</td>
+              <td class="td">
+                  <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
+                      style="background-color:#1BC5BD; color:#1D3534;">editar</a>
+                  <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
+                      style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
+              </td>
+          </tr>'
+        ;}
   $output .= '</tbody>';
+
+  echo $output;
 } else {
-  // No se encontraron resultados
-  echo $idCliente;
-  $output = 'No se encontraron resultados.';
+  echo '<tr><td colspan="8" class="text-center">No se encontraron mascotas</td></tr>';
 }
 
-// Devolver los resultados al cliente
-echo $output;
-
-// Cerrar la conexión a la base de datos
 $conn->close();
 ?>

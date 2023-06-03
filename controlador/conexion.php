@@ -52,9 +52,9 @@ function agregarCliente($idTipoUsuario, $email, $pass, $estado, $conn)
 }
 
 //Esta funcion agrega los datos personales del cliente cuando se logee por primera vez | estado : 1
-function agregarDatosCliente($idusuario, $nombres, $apellidos, $dni, $telefono, $direccion, $foto, $sexo, $fechaNac, $estado, $conn)
+function agregarDatosCliente($idusuario, $nombres, $apellidos, $dni, $telefono, $direccion, $foto, $sexo, $fechaNac, $conn)
 {
-    $sql = "insert into cliente(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac','$estado')";
+    $sql = "insert into cliente(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 //Función para actualizar el cliente por idusuario cuando su estado sea 2 desde el dashboard del cliente
@@ -82,9 +82,9 @@ function listarCliente($email, $conn)
 #-------Consultas relacionadas a la pagina principal de administrador-------
 
 //Función para añadir los datos personales del administrador cuando se logee por primera vez
-function agregarDatosAdministrador($idusuario, $nombres, $apellidos, $dni, $telefono, $direccion, $foto, $sexo, $fechaNac, $estado, $conn)
+function agregarDatosAdministrador($idusuario, $nombres, $apellidos, $dni, $telefono, $direccion, $foto, $sexo, $fechaNac, $conn)
 {
-    $sql = "insert into administrador(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac','$estado')";
+    $sql = "insert into administrador(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
@@ -114,9 +114,9 @@ function actualizarDatosAdministrador($idadministrador, $nombres, $apellidos, $t
 #-------Consultas relacionadas a la pagina principal de veterinario-------
 
 //Función para añadir los datos personales del veterinario cuando se logee por primera vez
-function agregarDatosVeterinario($idusuario, $nombres, $apellidos, $dni, $telefono, $direccion, $foto, $sexo, $fechaNac, $estado, $conn)
+function agregarDatosVeterinario($idusuario, $nombres, $apellidos, $dni, $telefono, $direccion, $foto, $sexo, $fechaNac, $conn)
 {
-    $sql = "insert into veterinario(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac,estado) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac','$estado')";
+    $sql = "insert into veterinario(idusuario,nombres,apellidos,dni,telefono,direccion,foto,sexo,fechaNac) values ('$idusuario','$nombres','$apellidos','$dni','$telefono','$direccion','$foto','$sexo','$fechaNac')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
@@ -298,7 +298,7 @@ function evaluarEdadEtapa($fechaNacimiento, $esPerro, $esGato, $esConejo){
 
 ////Función para listar los datos de la mascota (top3) desde el dashboard principal del cliente
 function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo de la tabla detalle venta  y el estado ==1
-    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre AS nombreproducto, tipoproductoservicio.nombre AS nombretipoproducto, productoservicio.precio FROM productoservicio INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio where productoservicio.idtipoproductoservicio like '3' LIMIT 3";
+    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre AS nombreproducto, tipoproductoservicio.nombre AS nombretipoproducto, productoservicio.precio FROM productoservicio INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio where productoservicio.idtipoproductoservicio like '2' LIMIT 3";
     $res = mysqli_query($conn, $sql);
     $vec = array();
     while ($f = mysqli_fetch_array($res)) {
@@ -313,20 +313,49 @@ function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo
 }
 
 //Para insertar productos : INSERT INTO `productoservicio` (`idproductoservicio`, `idtipoproductoservicio`, `nombre`, `fotoProductoServicio`, `precio`, `descripcion`, `estado`) VALUES (NULL, '4', 'Playology Dri-Tech - Soga Sabor Carne De Res', 'playology-dri-tech.jpg', '59.90', 'PLAYOLOGY Dri-Tech Dog Toy perfumado con la exclusiva tecnología Encapsiscent. Cada juguete está infundido con un aroma totalmente natural, fabricado con materiales seguros para perros extra duraderos y diseñado para un juego más duradero.', '1');
-//Funcion para listar servicios //modifciar el idtiposervicio
+
+
+#     Servicios
+//Funcion para listar servicios //modificar el estado 
 function listarServicios($conn) {
-    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio FROM productoservicio WHERE productoservicio.idtipoproductoservicio = '4'";
+    $sql = "SELECT productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio FROM productoservicio WHERE productoservicio.idtipoproductoservicio = '1'";
     $res = mysqli_query($conn, $sql);
     $vec = array();
     while ($f = mysqli_fetch_array($res)) {
-        $vec[] = array(
-            'foto' => $f['fotoProductoServicio'],
+        $servicio = array(
+            'foto' => $f['foto'],
             'nombre' => $f['nombre'],
             'descripcion' => $f['descripcion'],
             'precio' => $f['precio']
         );
+        $vec[] = $servicio;
     }
     return $vec;
 }
+
+//Funcion para crear servicios 
+function crearServicios($idTipoProductoServicio,$nombre,$precio,$descripcion,$fotoProductoServicio, $estado, $conn){
+    $sql = "insert into productoservicio(idtipoproductoservicio,nombre,precio,descripcion,fotoProductoServicio,estado) values ('$idTipoProductoServicio','$nombre','$precio','$descripcion','$fotoProductoServicio','$estado')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+//Funcion para listar servicios pero con parametros para editarlo posteriormente
+function listarServiciosPorId($idServicio, $conn) {
+    $sql = "SELECT nombre,precio,descripcion,fotoProductoServicio,estado FROM `productoservicio` WHERE idproductoservicio = '$idServicio'";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res))
+        $vec[] = $f;
+    return $vec;
+}
+
+
+//Funcion para editar los servicios (precio nombre descripcion estado - desactivarlo)
+function actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $estado, $conn)
+{
+    $sql = "UPDATE productoservicio SET nombre = '$nombre', precio = '$precio', descripcion = '$descripcion', fotoProductoServicio = '$fotoProductoServicio', estado = '$estado' WHERE idproductoservicio = $idproductoservicio;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
 
 ?>

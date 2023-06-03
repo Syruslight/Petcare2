@@ -27,9 +27,9 @@ session_start();
         <div class="page">
           <div class="fotoPos">
             <div class="foto">
-              <img
-                src="https://lh5.googleusercontent.com/proxy/9vqIPeIeHQHyGEo43DlSgD-DUtidieclv56O6UoAcYNGPXGNnZwFJL2V7oSodehCB1YT28jit7pMSVjNTnrBOnlBxW0CiRmOeH22FlPockzEbfdQPHLkDMPcgMwWdNfVHF1r2QpUk6W_aY_J87A9lFtYKMHf8_xhkMB7l_4=s0-d"
-                alt="avatar" id="img">
+              <img id="img"
+                src="../../imagenes/perfilCliente/sinFoto.jpg"
+                alt="avatar" >
             </div>
             <input id="foto" type="file" name="foto" hidden>
             <label id="cambiar-foto" for="foto"><img class="image-profile"
