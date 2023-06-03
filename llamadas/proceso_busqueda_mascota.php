@@ -1,15 +1,6 @@
 <?php
-// Conexión a la base de datos (ajusta los datos de conexión según tu configuración)
-$servername = 'localhost';
-$username = 'root';
-$password = '';
-$dbname = 'petcare';
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-if ($conn->connect_error) {
-  die('Error de conexión: ' . $conn->connect_error);
-}
+require('../controlador/conexion.php');
+$conn = conectar();
 
 // Obtener el término de búsqueda enviado por Ajax
 $query = $_POST['query'];
