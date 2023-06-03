@@ -37,9 +37,12 @@ $conn = conectar();
             
       <div class="contForm">
         <aside class="formVacuna">
+          <div class="grupotex1">
+          <h2 class="titulo_detallevac">Formulario vacuna</h2>  
+        
+          </div>
           <form action="" method="post">
-          <h2 class="titulo_detallevac">Formulario vacuna</h2>
-           <p class="textobusqueda1">Ingrese el RENIAN de la mascota:</p>
+          
           <div class="grupotex1">
            
           <input type="number_format" name="busqueda" id="busqueda" class="ingreso_datos1" required>
@@ -62,14 +65,14 @@ $conn = conectar();
           </div>
           <div class="grupotex">
             <label for="" class="etiqueta_nombre">Observación</label>
-            <textarea type="text" name="Observacion" id="" class="ingreso_datos"></textarea>
+            <textarea type="text" name="Observacion" id="" class="ingresoFullText"></textarea>
           </div>
           <label for="" class="etiqueta_nombre">Restricciones</label>
-          <textarea type="text" name="Restricciones" id="" class="ingreso_datos"></textarea>
+          <textarea type="text" name="Restricciones" id="" class="ingresoFullText"></textarea>
           <button type="submit" class="btn_envio">Agregar</button>
         </form>
         </aside>
-      <div class="contenedorLote">
+      <div class="contenedorLote" >
       <div class="contformLote">
   <form action="../../../llamadas/proceso_registrarvacuna.php">
 
@@ -226,8 +229,8 @@ $conn = conectar();
         });
       });
     </script>
-
-   <script src="../../../js/Modal.js"></script>
+    <script src="../../../js/validar.js"></script>
+    <script src="../../../js/Modal.js"></script>
     <script src="../../../js/modalCliente.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/swiperAdmin.js"></script>

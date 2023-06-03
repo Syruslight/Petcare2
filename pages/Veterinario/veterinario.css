@@ -840,6 +840,7 @@ transform: scale(1.1);
 }
 
 .contformLote {
+  margin-top: -20px;
   background-color: #f9f9f9;
   padding: 20px;
   box-sizing: border-box;
@@ -847,6 +848,7 @@ transform: scale(1.1);
 }
 
 .contLoteTable {
+  width: 100%;
   margin-top: 20px;
   box-sizing: border-box;
   overflow: auto;
@@ -891,6 +893,26 @@ transform: scale(1.1);
   margin-bottom: 5px;
 }
 
+.ingresoFullText{
+  width: 100%;
+  height: 115px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+.ingresoFullText:focus {
+  outline: none;
+  border-color: #57b8ac;
+  box-shadow: 0 0 6px #57b8ac;
+}
+
+.ingresoFullText::placeholder {
+  color: #999;
+}
 .ingreso_datos {
   width: 100%;
   padding: 8px;
@@ -905,7 +927,7 @@ transform: scale(1.1);
 .ingreso_datos:focus {
   outline: none;
   border-color: #57b8ac;
-  box-shadow: 0 0 3px #57b8ac;
+  box-shadow: 0 0 6px #57b8ac;
 }
 
 .ingreso_datos::placeholder {
@@ -984,6 +1006,14 @@ transform: scale(1.1);
 .tablaLotes thead th {
   position: sticky;
   top: 0; 
+}
+
+.tablaLotes tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tablaLotes tbody tr:hover {
+  background-color: #dbdbdb;
 }
 
 .grupotex1 {
