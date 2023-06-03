@@ -15,10 +15,10 @@ if ($conn->connect_error) {
 $query = $_POST['query'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT u.email, c.nombres, c.apellidos, c.dni, c.telefono,c.foto
+$sql = "SELECT u.email, c.nombres, c.apellidos, c.dni, c.telefono,c.foto, c.direccion
 FROM cliente c
 INNER JOIN usuario u ON c.idusuario = u.idusuario
-WHERE c.dni LIKE '%$query%' OR c.nombres LIKE '%$query%' OR c.telefono LIKE '%$query%'
+WHERE c.dni LIKE '%$query%' OR c.nombres LIKE '%$query%' OR c.telefono LIKE '%$query%' OR c.direccion LIKE '%$query%'
 LIMIT 10;
 ";
 
@@ -76,6 +76,16 @@ $output .= '</div>';
                     foreach($result as $row) {
                       $output .='<div class="cell-phone">
                                   <span>'. $row['telefono'] .'</span>
+                                  </div>';
+                    }
+                    $output .= '</div>';
+
+
+        $output .= '<div class="dates-direction">
+                    <span class="text-dates">Direccion</span>';
+                    foreach($result as $row) {
+                      $output .='<div class="direction">
+                                  <span>'. $row['direccion'] .'</span>
                                   </div>';
                     }
                     $output .= '</div>';

@@ -59,77 +59,37 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             include('../components/headerAdministrador.php');
             ?>
             <div class="wrapper-drawer">
-                <h1>Mis servicios</h1>
+                <h1>Productos Populares del Mes</h1>
 
 
                 <!-- Swiper -->
+                
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"> <!--Primer Slide-->
-                            <div class="cardpet">
-                                <img src="../../../imagenes/perfilAdmin/dog1.png" alt="" width="172" height="190">
-                                <div class="semicrud-pet">
-                                    <button class="button-edit">
-                                        Editar
-                                    </button>
-                                    <img class="option-delete" src="../../../imagenes/perfilAdmin/eliminar.png" alt="">
-                                </div>
-                            </div>
 
-                        </div>
-                        <div class="swiper-slide"><!--Segundo Slide-->
-                            <div class="cardpet">
-                                <img src="../../../imagenes/perfilAdmin/dog2.png" alt="" width="172" height="190">
-                                <div class="semicrud-pet">
-                                    <button class="button-edit">
-                                        Editar
-                                    </button>
-                                    <img class="option-delete" src="../../../imagenes/perfilAdmin/eliminar.png" alt="">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="swiper-slide"> <!--Tercer Slide-->
+                        <!--Inicia contenedor de swiper-->
+                        <div class="swiper-slide">
+                        <div class="cardpet-sup">
 
                             <div class="cardpet">
-                                <img src="../../../imagenes/perfilAdmin/dog3.png" alt="" width="172" height="190">
-                                <div class="semicrud-pet">
-                                    <button class="button-edit">
-                                        Editar
-                                    </button>
-                                    <img class="option-delete" src="../../../imagenes/perfilAdmin/eliminar.png" alt="">
-                                </div>
-                            </div>
+                                <img src="" width="64.42" height="70">
+                                <span  class="type-product">Comida</span>
+                                <span  class="type-category">Juguete Masticable</span>
+                            </div>    
+                            <div class="semicrud-pet">
+                                <span class="subtitle-price">Precioo</span>
+                                <span class="price">s/60.00</span>
+                           </div>
 
                         </div>
 
-                        <div class="swiper-slide"> <!--Cuarto Slide-->
-
-                            <div class="cardpet">
-                                <img src="../../../imagenes/perfilAdmin/dog4.png" alt="" width="172" height="190">
-                                <div class="semicrud-pet">
-                                    <button class="button-edit">
-                                        Editar
-                                    </button>
-                                    <img class="option-delete" src="../../../imagenes/perfilAdmin/eliminar.png" alt="">
-                                </div>
-                            </div>
-
+                        <div class="cardpet-inf">
+                            <span class="subtitle-sales" >Ventas hechas del mes</span>
+                            <span class="sales">35</span>
                         </div>
+                       </div>   
+                         <!--Finaliza contenedor de swiper-->
 
-                        <div class="swiper-slide"> <!--Quinto Slide-->
-
-                            <div class="cardpet">
-                                <img src="../../../imagenes/perfilAdmin/dog5.png" alt="" width="172" height="190">
-                                <div class="semicrud-pet">
-                                    <button class="button-edit">
-                                        Editar
-                                    </button>
-                                    <img class="option-delete" src="../../../imagenes/perfilAdmin/eliminar.png" alt="">
-                                </div>
-                            </div>
-
-                        </div>
                     </div>
 
                     <div class="swiper-button-next"></div>
@@ -153,38 +113,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
                     </div>
                 </div>
-                <div class="subwrapper-product">
-                    <h1 class="tittle-products">Productos populares</h1>
-                    <div class="product-price">
-                        <div class="subtittle-proprice">
-                            <span class="subtitle-product">
-                                Productos
-                            </span>
-                            <span class="subtitle-price">
-                                Precio
-                            </span>
-                        </div>
-
-                        <?php
-                        $productos = listarProductos($conn);
-                        foreach ($productos as $producto) {
-                            echo '<div class="wrapper-productandprice">';
-                            echo '<div class="wrapper-product">';
-                            echo '<img src="../../../imagenes/productos_servicios/productos/' . $producto['foto'] . '" width="64.42" height="70">';
-                            echo '<div class="subcontainer-product">';
-                            echo '<span class="type-category">' . $producto['nombre'] . '</span>';
-                            echo '<span class="type-product">' . $producto['tipo'] . '</span>';
-                            echo '</div>';
-                            echo '</div>';
-                            echo '<span class="price">s/.' . $producto['precio'] . '</span>';
-                            echo '</div>';
-                            echo '<hr class="line">';
-                        }
-                        ?>
-
-                    </div>
-                    <button class="button-product">Todos los Productos</button>
-                </div>
+               
 
             </div>
 

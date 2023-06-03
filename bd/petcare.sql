@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-05-2023 a las 02:30:03
--- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Tiempo de generación: 02-06-2023 a las 03:06:24
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -37,17 +37,17 @@ CREATE TABLE `administrador` (
   `direccion` varchar(50) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
   `sexo` varchar(9) NOT NULL,
-  `fechaNac` date DEFAULT NULL,
-  `estado` char(1) DEFAULT NULL
+  `fechaNac` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `administrador`
 --
 
-INSERT INTO `administrador` (`idadministrador`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`, `estado`) VALUES
-(1, 21, 'Pedro', 'Suarez Vertiz', '45987321', '987458621', 'Av. Amancaes 852', 'admin1.jpg', 'Masculino', '1990-05-04', '1'),
-(2, 22, 'Vanesa', 'Perez', '85274136', '963852741', 'Av. Izaguirre 1230', 'admin2.jpg', 'Femenino', '1997-12-08', '1');
+INSERT INTO `administrador` (`idadministrador`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`) VALUES
+(1, 21, 'Pedro', 'Suarez Vertiz', '45987321', '987458621', 'Av. Amancaes 852', 'admin1.jpg', 'Masculino', '1990-05-04'),
+(2, 22, 'Vanesa', 'Perez', '85274136', '963852741', 'Av. Izaguirre 1230', 'admin2.jpg', 'Femenino', '1997-12-08'),
+(3, 30, 'Liz', 'Ancajima', '78456123', '987654123', 'Lima', 'e2a9aa11df9d7d92325ebb2c3068d7e3.jpg', 'Femenino', '1998-07-16');
 
 -- --------------------------------------------------------
 
@@ -80,35 +80,34 @@ CREATE TABLE `cliente` (
   `direccion` varchar(50) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
   `sexo` varchar(9) NOT NULL,
-  `fechaNac` date DEFAULT NULL,
-  `estado` char(1) DEFAULT NULL
+  `fechaNac` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='			';
 
 --
 -- Volcado de datos para la tabla `cliente`
 --
 
-INSERT INTO `cliente` (`idcliente`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`, `estado`) VALUES
-(1, 1, 'Cristhian', 'Valladolid', '12345678', '987654123', 'Lima', 'perfil2.png', 'Masculino', '2023-05-17', '1'),
-(2, 2, 'Jorge', 'Cortez', '76016369', '975462500', 'Av. Amaliga Puga 613', 'cliente2.jpg', 'Masculino', '1997-05-04', '1'),
-(3, 3, 'Alexis Erickson', 'Perez Bazalar', '96385241', '987654321', 'Calle Perricholli 523', 'cliente3.jpg', 'Masculino', '1997-08-20', '1'),
-(4, 4, 'Alexis', 'Bazalar Torres', '85274163', '987654321', 'Calle Perricholli 523', 'cliente3.jpg', 'Masculino', '1996-07-30', '1'),
-(5, 5, 'Dylan ', 'Pacheco Pacheco', '56432178', '987654321', 'Av. Colonial 3525', 'cliente4.jpg', 'Masculino', '1993-06-15', '1'),
-(6, 6, 'Celia', 'Cruz', '56932147', '998752632', 'Calle Amancaes 369', 'cliente5.png', 'Femenino', '1988-07-21', '1'),
-(7, 7, 'Paula', 'Heredia', '68754123', '995651660', 'Jr. Washington 289', 'cliente6.jpg', 'Femenino', '1999-03-25', '1'),
-(8, 8, 'Luisa', 'Martinez', '45698712', '987654123', 'Calle Castilla 852', 'cliente7.jpg', 'Femenino', '1992-06-05', '1'),
-(9, 9, 'Samuel', 'Becerra', '65432178', '923456987', 'Av. Benavides 1236', 'cliente8_h.jpg', 'Masculino', '1996-08-23', '1'),
-(10, 10, 'Drake', 'Bell', '78945612', '998877665', 'Jr. Castilla 789', 'cliente9_h.jpg', 'Masculino', '2001-12-20', '1'),
-(11, 11, 'Josh', 'Bell', '36985214', '998765421', 'Jr. de la Unión 523', 'cliente10_h.jpg', 'Masculino', '1998-07-14', '1'),
-(12, 12, 'Bryan', 'Perez', '52367894', '998822331', 'Las Malvinas 4532', 'cliente11_h.jpg', 'Masculino', '1996-03-13', '1'),
-(13, 13, 'Jorge', 'Pacheco', '85274196', '998765421', 'Av. Los Jardines', 'cliente12_h.jpg', 'Masculino', '1999-12-23', '1'),
-(14, 14, 'Ricardo', 'Osorio', '96385274', '987475862', 'Calle las flores', 'cliente13_h.jpg', 'Masculino', '1995-12-11', '1'),
-(15, 15, 'Pedro', 'Osorio', '65432178', '987654321', 'Calle Machu Picchu 654', 'cliente14_h.jpg', 'Masculino', '1992-02-18', '1'),
-(16, 16, 'Diana', 'Barrientos', '45612308', '987654123', 'Av. Los insurgentes 963', 'cliente15_m.jpg', 'Femenino', '1994-11-14', '1'),
-(17, 17, 'Gabriela', 'Rosario', '98745612', '996654213', 'Av. Argentina 1200', 'cliente16_m.jpg', 'Femenino', '1994-11-19', '1'),
-(18, 18, 'Tina', 'Duarte', '45632178', '998765412', 'Jr. Las Palmera 500', 'cliente18_m.jpg', 'Femenino', '1984-10-23', '1'),
-(19, 19, 'Mirtha', 'Reyes', '78945612', '998877552', 'Av. Venezuela 3210', 'cliente19_m.jpg', 'Femenino', '1996-06-17', '1'),
-(20, 20, 'Teresa', 'Moreno', '74185236', '998822550', 'Jr. Las Casuarinas 5230', 'cliente20_m.jpg', 'Femenino', '1997-02-04', '1');
+INSERT INTO `cliente` (`idcliente`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`) VALUES
+(1, 1, 'Cristhian', 'Valladolid', '12345678', '987654123', 'Lima', 'perfil2.png', 'Masculino', '2023-05-17'),
+(2, 2, 'Jorge', 'Cortez', '76016369', '975462500', 'Av. Amaliga Puga 613', 'cliente2.jpg', 'Masculino', '1997-05-04'),
+(3, 3, 'Alexis Erickson', 'Perez Bazalar', '96385241', '987654321', 'Calle Perricholli 523', 'cliente3.jpg', 'Masculino', '1997-08-20'),
+(4, 4, 'Alexis', 'Bazalar Torres', '85274163', '987654321', 'Calle Perricholli 523', 'cliente3.jpg', 'Masculino', '1996-07-30'),
+(5, 5, 'Dylan ', 'Pacheco Pacheco', '56432178', '987654321', 'Av. Colonial 3525', 'cliente4.jpg', 'Masculino', '1993-06-15'),
+(6, 6, 'Celia', 'Cruz', '56932147', '998752632', 'Calle Amancaes 369', 'cliente5.png', 'Femenino', '1988-07-21'),
+(7, 7, 'Paula', 'Heredia', '68754123', '995651660', 'Jr. Washington 289', 'cliente6.jpg', 'Femenino', '1999-03-25'),
+(8, 8, 'Luisa', 'Martinez', '45698712', '987654123', 'Calle Castilla 852', 'cliente7.jpg', 'Femenino', '1992-06-05'),
+(9, 9, 'Samuel', 'Becerra', '65432178', '923456987', 'Av. Benavides 1236', 'cliente8_h.jpg', 'Masculino', '1996-08-23'),
+(10, 10, 'Drake', 'Bell', '78945612', '998877665', 'Jr. Castilla 789', 'cliente9_h.jpg', 'Masculino', '2001-12-20'),
+(11, 11, 'Josh', 'Bell', '36985214', '998765421', 'Jr. de la Unión 523', 'cliente10_h.jpg', 'Masculino', '1998-07-14'),
+(12, 12, 'Bryan', 'Perez', '52367894', '998822331', 'Las Malvinas 4532', 'cliente11_h.jpg', 'Masculino', '1996-03-13'),
+(13, 13, 'Jorge', 'Pacheco', '85274196', '998765421', 'Av. Los Jardines', 'cliente12_h.jpg', 'Masculino', '1999-12-23'),
+(14, 14, 'Ricardo', 'Osorio', '96385274', '987475862', 'Calle las flores', 'cliente13_h.jpg', 'Masculino', '1995-12-11'),
+(15, 15, 'Pedro', 'Osorio', '65432178', '987654321', 'Calle Machu Picchu 654', 'cliente14_h.jpg', 'Masculino', '1992-02-18'),
+(16, 16, 'Diana', 'Barrientos', '45612308', '987654123', 'Av. Los insurgentes 963', 'cliente15_m.jpg', 'Femenino', '1994-11-14'),
+(17, 17, 'Gabriela', 'Rosario', '98745612', '996654213', 'Av. Argentina 1200', 'cliente16_m.jpg', 'Femenino', '1994-11-19'),
+(18, 18, 'Tina', 'Duarte', '45632178', '998765412', 'Jr. Las Palmera 500', 'cliente18_m.jpg', 'Femenino', '1984-10-23'),
+(19, 19, 'Mirtha', 'Reyes', '78945612', '998877552', 'Av. Venezuela 3210', 'cliente19_m.jpg', 'Femenino', '1996-06-17'),
+(20, 20, 'Teresa', 'Moreno', '74185236', '998822550', 'Jr. Las Casuarinas 5230', 'cliente20_m.jpg', 'Femenino', '1997-02-04');
 
 -- --------------------------------------------------------
 
@@ -197,6 +196,7 @@ CREATE TABLE `mascota` (
   `etapa` varchar(15) DEFAULT NULL,
   `fechaRegistro` date DEFAULT current_timestamp(),
   `renian` int(11) NOT NULL,
+  `sexo` varchar(10) DEFAULT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -204,14 +204,14 @@ CREATE TABLE `mascota` (
 -- Volcado de datos para la tabla `mascota`
 --
 
-INSERT INTO `mascota` (`idmascota`, `idcliente`, `idraza`, `nombre`, `fechaNac`, `peso`, `color`, `fotoPerfil`, `esterilizado`, `etapa`, `fechaRegistro`, `renian`, `estado`) VALUES
-(1, 1, 1, 'Cookie', '2013-05-02', 5.00, 'marrón', 'Chihuahua.jpeg', 'Si', 'Adulto', '2023-05-19', 20345678, '1'),
-(2, 2, 2, 'Pelusa', '2020-05-01', 10.50, 'negro', 'cocker.jpeg', 'No', 'Juvenil', '2023-05-19', 10236547, '1'),
-(3, 3, 3, 'Boby', '2022-05-04', 9.00, 'crema', 'Labrador.jpeg', 'No', 'Juvenil', '2023-05-19', 23657410, '1'),
-(4, 4, 4, 'Speedy', '2020-05-01', 10.20, 'marrón oscuro', 'Pastor alemán.jpeg', 'No', 'Adulto', '2023-05-19', 74125896, '1'),
-(5, 5, 5, 'Motita', '2018-05-09', 12.00, 'Plomo', 'Schnauzer.jpeg', 'Si', 'Juvenil', '2023-05-19', 12365478, '1'),
-(6, 6, 6, 'Lobo', '2015-05-15', 20.00, 'Plomo', 'Siberiano.jpeg', 'Si', 'Adulto', '2023-05-19', 36985214, '1'),
-(7, 7, 7, 'Michi', '2020-05-08', 8.00, 'blanco', 'Elfo.jpg', 'Si', 'Juvenil', '2023-05-19', 23654178, '1');
+INSERT INTO `mascota` (`idmascota`, `idcliente`, `idraza`, `nombre`, `fechaNac`, `peso`, `color`, `fotoPerfil`, `esterilizado`, `etapa`, `fechaRegistro`, `renian`, `sexo`, `estado`) VALUES
+(1, 1, 1, 'Cookie', '2013-05-02', '5.00', 'marrón', 'footerperro.jpg', 'Si', 'Adulto', '2023-05-19', 20345678, 'Macho', '1'),
+(2, 2, 2, 'Pelusa', '2020-05-01', '10.50', 'negro', 'cocker.jpeg', 'No', 'Juvenil', '2023-05-19', 10236547, 'Hembra', '1'),
+(3, 3, 3, 'Boby', '2022-05-04', '9.00', 'crema', 'Labrador.jpeg', 'No', 'Juvenil', '2023-05-19', 23657410, 'Macho', '1'),
+(4, 4, 4, 'Speedy', '2020-05-01', '10.20', 'marrón oscuro', 'Pastor alemán.jpeg', 'No', 'Adulto', '2023-05-19', 74125896, NULL, '1'),
+(5, 5, 5, 'Motita', '2018-05-09', '12.00', 'Plomo', 'Schnauzer.jpeg', 'Si', 'Juvenil', '2023-05-19', 12365478, NULL, '1'),
+(6, 6, 6, 'Lobo', '2015-05-15', '20.00', 'Plomo', 'Siberiano.jpeg', 'Si', 'Adulto', '2023-05-19', 36985214, NULL, '1'),
+(7, 7, 7, 'Michi', '2020-05-08', '8.00', 'blanco', 'Elfo.jpg', 'Si', 'Juvenil', '2023-05-19', 23654178, NULL, '1');
 
 -- --------------------------------------------------------
 
@@ -222,11 +222,20 @@ INSERT INTO `mascota` (`idmascota`, `idcliente`, `idraza`, `nombre`, `fechaNac`,
 CREATE TABLE `productoservicio` (
   `idproductoservicio` int(11) NOT NULL,
   `idtipoproductoservicio` int(11) DEFAULT NULL,
-  `nombre` varchar(50) DEFAULT NULL,
+  `nombre` varchar(100) DEFAULT NULL,
   `precio` decimal(5,2) DEFAULT NULL,
-  `descripcion` varchar(55) DEFAULT NULL,
+  `descripcion` varchar(100) DEFAULT NULL,
+  `fotoProductoServicio` varchar(100) NOT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `productoservicio`
+--
+
+INSERT INTO `productoservicio` (`idproductoservicio`, `idtipoproductoservicio`, `nombre`, `precio`, `descripcion`, `fotoProductoServicio`, `estado`) VALUES
+(1, 1, 'servicio de baño', '59.90', 'Aplica solo a perros', 'lavar-perro-mascota-casa.jpg', '1'),
+(2, 2, 'Juguete masticable', '59.90', 'Mpets Chewbo Choppy Bacon es un hueso de juguete colori', 'mpets-chewbo-choppy-s-orange-sabor-a-tocino.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -281,7 +290,8 @@ CREATE TABLE `tipoproductoservicio` (
 --
 
 INSERT INTO `tipoproductoservicio` (`idtipoproductoservicio`, `nombre`, `estado`) VALUES
-(3, 'ricocan', '1');
+(1, 'Servicio', '1'),
+(2, 'Comida', '1');
 
 -- --------------------------------------------------------
 
@@ -350,7 +360,9 @@ INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `email`, `pass`, `fechaCre`
 (26, 3, 'cynthiamamani@gmail.com', 'cynthia', '2023-05-19 17:29:16', '2'),
 (27, 3, 'manuelgarcia@gmail.com', 'manuel', '2023-05-19 17:33:37', '2'),
 (28, 3, 'oscarfernandez@gmail.com', 'oscar', '2023-05-19 17:36:39', '2'),
-(29, 3, 'oliviamamani@gmail.com', 'olivia', '2023-05-19 17:39:52', '2');
+(29, 3, 'oliviamamani@gmail.com', 'olivia', '2023-05-19 17:39:52', '2'),
+(30, 2, 'liz@gmail.com', '123', '2023-05-31 21:43:40', '2'),
+(31, 3, 'veterinario@gmail.com', '123', '2023-06-01 01:00:49', '2');
 
 -- --------------------------------------------------------
 
@@ -405,21 +417,21 @@ CREATE TABLE `veterinario` (
   `direccion` varchar(50) DEFAULT NULL,
   `foto` varchar(100) DEFAULT NULL,
   `sexo` varchar(9) NOT NULL,
-  `fechaNac` date NOT NULL,
-  `estado` char(1) DEFAULT NULL
+  `fechaNac` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `veterinario`
 --
 
-INSERT INTO `veterinario` (`idveterinario`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`, `estado`) VALUES
-(1, 23, 'Mary', 'Martinez', '96325874', '987456321', 'Calle Bellavista', 'vet1.jpg', 'Femenino', '1995-10-02', '1'),
-(2, 25, 'Luis', 'Gonzales', '45632178', '998741256', 'Calle Uruguay 321', 'vet2.jpg', 'Masculino', '1996-01-05', '1'),
-(3, 26, 'Cynthia', 'Mamani', '65412396', '963852147', 'Jr. Los Tulipanes 741', 'vet3.jpg', 'Femenino', '2000-12-12', '1'),
-(4, 27, 'Manuel', 'Garcia', '85214796', '987456123', 'Calle Atocongo 412', 'vet4.jpg', 'Masculino', '1997-02-12', '1'),
-(5, 28, 'Oscar ', 'Fernandez', '46325874', '996633251', 'Jr. Los Angeles', 'vet5.jpg', 'Masculino', '1985-08-25', '1'),
-(6, 29, 'Olivia', 'Mamani', '74125896', '997845123', 'Av. Los insurgentes 741', 'vet6.jpg', 'Femenino', '1992-05-02', '1');
+INSERT INTO `veterinario` (`idveterinario`, `idusuario`, `nombres`, `apellidos`, `dni`, `telefono`, `direccion`, `foto`, `sexo`, `fechaNac`) VALUES
+(1, 23, 'Mary', 'Martinez', '96325874', '987456321', 'Calle Bellavista', 'vet1.jpg', 'Femenino', '1995-10-02'),
+(2, 25, 'Luis', 'Gonzales', '45632178', '998741256', 'Calle Uruguay 321', 'vet2.jpg', 'Masculino', '1996-01-05'),
+(3, 26, 'Cynthia', 'Mamani', '65412396', '963852147', 'Jr. Los Tulipanes 741', 'vet3.jpg', 'Femenino', '2000-12-12'),
+(4, 27, 'Manuel', 'Garcia', '85214796', '987456123', 'Calle Atocongo 412', 'vet4.jpg', 'Masculino', '1997-02-12'),
+(5, 28, 'Oscar ', 'Fernandez', '46325874', '996633251', 'Jr. Los Angeles', 'vet5.jpg', 'Masculino', '1985-08-25'),
+(6, 29, 'Olivia', 'Mamani', '74125896', '997845123', 'Av. Los insurgentes 741', 'vet6.jpg', 'Femenino', '1992-05-02'),
+(7, 31, 'Veterinario', 'Sosa', '12345678', '987654123', 'Lima', 'vetyperro.jpg  ', 'Masculino', '1998-06-18');
 
 --
 -- Índices para tablas volcadas
@@ -549,7 +561,7 @@ ALTER TABLE `veterinario`
 -- AUTO_INCREMENT de la tabla `administrador`
 --
 ALTER TABLE `administrador`
-  MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idadministrador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `cita`
@@ -597,7 +609,7 @@ ALTER TABLE `mascota`
 -- AUTO_INCREMENT de la tabla `productoservicio`
 --
 ALTER TABLE `productoservicio`
-  MODIFY `idproductoservicio` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idproductoservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `raza`
@@ -609,7 +621,7 @@ ALTER TABLE `raza`
 -- AUTO_INCREMENT de la tabla `tipoproductoservicio`
 --
 ALTER TABLE `tipoproductoservicio`
-  MODIFY `idtipoproductoservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idtipoproductoservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tipousuario`
@@ -621,7 +633,7 @@ ALTER TABLE `tipousuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT de la tabla `vacuna`
@@ -639,7 +651,7 @@ ALTER TABLE `venta`
 -- AUTO_INCREMENT de la tabla `veterinario`
 --
 ALTER TABLE `veterinario`
-  MODIFY `idveterinario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `idveterinario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- Restricciones para tablas volcadas
