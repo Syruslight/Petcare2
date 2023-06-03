@@ -17,9 +17,7 @@ $idCliente = $_POST['idCliente'];
 
 // Realizar la consulta a la base de datos
 $sql = "SELECT *, CONCAT(
-  FLOOR(DATEDIFF(CURRENT_DATE(), mascota.fechaNac) / 365), ' años, ',
-  FLOOR((DATEDIFF(CURRENT_DATE(), mascota.fechaNac) % 365) / 30), ' meses, ',
-  DATEDIFF(CURRENT_DATE(), mascota.fechaNac) % 30, ' días') 
+  FLOOR(DATEDIFF(CURRENT_DATE(), mascota.fechaNac) / 365), ' años ') 
   AS edad FROM mascota WHERE nombre LIKE '%$query%' AND idcliente LIKE '%$idCliente%' LIMIT 5";
 $result = $conn->query($sql);
 
