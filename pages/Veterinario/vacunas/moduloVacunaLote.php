@@ -62,10 +62,10 @@ $conn = conectar();
           </div>
           <div class="grupotex">
             <label for="" class="etiqueta_nombre">Observación</label>
-            <input type="text" name="Observacion" id="" class="ingreso_datos"></textarea>
+            <textarea type="text" name="Observacion" id="" class="ingreso_datos"></textarea>
           </div>
           <label for="" class="etiqueta_nombre">Restricciones</label>
-          <input type="text" name="Restricciones" id="" class="ingreso_datos">
+          <textarea type="text" name="Restricciones" id="" class="ingreso_datos"></textarea>
           <button type="submit" class="btn_envio">Agregar</button>
         </form>
         </aside>
@@ -83,7 +83,7 @@ $conn = conectar();
           </div>
           <div class="grupotex">
             <label for="" class="etiqueta_nombre">Descripción:</label>
-            <input type="text" name="descripcion" id="" class="ingreso_datos">
+            <textarea type="text" name="descripcion" id="" class="ingreso_datos"></textarea>
           </div>
           <button type="submit" class="btn_envio">Agregar</button>
 
