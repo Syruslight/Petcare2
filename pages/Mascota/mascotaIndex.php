@@ -29,7 +29,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
             buscarMascota('');
             $('#busqueda').on('input', function() {
             var query = $(this).val();
-            buscarClientes(query);
+            buscarMascota(query);
             });
         });
 
