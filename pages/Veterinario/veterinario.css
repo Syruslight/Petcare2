@@ -105,6 +105,7 @@
   height: 1157px;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .dash-header {
@@ -116,7 +117,7 @@
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-bottom: 45px;
+  margin-bottom: 10px;
 
   & img {
     margin-right: 54px;
@@ -799,3 +800,187 @@ transform: scale(1.1);
   border: 1px solid #cc29b6;
   background-color: #d43ac0;
 }
+
+/*formato de lotes y vacunas*/
+
+.contForm {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.formVacuna {
+  flex: 1;
+  background-color: #f9f9f9;
+  height: 710px;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+
+
+.contenedorLote {
+
+  height: 710px;
+  border-left: 1px solid #ccc;
+  margin-left: 20px;
+  flex: 1;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+ 
+}
+
+.contformLote {
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.contLoteTable {
+  margin-top: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+  max-height: 240px; /* ajusta la altura máxima del contenedor según tus necesidades */
+  overflow-y: auto;
+}
+
+.tablaLotes {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.titulo_detallevac {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.textobusqueda {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.busqueda {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.grupotex {
+  margin-bottom: 10px;
+
+}
+
+
+.etiqueta_nombre {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.ingreso_datos {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.ingreso_datos:focus {
+  outline: none;
+  border-color: #57b8ac;
+  box-shadow: 0 0 3px #57b8ac;
+}
+
+.ingreso_datos::placeholder {
+  color: #999;
+}
+
+
+
+.btn_envio {
+  width: 100%;
+  background-color: #39998ee3;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn_envio::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn_envio::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn_envio:hover::before,
+.btn_envio:hover::after {
+  width: 100%;
+}
+
+.btn_envio:hover::before {
+  transition-delay: 0.1s;
+}
+
+.btn_envio:hover::after {
+  transition-delay: 0.2s;
+}
+
+
+.tablaLotes {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tablaLotes th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #96c0ba;
+}
+
+.tablaLotes th {
+  background-color: #83cab2;
+ 
+}
+.tablaLotes thead th {
+  position: sticky;
+  top: 0; 
+}
+
