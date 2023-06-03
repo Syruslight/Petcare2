@@ -44,7 +44,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 $('#resultados').html(response);
             }
             });
-        });
         }
     </script>
 </head>
