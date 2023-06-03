@@ -26,10 +26,16 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <title>Pagina del Cliente</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-   $(document).ready(function() {
-        $('#busqueda').on('input', function() {
+    $(document).ready(function() {
+            buscarMascota('');
+            $('#busqueda').on('input', function() {
             var query = $(this).val();
-            var idCliente = <?php echo $idCliente; ?>; // Obtener el valor de $idCliente
+            buscarClientes(query);
+            });
+        });
+
+        function buscarMascota(query){
+            var idCliente = <?php echo $idCliente; ?>; // Obtener el valor de $idCliente  
             $.ajax({
             url: '../../llamadas/proceso_busqueda_mascota.php',
             method: 'POST',
@@ -38,8 +44,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 $('#resultados').html(response);
             }
             });
-        });
-        });
+        }
     </script>
 </head>
 
@@ -120,89 +125,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <th class="td">Acción</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="toget"><img src="../../imagenes/perrito.jpg" alt="" class="dimg">
-                                            </td>
-                                            <td>Lola</td>
-                                            <td>10/05/2021</td>
-                                            <td>8</td>
-                                            <td>9.5k</td>
-                                            <td>Marron oscuro</td>
-                                            <td class="th">Si</td>
-                                            <td class="td">
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
-                                                    style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
-                                                    style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="toget"><img src="../../imagenes/perrito.jpg" alt="" class="dimg">
-                                            </td>
-                                            <td>Lola</td>
-                                            <td>10/05/2021</td>
-                                            <td>8</td>
-                                            <td>9.5k</td>
-                                            <td>Marron oscuro</td>
-                                            <td class="th">Si</td>
-                                            <td class="td">
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
-                                                    style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
-                                                    style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="toget"><img src="../../imagenes/perrito.jpg" alt="" class="dimg">
-                                            </td>
-                                            <td>Lola</td>
-                                            <td>10/05/2021</td>
-                                            <td>8</td>
-                                            <td>9.5k</td>
-                                            <td>Marron oscuro</td>
-                                            <td class="th">Si</td>
-                                            <td class="td">
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
-                                                    style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
-                                                    style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="toget"><img src="../../imagenes/perrito.jpg" alt="" class="dimg">
-                                            </td>
-                                            <td>Lola</td>
-                                            <td>10/05/2021</td>
-                                            <td>8</td>
-                                            <td>9.5k</td>
-                                            <td>Marron oscuro</td>
-                                            <td class="th">Si</td>
-                                            <td class="td">
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
-                                                    style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
-                                                    style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="toget"><img src="../../imagenes/perrito.jpg" alt="" class="dimg">
-                                            </td>
-                                            <td>Lola</td>
-                                            <td>10/05/2021</td>
-                                            <td>8</td>
-                                            <td>9.5k</td>
-                                            <td>Marron oscuro</td>
-                                            <td class="th">Si</td>
-                                            <td class="td">
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
-                                                    style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                                                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
-                                                    style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-    
                                 </table>
                             </div>
                         </div>
@@ -307,8 +229,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                 <div class="cont-radio ip">
                                     <select name="sexo" id="sexo" value="sexo" class="form-select" style="width: 109px;">
                                         <option selected>Sexo</option>
-                                        <option value="Cria">Hembra</option>
-                                        <option value="Juvenil">Macho</option>
+                                        <option value="H">Hembra</option>
+                                        <option value="M">Macho</option>
                                     </select>
                                 </div>
                             <input type="text" class="form-control ip" name="color" placeholder="Color">
