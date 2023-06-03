@@ -17,6 +17,7 @@ if ($result->num_rows > 0) {
   $output = '<thead>
                 <tr>
                     <th class="toget">Imagen</th>
+                    <th hidden>IdMascota</th>
                     <th>Nombre</th>
                     <th>Fecha registro</th>
                     <th>Edad</th>
@@ -32,6 +33,7 @@ if ($result->num_rows > 0) {
               $output .= '<tr>
               <td class="toget"><img src="../../imagenes/fotosperfil/mascota/'.$row['fotoPerfil'].'" alt="" class="dimg">
               </td>
+              <td hidden name="idmascota">' .$row['idmascota'].' </td>
               <td>' . $row['nombre'] . '</td>
               <td>' . $row['fechaNac'] . '</td>
               <td>' . $row['edad'] . '</td>
@@ -39,11 +41,13 @@ if ($result->num_rows > 0) {
               <td>' . $row['color'] . '</td>
               <td class="th">'. $row['esterilizado'] .'</td>
               <td class="td">
-                  <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
-                      style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-                  <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
-                      style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-              </td>
+    <a href="" action="listar" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
+        data-idmascota="' . $row['idmascota'] . '"
+        style="background-color:#1BC5BD; color:#1D3534;">editar</a>
+    <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
+        style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
+</td>
+
           </tr>'
         ;}
   $output .= '</tbody>';

@@ -8,7 +8,6 @@ $email = $_SESSION['email'];
 foreach (listarCliente($email, $conn) as $key => $value) {
     // Obtener el ID del cliente
     $idCliente = $value[7];
-
 } ?>
 <!--Perfil del cliente (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
@@ -46,6 +45,33 @@ foreach (listarCliente($email, $conn) as $key => $value) {
             });
         }
     </script>
+<script>
+    $(document).ready(function() {
+        $('.butModal').on('click', function(e) {
+            e.preventDefault();
+            var idMascota = $(this).data('idmascota');
+            // Realizar solicitud AJAX para obtener los datos de la mascota seleccionada
+            $.ajax({
+                url: '../../llamadas/proceso_obtener_mascota.php',
+                method: 'POST',
+                data: { idMascota: idMascota },
+                success: function(response) {
+                    // Actualizar los campos del formulario con los datos obtenidos
+                    var mascota = JSON.parse(response);
+                    $('#nombre').val(mascota.nombre);
+                    $('#peso').val(mascota.peso);
+                    $('#edad').val(mascota.edadAnos + ' años ' + mascota.edadMeses + ' meses');
+                    $('#etapa').val(mascota.etapa);
+                    $('input[name="esterilizado"][value="' + mascota.esterilizado + '"]').prop('checked', true);
+                    // Resto del código para mostrar el modal de edición
+                    // ...
+                }
+            });
+        });
+    });
+</script>
+
+
 </head>
 
 <body>
@@ -298,47 +324,53 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                     </div>
                 </div>
                 <div class="row data">
-                    <form action="../../llamadas/proceso_registromascota.php" method="post"
-                        enctype="multipart/form-data">
-                        <div class="data-col2">
-                            <input type="text" id="nombre" class="form-control" name="nombreMascota" placeholder="Nombre">    
-                            <div class="row-short">
-                                <input type="text" class="form-control ip" name="peso" placeholder="Peso">
-                                <input type="text" class="form-control" style="width: 109px;" id="edad" name="edad" placeholder="Edad" disabled>
-                            </div>                   
-                            <div class="cont-radio">
-                                <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 193px;">
-                                    <option selected>Selecciona Etapa</option>
-                                    <option value="Cria">Cría</option>
-                                    <option value="Juvenil">Juvenil</option>
-                                    <option value="Adulto">Adulto</option>
-                                </select>
-                                <div class="cont-este">
-                                    <label class="form-check-label">Esterilizado:</label>
-                                    <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI">
-                                    <label class="form-check-label" for="si">Si</label>
-                                    <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO">
-                                    <label class="form-check-label" for="no">No</label>
-                                </div>
-                            </div>
-                            <div class="button">
-                                    <input type="submit" name="editar" value="Editar" class="btn">
-                                </div>
-                        </div>
+                <form action="../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
+
+                <div class="data-col2">
+        <?php foreach (listarDatosMascota(1, $conn) as $key => $mascota) {} ?>
+        <input type="text" id="nombre" class="form-control" name="nombreMascota" value="<?= $mascota['nombre'] ?>" placeholder="Nombre">    
+        <div class="row-short">
+            <input type="text" class="form-control ip" name="peso" placeholder="Peso" value="<?= $mascota['peso'] ?>">
+            <input type="text" class="form-control" style="width: 109px;" id="edad" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> años <?= $mascota['edadMeses'] ?> meses" disabled>
+        </div>                   
+        <div class="cont-radio">
+            <select name="etapa" id="etapa" class="form-select" style="width: 193px;">
+                <option selected>Selecciona Etapa</option>
+                <option value="Cria" <?= ($mascota['etapa'] == 'Cria') ? 'selected' : '' ?>>Cría</option>
+                <option value="Juvenil" <?= ($mascota['etapa'] == 'Juvenil') ? 'selected' : '' ?>>Juvenil</option>
+                <option value="Adulto" <?= ($mascota['etapa'] == 'Adulto') ? 'selected' : '' ?>>Adulto</option>
+            </select>
+            <div class="cont-este">
+                <label class="form-check-label">Esterilizado:</label>
+                <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI" <?= ($mascota['esterilizado'] == 'SI') ? 'checked="checked"' : '' ?>>
+                <label class="form-check-label" for="si">Si</label>
+                <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO" <?= ($mascota['esterilizado'] == 'NO') ? 'checked="checked"' : '' ?>>
+                <label class="form-check-label" for="no">No</label>
+            </div>
+            <input type="text" id="idmascota" name="idmascota" value="<?= $mascota['idmascota'] ?>">
+
+        </div>
+        <div class="button">
+            <input type="submit" name="editar" value="Editar" class="btn">
+        </div>
+    </div>
 
 
-                        <div class="data-col1">
-                            <div class="row">
-                                <input class="form-control form-control-sm" id="foto" type="file" name="foto">
-                            </div>
-                            <div class="row">
-                                <div class="fotoPos">
-                                    <div class="foto"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+
+        <div class="data-col1">
+            <div class="row">
+                <input class="form-control form-control-sm" id="foto" type="file" name="foto">
+            </div>
+            <div class="row">
+                <div class="fotoPos">
+                    <div class="foto">
+                    <img src="../../imagenes/fotosperfil/cliente/<?= $mascota['fotoPerfil'] ?>" alt="profile" width="38" height="39">
+                    </div>
                 </div>
+            </div>
+        </div>
+    </form>
+</div>
 
             </div>
             </div>
