@@ -32,6 +32,49 @@ $conn = conectar();
             include('components/headerVeterinario.php');
         ?> 
 
+<div class="wrapper-bookings">
+            <div class="booked-appointments"> <!-- Citas Confirmadas-->
+            
+                <div class="quotes-confirmed">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">CONFIRMADAS</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
+            <div class="booked-appointments"> <!-- Citas en proceso-->
+            
+                <div class="quotes-process">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">EN PROCESO</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
+            <div class="booked-appointments"> <!-- Citas Canceladas-->
+            
+                <div class="quotes-canceled">
+                    <span class="only-quotes">CITAS</span>
+                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
+                    <span class="only-state">CANCELADAS</span>
+
+                </div>
+                <div class="number-booked">
+                    42
+                </div>
+                
+            </div>
+        </div>
+
+
 <div class="wrapper-corpes">
     <div class="wrapper-quotes">
         <div class="corpes-quotes">
@@ -144,49 +187,6 @@ $conn = conectar();
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-
-
-        <div class="wrapper-bookings">
-            <div class="booked-appointments"> <!-- Citas Confirmadas-->
-            
-                <div class="quotes-confirmed">
-                    <span class="only-quotes">CITAS</span>
-                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
-                    <span class="only-state">CONFIRMADAS</span>
-
-                </div>
-                <div class="number-booked">
-                    42
-                </div>
-                
-            </div>
-            <div class="booked-appointments"> <!-- Citas en proceso-->
-            
-                <div class="quotes-process">
-                    <span class="only-quotes">CITAS</span>
-                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
-                    <span class="only-state">EN PROCESO</span>
-
-                </div>
-                <div class="number-booked">
-                    42
-                </div>
-                
-            </div>
-            <div class="booked-appointments"> <!-- Citas Canceladas-->
-            
-                <div class="quotes-canceled">
-                    <span class="only-quotes">CITAS</span>
-                    <img src="../../imagenes/perfilVeterinario/Calendar.png"width="70"height="56">
-                    <span class="only-state">CANCELADAS</span>
-
-                </div>
-                <div class="number-booked">
-                    42
-                </div>
-                
             </div>
         </div>
     </div>
