@@ -16,7 +16,11 @@ $query = $_POST['query'];
 $idCliente = $_POST['idCliente'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT * FROM mascota WHERE nombre LIKE '%$query%' AND idcliente LIKE '%$idCliente%'";
+$sql = "SELECT *, CONCAT(
+  FLOOR(DATEDIFF(CURRENT_DATE(), mascota.fechaNac) / 365), ' años, ',
+  FLOOR((DATEDIFF(CURRENT_DATE(), mascota.fechaNac) % 365) / 30), ' meses, ',
+  DATEDIFF(CURRENT_DATE(), mascota.fechaNac) % 30, ' días') 
+  AS edad FROM mascota WHERE nombre LIKE '%$query%' AND idcliente LIKE '%$idCliente%' LIMIT 5";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
@@ -37,12 +41,12 @@ if ($result->num_rows > 0) {
 
             while ($row = $result->fetch_assoc()) {
               $output .= '<tr>
-              <td class="toget"><img src="../imagenes/Especie perro/Raza/'.$row['fotoPerfil'].'" alt="" class="dimg">
+              <td class="toget"><img src="../../imagenes/fotosperfil/mascota/'.$row['fotoPerfil'].'" alt="" class="dimg">
               </td>
               <td>' . $row['nombre'] . '</td>
               <td>' . $row['fechaNac'] . '</td>
-              <td>' . $row['etapa'] . '</td>
-              <td>' . $row['peso'] . '</td>
+              <td>' . $row['edad'] . '</td>
+              <td>' . $row['peso'] . ' Kg</td>
               <td>' . $row['color'] . '</td>
               <td class="th">'. $row['esterilizado'] .'</td>
               <td class="td">
