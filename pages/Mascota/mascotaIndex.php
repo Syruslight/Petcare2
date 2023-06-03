@@ -26,7 +26,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <title>Pagina del Cliente</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-   $(document).ready(function() {
+    $(document).ready(function() {
         $('#busqueda').on('input', function() {
             var query = $(this).val();
             var idCliente = <?php echo $idCliente; ?>; // Obtener el valor de $idCliente
