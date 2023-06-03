@@ -2,7 +2,7 @@
 
    <div class="first-seccion">
             <div class="logo">
-                <img src="../../imagenes/perfilVeterinario/logo.png" alt="Logo" width="168" height="46">
+                <img src="../../../imagenes/perfilVeterinario/logo.png" alt="Logo" width="168" height="46">
             </div>
             <?php
           
@@ -10,12 +10,12 @@
                 foreach (listarVeterinario($email, $conn) as $key => $value) {
                     ?>
 
-            <img src="../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile" width="217" height="227">
+            <img src="../../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile" width="217" height="227">
         <div class="profile-information">
               
             <span class="user"><?= $value[0] ?>
                             <?= $value[1] ?></span>
-            <img class="boton-modal" src="../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
+            <img class="boton-modal" src="../../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
         </div >
         <span class="id"> <?= $value[2] ?> </span>
         <?php

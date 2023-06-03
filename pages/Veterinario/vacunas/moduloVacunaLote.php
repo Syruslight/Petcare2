@@ -23,34 +23,37 @@ $conn = conectar();
 <body>
 
   <div class="wrapper">
-    <div class="profile">
-      <?php
+  <div class="profile">
+  <?php
             include('../components/navListVeterinario.php');
-        ?>
+        ?> 
     </div>
 
-
+    
     <div class="dash-information">
-      <?php
+    <?php
             include('../components/headerVeterinario.php');
-        ?>
-
+        ?> 
+            
       <div class="contForm">
         <aside class="formVacuna">
           <form action="" method="post">
           <h2 class="titulo_detallevac">Formulario vacuna</h2>
-          <p class="textobusqueda">Ingrese el RENIAN de la mascota:</p>
-          <input type="search" name="busqueda" id="busqueda" class="ingreso_datos" placeholder="Renian mascota" required>
+           <p class="textobusqueda1">Ingrese el RENIAN de la mascota:</p>
+          <div class="grupotex1">
+           
+          <input type="number_format" name="busqueda" id="busqueda" class="ingreso_datos1" required>
           <br>
-          <input type="text" name="idMascota" id="idMascota" placeholder="ID Mascota" readonly>
-          <div class="grupotex">
-            <input type="text" name="nombreMascota" id="nombreMascota" placeholder="Nombre de la mascota" readonly>
+        
+          <input type="text" name="nombreMascota" class="nomMascota" id="nombreMascota" placeholder="Nombre de la mascota" disabled>
           </div>
-          <input type="search" name="busqueda2" id="busqueda2" class="ingreso_datos" placeholder="lote de la vacuna"
+  <input type="text" name="idMascota" id="idMascota" placeholder="ID Mascota" hidden>
+  <label for="" class="etiqueta_nombre"> Lote de Vacuna:</label>
+          <input type="search" name="busqueda2" id="" class="ingreso_datos"
             required>
           <br>
-          <input type="text" name="idVacuna" id="idVacuna" placeholder="ID vacuna" readonly>
-           <input type="text" name="idVeterinario" value="   <?= $value[7] ?>">
+          <input type="text" name="idVacuna" id="idVacuna" placeholder="ID vacuna" hidden>
+           <input type="text" name="idVeterinario" value="   <?= $value[7] ?>" hidden>
            <div class="grupotex">
            
            
@@ -59,7 +62,7 @@ $conn = conectar();
           </div>
           <div class="grupotex">
             <label for="" class="etiqueta_nombre">Observación</label>
-            <input type="text" name="Observacion" id="" class="ingreso_datos">
+            <input type="text" name="Observacion" id="" class="ingreso_datos"></textarea>
           </div>
           <label for="" class="etiqueta_nombre">Restricciones</label>
           <input type="text" name="Restricciones" id="" class="ingreso_datos">
@@ -154,6 +157,7 @@ $conn = conectar();
       </div>
 
     </div>
+    </div>
     <script>
       $(document).ready(function () {
         $('#busqueda').keyup(function () {
@@ -223,6 +227,7 @@ $conn = conectar();
       });
     </script>
 
+   <script src="../../../js/Modal.js"></script>
     <script src="../../../js/modalCliente.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/swiperAdmin.js"></script>

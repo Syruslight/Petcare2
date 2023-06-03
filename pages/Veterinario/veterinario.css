@@ -810,6 +810,7 @@ transform: scale(1.1);
 }
 
 .formVacuna {
+  border-radius: 20px;
   flex: 1;
   background-color: #f9f9f9;
   height: 710px;
@@ -823,7 +824,6 @@ transform: scale(1.1);
 
 
 .contenedorLote {
-
   height: 710px;
   border-left: 1px solid #ccc;
   margin-left: 20px;
@@ -835,13 +835,14 @@ transform: scale(1.1);
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 20px;
- 
+  border-radius: 20px;
 }
 
 .contformLote {
   background-color: #f9f9f9;
   padding: 20px;
   box-sizing: border-box;
+  
 }
 
 .contLoteTable {
@@ -982,5 +983,75 @@ transform: scale(1.1);
 .tablaLotes thead th {
   position: sticky;
   top: 0; 
+}
+
+.grupotex1 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.textobusqueda1,
+.ingreso_datos1,
+.nomMascota{
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .grupotex1 {
+    flex-direction: column;
+  }
+  
+  .textobusqueda1,
+  .ingreso_datos1,
+
+.nomMascota{
+    width: 100%;
+    
+    margin-bottom: 10px;
+   
+  }
+}
+
+.nomMascota{
+  margin-left: 15px;
+  width: 100%;
+  padding: 8px;
+ border: none;
+  background-color: rgba(224, 224, 224, 0.856);
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.etiqueta_nombre1 {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.ingreso_datos1 {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+
+.ingreso_datos1:focus {
+  outline: none;
+  border-color: #57b8ac;
+  box-shadow: 0 0 3px #57b8ac;
+}
+
+.ingreso_datos1::placeholder {
+  color: #999;
 }
 
