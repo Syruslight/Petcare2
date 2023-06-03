@@ -8,7 +8,7 @@ const swiper = new Swiper(".swiper", {
   },
   //   loop: true,
   slidesPerView: 3,
-  spaceBetween: 18,
+  // spaceBetween: 18,
 
   //   pagination: {
   //     el: ".swiper-pagination",
