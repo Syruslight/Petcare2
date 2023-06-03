@@ -27,9 +27,9 @@ session_start();
         <div class="page">
           <div class="fotoPos">
             <div class="foto">
-              <img
+              <img id="img"
                 src="../../imagenes/perfilCliente/sinFoto.jpg"
-                alt="avatar" id="img">
+                alt="avatar" >
             </div>
             <input id="foto" type="file" name="foto" hidden>
             <label id="cambiar-foto" for="foto"><img class="image-profile"
