@@ -263,11 +263,14 @@ foreach (listarCliente($email, $conn) as $key => $value) {
 
                         <div class="data-col1">
                             <div class="row">
-                                <input class="form-control form-control-sm" id="foto" type="file" name="foto">
+                                <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
+                    
+                                <label id="cambiar-foto" for="foto">Subir Foto</label>
                             </div>
                             <div class="row">
                                 <div class="fotoPos">
-                                    <div class="foto"></div>
+                                    <div class="foto">
+                                    <img id="img" src="../../imagenes/huella.jpg" alt="avatar" >   </div>                                </div>
                                 </div>
                                 <div class="button">
                                     <input type="submit" name="registrar" value="Registrar" class="btn">
@@ -558,7 +561,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     </section>
 
 
-
+<script src="../../js/registroNewUs.js"></script>
     <script src="../../js/Modal.js"></script>
     <script src="../../js/modalMascota.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
