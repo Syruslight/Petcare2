@@ -104,7 +104,6 @@
 }
 .sign-off {
   display: flex;
-  margin-top: 125px;
 }
 .dash-information {
   height: 1024px;
@@ -121,7 +120,7 @@
   flex-direction: row;
   justify-content: flex-end;
   margin-bottom: 47px;
-
+overflow: hidden;
   & img {
     margin-right: 54px;
     margin-top: 8px;

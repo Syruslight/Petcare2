@@ -66,7 +66,7 @@ a{
 .top-nav-collapse {
     padding: .4rem 0rem .4rem 0rem;
     box-shadow: 0 0 0.375rem 0 rgba(0, 0, 0,1);
-    background: rgba(81, 197, 191, 0.863);
+    background: rgb(81, 197, 191);
 }
 .navbar-toggler span{
     display: block;

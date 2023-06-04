@@ -59,7 +59,6 @@
                             <span class="list">Ayuda</span>
                         </div>
 
-
                         <div class="sign-off">
 
                             <img src="https://img.icons8.com/ios/50/null/shutdown--v1.png" width="25" height="25" />
