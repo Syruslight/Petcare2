@@ -384,7 +384,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                     };
     
                                     // Realizar la solicitud AJAX para obtener las razas correspondientes a la especie seleccionada
-                                    xhr.open('GET', 'obtener_razas.php?idespecie=' + especieSeleccionada);
+                                    xhr.open('GET', '../../llamadas/obtener_razas.php?idespecie=' + especieSeleccionada);
                                     xhr.send();
                                 }
                             </script>

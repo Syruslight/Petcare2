@@ -39,6 +39,9 @@ if (!empty($fotoPerfil)) {
     $fotRutaMascota = $rutaDestino . $fotoPerfil;
     move_uploaded_file($ruta, $fotRutaMascota);
 }
+else {
+    $fotoPerfil="huella.jpg";
+}
 
 agregarDatosMascota($idcliente, $idraza, $nombre, $fechaActualizada, $peso, $color, $fotoPerfil, $esterilizado, $etapa, $renian,$sexo, $estado, $conn);
 

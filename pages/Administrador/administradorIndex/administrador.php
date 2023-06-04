@@ -63,38 +63,42 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
                 <!-- Swiper -->
-                
+           
+
                 <div class="swiper">
-                    <div class="swiper-wrapper">
+    <div class="swiper-wrapper">
 
-                        <!--Inicia contenedor de swiper-->
-                        <div class="swiper-slide">
-                        <div class="cardpet-sup">
+        <!-- Inicia contenedor de swiper -->
+        <?php
+        $productos = listarProductos($conn);
+        foreach ($productos as $producto) {
+            echo '<div class="swiper-slide">';
+            echo '<div class="cardpet-sup">';
+            echo '<div class="cardpet">';
+            echo '<img src="../../../imagenes/productos_servicios/productos/' . $producto['foto'] . '" width="64.42" height="70">';
+            echo '<span class="type-product">' . $producto['nombre'] . '</span>';
+            echo '<span class="type-category">' . $producto['tipo'] . '</span>';
+            echo '</div>';
+            echo '<div class="semicrud-pet">';
+            echo '<span class="subtitle-price">Precio</span>';
+            echo '<span class="price">s/.' . $producto['precio'] . '</span>';
+            echo '</div>';
+            echo '</div>';
+            echo '<div class="cardpet-inf">';
+            echo '<span class="subtitle-sales">Ventas hechas del mes</span>';
+            echo '<span class="sales">' . $producto['ventas'] . '</span>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
+        <!-- Finaliza contenedor de swiper -->
 
-                            <div class="cardpet">
-                                <img src="" width="64.42" height="70">
-                                <span  class="type-product">Comida</span>
-                                <span  class="type-category">Juguete Masticable</span>
-                            </div>    
-                            <div class="semicrud-pet">
-                                <span class="subtitle-price">Precioo</span>
-                                <span class="price">s/60.00</span>
-                           </div>
+    </div>
 
-                        </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div> <!-- Finish Swiper -->
 
-                        <div class="cardpet-inf">
-                            <span class="subtitle-sales" >Ventas hechas del mes</span>
-                            <span class="sales">35</span>
-                        </div>
-                       </div>   
-                         <!--Finaliza contenedor de swiper-->
-
-                    </div>
-
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div> <!-- Finish Swiper -->
 
             </div>
             <div class="wrapper-myclients">

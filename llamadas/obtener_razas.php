@@ -1,7 +1,7 @@
 <?php
 // obtener_razas.php
 
-require_once '../../controlador/conexion.php'; // Reemplaza con la ubicación correcta de tu archivo de conexión
+require_once '../controlador/conexion.php'; // Reemplaza con la ubicación correcta de tu archivo de conexión
 
 // Obtener el idespecie enviado por la solicitud AJAX
 $idespecie = $_GET['idespecie'];
