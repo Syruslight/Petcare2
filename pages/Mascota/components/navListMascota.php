@@ -7,7 +7,7 @@
                 $email = $_SESSION['email'];
                 foreach (listarCliente($email, $conn) as $key => $value) {
                     ?>
-                    <img src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="217" height="227">
+                    <img class="photo-profile" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" alt="profile" width="217" height="227">
                     <div class="profile-information">
                         <span class="user">
                             <?= $value[0] ?>

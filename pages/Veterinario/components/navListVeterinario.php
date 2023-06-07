@@ -10,7 +10,7 @@
                 foreach (listarVeterinario($email, $conn) as $key => $value) {
                     ?>
 
-            <img src="../../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile" width="217" height="227">
+            <img class="photo-profile"src="../../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile" width="217" height="227">
         <div class="profile-information">
               
             <span class="user"><?= $value[0] ?>

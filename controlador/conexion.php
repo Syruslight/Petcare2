@@ -320,7 +320,7 @@ function evaluarEdadEtapa($fechaNacimiento, $esPerro, $esGato, $esConejo){
 
 ////Función para listar los datos de la mascota (top3) desde el dashboard principal del cliente
 function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo de la tabla detalle venta  y el estado ==1
-    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre AS nombreproducto, tipoproductoservicio.nombre AS nombretipoproducto, productoservicio.precio FROM productoservicio INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio where productoservicio.idtipoproductoservicio like '2' LIMIT 3";
+    $sql = "SELECT productoservicio.fotoProductoServicio, productoservicio.nombre AS nombreproducto, tipoproductoservicio.nombre AS nombretipoproducto, productoservicio.precio FROM productoservicio INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio where productoservicio.idtipoproductoservicio like '2' ";
     $res = mysqli_query($conn, $sql);
     $vec = array();
     while ($f = mysqli_fetch_array($res)) {

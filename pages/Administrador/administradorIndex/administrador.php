@@ -84,10 +84,6 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             echo '<span class="price">s/.' . $producto['precio'] . '</span>';
             echo '</div>';
             echo '</div>';
-            echo '<div class="cardpet-inf">';
-            echo '<span class="subtitle-sales">Ventas hechas del mes</span>';
-            echo '<span class="sales">' . $producto['ventas'] . '</span>';
-            echo '</div>';
             echo '</div>';
         }
         ?>

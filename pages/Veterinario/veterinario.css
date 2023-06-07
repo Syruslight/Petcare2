@@ -1,6 +1,6 @@
 .wrapper {
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   display: flex;
   max-width: 1440px;
   margin: 0 auto;
@@ -8,8 +8,7 @@
 }
 .profile {
   width: 20%;
-  height: 100%;
- 
+  height: 1024px;
 }
 .first-seccion {
   background: #2a9d8f;
@@ -21,8 +20,6 @@
   border-radius: 10px 0px 0px 0px;
   overflow: hidden;
 }
-
-
 
 .logo {
   width: 100%;
@@ -40,6 +37,9 @@
   align-items: center;
   padding-top: 7px;
   padding-right: 22px;
+}
+.photo-profile {
+  border-radius: 50%;
 }
 .user {
   font-family: "Poppins";
@@ -62,9 +62,8 @@
 }
 .second-seccion {
   background: #f0feff;
-  height: 61%;
+  height: 647px;
   width: 100%;
-  /* align-content: center; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -104,7 +103,7 @@
 }
 .sign-off {
   display: flex;
-
+  margin-top: 125px;
 }
 .dash-information {
   height: 100%;
@@ -127,7 +126,6 @@
   & img {
     margin-right: 54px;
     margin-top: 8px;
-
   }
 }
 .photo-profileheader {

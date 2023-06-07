@@ -13,7 +13,7 @@
 }
 .profile {
   width: 20%;
-  height: 100%;
+  height: 1024px;
 }
 .first-seccion {
   display: flex;
@@ -65,9 +65,8 @@
 }
 .second-seccion {
   background: #f0feff;
-  height: 61%;
+  height: 647px;
   width: 100%;
-  /* align-content: center; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -107,7 +106,7 @@
 }
 .sign-off {
   display: flex;
-
+  margin-top: 230px;
 }
 
 .dash-information {

@@ -152,7 +152,14 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
 
 
                     <div>
-                        <img class="butModal add-pet" data-modal=".modalMascotaAgre" src="https://img.icons8.com/ios/50/plus-2-math.png" alt="plus-2-math" />
+                    <lord-icon
+                        class="butModal add-pet" 
+                        data-modal=".modalMascotaAgre" 
+                        src="https://cdn.lordicon.com/xzksbhzh.json"
+                        trigger="hover"
+                        colors="primary:#000000,secondary:#94d2bd"
+                        alt="plus-2-math">
+                    </lord-icon>
                     </div>
                 </div>
             </div>
@@ -311,6 +318,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>
+        <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
 </body>
 
 </html>
