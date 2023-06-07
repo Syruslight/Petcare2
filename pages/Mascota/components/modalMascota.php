@@ -1,14 +1,13 @@
 <!-- MODAL REGISTRO -->
 <section class="moda  modalMascota modalMascotaAgre">
-            <div class="row" id="modal-Register" style="background-image: linear-gradient(0deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2)),url(../../imagenes/perroCarrusel.jpg);">
+            <div class="row" id="modal-Register" >
             <div class=" container">
                 <div class="row header-ReMas justify-content-end">
                     <div class="row close-btn">
-                        <span class="btn btn-dark modal__close" style="width: 50px;">X</span>
+                        <span class="btn btn-dark modal__close" style="width: 50px;">✖</span>
                     </div>
-    
                     <div class="row">
-                        <h3 class="mb-4"><span>Registro Mascota</span></h3>
+                        <h3 class="mb-3"><span>Registro Mascota</span></h3>
                     </div>
                 </div>
                 <div class="row data">
@@ -28,7 +27,6 @@
                                 // Obtener los datos de la tabla de la base de datos
                                 $queryEspecies = "SELECT * FROM especie"; // Reemplaza "tabla_especie" con el nombre de tu tabla
                                 $resultEspecies = mysqli_query($conn, $queryEspecies);
-    
                                 // Generar las opciones del select utilizando los datos obtenidos
                                 while ($rowEspecie = mysqli_fetch_assoc($resultEspecies)) {
                                     $nombreEspecie = $rowEspecie['nombre']; // Reemplaza "nombre_especie" con el nombre de columna correspondiente
