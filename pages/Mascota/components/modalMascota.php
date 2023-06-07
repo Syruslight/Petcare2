@@ -211,6 +211,7 @@
     <!-- Modal Mascota Carnet -->
     <section class="moda modalMascota modalMascotaCarne">
         <div class="row modal-SaludMascota" id="modal-Carnet">
+        <?php foreach (listarCarnetMascota(1, $conn) as $key => $mascota) {} ?>
             <div class="container">
                 <div class="row justify-content-end">
                     <span class="modal__close btn btn-dark " style="width: 50px;">X</span>
@@ -219,7 +220,7 @@
                     <div class="card-mascota">
                         <div class="card">
                                 <h5 class="card-title">
-                                    Colita
+                                <?= $mascota['nombre'] ?>
                                 </h5>
                             <div class="img-card">
                                 <img src="../../imagenes/perrito.jpg" alt="" class="card-img-bottom img">
@@ -238,12 +239,12 @@
                                     </div>
                                     <div class="co2">
                                         <ul class="list-unstyled"> 
-                                            <li><span>56145875</span></li>
-                                            <li><span>2año(s)</span></li>
-                                            <li><span>Hembra</span></li>
-                                            <li><span>12(kg)</span></li>
-                                            <li><span>Pastor Aleman</span></li>
-                                            <li><span>Si</span></li>
+                                            <li><span><?= $mascota['renian'] ?></span></li>
+                                            <li><span><?= $mascota['edadAnos'] ?> años <?= $mascota['edadMeses'] ?> meses</span></li>
+                                            <li><span><?= $mascota['sexo']?></span></li>
+                                            <li><span><?= $mascota['peso']?>  (kg)</span></li>
+                                            <li><span><?= $mascota['raza']?></span></li>
+                                            <li><span><?= $mascota['esterilizado']?></span></li>
                                         </ul>
                                     </div>
                                 </span>

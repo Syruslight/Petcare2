@@ -44,7 +44,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                     $('#resultados').html(response);
                     idMascota = $('td[name="idmascota"]').text(); // Asignar el valor a idMascota
                     $('#idMascotaInput').val(idMascota);
-                    alert(idMascota);
+                  //  alert(idMascota);
                 }
             });
         }
