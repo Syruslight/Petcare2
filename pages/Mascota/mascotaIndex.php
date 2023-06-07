@@ -28,53 +28,32 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     $(document).ready(function() {
             buscarMascota('');
             $('#busqueda').on('input', function() {
-            var query = $(this).val();
-            buscarMascota(query);
+                var query = $(this).val();
+                buscarMascota(query);
             });
-        });
+    });
 
         function buscarMascota(query){
             var idCliente = <?php echo $idCliente; ?>; // Obtener el valor de $idCliente  
             $.ajax({
-            url: '../../llamadas/proceso_busqueda_mascota.php',
-            method: 'POST',
-            data: { query: query, idCliente: idCliente},
-            success: function(response) {
-                $('#resultados').html(response);
-            }
+                url: '../../llamadas/proceso_busqueda_mascota.php',
+                method: 'POST',
+                data: { query: query, idCliente: idCliente },
+                async: false, // Hacer la llamada AJAX de manera síncrona
+                success: function(response) {
+                    $('#resultados').html(response);
+                    idMascota = $('td[name="idmascota"]').text(); // Asignar el valor a idMascota
+                    $('#idMascotaInput').val(idMascota);
+                    alert(idMascota);
+                }
             });
         }
     </script>
-<script>
-    $(document).ready(function() {
-        $('.butModal').on('click', function(e) {
-            e.preventDefault();
-            var idMascota = $(this).data('idmascota');
-            // Realizar solicitud AJAX para obtener los datos de la mascota seleccionada
-            $.ajax({
-                url: '../../llamadas/proceso_obtener_mascota.php',
-                method: 'POST',
-                data: { idMascota: idMascota },
-                success: function(response) {
-                    // Actualizar los campos del formulario con los datos obtenidos
-                    var mascota = JSON.parse(response);
-                    $('#nombre').val(mascota.nombre);
-                    $('#peso').val(mascota.peso);
-                    $('#edad').val(mascota.edadAnos + ' años ' + mascota.edadMeses + ' meses');
-                    $('#etapa').val(mascota.etapa);
-                    $('input[name="esterilizado"][value="' + mascota.esterilizado + '"]').prop('checked', true);
-                    // Resto del código para mostrar el modal de edición
-                    // ...
-                }
-            });
-        });
-    });
-</script>
-
 
 </head>
 
 <body>
+<input type="text" id="idMascotaInput" readonly>
     <div class="wrapper">
         <div class="profile">
             <?php
