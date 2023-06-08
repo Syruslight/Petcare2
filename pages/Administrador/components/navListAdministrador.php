@@ -36,11 +36,13 @@
                             <img src="https://img.icons8.com/ios/50/null/health-data.png" width="25" height="25" />
                             <span class="principal">Principal</span>
                         </div>
+                        </a>    
+                        <a href="../administradorProducts/administradorProducts.php">
+                            <div class="icons">
+                                <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
+                                <span class="list">Productos</span>
+                            </div>
                         </a>
-                        <div class="icons">
-                            <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
-                            <span class="list">Productos</span>
-                        </div>
                         <a href="../administradorService/administradorService.php">
                             <div class="icons">
                                 <img src="https://img.icons8.com/ios/50/null/database--v1.png" width="25" height="25" />
