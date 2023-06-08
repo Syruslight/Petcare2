@@ -150,6 +150,12 @@ function agregarDatosVacuna($lote, $tipo, $descripcion, $conn)
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
+//Ingresar el detalle vacuna para la mascota
+function agregarDatosDetalleVacuna($idMascota, $idVacuna, $idVeterinario, $fechaProxima,$observacion, $restriciones,$conn)
+{
+    $sql = "insert into detallevacuna(idmascota,idvacuna,idveterinario,  proxFecha, observacion, restricciones) values ('$idMascota','$idVacuna','$idVeterinario','$fechaProxima','$observacion','$restriciones')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
 
 #-------Consultas correspondientes a la mascota------
 
