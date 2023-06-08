@@ -9,14 +9,25 @@ function closeModalM(modal) {
     modal.classList.remove("modal--show");
 }
 
+// ...
 
 document.addEventListener("click", function(e) {
     if (e.target.classList.contains("butModal")) {
         e.preventDefault();
         const modalSelector = e.target.getAttribute("data-modal");
+        const idMascota = e.target.getAttribute("data-idmascota");
+        
+        // Aquí puedes hacer lo que desees con el ID de la mascota, por ejemplo, mostrar los datos en el modal
+        // Reemplazar el valor de la variable $idEditarmascota en el frontend
+        document.querySelector("#idmascota").value = idMascota;
+
+        // Abrir el modal
         openModalM(modalSelector);
     }
 });
+
+// ...
+
 
 // Event listeners para cerrar los modales
 const closeModalButtons = document.querySelectorAll('.modal__close');
@@ -28,16 +39,6 @@ closeModalButtons.forEach((button) => {
         closeModalM(modal);
     });
 });
-
-
-
-
-
-
-
-
-
-
 
 
 

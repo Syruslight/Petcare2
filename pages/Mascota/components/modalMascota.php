@@ -159,7 +159,7 @@
                 <form action="../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
 
                 <div class="data-col2">
-        <?php
+                <?php
         
         $idEditarmascota = $_SESSION['idEditarmascota'];
         foreach (listarDatosMascota($idEditarmascota, $conn) as $key => $mascota) {} ?>

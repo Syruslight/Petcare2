@@ -31,7 +31,7 @@ if ($result->num_rows > 0) {
             <tbody>';
 
   while ($row = $result->fetch_assoc()) {
-    $_SESSION['idEditarmascota'] = 4;
+    $_SESSION['idEditarmascota'] = $row['idmascota']; // Asignar el id de la mascota actual
     $output .= '<tr>
               <td class="toget"><img src="../../imagenes/fotosperfil/mascota/' . $row['fotoPerfil'] . '" alt="" class="dimg">
               </td>
@@ -43,8 +43,7 @@ if ($result->num_rows > 0) {
               <td>' . $row['color'] . '</td>
               <td class="th">' . $row['esterilizado'] . '</td>
               <td class="td">
-                <a href="" action="listar" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"      
-                style="background-color:#1BC5BD; color:#1D3534;">editar</a>
+              <a href="" action="listar" class="butModal btn btn-sm" data-modal=".modalMascotaEdit" data-idmascota="' . $row['idmascota'] . '" style="background-color:#1BC5BD; color:#1D3534;">editar</a>
                 <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
                 style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
               </td>
