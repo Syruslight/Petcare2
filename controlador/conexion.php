@@ -395,6 +395,7 @@ function listarServiciosPorId($idServicio, $conn) {
 }
 
 
+
 //Funcion para editar los servicios (precio nombre descripcion estado - desactivarlo)
 function actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $estado, $conn)
 {

@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 $query = $_POST['query'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT idmascota, nombre FROM mascota WHERE renian LIKE '%$query%'";
+$sql = "SELECT idmascota, nombre FROM mascota WHERE renian = '$query'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
