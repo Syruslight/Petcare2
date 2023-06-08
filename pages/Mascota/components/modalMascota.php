@@ -159,7 +159,10 @@
                 <form action="../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
 
                 <div class="data-col2">
-        <?php foreach (listarDatosMascota(1, $conn) as $key => $mascota) {} ?>
+        <?php
+        
+        $idEditarmascota = $_SESSION['idEditarmascota'];
+        foreach (listarDatosMascota($idEditarmascota, $conn) as $key => $mascota) {} ?>
         <input type="text" id="nombre" class="form-control" name="nombreMascota" value="<?= $mascota['nombre'] ?>" placeholder="Nombre">    
         <div class="row-short">
             <input type="text" class="form-control ip" name="peso" placeholder="Peso" value="<?= $mascota['peso'] ?>">

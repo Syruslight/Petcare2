@@ -6,6 +6,7 @@ $conn = conectar();
 $query = $_POST['query'];
 $idCliente = $_POST['idCliente'];
 
+session_start();
 // Realizar la consulta a la base de datos
 $sql = "SELECT *, CONCAT(
   FLOOR(DATEDIFF(CURRENT_DATE(), mascota.fechaNac) / 365), ' años ') 
@@ -17,7 +18,7 @@ if ($result->num_rows > 0) {
   $output = '<thead>
                 <tr>
                     <th class="toget">Imagen</th>
-                    <th hidden>IdMascota</th>
+                    <th>IdMascota</th>
                     <th>Nombre</th>
                     <th>Fecha registro</th>
                     <th>Edad</th>
@@ -29,29 +30,28 @@ if ($result->num_rows > 0) {
             </thead>
             <tbody>';
 
-            while ($row = $result->fetch_assoc()) {
-              $output .= '<tr>
-              <td class="toget"><img src="../../imagenes/fotosperfil/mascota/'.$row['fotoPerfil'].'" alt="" class="dimg">
+  while ($row = $result->fetch_assoc()) {
+    $_SESSION['idEditarmascota'] = 4;
+    $output .= '<tr>
+              <td class="toget"><img src="../../imagenes/fotosperfil/mascota/' . $row['fotoPerfil'] . '" alt="" class="dimg">
               </td>
-              <td hidden name="idmascota">' .$row['idmascota'].' </td>
+              <td>' . $row['idmascota'] . '</td>
               <td>' . $row['nombre'] . '</td>
               <td>' . $row['fechaNac'] . '</td>
               <td>' . $row['edad'] . '</td>
               <td>' . $row['peso'] . ' Kg</td>
               <td>' . $row['color'] . '</td>
-              <td class="th">'. $row['esterilizado'] .'</td>
+              <td class="th">' . $row['esterilizado'] . '</td>
               <td class="td">
-    <a href="" action="listar" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"
-        data-idmascota="' . $row['idmascota'] . '"
-        style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-    <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
-        style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
-</td>
+                <a href="" action="listar" class="butModal btn btn-sm" data-modal=".modalMascotaEdit"      
+                style="background-color:#1BC5BD; color:#1D3534;">editar</a>
+                <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
+                style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
+              </td>
+          </tr>';
+  }
 
-          </tr>'
-        ;}
   $output .= '</tbody>';
-
   echo $output;
 } else {
   echo '<tr><td colspan="8" class="text-center">No se encontraron mascotas</td></tr>';
