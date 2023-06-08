@@ -138,35 +138,186 @@
 .photo-profileheader {
   border-radius: 50%;
 }
-.wrapper-services {
-  width: 1153.08px;
-}
-.header-services {
+
+/* Aca comienza el La lista de productos*/
+.wrapper-products {
   display: flex;
-  margin-left: 96px;
-  margin-right: 126px;
-  & h1 {
-    padding: 0;
-  }
+  flex-direction: column;
+  width: 100%;
 }
-.edit-create {
-  margin-left: 499px;
+.subwrapper-products {
+  width: 1075px;
+  margin-left: 43px;
+  display: flex;
+  gap: 53px;
+  justify-content: center;
+  flex-direction: column;
 }
-.button-create {
-  margin-left: 12px;
-}
-.wrapper-deck {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  gap: 20px;
+.header-products {
+  display: flex;
   align-items: center;
-  margin-left: 89px;
-  margin-top: 40px;
 }
-.card {
-  width: 309px;
-  height: 313px;
+.tittle-products {
+  margin: 0;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 21px;
+  margin-right: 180px;
+  width: 407px;
 }
+.wrapper-tableProducts {
+  background: #ffffff;
+}
+.add-newProduct {
+  margin-right: 50px;
+  width: 225px;
+  height: 44px;
+  background: #ffffff;
+  border: 3px solid #49c1b3;
+  border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  color: #49c1b3;
+}
+.add-newCategory {
+  width: 225px;
+  height: 44px;
+  background: #3ba666;
+  border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.header-table {
+  display: flex;
+  background: rgba(73, 193, 179, 0.71);
+  height: 66px;
+  align-items: center;
+}
+.search-product {
+  margin-right: 400px;
+}
+.search {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 21px;
+  color: #ffffff;
+  margin-left: 48px;
+}
+.input-search {
+  width: 410px;
+  height: 32px;
+  border-radius: 30px;
+}
+.text-filter {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 21px;
+  color: #ffffff;
+  margin-left: 15px;
+}
+.tittle-table {
+  display: flex;
+  margin-top: 11px;
+  flex-direction: column;
+}
+.tittle-textProduct {
+  margin-left: 60px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  text-align: center;
+  color: #000000;
+}
+.tittle-textType {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  text-align: center;
+  color: #000000;
+  margin-left: 90px;
+}
+.tittle-textPrice {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  text-align: center;
+  color: #000000;
+  margin-left: 90px;
+}
+.tittle-textDescription {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  text-align: center;
+  color: #000000;
+  margin-left: 180px;
+}
+.tittle-textAction {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 25px;
+  line-height: 21px;
+  text-align: center;
+  color: #000000;
+  margin-left: 180px;
+}
+.linea {
+  width: 1000px;
+  margin-bottom: 0;
+}
+.dates-table {
+  display: flex;
+  align-items: center;
+}
+.image-product {
+  margin-left: 50px;
+}
+.table-nameFood {
+  width: 80px;
+}
+.table-type {
+  width: 100px;
+  margin-left: 50px;
+}
+.table-price {
+  margin-left: 50px;
+  width: 90px;
+}
+.table-description {
+  width: 300px;
+  margin-left: 80px;
+  margin-right: 70px;
+}
+.image-delete {
+  margin-right: 15px;
+}
+/* Aca termina el La lista de productos*/
+
 .footer {
   width: 100%;
   height: 47px;
@@ -174,8 +325,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 460px;
-
+  margin-top: 95px;
   & span {
     font-family: "Poppins";
     font-style: normal;
