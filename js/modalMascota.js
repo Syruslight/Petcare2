@@ -20,18 +20,36 @@ document.addEventListener("click", function(e) {
         const nombreMascota = e.target.getAttribute("data-nombre");
         const pesoMascota = e.target.getAttribute("data-peso");
         const edadMascota = e.target.getAttribute("data-edad");
-        
+        const etapaMascota = e.target.getAttribute("data-etapa");
+        const esterilizadoMascota = e.target.getAttribute("data-esterilizado");
 
         // Aquí puedes hacer lo que desees con el ID de la mascota, por ejemplo, mostrar los datos en el modal
         // Reemplazar el valor de la variable $idEditarmascota en el frontend
-        document.querySelector("#idmascota").value = idMascota;
-        document.querySelector("#nombrees").value = nombreMascota;
-        document.querySelector("#peso").value = pesoMascota;
-        document.querySelector("#edad").value = edadMascota;
-// Actualizar la imagen de perfil
-document.querySelector("#perfil-img").src = "../../imagenes/fotosperfil/mascota/" + fotoperfil;
+        document.querySelector("#idmascotaEnvio").value = idMascota;
+        document.querySelector("#nombreEnvio").value = nombreMascota;
+        document.querySelector("#pesoEnvio").value = pesoMascota;
+        document.querySelector("#edadEnvio").value = edadMascota;
+        
+        // Actualizar la imagen de perfil
+        document.querySelector("#perfil-img").src = "../../imagenes/fotosperfil/mascota/" + fotoperfil;
 
-      
+       // Seleccionar la opción correspondiente en el campo de etapa
+       const etapaSelect = document.querySelector("#etapaEnvio");
+       for (let i = 0; i < etapaSelect.options.length; i++) {
+        if (etapaSelect.options[i].value === etapaMascota) {
+          etapaSelect.selectedIndex = i;
+          break;
+        }
+       }
+        
+       // Seleccionar el radio button correspondiente en el campo de esterilizado
+       const esterilizadoRadioSI = document.querySelector("#siEnvio");
+       const esterilizadoRadioNO = document.querySelector("#noEnvio");
+       if (esterilizadoMascota === "SI") {
+           esterilizadoRadioSI.checked = true;
+       } else if (esterilizadoMascota === "NO") {
+           esterilizadoRadioNO.checked = true;
+       }
         // Abrir el modal
         openModalM(modalSelector);
     }

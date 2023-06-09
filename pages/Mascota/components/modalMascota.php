@@ -155,7 +155,7 @@
                     <div class="card-mascota">
                         <div class="card">
                                 <h5 class="card-title">
-                                <?= $mascota['nombre'] ?>
+                                
                                 </h5>
                             <div class="img-card">
                                 <img src="../../imagenes/perrito.jpg" alt="" class="card-img-bottom img">

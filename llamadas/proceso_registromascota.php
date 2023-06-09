@@ -11,7 +11,7 @@ $idraza = $razaData[0];
 $nombre = $_POST['nombreMascota'];
 $fechaNac = $_POST['fechaNac'];
 $peso = $_POST['peso'];
-$color = $_POST['color'];
+$color = strtolower($_POST['color']); //cambio a minisculas
 
 $sexo=$_POST['sexo'];
 $etapa = $_POST['etapa'];
