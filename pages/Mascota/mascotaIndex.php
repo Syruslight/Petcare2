@@ -176,13 +176,13 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                 </select>
                                 <div class="cont-este">
                                     <label class="form-check-label">Esterilizado:</label>
-                                    <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI" <?= ($mascota['esterilizado'] == 'SI') ? 'checked="checked"' : '' ?>>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI">
                                     <label class="form-check-label" for="si">Si</label>
-                                    <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO" <?= ($mascota['esterilizado'] == 'NO') ? 'checked="checked"' : '' ?>>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO">
                                     <label class="form-check-label" for="no">No</label>
                                 </div>
                                 <input type="text" id="idmascota" name="idmascota">
-            <input type="text" id="nombrees" name="nombrees">                             </div>
+                                </div>
                         </div>
                         <div class="data-col1">
                                 <div class="row">
@@ -192,7 +192,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                 <div class="row">
                                     <div class="fotoPos">
                                         <div class="foto">
-                                            <img id="img" src="../../imagenes/fotosperfil/cliente/<?= $mascota['fotoPerfil'] ?>" alt="profile">  
+                                            <img id="perfil-img" alt="profile">  
                                         </div>                                
                                     </div>
                                     <div class="button">

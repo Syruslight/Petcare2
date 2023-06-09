@@ -15,16 +15,23 @@ document.addEventListener("click", function(e) {
     if (e.target.classList.contains("butModal")) {
         e.preventDefault();
         const modalSelector = e.target.getAttribute("data-modal");
+        const fotoperfil= e.target.getAttribute("data-fotoperfil");
         const idMascota = e.target.getAttribute("data-idmascota");
         const nombreMascota = e.target.getAttribute("data-nombre");
-     
         const pesoMascota = e.target.getAttribute("data-peso");
+        const edadMascota = e.target.getAttribute("data-edad");
         
+
         // Aquí puedes hacer lo que desees con el ID de la mascota, por ejemplo, mostrar los datos en el modal
         // Reemplazar el valor de la variable $idEditarmascota en el frontend
         document.querySelector("#idmascota").value = idMascota;
         document.querySelector("#nombrees").value = nombreMascota;
         document.querySelector("#peso").value = pesoMascota;
+        document.querySelector("#edad").value = edadMascota;
+// Actualizar la imagen de perfil
+document.querySelector("#perfil-img").src = "../../imagenes/fotosperfil/mascota/" + fotoperfil;
+
+      
         // Abrir el modal
         openModalM(modalSelector);
     }
