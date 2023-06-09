@@ -17,12 +17,14 @@ document.addEventListener("click", function(e) {
         const modalSelector = e.target.getAttribute("data-modal");
         const idMascota = e.target.getAttribute("data-idmascota");
         const nombreMascota = e.target.getAttribute("data-nombre");
-
+     
+        const pesoMascota = e.target.getAttribute("data-peso");
+        
         // Aquí puedes hacer lo que desees con el ID de la mascota, por ejemplo, mostrar los datos en el modal
         // Reemplazar el valor de la variable $idEditarmascota en el frontend
         document.querySelector("#idmascota").value = idMascota;
-        document.querySelector("#nombre").value = nombreMascota;
-
+        document.querySelector("#nombrees").value = nombreMascota;
+        document.querySelector("#peso").value = pesoMascota;
         // Abrir el modal
         openModalM(modalSelector);
     }

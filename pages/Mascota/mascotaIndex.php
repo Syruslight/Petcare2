@@ -161,13 +161,10 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 </div>
                 <div class="row data">
                     <form action="../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
-                        <div class="data-col2">
-                            <?php       
-                            $idEditarmascota = $_SESSION['idEditarmascota'];
-                            foreach (listarDatosMascota($idEditarmascota, $conn) as $key => $mascota) {} ?>
-                            <input type="text" id="nombre" class="form-control" name="nombreMascota" value="<?= $mascota['nombre'] ?>" placeholder="Nombre">    
+                        <div class="data-col2">                                                      
+                            <input type="text" id="nombrees" class="form-control" name="nombreMascota" placeholder="Nombre">    
                             <div class="row-short">
-                                <input type="text" class="form-control ip" name="peso" placeholder="Peso" value="<?= $mascota['peso'] ?> Kg">
+                                <input type="text" class="form-control ip" id="peso" name="peso" placeholder="Peso">
                                 <input type="text" class="form-control" style="width: 120px;" id="edad" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>
                             </div>                   
                             <div class="cont-radio">
@@ -184,8 +181,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO" <?= ($mascota['esterilizado'] == 'NO') ? 'checked="checked"' : '' ?>>
                                     <label class="form-check-label" for="no">No</label>
                                 </div>
-                                <input hidden type="text" id="idmascota" name="idmascota" value="<?= $mascota['idmascota'] ?>">
-                            </div>
+                                <input type="text" id="idmascota" name="idmascota">
+            <input type="text" id="nombrees" name="nombrees">                             </div>
                         </div>
                         <div class="data-col1">
                                 <div class="row">
