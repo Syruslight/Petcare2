@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
               <td>' . $row['color'] . '</td>
               <td class="th">' . $row['esterilizado'] . '</td>
               <td class="td">
-              <a href="" action="listar" class="butModal btn btn-sm" data-modal=".modalMascotaEdit" data-idmascota="' . $row['idmascota'] . '" style="background-color:#1BC5BD; color:#1D3534;">editar</a>
+              <a href="" action="listar" class="butModal btn btn-sm" data-modal=".modalMascotaEdit" data-idmascota="' . $row['idmascota'] . '" data-nombre="' . $row['nombre'] . '" data-fechanac="' . $row['fechaNac'] . '" data-edad="' . $row['edad'] . '" data-peso="' . $row['peso'] . '" data-color="' . $row['color'] . '" data-esterilizado="' . $row['esterilizado'] . '" style="background-color:#1BC5BD; color:#1D3534;">editar</a>
                 <a href="" class="butModal btn btn-sm" data-modal=".modalMascotaCarne"
                 style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
               </td>

@@ -42,8 +42,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 async: false, // Hacer la llamada AJAX de manera síncrona
                 success: function(response) {
                     $('#resultados').html(response);
-                    idMascota = $('td[name="idmascota"]').text(); // Asignar el valor a idMascota
-                    $('#idMascotaInput').val(idMascota);
+                    //idMascota = $('td[name="idmascota"]').text(); // Asignar el valor a idMascota,no
+                    //$('#idMascotaInput').val(idMascota); //no
                   //  alert(idMascota);
                 }
             });
@@ -53,7 +53,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
 </head>
 
 <body>
-<input type="text" id="idMascotaInput" readonly>
+<!-- <input type="text" id="idMascotaInput" readonly> no-->
     <div class="wrapper">
         <div class="profile">
             <?php
