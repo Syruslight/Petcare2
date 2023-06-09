@@ -311,6 +311,67 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
     <?php 
         include '../Mascota/components/modalMascota.php';
     ?>
+    <!-- MODAL EDITAR -->
+    <section class="moda modalMascota modalMascotaEdit">
+        <div class="row" id="modal-Register">
+            <div class=" container">
+                <div class="row header-ReMas justify-content-end">
+                    <div class="row close-btn">
+                        <span class="btn btn-dark modal__close" style="width: 50px;">✖</span>
+                    </div>   
+                    <div class="row">
+                        <h3 class="mb-3"><span>Editar Mascota</span></h3>
+                    </div>
+                </div>
+                <div class="row data">
+                    <form action="../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
+                        <div class="data-col2">
+                            <?php       
+                            $idEditarmascota = $_SESSION['idEditarmascota'];
+                            foreach (listarDatosMascota($idEditarmascota, $conn) as $key => $mascota) {} ?>
+                            <input type="text" id="nombre" class="form-control" name="nombreMascota" value="<?= $mascota['nombre'] ?>" placeholder="Nombre">    
+                            <div class="row-short">
+                                <input type="text" class="form-control ip" name="peso" placeholder="Peso" value="<?= $mascota['peso'] ?> Kg">
+                                <input type="text" class="form-control" style="width: 120px;" id="edad" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>
+                            </div>                   
+                            <div class="cont-radio">
+                                <select name="etapa" id="etapa" class="form-select" style="width: 220px;">
+                                    <option selected>Selecciona Etapa</option>
+                                    <option value="Cria" <?= ($mascota['etapa'] == 'Cria') ? 'selected' : '' ?>>Cría</option>
+                                    <option value="Juvenil" <?= ($mascota['etapa'] == 'Juvenil') ? 'selected' : '' ?>>Juvenil</option>
+                                    <option value="Adulto" <?= ($mascota['etapa'] == 'Adulto') ? 'selected' : '' ?>>Adulto</option>
+                                </select>
+                                <div class="cont-este">
+                                    <label class="form-check-label">Esterilizado:</label>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI" <?= ($mascota['esterilizado'] == 'SI') ? 'checked="checked"' : '' ?>>
+                                    <label class="form-check-label" for="si">Si</label>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO" <?= ($mascota['esterilizado'] == 'NO') ? 'checked="checked"' : '' ?>>
+                                    <label class="form-check-label" for="no">No</label>
+                                </div>
+                                <input hidden type="text" id="idmascota" name="idmascota" value="<?= $mascota['idmascota'] ?>">
+                            </div>
+                        </div>
+                        <div class="data-col1">
+                                <div class="row">
+                                    <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
+                                    <label id="cambiar-foto" for="foto">Subir Foto</label>
+                                </div>
+                                <div class="row">
+                                    <div class="fotoPos">
+                                        <div class="foto">
+                                            <img id="img" src="../../imagenes/fotosperfil/cliente/<?= $mascota['fotoPerfil'] ?>" alt="profile">  
+                                        </div>                                
+                                    </div>
+                                    <div class="button">
+                                        <input type="submit" name="editar" value="Editar" class="btn">
+                                    </div>
+                                </div>                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <script src="../../js/modalMascota.js"></script>
     <script src="../../js/Modal.js"></script>
