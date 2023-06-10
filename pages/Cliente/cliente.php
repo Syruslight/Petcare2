@@ -114,6 +114,8 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                 $sexo = $mascota['sexo'];
                                 $peso = $mascota['peso'];
                                 $idmascota = $mascota['idmascota'];
+                                $etapa = $mascota['etapa'];
+                                $esterilizado = $mascota['esterilizado'];
                                 ?>
                                 <div class="ballot-pets">
                                     <div class="picture-pet">
@@ -137,7 +139,10 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                             </span>
                                         </div>
                                         <div>
-                                            <img class="butModal edits-pets" data-modal=".modalMascotaEdit" src="../../imagenes/perfilCliente/edit-pencil.png"
+                                            <img class="butModal edits-pets" data-modal=".modalMascotaEdit" data-nombre="<?php echo $nombre; ?>" 
+                                            data-edad="<?php echo $edad; ?>" data-peso="<?php echo $peso; ?>" data-fotoperfil="<?php echo $fotoPerfil; ?>" 
+                                            data-esterilizado="<?php echo $esterilizado; ?>"  data-etapa="<?php echo $etapa; ?>"
+                                            src="../../imagenes/perfilCliente/edit-pencil.png"
                                                 alt="Logo" width="35" height="34">
                                             <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo"
                                                 width="46" height="42">
@@ -324,34 +329,32 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                     </div>
                 </div>
                 <div class="row data">
-                    <form action="../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
-                        <div class="data-col2">
-                            <?php       
-                            $idEditarmascota = $_SESSION['idEditarmascota'];
-                            foreach (listarDatosMascota($idEditarmascota, $conn) as $key => $mascota) {} ?>
-                            <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" value="<?= $mascota['nombre'] ?>" placeholder="Nombre">    
-                            <div class="row-short">
-                                <input type="text" class="form-control ip" id="pesoEnvio" name="peso" placeholder="Peso" value="<?= $mascota['peso'] ?> Kg">
-                                <input type="text" class="form-control" style="width: 120px;" id="edadEnvio" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>
-                            </div>                   
-                            <div class="cont-radio">
-                                <select name="etapa" id="etapaEnvio" class="form-select" style="width: 220px;">
-                                    <option selected>Selecciona Etapa</option>
-                                    <option value="Cria" <?= ($mascota['etapa'] == 'Cria') ? 'selected' : '' ?>>Cría</option>
-                                    <option value="Juvenil" <?= ($mascota['etapa'] == 'Juvenil') ? 'selected' : '' ?>>Juvenil</option>
-                                    <option value="Adulto" <?= ($mascota['etapa'] == 'Adulto') ? 'selected' : '' ?>>Adulto</option>
-                                </select>
-                                <div class="cont-este">
-                                    <label class="form-check-label">Esterilizado:</label>
-                                    <input type="radio" name="esterilizado" class="form-check-input" id="siEnvio" value="SI" <?= ($mascota['esterilizado'] == 'SI') ? 'checked="checked"' : '' ?>>
-                                    <label class="form-check-label" for="si">Si</label>
-                                    <input type="radio" name="esterilizado" class="form-check-input" id="noEnvio" value="NO" <?= ($mascota['esterilizado'] == 'NO') ? 'checked="checked"' : '' ?>>
-                                    <label class="form-check-label" for="no">No</label>
+                <form action="" method="post" enctype="multipart/form-data">
+                            <div class="data-col2">
+                                <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" placeholder="Nombre">
+                                <div class="row-short">
+                                    <input type="text" class="form-control ip" id="pesoEnvio" name="peso" placeholder="Peso">
+                                    <input type="text" class="form-control" style="width: 120px;" id="edadEnvio" name="edad" placeholder="Edad" disabled>
                                 </div>
-                                <input hidden type="text" id="idmascotaEnvio" name="idmascota" value="<?= $mascota['idmascota'] ?>">
+                                <div class="cont-radio">
+                                    <select name="etapa" id="etapaEnvio" class="form-select" style="width: 220px;">
+                                        <option selected disabled>Selecciona Etapa</option>
+                                        <option value="Cria">Cría</option>
+                                        <option value="Juvenil">Juvenil</option>
+                                        <option value="Adulto">Adulto</option>
+                                    </select>
+                                    <div class="cont-este">
+                                        <label class="form-check-label">Esterilizado:</label>
+                                        <input type="radio" name="esterilizado" class="form-check-input" id="siEnvio" value="SI">
+                                        <label class="form-check-label" for="siEnvio">Si</label>
+                                        <input type="radio" name="esterilizado" class="form-check-input" id="noEnvio" value="NO">
+                                        <label class="form-check-label" for="noEnvio">No</label>
+                                    </div>
+
+                                    <input type="hidden" id="idmascotaEnvio" name="idmascota">
+                                </div>
                             </div>
-                        </div>
-                        <div class="data-col1">
+                            <div class="data-col1">
                                 <div class="row">
                                     <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
                                     <label id="cambiar-foto" for="foto">Subir Foto</label>
@@ -359,15 +362,15 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                 <div class="row">
                                     <div class="fotoPos">
                                         <div class="foto">
-                                            <img id="perfil-img" src="../../imagenes/fotosperfil/cliente/<?= $mascota['fotoPerfil'] ?>" alt="profile">  
-                                        </div>                                
+                                            <img id="perfil-img" alt="profile">
+                                        </div>
                                     </div>
                                     <div class="button">
                                         <input type="submit" name="editar" value="Editar" class="btn">
                                     </div>
-                                </div>                           
-                        </div>
-                    </form>
+                                </div>
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>

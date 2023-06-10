@@ -161,7 +161,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         <form action="" method="post" enctype="multipart/form-data">
                             <div class="data-col2">
                                 <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" placeholder="Nombre">
-                                <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" placeholder="Nombre">
                                 <div class="row-short">
                                     <input type="text" class="form-control ip" id="pesoEnvio" name="peso" placeholder="Peso">
                                     <input type="text" class="form-control" style="width: 120px;" id="edadEnvio" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>

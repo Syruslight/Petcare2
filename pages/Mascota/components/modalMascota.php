@@ -155,10 +155,10 @@
                     <div class="card-mascota">
                         <div class="card">
                                 <h5 class="card-title">
-                                
+                                <label id="nombre2"></label>
                                 </h5>
                             <div class="img-card">
-                                <img src="../../imagenes/perrito.jpg" alt="" class="card-img-bottom img">
+                            <img id="perfil-img2" alt="profile"  class="card-img-bottom img">
                             </div>
                             <div class="card-body">
                                 <span class="card-text">

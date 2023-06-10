@@ -23,15 +23,31 @@ document.addEventListener("click", function(e) {
         const etapaMascota = e.target.getAttribute("data-etapa");
         const esterilizadoMascota = e.target.getAttribute("data-esterilizado");
 
+        //Para carnet
+        var nombre1 = e.target.getAttribute("data-nombre2");
+        const fotoperfil2= e.target.getAttribute("data-fotoperfil2");
         // Aquí puedes hacer lo que desees con el ID de la mascota, por ejemplo, mostrar los datos en el modal
         // Reemplazar el valor de la variable $idEditarmascota en el frontend
+        
+
+        //Para editar desde cliente : 
+      //  const nombre2 = e.target.getAttribute("data-nombre3");
+
         document.querySelector("#idmascotaEnvio").value = idMascota;
         document.querySelector("#nombreEnvio").value = nombreMascota;
         document.querySelector("#pesoEnvio").value = pesoMascota;
         document.querySelector("#edadEnvio").value = edadMascota;
-        
-        // Actualizar la imagen de perfil
         document.querySelector("#perfil-img").src = "../../imagenes/fotosperfil/mascota/" + fotoperfil;
+
+        // Ver Carnet
+        document.getElementById("nombre2").textContent = nombre1;
+        document.querySelector("#perfil-img2").src = "../../imagenes/fotosperfil/mascota/" + fotoperfil2;
+
+        //Editar carnet cliente: 
+    //    document.getElementById("nombre3").textContent = nombre2;
+
+
+        
 
        // Seleccionar la opción correspondiente en el campo de etapa
         const etapaSelect = document.querySelector("#etapaEnvio");

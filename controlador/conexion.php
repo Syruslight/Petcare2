@@ -192,7 +192,7 @@ function actualizarDatosMascota($idMascota, $nombre, $peso, $color, $fotoPerfil,
 
 //Función para listar los datos de la mascota (top3) desde el dashboard principal del cliente
 function listarDatosMascotaDasboardCliente($idCliente, $conn) {
-    $sql = "SELECT nombre, fotoPerfil, fechaNac, sexo, peso, idmascota FROM `mascota` WHERE idcliente = '$idCliente' LIMIT 3";
+    $sql = "SELECT nombre, fotoPerfil, fechaNac, sexo, peso, idmascota,etapa,esterilizado FROM `mascota` WHERE idcliente = '$idCliente' LIMIT 3";
     $result = mysqli_query($conn, $sql);
 
     $mascotas = array();
