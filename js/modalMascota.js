@@ -34,22 +34,22 @@ document.addEventListener("click", function(e) {
         document.querySelector("#perfil-img").src = "../../imagenes/fotosperfil/mascota/" + fotoperfil;
 
        // Seleccionar la opción correspondiente en el campo de etapa
-       const etapaSelect = document.querySelector("#etapaEnvio");
-       for (let i = 0; i < etapaSelect.options.length; i++) {
-        if (etapaSelect.options[i].value === etapaMascota) {
-          etapaSelect.selectedIndex = i;
-          break;
+        const etapaSelect = document.querySelector("#etapaEnvio");
+        for (let i = 0; i < etapaSelect.options.length; i++) {
+            if (etapaSelect.options[i].value === etapaMascota) {
+            etapaSelect.selectedIndex = i;
+            break;
+            }
         }
-       }
         
        // Seleccionar el radio button correspondiente en el campo de esterilizado
-       const esterilizadoRadioSI = document.querySelector("#siEnvio");
-       const esterilizadoRadioNO = document.querySelector("#noEnvio");
-       if (esterilizadoMascota === "SI") {
-           esterilizadoRadioSI.checked = true;
-       } else if (esterilizadoMascota === "NO") {
-           esterilizadoRadioNO.checked = true;
-       }
+        const esterilizadoRadioSI = document.querySelector("#siEnvio");
+        const esterilizadoRadioNO = document.querySelector("#noEnvio");
+        if (esterilizadoMascota === "SI") {
+            esterilizadoRadioSI.checked = true;
+        } else if (esterilizadoMascota === "NO") {
+        esterilizadoRadioNO.checked = true;
+        }
         // Abrir el modal
         openModalM(modalSelector);
     }

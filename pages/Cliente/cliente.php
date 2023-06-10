@@ -329,13 +329,13 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                             <?php       
                             $idEditarmascota = $_SESSION['idEditarmascota'];
                             foreach (listarDatosMascota($idEditarmascota, $conn) as $key => $mascota) {} ?>
-                            <input type="text" id="nombre" class="form-control" name="nombreMascota" value="<?= $mascota['nombre'] ?>" placeholder="Nombre">    
+                            <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" value="<?= $mascota['nombre'] ?>" placeholder="Nombre">    
                             <div class="row-short">
-                                <input type="text" class="form-control ip" name="peso" placeholder="Peso" value="<?= $mascota['peso'] ?> Kg">
-                                <input type="text" class="form-control" style="width: 120px;" id="edad" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>
+                                <input type="text" class="form-control ip" id="pesoEnvio" name="peso" placeholder="Peso" value="<?= $mascota['peso'] ?> Kg">
+                                <input type="text" class="form-control" style="width: 120px;" id="edadEnvio" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>
                             </div>                   
                             <div class="cont-radio">
-                                <select name="etapa" id="etapa" class="form-select" style="width: 220px;">
+                                <select name="etapa" id="etapaEnvio" class="form-select" style="width: 220px;">
                                     <option selected>Selecciona Etapa</option>
                                     <option value="Cria" <?= ($mascota['etapa'] == 'Cria') ? 'selected' : '' ?>>Cría</option>
                                     <option value="Juvenil" <?= ($mascota['etapa'] == 'Juvenil') ? 'selected' : '' ?>>Juvenil</option>
@@ -343,12 +343,12 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                 </select>
                                 <div class="cont-este">
                                     <label class="form-check-label">Esterilizado:</label>
-                                    <input type="radio" name="esterilizado" class="form-check-input" id="si" value="SI" <?= ($mascota['esterilizado'] == 'SI') ? 'checked="checked"' : '' ?>>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="siEnvio" value="SI" <?= ($mascota['esterilizado'] == 'SI') ? 'checked="checked"' : '' ?>>
                                     <label class="form-check-label" for="si">Si</label>
-                                    <input type="radio" name="esterilizado" class="form-check-input" id="no" value="NO" <?= ($mascota['esterilizado'] == 'NO') ? 'checked="checked"' : '' ?>>
+                                    <input type="radio" name="esterilizado" class="form-check-input" id="noEnvio" value="NO" <?= ($mascota['esterilizado'] == 'NO') ? 'checked="checked"' : '' ?>>
                                     <label class="form-check-label" for="no">No</label>
                                 </div>
-                                <input hidden type="text" id="idmascota" name="idmascota" value="<?= $mascota['idmascota'] ?>">
+                                <input hidden type="text" id="idmascotaEnvio" name="idmascota" value="<?= $mascota['idmascota'] ?>">
                             </div>
                         </div>
                         <div class="data-col1">
@@ -359,7 +359,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                 <div class="row">
                                     <div class="fotoPos">
                                         <div class="foto">
-                                            <img id="img" src="../../imagenes/fotosperfil/cliente/<?= $mascota['fotoPerfil'] ?>" alt="profile">  
+                                            <img id="perfil-img" src="../../imagenes/fotosperfil/cliente/<?= $mascota['fotoPerfil'] ?>" alt="profile">  
                                         </div>                                
                                     </div>
                                     <div class="button">
