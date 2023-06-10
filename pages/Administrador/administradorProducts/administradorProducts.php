@@ -18,6 +18,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='administradorProducts.css'>
+    <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
    
@@ -73,7 +74,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <span class="table-price">s./40.00</span>
                             <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
                             <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
+                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
                         </div>
                         <hr class="linea">
 
@@ -216,12 +217,100 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     </section>
     </section>
 
+    <!-- Inicia el terrible modal de editar producto -->
+    <section>
+        <div id="modal_wrapper" class="modal-wrapper">
+      
+            <div class="modals">
+                <div>
+                    <div class="frame frame-1"></div>
+                    <div class="wrapper-headerModals">
+                        <div class="only-circle">
+                            <div class="circle-rigth"></div>
+                            <div class="circle-center"></div>
+                            <div class="circle-left"></div>
+                        </div>
+                        <h1 class="title-newProduct">Nuevo producto</h1>
+                        <lord-icon
+                            class="close"
+                            id="close"
+                            src="https://cdn.lordicon.com/nhfyhmlt.json"
+                            trigger="hover"
+                            colors="primary:#121331"
+                            state="hover-2"
+                            style="width:40px;height:40px">
+                        </lord-icon>
+                    </div>
+                    <div class="wrapper-bodyModals">
+                        <div class="photos-Modals">
+                            <div class="image-modals">
+                                <img src="../../../imagenes/perfilAdmin/updatePhotoProducts.png" >
+                            </div>
+                         <div class="update-photos">
+                                <span class="text-updatePhoto">Subir Foto</span>
+                                <lord-icon
+                                    src="https://cdn.lordicon.com/wfadduyp.json"
+                                    trigger="click"
+                                    colors="primary:#ffffff"
+                                    state="hover-1"
+                                    style="width:39px;height:39px">
+                                </lord-icon>
+                            </div>
+                            
+
+
+
+                        </div>
+                        
+                        <form action="">
+                            <div class="formu-modals"> 
+                                <div class="first-group">
+                                    <label class="label-reuse"for="">Nombre del producto:</label>
+                                    <input class="text-nameProduct"type="text">
+                                </div>
+                                <div class="second-group">
+                                    <div class="group-selects">
+                                        <label class="label-reuse" for="">Tipo:</label>
+                                        <select class="selectProdcuts"name="select" id="">
+                                            <option value="Comida">Comida</option>
+                                            <option value="Limpieza">Limpieza</option>
+                                            <option value="General">General</option>
+                                        </select>
+                                    </div>
+                                    <div class="group-text">
+                                        <label class="label-reuse" for="">Precio</label>
+                                        <input class="text-namePrice"type="text">
+                                    </div>
+                                </div>
+                                <div class="thirds-group">
+                                    <label class="label-reuse"for="">Descripcion:</label>
+                                    <textarea class="text-descriptionProduct"type="area"></textarea>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="footer-modals">
+                <button class="add-button">Agregar</button>
+                    <div class="footer-circle">
+                        <div class="footer-rigth"></div>
+                        <div class="footer-center"></div>
+                        <div class="footer-left"></div>
+                    </div>
+                </div>
+                    <div class="frame frame-2"></div>
+                </div>
+            </div>
+    </div>
+    </section>
+
+
+
 
 <script src="../../../js/registroNewUs.js"></script>
     <script src="../../../js/Modal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/swiperAdmin.js"></script>
-
+<script src="modals-products.js"></script>
 </body>
 
 </html>
