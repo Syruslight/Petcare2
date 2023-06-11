@@ -158,7 +158,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         </div>
                     </div>
                     <div class="row data">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="../../llamadas/proceso_actualizarDatosMascota.php" method="post" enctype="multipart/form-data">
                             <div class="data-col2">
                                 <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" placeholder="Nombre">
                                 <div class="row-short">
@@ -180,7 +180,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         <label class="form-check-label" for="noEnvio">No</label>
                                     </div>
 
-                                    <input type="hidden" id="idmascotaEnvio" name="idmascota">
+                                    <input type="hidden" id="idmascotaEnvio" name="idMascota">
                                 </div>
                             </div>
                             <div class="data-col1">
@@ -191,7 +191,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                 <div class="row">
                                     <div class="fotoPos">
                                         <div class="foto">
-                                            <img id="perfil-img" alt="profile">
+                                            <img name="fotoMascota" id="perfil-img" alt="profile">
                                         </div>
                                     </div>
                                     <div class="button">

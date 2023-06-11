@@ -3,12 +3,14 @@ require '../controlador/conexion.php';
 $conn = conectar();
 
 $idMascota = $_REQUEST['idMascota'];
-$nombre = $_REQUEST['nombre'];
+$idRaza = '1';
+$nombre = $_REQUEST['nombreMascota'];
 $peso = $_REQUEST['peso'];
-$color = $_REQUEST['color'];
+$esterilizado = 'si';
+$etapa = $_REQUEST['etapa'];
 
-$foto = $_FILES['foto']['name'];
-$ruta = $_FILES['foto']['tmp_name'];
+$fotoMascota = $_FILES['fotoMascota']['nombreMascota'];
+$ruta = $_FILES['fotoMascota']['tmp_name'];
 
 // Obtener la foto anterior del formulario
 $foto_anterior = $_REQUEST['foto2'];
@@ -17,13 +19,13 @@ $foto_anterior = $_REQUEST['foto2'];
 // Verificar si se ha seleccionado una nueva foto
 if (!empty($foto)) {
 	// Se ha seleccionado una nueva foto, guardarla y actualizar la variable $foto
-	$fotuser = "../imagenes/fotosperfil/" . $foto;
+	$fotoMascota = "../imagenes/fotosperfil/mascota" . $fotoMascota;
 	copy($ruta, $fotuser);
 } else {
 	// No se ha seleccionado una nueva foto, utilizar la foto anterior
-	$foto = $foto_anterior;
+	$fotoMascota = $foto_anterior;
 }
 
-actualizarDatosMascota($idMascota, $nombre, $peso, $color, $fotoPerfil, $conn);
-header('Location: ../pages/Mascota/mascotaIndex.php');
+actualizarDatosMascota($idMascota, $idRaza, $nombre, $peso, $esterilizado, $etapa  , $fotoMascota, $conn);
+	header('Location: ../pages/Mascota/mascotaIndex.php');
 ?>
