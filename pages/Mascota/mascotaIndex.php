@@ -185,8 +185,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             </div>
                             <div class="data-col1">
                                 <div class="row">
-                                    <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
-                                    <label id="cambiar-foto" for="foto">Subir Foto</label>
+                                    <input class="form-control form-control-sm" id="fotoM" type="file" name="subirFotoMascota" >
+                                    <label id="cambiar-foto" for="fotoM">Subir Foto</label>
                                 </div>
                                 <div class="row">
                                     <div class="fotoPos">

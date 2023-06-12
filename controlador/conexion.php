@@ -31,8 +31,36 @@ function obteneridUsuario($email, $pass, $conn)
     return $fila[0];
 }
 
+//Funcion para verificar si ya existe el correo 
+function correoExistente($correo, $conn) {
+    $sql = "SELECT * FROM usuario WHERE email = '$correo'";
+    $result = mysqli_query($conn, $sql);
+  
+    if (mysqli_num_rows($result) > 0) {
+      // El correo ya existe en la base de datos
+      return true;
+    } else {
+      // El correo no existe en la base de datos
+      return false;
+    }
+  }
 
-#-------Consulta generica a la hora de actualizar el usuario-------
+  //Funcion para crear cuenta de veterinario
+  function agregarCuentaVeterinario($correo, $pass, $conn) {
+    if (correoExistente($correo, $conn)) {
+      // El correo ya existe, retornar el mensaje de error
+      return "El correo electrónico ya está registrado";
+    } else {
+      // El correo no existe, agregar la cuenta veterinario
+      $sql = "INSERT INTO usuario (idtipousuario, email, pass, estado) VALUES ('3', '$correo', '$pass', '1')";
+      mysqli_query($conn, $sql) or die(mysqli_error($conn));
+      
+      // Retornar true para indicar que la cuenta veterinario se agregó correctamente
+      return true;
+    }
+  }
+  
+  #-------Consulta generica a la hora de actualizar el usuario-------
 
 //Funcion actualiza el estado del usuario cuando registre sus datos, de 1 a 2
 function actualizarEstado($idusuario, $estado, $conn)
@@ -185,8 +213,8 @@ function listarMascota($idMascota, $conn)
 }
 
 //Función para actualizar los datos de la mascota
-function actualizarDatosMascota($idMascota, $idRaza, $nombre, $peso, $esterilizado, $etapa  , $fotoMascota, $conn){
-    $sql = "UPDATE mascota SET idraza = '$idRaza',nombre = '$nombre', peso = '$peso',  esterilizado = '$esterilizado' , etapa = '$etapa', fotoPerfil = '$fotoMascota' WHERE idmascota = $idMascota;";
+function actualizarDatosMascota($idMascota,  $nombre, $peso, $esterilizado, $etapa  , $fotoMascota, $conn){
+    $sql = "UPDATE mascota SET nombre = '$nombre', peso = '$peso',  esterilizado = '$esterilizado' , etapa = '$etapa', fotoPerfil = '$fotoMascota' WHERE idmascota = $idMascota;";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
