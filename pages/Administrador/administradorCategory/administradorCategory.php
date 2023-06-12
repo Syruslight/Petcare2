@@ -17,7 +17,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='administradorProducts.css'>
+    <link rel="stylesheet" href='administradorCategory.css'>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
@@ -42,131 +42,136 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             <div class="subwrapper-products">
                 <div class="header-products">
                     <h1 class="tittle-products">Lista de Producto</h1>
-                    <button id="open" class="add-newProduct">+ Nuevo producto</button>
-                    <button class="add-newCategory">+ Nueva Catergoria</button>
                 </div>
                 <div class="wrapper-tableProducts">
                    <div class="header-table">
-                        <div class="search-product">
-                            <span class="search">Buscar:</span>
-                            <input class="input-search" type="search" name="busqueadaDNI" placeholder="">
-                        </div>
-                        <div class="image-container">
-
-                                    <img
-                                        src="../../../imagenes/perfilAdmin/filter.png"
-                                        alt="Imagen"
-                                        onclick="togglePopup()"
-                                    />
-                                    <div class="popup" id="popup">
-                                        <div class="checkbox-overlay">
-                                        <input
-                                            type="checkbox"
-                                            id="checkbox1"
-                                            name="checkbox"
-                                            onchange="updateCheckbox('checkbox1')"
-                                            class="filter-checkbox"
-                                            value="Comida"
-                                        />
-                                        <label for="checkbox1">Comida</label>
-                                        </div>
-                                        <div class="checkbox-overlay">
-                                        <input
-                                            type="checkbox"
-                                            id="checkbox2"
-                                            name="checkbox"
-                                            onchange="updateCheckbox('checkbox2')"
-                                            class="filter-checkbox"
-                                            value="Limpieza"
-                                        />
-                                        <label for="checkbox2">Limpieza</label>
-                                        </div>
-                                        <div class="checkbox-overlay">
-                                        <input
-                                            type="checkbox"
-                                            id="checkbox3"
-                                            name="checkbox"
-                                            onchange="updateCheckbox('checkbox3')"
-                                            class="filter-checkbox"
-                                            value="General"
-                                        />
-                                        <label for="checkbox3">General</label>
-                                        </div>
-                                    </div>
-                                    </div>                                
-                        
-                        <span class="text-filter">Filtrar</span>
+                   <button class="add-newCategory">+ Nueva Catergoria</button>
                     </div>
-                   <div id="item-list" class="wrapper-onlyTable">
+                   <div class="wrapper-onlyTable">
                     <div class="tittle-table">
                         <div>
 
-                            <span class="tittle-textProduct">Producto</span>
-                            <span class="tittle-textType">Tipo</span>
-                            <span class="tittle-textPrice">Precio</span>
-                            <span class="tittle-textDescription">Descripcion</span>
+                            <span class="tittle-textProduct">N°</span>
+                            <span class="tittle-textType">Nombre</span>
+                            <span class="tittle-textPrice">Afiliaciones</span>
+                            <span class="tittle-textDescription">Estado</span>
                             <span class="tittle-textAction">Accion</span>
                         </div>
                         <hr class="linea">
                     </div>
                     <div class="wrapper-table">
-                        <div  class="dates-table"> <!--Inicia el primer producto-->
-                            <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                            <span class="table-nameFood">Comida de Perro</span>
-                            <span class="item table-type">Comida</span>
-                            <span class="table-price">s./40.00</span>
-                            <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
+                        <div class="dates-table"> <!--Inicia el primer producto-->
+                            <span class="table-nameFood">01</span>
+                            <span class="table-type">Comida</span>
+                            <span class="table-price">12 Productos</span>
+                            <div class="toogleStatus">   
+                                <div class="toggle-switch">
+                                    <input  type="checkbox"
+                                    id="switch1"
+                                    class="toggle-switch-checkbox"
+                                    onchange="toggleSwitch('variable1', this.checked)" />
+                                    <label for="switch1" class="toggle-switch-label"></label>
+                                    <span class="slider round"></span>
+                                    <span class="toggle-switch-text" id="status1">
+                                        Inactivo
+                                    </span>
+                                </div>                             
+                            </div>
                             <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img  class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
+                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
                         </div>
                         <hr class="linea">
 
-                        <div  class="dates-table"> <!--Inicia el segundo producto-->
-                            <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                            <span class="table-nameFood">Comida de Perro</span>
-                            <span class="item table-type">Limpieza</span>
-                            <span class="table-price">s./40.00</span>
-                            <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
+                        <div class="dates-table"> <!--Inicia el segundo producto-->
+                            <span class="table-nameFood">02</span>
+                            <span class="table-type">Comida</span>
+                            <span class="table-price">12 Productos</span>
+                            <div class="toogleStatus">   
+                                <div class="toggle-switch">
+                                    <input  type="checkbox"
+                                    id="switch2"
+                                    class="toggle-switch-checkbox"
+                                    onchange="toggleSwitch('variable2', this.checked)" />
+                                    <label for="switch2" class="toggle-switch-label"></label>
+                                    <span class="slider round"></span>
+                                    <span class="toggle-switch-text" id="status2">
+                                        Inactivo
+                                    </span>
+                                </div>                             
+                            </div>
                             <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
+                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
                         </div>
                         <hr class="linea">
 
-                        
-                        <div  class="dates-table"> <!--Inicia el tercero producto-->
-                            <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                            <span class="table-nameFood">Comida de Perro</span>
-                            <span class="item table-type">Comida</span>
-                            <span class="table-price">s./40.00</span>
-                            <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
+                        <div class="dates-table"> <!--Inicia el tercero producto-->
+                            <span class="table-nameFood">03</span>
+                            <span class="table-type">Comida</span>
+                            <span class="table-price">12 Productos</span>
+                            <div class="toogleStatus">   
+                                <div class="toggle-switch">
+                                    <input  type="checkbox"
+                                    id="switch3"
+                                    class="toggle-switch-checkbox"
+                                    onchange="toggleSwitch('variable3', this.checked)" />
+                                    <label for="switch3" class="toggle-switch-label"></label>
+                                    <span class="slider round"></span>
+                                    <span class="toggle-switch-text" id="status3">
+                                        Inactivo
+                                    </span>
+                                </div>                             
+                            </div>
                             <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
+                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
                         </div>
                         <hr class="linea">
 
-                        
-                        <div  class="dates-table"> <!--Inicia el cuarto producto-->
-                            <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                            <span class="table-nameFood">Comida de Perro</span>
-                            <span class="item table-type">Comida</span>
-                            <span class="table-price">s./40.00</span>
-                            <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
+                        <div class="dates-table"> <!--Inicia el cuarto producto-->
+                            <span class="table-nameFood">04</span>
+                            <span class="table-type">Comida</span>
+                            <span class="table-price">12 Productos</span>
+                            <div class="toogleStatus">   
+                                <div class="toggle-switch">
+                                    <input  type="checkbox"
+                                    id="switch4"
+                                    class="toggle-switch-checkbox"
+                                    onchange="toggleSwitch('variable4', this.checked)" />
+                                    <label for="switch4" class="toggle-switch-label"></label>
+                                    <span class="slider round"></span>
+                                    <span class="toggle-switch-text" id="status4">
+                                        Inactivo
+                                    </span>
+                                </div>                             
+                            </div>
                             <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
+                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
                         </div>
                         <hr class="linea">
 
-                        
                         <div class="dates-table"> <!--Inicia el quinto producto-->
-                            <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                            <span class="table-nameFood">Comida de Perro</span>
-                            <span class="item table-type">General</span>
-                            <span class="table-price">s./40.00</span>
-                            <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
+                            <span class="table-nameFood">05</span>
+                            <span class="table-type">Comida</span>
+                            <span class="table-price">12 Productos</span>
+                            <div class="toogleStatus">   
+                                <div class="toggle-switch">
+                                    <input  type="checkbox"
+                                    id="switch5"
+                                    class="toggle-switch-checkbox"
+                                    onchange="toggleSwitch('variable5', this.checked)" />
+                                    <label for="switch5" class="toggle-switch-label"></label>
+                                    <span class="slider round"></span>
+                                    <span class="toggle-switch-text" id="status5">
+                                        Inactivo
+                                    </span>
+                                </div>                             
+                            </div>
                             <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
+                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
                         </div>
                         <hr class="linea">
+
+        
+
                     </div>
                    </div>
                 </div>
@@ -352,10 +357,8 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 <script src="../../../js/registroNewUs.js"></script>
     <script src="../../../js/Modal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="../../../js/swiperAdmin.js"></script>
 <script src="modals-products.js"></script>
-<script src="imagenPoup.js"></script>
-<script src="filterCheckbox.js"></script>
+<script src="../../../js/administrador/toogleSwitchCategory.js"></script>
 </body>
 
 </html>

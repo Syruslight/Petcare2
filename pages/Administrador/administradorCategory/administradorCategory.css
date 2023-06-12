@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  height: 1024px;
+  height: 100%;
   display: flex;
   max-width: 1440px;
   margin: 0 auto;
@@ -8,7 +8,7 @@
 }
 .profile {
   width: 20%;
-  height: 100%;
+  height: 1024px;
 }
 .first-seccion {
   display: flex;
@@ -60,17 +60,20 @@
 }
 .second-seccion {
   background: #f0feff;
+  height: 647px;
   width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 .categories {
+  width: 100%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   row-gap: 40px;
   padding-left: 32px;
-  padding-top: 18px;
+  padding-top: 10px;
 }
 .icons {
   width: 100%;
@@ -87,14 +90,6 @@
   color: #264653;
   padding-left: 8px;
 }
-.principal {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 30px;
-  color: rgba(42, 45, 55, 0.6);
-}
 .list {
   font-family: "Poppins";
   font-style: normal;
@@ -106,7 +101,7 @@
 }
 .sign-off {
   display: flex;
-  margin-top: 190px;
+  margin-top: 230px;
 }
 .dash-information {
   height: 100%;
@@ -175,97 +170,27 @@
 .wrapper-tableProducts {
   background: #ffffff;
 }
-.add-newProduct {
-  margin-right: 50px;
-  width: 225px;
-  height: 44px;
-  background: #ffffff;
-  border: 3px solid #49c1b3;
-  border-radius: 30px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 21px;
-  text-align: center;
-  color: #49c1b3;
-}
-.add-newCategory {
-  width: 225px;
-  height: 44px;
-  background: #75cac0;
-  border-radius: 30px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 21px;
-  text-align: center;
-  color: #ffffff;
-}
-
 .header-table {
   display: flex;
   background: rgba(73, 193, 179, 0.71);
   height: 66px;
   align-items: center;
 }
-.search-product {
-  margin-right: 400px;
-}
-.search {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 21px;
-  color: #ffffff;
-  margin-left: 48px;
-}
-/* terrible combo */
-.input-search {
-  width: 410px;
-  height: 32px;
+.add-newCategory {
+  background: #ffffff;
+  border: 3px solid #68b3aa;
   border-radius: 30px;
-  padding-left: 15px;
-}
-.image-container {
-  position: relative;
-  display: inline-block;
-}
-
-.popup {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 200px;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  display: none;
-}
-
-.checkbox-overlay {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
-
-.checkbox-overlay input[type="checkbox"] {
-  margin-right: 10px;
-}
-/* Aca termina el terrible combo */
-.text-filter {
+  width: 225px;
+  height: 44px;
+  margin-left: 818px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
-  font-size: 22px;
+  font-size: 20px;
   line-height: 21px;
-  color: #ffffff;
-  margin-left: 15px;
+  text-align: center;
+  color: #68b3aa;
 }
-
 .tittle-table {
   display: flex;
   margin-top: 11px;
@@ -325,63 +250,109 @@
   width: 1000px;
   margin-bottom: 0;
 }
-.wrapper-table {
-  overflow-y: scroll;
-  height: 580px;
-}
 .dates-table {
   display: flex;
   align-items: center;
+  height: 85px;
 }
-.image-product {
-  margin-left: 50px;
-}
+
 .table-nameFood {
   width: 80px;
+  margin-left: 30px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
   line-height: 21px;
+  text-align: center;
   color: rgba(156, 156, 156, 0.78);
 }
 .table-type {
   width: 100px;
-  margin-left: 50px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
   line-height: 21px;
+  text-align: center;
+  margin-left: 60px;
   color: rgba(156, 156, 156, 0.78);
 }
 .table-price {
-  margin-left: 50px;
-  width: 90px;
+  margin-left: 65px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
   line-height: 21px;
+  text-align: center;
+  width: 158px;
   color: rgba(156, 156, 156, 0.78);
 }
-.table-description {
-  width: 300px;
-  margin-left: 80px;
-  margin-right: 70px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 21px;
-  color: rgba(156, 156, 156, 0.78);
-  margin-top: 10px;
-  margin-bottom: 10px;
+.toogleStatus {
+  width: 120px;
+  margin-left: 120px;
+  display: flex;
+  align-items: center;
 }
-.image-delete {
-  margin-right: 15px;
+
+/* Aca  comienza en Toogle status para cambiar el estado */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.toggle-switch-checkbox {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 34px;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+.toggle-switch-label:before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label {
+  background-color: #4caf50;
+}
+
+.toggle-switch-checkbox:checked + .toggle-switch-label:before {
+  transform: translateX(26px);
+}
+
+.toggle-switch-text {
+  font-size: 14px;
+  color: #888;
+  position: absolute;
+  top: 50%;
+  left: 70px;
+  transform: translateY(-50%);
 }
 /* Aca termina el La lista de productos*/
+.image-delete {
+  margin-left: 175px;
+}
 
 .footer {
   width: 100%;
@@ -985,7 +956,6 @@
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   width: 388px;
   height: 159px;
-  resize: none;
 }
 .footer-modals {
   display: flex;

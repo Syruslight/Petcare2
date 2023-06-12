@@ -49,11 +49,14 @@
                                 <span class="list">servicios</span>
                             </div>
                         </a>
-                        <div class="icons">
-                            <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25"
+                        <a href="../administradorCategory/administradorCategory.php">
+
+                            <div class="icons">
+                                <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25"
                                 height="25" />
-                            <span class="list">PetiPuntos </span>
-                        </div>
+                                <span class="list">Categoria </span>
+                            </div>
+                        </a>
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
                             <span class="list">Reserva una cita</span>

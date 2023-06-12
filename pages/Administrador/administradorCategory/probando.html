@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .intro {
+        display: flex;
+        flex-direction: column;
+      }
+      .toggle-switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .toggle-switch-checkbox {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle-switch-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 34px;
+        background-color: #ccc;
+        cursor: pointer;
+      }
+
+      .toggle-switch-label:before {
+        content: "";
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: white;
+        transition: all 0.3s;
+      }
+
+      .toggle-switch-checkbox:checked + .toggle-switch-label {
+        background-color: #4caf50;
+      }
+
+      .toggle-switch-checkbox:checked + .toggle-switch-label:before {
+        transform: translateX(26px);
+      }
+
+      .toggle-switch-text {
+        font-size: 14px;
+        color: #888;
+        position: absolute;
+        top: 50%;
+        left: 70px;
+        transform: translateY(-50%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="intro">
+      <div class="toggle-switch">
+        <input
+          type="checkbox"
+          id="switch1"
+          class="toggle-switch-checkbox"
+          onchange="toggleSwitch('variable1', this.checked)"
+        />
+        <label for="switch1" class="toggle-switch-label"></label>
+        <span class="toggle-switch-text"
+          >Variable 1: <span id="status1">Desactivada</span></span
+        >
+      </div>
+
+      <div class="toggle-switch">
+        <input
+          type="checkbox"
+          id="switch2"
+          class="toggle-switch-checkbox"
+          onchange="toggleSwitch('variable2', this.checked)"
+        />
+        <label for="switch2" class="toggle-switch-label"></label>
+        <span class="toggle-switch-text"
+          >Variable 2: <span id="status2">Desactivada</span></span
+        >
+      </div>
+
+      <div class="toggle-switch">
+        <input
+          type="checkbox"
+          id="switch3"
+          class="toggle-switch-checkbox"
+          onchange="toggleSwitch('variable3', this.checked)"
+        />
+        <label for="switch3" class="toggle-switch-label"></label>
+        <span class="toggle-switch-text"
+          >Variable 3: <span id="status3">Desactivada</span></span
+        >
+      </div>
+    </div>
+
+    <script>
+      var variables = {
+        variable1: false,
+        variable2: false,
+        variable3: false,
+      };
+
+      function toggleSwitch(variable, checked) {
+        variables[variable] = checked;
+        var statusElement = document.getElementById(
+          "status" + variable.slice(-1)
+        );
+        statusElement.textContent = checked ? "Activada" : "Desactivada";
+      }
+    </script>
+  </body>
+</html>

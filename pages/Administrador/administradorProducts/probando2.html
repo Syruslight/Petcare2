@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      .item {
+        display: none;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <label>
+      <input type="checkbox" class="filter-checkbox" value="red" />
+      Red
+    </label>
+    <label>
+      <input type="checkbox" class="filter-checkbox" value="blue" />
+      Blue
+    </label>
+    <label>
+      <input type="checkbox" class="filter-checkbox" value="green" />
+      Green
+    </label>
+
+    <ul id="item-list">
+      <li class="item red">Red item</li>
+      <li class="item blue">Blue item</li>
+      <li class="item green">Green item</li>
+      <li class="item red">Another red item</li>
+      <li class="item blue">Another blue item</li>
+    </ul>
+
+    <script>
+      // Obtener todos los checkboxes
+      const checkboxes = document.querySelectorAll(".filter-checkbox");
+
+      // Obtener la lista de elementos
+      const itemList = document.getElementById("item-list");
+
+      // Agregar el evento de cambio a cada checkbox
+      checkboxes.forEach((checkbox) => {
+        checkbox.addEventListener("change", () => {
+          // Obtener los valores seleccionados de los checkboxes
+          const selectedValues = Array.from(checkboxes)
+            .filter((checkbox) => checkbox.checked)
+            .map((checkbox) => checkbox.value);
+
+          // Filtrar los elementos de la lista según los valores seleccionados
+          const items = Array.from(itemList.getElementsByClassName("item"));
+          items.forEach((item) => {
+            const classes = Array.from(item.classList);
+            const hasSelectedValue = selectedValues.some((value) =>
+              classes.includes(value)
+            );
+            item.style.display = hasSelectedValue ? "block" : "none";
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
