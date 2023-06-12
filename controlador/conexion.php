@@ -185,8 +185,8 @@ function listarMascota($idMascota, $conn)
 }
 
 //Función para actualizar los datos de la mascota
-function actualizarDatosMascota($idMascota, $idRaza, $nombre, $peso, $esterilizado, $etapa  , $fotoMascota, $conn){
-    $sql = "UPDATE mascota SET idraza = '$idRaza',nombre = '$nombre', peso = '$peso',  esterilizado = '$esterilizado' , etapa = '$etapa', fotoPerfil = '$fotoMascota' WHERE idmascota = $idMascota;";
+function actualizarDatosMascota($idMascota,  $nombre, $peso, $esterilizado, $etapa  , $fotoMascota, $conn){
+    $sql = "UPDATE mascota SET nombre = '$nombre', peso = '$peso',  esterilizado = '$esterilizado' , etapa = '$etapa', fotoPerfil = '$fotoMascota' WHERE idmascota = $idMascota;";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
