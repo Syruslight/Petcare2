@@ -11,7 +11,7 @@ $fotoMascota = $_FILES['subirFotoMascota']['name'];
 $ruta = $_FILES['subirFotoMascota']['tmp_name'];
 
 // Obtener la foto anterior del formulario
-$foto_anterior = $_REQUEST['foto2'];
+$foto_anterior = $_REQUEST['fotoDefecto'];
 
 
 // Verificar si se ha seleccionado una nueva foto
