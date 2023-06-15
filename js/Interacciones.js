@@ -43,9 +43,9 @@ modalLote.classList.remove("modalLote--show");
       var status = checkbox.parentNode.querySelector('.status');
       
       if (checkbox.checked) {
-        status.textContent = 'Desactivado';
-      } else {
         status.textContent = 'Activado';
+      } else {
+        status.textContent = 'Desactivado';
       }
     }
 

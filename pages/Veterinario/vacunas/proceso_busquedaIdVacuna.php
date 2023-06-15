@@ -15,14 +15,16 @@ if ($conn->connect_error) {
 $query = $_POST['query'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT idvacuna FROM vacuna WHERE lote LIKE '%$query%'";
+$sql = "SELECT idvacuna, tipo FROM vacuna WHERE lote LIKE '%$query%'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
   $output = '';
 
+
   while ($row = $result->fetch_assoc()) {
-    $output .= $row['idvacuna'];
+
+    $output .= $row['idvacuna'] . ';' . $row['tipo'];
   }
 } else {
   $output = 'No se encontraron resultados.';
