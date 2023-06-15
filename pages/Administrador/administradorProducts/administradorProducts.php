@@ -54,7 +54,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         <div class="image-container">
 
                                     <img
-                                        src="../../../imagenes/perfilAdmin/filter.png"
+                                        src="../../../imagenes/icono-filtro.png" width="35px" height="35px"
                                         alt="Imagen"
                                         onclick="togglePopup()"
                                     />
