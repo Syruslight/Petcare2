@@ -6,11 +6,19 @@
     $lote = $_REQUEST['lote'];
     $tipo = $_REQUEST['tipo'];
     $descripcion =$_REQUEST['descripcion'];
+    $estadoLote = $_REQUEST['opcionesLotes'];
+    
+    if ($_REQUEST['opcionesLotes'] == 'Activado') {
+        $estadoLote =1;
+
+    } elseif ($_REQUEST['opcionesLotes'] == 'Desactivado') {
+        $estadoLote =0;
+    }
     
     
-    agregarDatosVacuna($lote,$tipo,$descripcion,$conn);
+    agregarDatosLote($lote,$tipo,$descripcion,$estadoLote,$conn);
     
-    header('Location: ../pages/Veterinario/vacunas/moduloVacunaLote.php');
+    header('Location: ../pages/Veterinario/vacunas/moduloLote.php');
 // Después de insertar correctamente el dato en la base de datos
 
 ?>

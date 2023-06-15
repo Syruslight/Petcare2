@@ -871,6 +871,13 @@
   height: 400vh;
 }
 
+.contenedorAccion{
+  display: flex;
+  justify-content: space-between;
+  margin: 10px;
+  gap: 10px;
+}
+
 .titulo_detallevac {
   font-size: 24px;
   margin-bottom: 10px;
@@ -1351,7 +1358,7 @@ position: inherit;
 .toggle-slider {
   width: 60px;
   height: 30px;
-  background-color: #e96396dc;
+  background-color: #e6e6e6dc;
   border-radius: 30px;
   cursor: pointer;
   border: 2px solid #ccc;
@@ -1394,8 +1401,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked + .toggle-slider {
-  background-color: #dfdfdf;
-  border-color: #dfdfdf;
+  background-color: #e96396dc;
+  border-color: #e96396dc;
 }
 
 input[type="checkbox"]:checked + .toggle-slider:before {

@@ -172,9 +172,9 @@ function actualizarVeterinario($idveterinario, $nombres, $apellidos, $telefono, 
 #Vacunas
 
 //Ingresar datos de la vacuna
-function agregarDatosVacuna($lote, $tipo, $descripcion, $conn)
+function agregarDatosLote($lote, $tipo, $descripcion,$estadoLote, $conn)
 {
-    $sql = "insert into vacuna(lote,tipo,descripcion) values ('$lote','$tipo','$descripcion')";
+    $sql = "insert into vacuna(lote,tipo,descripcion,estadoLote) values ('$lote','$tipo','$descripcion','$estadoLote')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 

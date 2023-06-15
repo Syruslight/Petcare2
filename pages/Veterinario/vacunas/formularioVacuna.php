@@ -22,6 +22,7 @@
                 <input type="search" name="busqueda2" id="busqueda2" class="ingreso_datos" required>
 
                 <input type="text" name="idVacuna" id="idVacuna" placeholder="ID vacuna" hidden>
+                <input type="text" name="tipoVacuna" id="tipoVacuna" placeholder="tipo vacuna" hidden>
                 <input type="text" name="idVeterinario" value="<?= $value[7] ?>" hidden>
                 <div class="grupotex1">
                     <div class="columna">

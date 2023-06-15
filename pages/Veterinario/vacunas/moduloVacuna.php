@@ -44,6 +44,60 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
         <button class="add-newCategory" onclick="openModalLote()">+ Agregar Lote</button>
       </div>
 
+      <div class="container">
+      <?php
+  
+      $idVeterinario = $value[7];
+          // Realiza la consulta para mostrar los campos requeridos en una tabla
+          $sql = "SELECT detallevacuna.*, mascota.renian, mascota.nombre, vacuna.lote, vacuna.tipo, veterinario.nombres, veterinario.apellidos
+                  FROM detallevacuna
+                  JOIN mascota ON detallevacuna.idmascota = mascota.idmascota
+                  JOIN vacuna ON detallevacuna.idvacuna = vacuna.idvacuna
+                  JOIN veterinario ON detallevacuna.idveterinario = veterinario.idveterinario
+                  WHERE detallevacuna.idveterinario =  $idVeterinario";
+      
+          $result = $conn->query($sql);
+      
+          // Verifica si se obtuvieron resultados
+          if ($result->num_rows > 0) {
+              echo "<table>";
+              echo "<tr>";
+              echo "<th>N°</th>";
+              echo "<th>Lote</th>";
+              echo "<th>Tipo</th>"; 
+              echo "<th>Renian</th>";
+              echo "<th>Nombre Mascota</th>";
+              echo "<th>Fecha Aplicada</th>";
+              echo "<th>Proxima Fecha</th>";
+              echo "<th>Observación</th>";
+              echo "<th>Restricciones</th>";
+             
+              
+              echo "</tr>";
+      
+              // Itera sobre los resultados y muestra los datos en la tabla
+              while ($row = $result->fetch_assoc()) {
+                  echo "<tr>";
+                  echo "<td>".$row['iddetallevacuna']."</td>"; 
+                  echo "<td>".$row['lote']."</td>";
+                  echo "<td>".$row['tipo']."</td>"; 
+                  echo "<td>".$row['renian']."</td>";
+                  echo "<td>".$row['nombre']."</td>";
+                  echo "<td>".$row['fecha']."</td>";
+                  echo "<td>".$row['proxFecha']."</td>";
+                  echo "<td>".$row['observacion']."</td>";
+                  echo "<td>".$row['restricciones']."</td>";
+                 
+                 
+                  echo "</tr>";
+                  }echo "</table>";
+                } else {
+                    echo "No se encontraron resultados.";
+                }
+                  ?>
+     
+          
+      </div>
 
     </div>
   </div>
@@ -111,18 +165,21 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                 // Separar la respuesta en ID de vacuna
                 var result = response.split(';');
                 var idVacuna = result[0];
-
+                var tipoVacuna = result[1];
                 // Actualizar los valores de los campos del formulario
                 $('#idVacuna').val(idVacuna);
+                $('#tipoVacuna').val(tipoVacuna);
               } else {
                 // Limpiar los campos si no se encontraron resultados
                 $('#idVacuna').val('');
+                $('#tipoVacuna').val('');
               }
             }
           });
         } else {
           // Limpiar los campos si no hay entrada de búsqueda
           $('#idVacuna').val('');
+          $('#tipoVacuna').val('');
         }
       });
     });

@@ -50,47 +50,58 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
       
 
-            <?php
-            $sql = "SELECT * FROM vacuna order by idvacuna desc";
-            $result = $conn->query($sql);
+          <?php
+$sql = "SELECT * FROM vacuna ORDER BY idvacuna DESC";
+$result = $conn->query($sql);
 
-            if ($result->num_rows > 0) {
-              echo "<table  class='tablaLotes'>";
-              echo '<thead>';
-              echo '<tr>';
-              echo '<th>N°</th>';
-              echo '<th>Lote</th>';
-              echo '<th>Nombre</th>';
-              echo '<th>Descripcion</th>';
-              echo '<th>Estado</th>';
-              echo '</tr>';
-              echo '</thead>';
-              echo '<tbody>';
+if ($result->num_rows > 0) {
+    echo "<table class='tablaLotes'>";
+    echo '<thead>';
+    echo '<tr>';
+    echo '<th>N°</th>';
+    echo '<th>Lote</th>';
+    echo '<th>Nombre</th>';
+    echo '<th>Descripcion</th>';
+    echo '<th>Estado</th>';
+    echo '<th>Accion</th>';
+    echo '</tr>';
+    echo '</thead>';
+    echo '<tbody>';
 
-              // Iterar sobre los registros y mostrarlos en la tabla
-              while ($row = $result->fetch_assoc()) {
-                echo '<tr>';
-                echo '<td>' . $row['idvacuna'] . '</td>';
-                echo '<td>' . $row['lote'] . '</td>';
-                echo '<td>' . $row['tipo'] . '</td>';
-                echo '<td>' . $row['descripcion'] . '</td>';
-                echo "<td>";
-                echo "<label class=\"toggle-container\">";
-                echo "<input type=\"checkbox\" onchange=\"toggleStatus(this)\">";
-                echo "<span class=\"toggle-slider\"></span>";
-                echo "<span class=\"status\">Activado</span>";
-                echo "</label>";
-                echo "</td>";
-                echo '</tr>';
-              }
+    // Iterar sobre los registros y mostrarlos en la tabla
+    while ($row = $result->fetch_assoc()) {
+        echo '<tr>';
+        echo '<td>' . $row['idvacuna'] . '</td>';
+        echo '<td>' . $row['lote'] . '</td>';
+        echo '<td>' . $row['tipo'] . '</td>';
+        echo '<td>' . $row['descripcion'] . '</td>';
+        echo "<td>";
+        echo "<label class=\"toggle-container\">";
+        echo "<input type=\"checkbox\" onchange=\"toggleStatus(this)\"";
+        // Comprobar el estado de la columna "estadoLote" y establecer el estado del botón de alternancia
+        if ($row['estadoLote'] == 1) {
+            echo " checked";
+        }
+        
+        echo ">";
+        echo "<span class=\"toggle-slider\"></span>";
+        echo "<span class=\"status\">" . ($row['estadoLote'] == 1 ? 'Activado' : 'Desactivado') . "</span>";
+        echo "</label>" . '</td>';
+        echo '<td>';
+        echo '<div class ="contenedorAccion">';
+        echo '<img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>';
+        echo '<img  class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>';
+        echo '</div>';
+        echo '</td>';
+        echo '</tr>';
+    }
 
-              echo '</tbody>';
-              echo '</table>';
-            } else {
-          
-              echo "<tr><td colspan=\"5\">No se encontraron registros.</td></tr>";
-            }
-          ?>
+    echo '</tbody>';
+    echo '</table>';
+} else {
+    echo "<tr><td colspan=\"5\">No se encontraron registros.</td></tr>";
+}
+?>
           
 
 
