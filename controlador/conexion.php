@@ -432,4 +432,27 @@ function actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$
 }
 
 
+# Area de puntos
+
+//Funcion para listar el detalle de puntos por producto o servicio adquirido desde pagina principal de cliente
+function listarDetallePuntosCliente($idCliente, $conn) {
+    $sql = "SELECT productoservicio.nombre, venta.fecha, productoservicio.precio, detalleventa.cantidad, venta.total, puntoscliente.puntos 
+            FROM puntoscliente
+            JOIN detalleventa ON puntoscliente.iddetalleventa = detalleventa.iddetalleventa
+            JOIN venta ON detalleventa.idventa = venta.idventa
+            JOIN productoservicio ON detalleventa.idproductoservicio = productoservicio.idproductoservicio
+            WHERE venta.idcliente = '$idCliente'
+            ORDER BY venta.fecha DESC
+            LIMIT 3";
+    
+    $result = mysqli_query($conn, $sql);
+
+    $detallePuntos = array();
+    while ($row = mysqli_fetch_assoc($result)) {
+        $detallePuntos[] = $row;
+    }
+
+    return $detallePuntos;
+}
+
 ?>

@@ -179,13 +179,13 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         <input type="radio" name="esterilizado" class="form-check-input" id="noEnvio" value="NO">
                                         <label class="form-check-label" for="noEnvio">No</label>
                                     </div>
-
+                                    <input type="hidden" id="fotodefecto" name="fotoDefecto">
                                     <input type="hidden" id="idmascotaEnvio" name="idMascota">
                                 </div>
                             </div>
                             <div class="data-col1">
                                 <div class="row">
-                                    <input class="form-control form-control-sm" id="fotoM" type="file" name="subirFotoMascota" >
+                                    <input class="form-control form-control-sm" id="fotoM" type="file" name="subirFotoMascota" hidden>
                                     <label id="cambiar-foto" for="fotoM">Subir Foto</label>
                                 </div>
                                 <div class="row">

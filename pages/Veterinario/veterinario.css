@@ -811,9 +811,11 @@
 /*formato de lotes y vacunas*/
 
 .contForm {
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin: 20px;
+  margin-top: 10px;
+  margin-right: -10px;
 }
 
 .formVacuna {
@@ -830,6 +832,7 @@
 
 .contenedorLote {
   height: 710px;
+  width: 100%;
   border-left: 1px solid #ccc;
   margin-left: 20px;
   flex: 1;
@@ -845,6 +848,7 @@
 }
 
 .contformLote {
+  width: 100%;
   margin-top: -20px;
   background-color: #f9f9f9;
   padding: 20px;
@@ -852,17 +856,19 @@
 }
 
 .contLoteTable {
-  width: 480px;
+  width: 100%;
+  height: 100%;
   margin-top: 20px;
   box-sizing: border-box;
   overflow: auto;
-  max-height: 240px; /* ajusta la altura máxima del contenedor según tus necesidades */
+  max-height: 630px; /* ajusta la altura máxima del contenedor según tus necesidades */
   overflow-y: auto;
 }
 
 .tablaLotes {
-  width: 100%;
   border-collapse: collapse;
+  width: 100%;
+  height: 400vh;
 }
 
 .titulo_detallevac {
@@ -989,6 +995,7 @@
 
 .tablaLotes {
   width: 100%;
+  height: 100%;
   border-collapse: collapse;
 }
 
@@ -1003,6 +1010,7 @@ td {
   background-color: #83cab2;
 }
 .tablaLotes thead th {
+  overflow: hidden;
   position: sticky;
   top: 0;
 }
@@ -1099,3 +1107,309 @@ td {
 .ingreso_datos1::placeholder {
   color: #999;
 }
+
+.btn_envioLote {
+  width: 100%;
+  background-color: #39998ee3;
+  color: white;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+position: inherit;
+  overflow: hidden;
+  z-index: 1;
+}
+
+
+
+
+/*Modulo de Vacunas, tablas, y formulario */
+
+.HeaderVacuna {
+ 
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-right: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tittle-products {
+  margin: 0;
+  font-family: "Poppins";
+  font-size: 35px;
+  margin-right: 180px;
+  width: 407px;
+  margin-bottom: 0px;
+}p{
+  font-size: 20px;
+  margin-top: 0px;
+  color: rgb(82, 82, 82);
+}
+
+.add-newProduct {
+  border: none;
+  margin-right: 50px;
+  width: 225px;
+  height: 44px;
+  background: #ffffff;
+  border: 3px solid #E96397;
+  border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  color: #E96397;
+}
+.add-newProduct:hover{
+  background-color: #E96397;
+  color: white;
+}
+.add-newCategory {
+  border: none;
+  width: 225px;
+  height: 44px;
+  background: #75cac0;
+  border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.modalVacuna{
+  z-index: 1;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+}
+
+.modalVacuna--show{
+  overflow: hidden;
+  opacity: 2;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s;
+}
+
+.modalVacuna__container{
+  overflow: hidden;
+  margin: auto;
+  width: 400px;
+  height: 500px;
+  max-width: 400px;
+  max-height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: var(--transform);
+  transition:var(--transition);
+
+}
+
+.top-formvacuna{
+  display: flex;
+  justify-content: flex-end;
+}
+#closeModalVacuna:hover {
+  background-color: #3b9b93c0;
+  color: #ffffff;
+}
+#closeModalVacuna{
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  color: #878787;
+  font-size: 17px;
+  background: #f2f3fb;
+  height: 33px;
+  width: 33px;
+  cursor: pointer;
+
+}
+
+.wrappervacuna{
+  position: relative;
+  width: 400px;
+  height: 500px;
+  background-color: rgba (255,255,255,.2);
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0,0,0,.1);
+  padding: 40px;
+
+}
+
+
+/*modal lote*/
+
+.modalLote{
+  z-index: 1;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #111111bd;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .6s .9s;
+  --transform: translateY(-100vh);
+  --transition: transform .8s;
+}
+
+.modalLote--show{
+  overflow: hidden;
+  opacity: 2;
+  pointer-events: unset;
+  transition: opacity .6s;
+  --transform: translateY(0);
+  --transition: transform .8s .8s;
+}
+
+.modalLote__container{
+  overflow: hidden;
+  margin: auto;
+  width: 400px;
+  height: 500px;
+  max-width: 400px;
+  max-height: 500px;
+  background-color: #fff;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: var(--transform);
+  transition:var(--transition);
+
+}
+
+.top-formLote{
+  display: flex;
+  justify-content: flex-end;
+}
+#closeModalLote:hover {
+  background-color: #3b9b93c0;
+  color: #ffffff;
+}
+#closeModalLote{
+  display: inline-flex;
+  align-items: center;
+  border-radius: 50%;
+  justify-content: center;
+  color: #878787;
+  font-size: 17px;
+  background: #f2f3fb;
+  height: 33px;
+  width: 33px;
+  cursor: pointer;
+
+}
+
+.wrapperLote{
+  position: relative;
+  width: 400px;
+  height: 500px;
+  background-color: rgba (255,255,255,.2);
+  border-radius: 20px;
+  box-shadow: 0 0 50px rgba(0,0,0,.1);
+  padding: 40px;
+
+}
+
+/*Toggle Button*/
+
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-slider {
+  width: 60px;
+  height: 30px;
+  background-color: #e96396dc;
+  border-radius: 30px;
+  cursor: pointer;
+  border: 2px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  position: relative;
+}
+
+.toggle-slider:before {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  height: 26px;
+  width: 26px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-slider .slider {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 26px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+.status {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked + .toggle-slider {
+  background-color: #dfdfdf;
+  border-color: #dfdfdf;
+}
+
+input[type="checkbox"]:checked + .toggle-slider:before {
+  transform: translateX(30px);
+}
+
+input[type="checkbox"]:checked + .toggle-slider .slider {
+  background-color: #fff;
+  transform: translateX(30px);
+}
+
+  th {
+      position: relative;
+      z-index: 1;
+    }
+
+/**/
