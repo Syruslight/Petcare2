@@ -7,6 +7,7 @@ session_start();
 $email = $_SESSION['email'];
 $cliente = listarCliente($email, $conn);
 $idCliente = $cliente[0]['idcliente'];
+$detallePuntos = listarDetallePuntosCliente($idCliente, $conn);
 
 $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
 ?>
@@ -170,64 +171,58 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
             </div>
 
             <div class="header-activities">
-                <span>Actividad Reciente:</span>
-            </div>
-            <div class="wrapper-activities">
-                <div class="colors">
-                    <div class="color-yellow">
-
-                    </div>
-                    <div class="color-turquese">
-
-                    </div>
-                    <div class="color-skyblue">
-
-                    </div>
+    <span>Actividad Reciente:</span>
+</div>
+<div class="wrapper-activities">
+    <div class="colors">
+        <div class="color-yellow"></div>
+        <div class="color-turquese"></div>
+        <div class="color-skyblue"></div>
+    </div>
+    <div class="info-activities">
+        <?php
+        if (empty($detallePuntos)) {
+            echo "<p>No hay detalles de puntos disponibles.</p>";
+        } else {
+            foreach ($detallePuntos as $detalle) {
+                $nombreProducto = $detalle['nombre'];
+                $fecha = $detalle['fecha'];
+                $precio = $detalle['precio'];
+                $cantidad = $detalle['cantidad'];
+                $total = $detalle['total'];
+                $puntos = $detalle['puntos'];
+                ?>
+                <div class="scheme">
+                    <h1 class="tittle-activities">Producto o Servicio</h1>
+                    <span><?php echo $nombreProducto; ?></span>
                 </div>
-                <div class="info-activities">
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Producto
-                        </h1>
-                        <span>Baño Medico</span>
-                        <span>Peluqueria</span>
-                        <span>Paquete 4 (baño+corte)</span>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Fecha-Hora
-                        </h1>
-                        <span>24/02/2023 - 14:00</span>
-                        <span>26/02/2023 - 18:00</span>
-                        <span>01/03/2023 - 20:00</span>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Precio
-                        </h1>
-                        <span>s./ 90.00</span>
-                        <span>s./ 40.00</span>
-                        <span>s./ 110.00</span>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Estado
-                        </h1>
-                        <span id="miTexto"> Activo</span>
-                        <span id="miTexto"> Inactivo</span>
-                        <span id="miTexto"> Activo </span>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Puntos
-                        </h1>
-                        <span>9 pts</span>
-                        <span>4 pts</span>
-                        <span>11pts </span>
-                    </div>
+                <div class="scheme">
+                    <h1 class="tittle-activities">Fecha-Hora</h1>
+                    <span><?php echo $fecha; ?></span>
                 </div>
+                <div class="scheme">
+                    <h1 class="tittle-activities">Precio</h1>
+                    <span>s./ <?php echo $precio; ?></span>
+                </div>
+                <div class="scheme">
+                    <h1 class="tittle-activities">Cantidad</h1>
+                    <span id="miTexto"><?php echo $cantidad; ?></span>
+                </div>
+                <div class="scheme">
+                    <h1 class="tittle-activities">Total</h1>
+                    <span><?php echo $total; ?> pts</span>
+                </div>
+                <div class="scheme">
+                    <h1 class="tittle-activities">Puntos</h1>
+                    <span><?php echo $puntos; ?> pts</span>
+                </div>
+                <?php
+            }
+        }
+        ?>
+    </div>
+</div>
 
-            </div>
             <div class="footer">
                 <span class="copyrigth">©</span>
                 <span> Vet&Care, todos los derechos reservados.</span>
@@ -350,7 +345,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                         <input type="radio" name="esterilizado" class="form-check-input" id="noEnvio" value="NO">
                                         <label class="form-check-label" for="noEnvio">No</label>
                                     </div>
-
+                                    <input type="hidden" id="fotodefecto" name="fotoDefecto">
                                     <input type="hidden" id="idmascotaEnvio" name="idmascota">
                                 </div>
                             </div>
