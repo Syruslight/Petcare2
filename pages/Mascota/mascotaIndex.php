@@ -163,10 +163,10 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                 <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" placeholder="Nombre">
                                 <div class="row-short">
                                     <input type="text" class="form-control ip" id="pesoEnvio" name="peso" placeholder="Peso">
-                                    <input type="text" class="form-control" style="width: 120px;" id="edadEnvio" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>
+                                    <input type="text" class="form-control" style="width: 140px;" id="edadEnvio" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>
                                 </div>
                                 <div class="cont-radio">
-                                    <select name="etapa" id="etapaEnvio" class="form-select" style="width: 220px;">
+                                    <select name="etapa" id="etapaEnvio" class="form-select" style="width: 229.39px;">
                                         <option selected disabled>Selecciona Etapa</option>
                                         <option value="Cria">Cría</option>
                                         <option value="Juvenil">Juvenil</option>
