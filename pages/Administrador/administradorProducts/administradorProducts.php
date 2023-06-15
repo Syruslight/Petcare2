@@ -312,14 +312,14 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                     <input class="text-nameProduct"type="text">
                                 </div>
                                 <div class="second-group">
-                                    <div class="group-selects">
+                                    <!-- <div class="group-selects">
                                         <label class="label-reuse" for="">Tipo:</label>
                                         <select class="selectProdcuts"name="select" id="">
                                             <option value="Comida">Comida</option>
                                             <option value="Limpieza">Limpieza</option>
                                             <option value="General">General</option>
                                         </select>
-                                    </div>
+                                    </div> -->
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Precio</label>
                                         <input class="text-namePrice"type="text">
@@ -353,9 +353,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <script src="../../../js/Modal.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/swiperAdmin.js"></script>
-<script src="modals-products.js"></script>
-<script src="imagenPoup.js"></script>
-<script src="filterCheckbox.js"></script>
+<script src="../../../js/administrador/modals-products.js"></script>
+<script src="../../../js/administrador/imagenPoup.js"></script>
+<script src="../../../js/administrador/filterCheckbox.js"></script>
 </body>
 
 </html>

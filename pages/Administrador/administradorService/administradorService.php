@@ -37,10 +37,7 @@ $conn = conectar();
        <div class="wrapper-services">
    <div class="header-services">
         <h1>Mis Servicios</h1> 
-        <div class="edit-create">
-            <img src="../../../imagenes/perfilAdmin/editPencil.png" width="74" height="62">
-            <button class="button-create">Crear</button>
-        </div>
+        <button class="add-newService">+Nuevo Servicio</button>            
    </div>
    <div class="wrapper-deck">
        <?php
@@ -49,13 +46,50 @@ $conn = conectar();
            echo '<div class="card">';
            echo '<img src="../../../imagenes/productos_servicios/servicios/' . $servicio['foto'] . '" class="card-img-top" alt="...">';
            echo '<div class="card-body">';
+           echo '<div>';
            echo '<h5 class="card-title">' . $servicio['nombre'] . '</h5>';
            echo '<p class="card-text">' . $servicio['descripcion'] . '</p>';
            echo '<p class="card-text">s/.' . $servicio['precio'] . '</p>';
+           echo '</div>'; 
+           echo '<img class="edit-pencil" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width=35 height=35>';
+           echo '<div class="toggle-switch">';
+           echo '<input  type="checkbox"';
+           echo 'id="switch5"';
+           echo 'class="toggle-switch-checkbox"';
+           echo 'onchange="toggleSwitch("variable5", this.checked)" />';
+           echo '<label for="switch5" class="toggle-switch-label"></label>';
+           echo '<span class="slider round"></span>';
+           echo '<span class="toggle-switch-text" id="status5" hidden>';
+           echo 'Inactivo';
+           echo '</span>';
+           
+           echo '</div>';
            echo '</div>';
            echo '</div>';
        }
        ?>
+    <!-- <div class="card">
+       <img src="../../../imagenes/perfilAdmin/bañitoDog.png" class="card-img-top" alt="Baño Medico">
+       <div class="card-body">
+        <div>    
+            <h5 class="card-tittle">Baño medicado</h5>
+            <p class="card-text">Bañito medicado terrible</p>
+            <p class="card-text">Monedas xd</p>
+        </div>
+        <img class="edit-pencil" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width=35 height=35>
+        <div class="toggle-switch">
+            <input  type="checkbox"
+            id="switch5"
+            class="toggle-switch-checkbox"
+            onchange="toggleSwitch('variable5', this.checked)" />
+            <label for="switch5" class="toggle-switch-label"></label>
+            <span class="slider round"></span>
+            <span class="toggle-switch-text" id="status5" hidden>
+            Inactivo
+             </span>
+        </div>    
+    </div>
+    </div> -->
    </div>
 </div>
 
@@ -73,6 +107,11 @@ $conn = conectar();
      
 </div>
 </div>
+
+
+
+
+
 <!-- <section class="modal">
         <div class="modal__container">
             <div class="cuadro_modal">
@@ -138,6 +177,6 @@ $conn = conectar();
     
     <script src="../../../js/Modal.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-
+<script src="../../../js/administrador/toogleSwitchCategory.js"></script>
 </body>
 </html>

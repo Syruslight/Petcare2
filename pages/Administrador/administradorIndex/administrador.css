@@ -15,6 +15,7 @@
   width: 20%;
   height: 1024px;
 }
+/* navlist */
 .first-seccion {
   display: flex;
   flex-direction: column;
@@ -65,20 +66,17 @@
 }
 .second-seccion {
   background: #f0feff;
-  height: 647px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 .categories {
-  width: 100%;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   row-gap: 40px;
   padding-left: 32px;
-  padding-top: 10px;
+  padding-top: 18px;
 }
 .icons {
   width: 100%;
@@ -86,7 +84,7 @@
   justify-content: flex-start;
   align-items: center;
 }
-.principal {
+.services {
   font-family: "Poppins";
   font-style: normal;
   font-weight: 600;
@@ -94,6 +92,14 @@
   line-height: 30px;
   color: #264653;
   padding-left: 8px;
+}
+.principal {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 30px;
+  color: rgba(42, 45, 55, 0.6);
 }
 .list {
   font-family: "Poppins";
@@ -106,7 +112,7 @@
 }
 .sign-off {
   display: flex;
-  margin-top: 230px;
+  margin-top: 125px;
 }
 
 .dash-information {
@@ -143,7 +149,7 @@
 }
 .wrapper-drawer {
   width: 1088px;
-  height: 290px;
+  height: 275px;
   margin-left: 44px;
   background: #f0fffc;
   box-shadow: 0px 8px 4px rgba(0, 0, 0, 0.25);
@@ -228,7 +234,7 @@
 }
 .wrapper-myclients {
   width: 1157px;
-  height: 580px;
+  height: 550px;
   display: flex;
   gap: 26px;
   margin-top: 25px;
@@ -236,7 +242,6 @@
 }
 .subwrapper-myclients {
   width: 1000px;
-  height: 571px;
   background: #f0fffc;
   border-radius: 12px;
   margin-left: 26px;
@@ -268,7 +273,7 @@
 .wrapper-dates {
   display: grid;
   width: 100%;
-  height: 400px;
+  height: 380px;
   grid-template-columns: auto auto auto auto auto;
   margin-left: 30px;
   margin-top: 35px;
