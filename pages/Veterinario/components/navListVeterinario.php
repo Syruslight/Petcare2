@@ -22,6 +22,12 @@
     }
     ?>
 </div>
+<?php
+// Define la URL base
+
+
+// Resto del código de tu archivo PHP
+?>
 <div class="second-seccion">
     <div class="categories">
         <div class="icons">
@@ -31,7 +37,7 @@
         </div>
         <div class="icons">
             <img src="https://img.icons8.com/ios/50/null/conference-call--v1.png" width="25" height="25" />
-            <a href="../../../pages/Veterinario/vacunas/moduloVacuna.php"><span class="list">Vacunas</span></a>
+            <a id="vacunaLink" href="#"><span class="list">Vacunas</span></a>
         </div>
         <div class="icons">
             <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
@@ -62,3 +68,15 @@
         </div>
     </div>
 </div>
+
+<script>
+  // Obtén la ruta relativa al archivo
+  var rutaRelativa = "pages/Veterinario/vacunas/moduloVacuna.php";
+
+  // Construye la URL completa
+  var urlCompleta = window.location.origin + "/Petcare2/" + rutaRelativa;
+
+  // Asigna la URL completa al enlace
+  var vacunaLink = document.getElementById("vacunaLink");
+  vacunaLink.href = urlCompleta;
+</script>

@@ -99,7 +99,6 @@ if ($result->num_rows > 0) {
         echo "</label>" . '</td>';
         echo '<td>';
         echo '<div class="contenedorAccion">';
-        echo '<img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40">';
         echo '<img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">';
         echo '</div>';
         echo '</td>';
