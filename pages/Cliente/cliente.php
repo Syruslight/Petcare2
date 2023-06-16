@@ -69,7 +69,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                     <p>Puntos acumulados</p>
                                 </div>
                                 <div class="petyscore">
-                                    <span>580 </span>
+                                    <span>  <?= $value[8] ?> </span>
                                     <p>Pety puntos </p>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                     <p>Puntos canjeados</p>
                                 </div>
                                 <div class="petyscore">
-                                    <span>580 </span>
+                                    <span><?= $value[9] ?> </span>
                                     <p>Pety puntos </p>
                                 </div>
                             </div>
@@ -172,86 +172,93 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
             </div>
 
             <div class="header-activities">
-                <span>Actividad Reciente:</span>
+    <span>Actividad Reciente:</span>
+</div>
+<div class="wrapper-activities">
+   
+    <div class="info-activities">
+        <?php
+        if (empty($detallePuntos)) {
+            echo "<p>No hay detalles de puntos disponibles.</p>";
+        } else {
+            // Mostrar encabezados de la tabla fuera del bucle
+        ?>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Producto o servicio
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Fecha-Hora
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Precio
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Cantidad
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Puntos
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Total
+            </h1>
+        </div>
+        <?php
+            foreach ($detallePuntos as $detalle) {
+                $nombreProducto = $detalle['nombre'];
+                $fecha = $detalle['fecha'];
+                $precio = $detalle['precio'];
+                $cantidad = $detalle['cantidad'];
+                $total = $detalle['total'];
+                $puntos = $detalle['puntos'];
+        ?>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span><?php echo $nombreProducto; ?></span>
             </div>
-            <div class="wrapper-activities">
-                <div class="colors">
-                    <div class="color-yellow">
-                    </div>
-                    <div class="color-turquese">
-                    </div>
-                    <div class="color-skyblue">
-                    </div>
-                </div>
-                <div class="info-activities">
-                <?php
-                if (empty($detallePuntos)) {
-                    echo "<p>No hay detalles de puntos disponibles.</p>";
-                } else {
-                    foreach ($detallePuntos as $detalle) {
-                        $nombreProducto = $detalle['nombre'];
-                        $fecha = $detalle['fecha'];
-                        $precio = $detalle['precio'];
-                        $cantidad = $detalle['cantidad'];
-                        $total = $detalle['total'];
-                        $puntos = $detalle['puntos'];
-                        ?>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span><?php echo $fecha; ?></span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span>s./ <?php echo $precio; ?></span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span id="miTexto"><?php echo $cantidad; ?></span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span><?php echo $puntos; ?> pts</span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span><?php echo $total; ?> pts</span>
+            </div>
+        </div>
+        <?php
+            }
+        }
+        ?>
+    </div>
+</div>
 
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Producto o servicio
-                        </h1>
-                        <div class="text-stuffed">
-                            <span><?php echo $nombreProducto; ?></span>
-                        </div>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Fecha-Hora
-                        </h1>
-                        <div class="text-stuffed">
-                            <span><?php echo $fecha; ?></span>
-                        </div>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Precio
-                        </h1>
-                        <div class="text-stuffed">
-                            <span>s./ <?php echo $precio; ?></span>
-                        </div>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Cantidad
-                        </h1>
-                        <div class="text-stuffed">
-                            <span id="miTexto"><?php echo $cantidad; ?></span>
-                        </div>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Puntos
-                        </h1>
-                        <div class="text-stuffed">
-                            <span><?php echo $puntos; ?> pts</span>
-                        </div>
-                    </div>
-                    <div class="scheme">
-                        <h1 class="tittle-activities">
-                            Total
-                        </h1>
-                        <div class="text-stuffed">
-                        <span><?php echo $total; ?> pts</span>
-                        </div>
-                    </div>
-                    <?php
-                        }
-                    }
-                    ?>
-                </div>
-                
-            </div>
 
             <div class="footer">
                 <span class="copyrigth">©</span>

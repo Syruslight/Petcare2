@@ -95,7 +95,7 @@ function actualizarDatosCliente($idCliente, $nombres, $apellidos, $telefono, $di
 //Funcion para listar los datos del cliente dependiendo de su correo al logearse
 function listarCliente($email, $conn)
 {
-    $sql = "SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email, cliente.foto, cliente.idcliente
+    $sql = "SELECT cliente.nombres, cliente.apellidos, cliente.dni, cliente.telefono, cliente.direccion, usuario.email, cliente.foto, cliente.idcliente, cliente.puntosacumulados, cliente.puntoscanjeados
     FROM     cliente INNER JOIN
                       usuario ON cliente.idusuario = usuario.idusuario
                       where usuario.email LIKE '$email'";
