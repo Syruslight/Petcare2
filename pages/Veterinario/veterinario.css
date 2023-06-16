@@ -107,6 +107,7 @@
 }
 .dash-information {
   height: 100%;
+  width: auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -811,11 +812,12 @@
 /*formato de lotes y vacunas*/
 
 .contForm {
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  margin-right: -10px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .formVacuna {
@@ -856,7 +858,9 @@
 }
 
 .contLoteTable {
-  width: 100%;
+  margin-right: 15px;
+  margin-left: 20px;
+  width: auto;
   height: 100%;
   margin-top: 20px;
   box-sizing: border-box;
@@ -1001,6 +1005,7 @@
 }
 
 .tablaLotes {
+
   width: 100%;
   height: 100%;
   border-collapse: collapse;
@@ -1011,12 +1016,20 @@ td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #96c0ba;
+  
+}
+.tablaLotes tbody{
+  color: rgba(0, 0, 0, 0.815);
 }
 
 .tablaLotes th {
   background-color: #83cab2;
+  height: 45px;
+ 
+  font-size: 20px;
 }
 .tablaLotes thead th {
+  text-align: center;
   overflow: hidden;
   position: sticky;
   top: 0;
@@ -1024,6 +1037,7 @@ td {
 
 .tablaLotes tbody tr:nth-child(even) {
   background-color: #f9f9f9;
+
 }
 
 .tablaLotes tbody tr:hover {
@@ -1163,8 +1177,48 @@ position: inherit;
   width: 225px;
   height: 44px;
   background: #ffffff;
-  border: 3px solid #E96397;
+  border: 3px solid #75cab8;
   border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  color: #75cab8;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.add-newProduct {
+  border: none;
+  margin-right: 50px;
+  width: 225px;
+  height: 44px;
+  background: #75cab8;
+  border: 3px solid #75cab8;
+  border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+
+.add-newCategory {
+  border: none;
+  width: 225px;
+  height: 44px;
+  border:3px solid #E96397;
+  background-color: white;
+    border-radius: 30px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -1172,24 +1226,6 @@ position: inherit;
   line-height: 21px;
   text-align: center;
   color: #E96397;
-}
-.add-newProduct:hover{
-  background-color: #E96397;
-  color: white;
-}
-.add-newCategory {
-  border: none;
-  width: 225px;
-  height: 44px;
-  background: #75cac0;
-  border-radius: 30px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 21px;
-  text-align: center;
-  color: #ffffff;
 }
 
 .modalVacuna{
@@ -1401,8 +1437,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked + .toggle-slider {
-  background-color: #e96396dc;
-  border-color: #e96396dc;
+  background-color: #f76da2dc;
+  border-color: #f76da2dc;
 }
 
 input[type="checkbox"]:checked + .toggle-slider:before {
