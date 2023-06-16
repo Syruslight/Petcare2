@@ -23,16 +23,15 @@
 
                         <input id="fotoPersona" type="file" name="foto" hidden>
                         <label for="fotoPersona"
-                            onclick="previsualizarImagen('imgPersona','fotoPersona','../../imagenes/fotosperfil/cliente/<?= $value[6] ?>')">subir
-                            foto</label>
+                            onclick="previsualizarImagen('imgPersona','fotoPersona','../../imagenes/fotosperfil/cliente/<?= $value[6] ?>')"> <img  class="iconoEditCliente" src="../../../imagenes/perfilCliente/pencil.png" alt=""> </label>
                     </aside>
                     <section class="textonomap">
-                        <div class="input-group">
+                        <div class="input-groupe">
                             <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>" required>
                             <label for=""> Nombres</label>
 
                         </div>
-                        <div class="input-group">
+                        <div class="input-groupe">
                             <input class="estilo-separado" type="text" name="apellidos" value="<?= $value[1] ?>"
                                 required>
                             <label for=""> Apellidos</label>
@@ -41,11 +40,11 @@
                     </section>
                 </div>
                 <div class="modalinf">
-                    <div class="input-group1">
+                    <div class="input-groupe1">
                         <input class="estilo-separado1" type="TEXT" name="telefono" value="<?= $value[3] ?>" required>
                         <label for=""> Telefono</label>
                     </div>
-                    <div class="input-group2">
+                    <div class="input-groupe2">
                         <input class="estilo-separado1" type="TEXT" name="dni" value="<?= $value[2] ?> " required>
                         <label for=""> DNI</label>
                     </div>
@@ -54,7 +53,7 @@
                     <input hidden name="foto2" value="<?= $value[6] ?> " required>
                 </div>
                 <div class="modalFoot">
-                    <div class="input-group3">
+                    <div class="input-groupe3">
                         <input class="estilo-separado" type="text" name="direccion" value="<?= $value[4] ?>" required>
                         <label for=""> Dirección</label>
                     </div>
