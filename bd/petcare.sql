@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-06-2023 a las 03:06:24
+-- Tiempo de generación: 16-06-2023 a las 00:13:37
 -- Versión del servidor: 10.4.27-MariaDB
 -- Versión de PHP: 8.2.0
 
@@ -121,10 +121,18 @@ CREATE TABLE `detallevacuna` (
   `idvacuna` int(11) DEFAULT NULL,
   `idveterinario` int(11) DEFAULT NULL,
   `fecha` date DEFAULT current_timestamp(),
-  `proxFecha` datetime DEFAULT NULL,
+  `proxFecha` date DEFAULT NULL,
   `observacion` varchar(55) DEFAULT NULL,
   `restricciones` varchar(75) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detallevacuna`
+--
+
+INSERT INTO `detallevacuna` (`iddetallevacuna`, `idmascota`, `idvacuna`, `idveterinario`, `fecha`, `proxFecha`, `observacion`, `restricciones`) VALUES
+(1, 1, 1, 1, '2023-06-06', '2023-06-05', 'Ninguna', 'Ninguna'),
+(2, 5, 1, 7, '2023-06-08', '2023-07-01', 'Na', 'NA');
 
 -- --------------------------------------------------------
 
@@ -139,6 +147,14 @@ CREATE TABLE `detalleventa` (
   `cantidad` int(11) DEFAULT NULL,
   `importe` decimal(5,2) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `detalleventa`
+--
+
+INSERT INTO `detalleventa` (`iddetalleventa`, `idventa`, `idproductoservicio`, `cantidad`, `importe`) VALUES
+(1, 1, 2, 2, '50.00'),
+(2, 2, 3, 1, '50.00');
 
 -- --------------------------------------------------------
 
@@ -205,13 +221,17 @@ CREATE TABLE `mascota` (
 --
 
 INSERT INTO `mascota` (`idmascota`, `idcliente`, `idraza`, `nombre`, `fechaNac`, `peso`, `color`, `fotoPerfil`, `esterilizado`, `etapa`, `fechaRegistro`, `renian`, `sexo`, `estado`) VALUES
-(1, 1, 1, 'Cookie', '2013-05-02', '5.00', 'marrón', 'footerperro.jpg', 'Si', 'Adulto', '2023-05-19', 20345678, 'Macho', '1'),
-(2, 2, 2, 'Pelusa', '2020-05-01', '10.50', 'negro', 'cocker.jpeg', 'No', 'Juvenil', '2023-05-19', 10236547, 'Hembra', '1'),
-(3, 3, 3, 'Boby', '2022-05-04', '9.00', 'crema', 'Labrador.jpeg', 'No', 'Juvenil', '2023-05-19', 23657410, 'Macho', '1'),
-(4, 4, 4, 'Speedy', '2020-05-01', '10.20', 'marrón oscuro', 'Pastor alemán.jpeg', 'No', 'Adulto', '2023-05-19', 74125896, NULL, '1'),
-(5, 5, 5, 'Motita', '2018-05-09', '12.00', 'Plomo', 'Schnauzer.jpeg', 'Si', 'Juvenil', '2023-05-19', 12365478, NULL, '1'),
-(6, 6, 6, 'Lobo', '2015-05-15', '20.00', 'Plomo', 'Siberiano.jpeg', 'Si', 'Adulto', '2023-05-19', 36985214, NULL, '1'),
-(7, 7, 7, 'Michi', '2020-05-08', '8.00', 'blanco', 'Elfo.jpg', 'Si', 'Juvenil', '2023-05-19', 23654178, NULL, '1');
+(1, 1, 1, 'Cookie', '2013-05-02', '5.00', 'marrón', 'footerperro.jpg', 'SI', 'Cria', '2023-05-19', 20345678, 'Macho', '1'),
+(2, 2, 2, 'Pelusa', '2020-05-01', '10.50', 'negro', 'cocker.jpeg', 'SI', 'Juvenil', '2023-05-19', 10236547, 'Hembra', '1'),
+(3, 3, 3, 'Boby', '2022-05-04', '9.00', 'crema', 'Labrador.jpeg', 'SI', 'Juvenil', '2023-05-19', 23657410, 'Macho', '1'),
+(4, 4, 4, 'Speedy', '2020-05-01', '10.20', 'marrón oscuro', 'Pastor alemán.jpeg', 'SI', 'Adulto', '2023-05-19', 74125896, NULL, '1'),
+(5, 5, 5, 'Motita', '2018-05-09', '12.00', 'Plomo', 'Schnauzer.jpeg', 'SI', 'Juvenil', '2023-05-19', 12365478, NULL, '1'),
+(6, 6, 6, 'Lobo', '2015-05-15', '20.00', 'Plomo', 'Siberiano.jpeg', 'NO', 'Adulto', '2023-05-19', 36985214, NULL, '1'),
+(7, 7, 7, 'Michi', '2020-05-08', '8.00', 'blanco', 'Elfo.jpg', 'NO', 'Juvenil', '2023-05-19', 23654178, NULL, '1'),
+(10, 1, 1, 'Toffeeeee', '2022-06-15', '9.45', 'Marron', 'Chihuahua.jpeg', 'SI', 'Cria', '2023-06-04', 123, 'M', '1'),
+(11, 1, 3, 'Nova', '2018-03-29', '12.30', 'Negro', 'huella.jpg', 'SI', 'Adulto', '2023-06-08', 123, 'H', '1'),
+(12, 1, 8, 'Mascota', '2022-03-01', '13.45', 'Marron', 'huella.jpg', 'SI', 'Cria', '2023-06-08', 555, 'M', '1'),
+(13, 1, 13, 'Rayo', '2021-01-01', '7.00', 'blanco marron', 'cuidados_del_conejo_belier_7683_orig.jpg', 'SI', 'Juvenil', '2023-06-09', 987159, 'M', '1');
 
 -- --------------------------------------------------------
 
@@ -235,7 +255,28 @@ CREATE TABLE `productoservicio` (
 
 INSERT INTO `productoservicio` (`idproductoservicio`, `idtipoproductoservicio`, `nombre`, `precio`, `descripcion`, `fotoProductoServicio`, `estado`) VALUES
 (1, 1, 'servicio de baño', '59.90', 'Aplica solo a perros', 'lavar-perro-mascota-casa.jpg', '1'),
-(2, 2, 'Juguete masticable', '59.90', 'Mpets Chewbo Choppy Bacon es un hueso de juguete colori', 'mpets-chewbo-choppy-s-orange-sabor-a-tocino.jpg', '1');
+(2, 2, 'Juguete masticable', '59.90', 'Mpets Chewbo Choppy Bacon es un hueso de juguete colori', 'mpets-chewbo-choppy-s-orange-sabor-a-tocino.jpg', '1'),
+(3, 2, 'Comida para gatos 3 mil', '50.00', 'Bolsa de 7kg', '...', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `puntoscliente`
+--
+
+CREATE TABLE `puntoscliente` (
+  `idpuntos` int(11) NOT NULL,
+  `iddetalleventa` int(11) NOT NULL,
+  `puntos` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `puntoscliente`
+--
+
+INSERT INTO `puntoscliente` (`idpuntos`, `iddetalleventa`, `puntos`) VALUES
+(1, 1, 10),
+(2, 2, 5);
 
 -- --------------------------------------------------------
 
@@ -281,7 +322,7 @@ INSERT INTO `raza` (`idraza`, `idespecie`, `nombre`, `estado`) VALUES
 
 CREATE TABLE `tipoproductoservicio` (
   `idtipoproductoservicio` int(11) NOT NULL,
-  `nombre` varchar(9) DEFAULT NULL,
+  `nombre` varchar(150) DEFAULT NULL,
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -290,8 +331,8 @@ CREATE TABLE `tipoproductoservicio` (
 --
 
 INSERT INTO `tipoproductoservicio` (`idtipoproductoservicio`, `nombre`, `estado`) VALUES
-(1, 'Servicio', '1'),
-(2, 'Comida', '1');
+(1, 'Servicios', '1'),
+(2, 'Comida para gatos', '1');
 
 -- --------------------------------------------------------
 
@@ -362,7 +403,8 @@ INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `email`, `pass`, `fechaCre`
 (28, 3, 'oscarfernandez@gmail.com', 'oscar', '2023-05-19 17:36:39', '2'),
 (29, 3, 'oliviamamani@gmail.com', 'olivia', '2023-05-19 17:39:52', '2'),
 (30, 2, 'liz@gmail.com', '123', '2023-05-31 21:43:40', '2'),
-(31, 3, 'veterinario@gmail.com', '123', '2023-06-01 01:00:49', '2');
+(31, 3, 'veterinario@gmail.com', '123', '2023-06-01 01:00:49', '2'),
+(32, 3, 'pacovet@gmail.com', '123', '2023-06-11 23:54:23', '2');
 
 -- --------------------------------------------------------
 
@@ -375,16 +417,18 @@ CREATE TABLE `vacuna` (
   `lote` varchar(15) DEFAULT NULL,
   `tipo` varchar(15) DEFAULT NULL,
   `descripcion` varchar(200) DEFAULT NULL,
-  `fecha` datetime NOT NULL DEFAULT current_timestamp()
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `estado` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `vacuna`
 --
 
-INSERT INTO `vacuna` (`idvacuna`, `lote`, `tipo`, `descripcion`, `fecha`) VALUES
-(1, 'H1N1K2', 'COVID', NULL, '2023-05-17 00:46:47'),
-(2, 'ABC123', 'Viruela', 'Aplica solo a raza adulta', '2023-05-19 19:18:07');
+INSERT INTO `vacuna` (`idvacuna`, `lote`, `tipo`, `descripcion`, `fecha`, `estado`) VALUES
+(1, 'H1N1K2', 'COVID', NULL, '2023-05-17 00:46:47', NULL),
+(2, 'ABC123', 'Viruela', 'Aplica solo a raza adulta', '2023-05-19 19:18:07', NULL),
+(3, 'C05', 'Antirabico', 'Aplica solo para perros', '2023-06-11 23:57:37', NULL);
 
 -- --------------------------------------------------------
 
@@ -400,6 +444,14 @@ CREATE TABLE `venta` (
   `fecha` datetime DEFAULT current_timestamp(),
   `estado` char(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `venta`
+--
+
+INSERT INTO `venta` (`idventa`, `idcliente`, `idveterinario`, `total`, `fecha`, `estado`) VALUES
+(1, 1, 7, '100.00', '2023-06-14 21:51:42', '1'),
+(2, 1, 2, '50.00', '2023-06-15 00:52:14', '1');
 
 -- --------------------------------------------------------
 
@@ -431,7 +483,8 @@ INSERT INTO `veterinario` (`idveterinario`, `idusuario`, `nombres`, `apellidos`,
 (4, 27, 'Manuel', 'Garcia', '85214796', '987456123', 'Calle Atocongo 412', 'vet4.jpg', 'Masculino', '1997-02-12'),
 (5, 28, 'Oscar ', 'Fernandez', '46325874', '996633251', 'Jr. Los Angeles', 'vet5.jpg', 'Masculino', '1985-08-25'),
 (6, 29, 'Olivia', 'Mamani', '74125896', '997845123', 'Av. Los insurgentes 741', 'vet6.jpg', 'Femenino', '1992-05-02'),
-(7, 31, 'Veterinario', 'Sosa', '12345678', '987654123', 'Lima', 'vetyperro.jpg  ', 'Masculino', '1998-06-18');
+(7, 31, 'Veterinario', 'Sosa', '12345678', '987654123', 'Lima', 'vetyperro.jpg  ', 'Masculino', '1998-06-18'),
+(8, 32, 'Paquito', 'Del Barrio', '74980163', '941297309', 'Av. Brasil 543', 'predeterminadoHombre.jpg', 'Masculino', '2001-05-01');
 
 --
 -- Índices para tablas volcadas
@@ -507,6 +560,13 @@ ALTER TABLE `productoservicio`
   ADD KEY `idtipoproductoservicio` (`idtipoproductoservicio`);
 
 --
+-- Indices de la tabla `puntoscliente`
+--
+ALTER TABLE `puntoscliente`
+  ADD PRIMARY KEY (`idpuntos`),
+  ADD KEY `iddetalleventa` (`iddetalleventa`);
+
+--
 -- Indices de la tabla `raza`
 --
 ALTER TABLE `raza`
@@ -579,13 +639,13 @@ ALTER TABLE `cliente`
 -- AUTO_INCREMENT de la tabla `detallevacuna`
 --
 ALTER TABLE `detallevacuna`
-  MODIFY `iddetallevacuna` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iddetallevacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `detalleventa`
 --
 ALTER TABLE `detalleventa`
-  MODIFY `iddetalleventa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `iddetalleventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `especie`
@@ -603,13 +663,19 @@ ALTER TABLE `horario`
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `productoservicio`
 --
 ALTER TABLE `productoservicio`
-  MODIFY `idproductoservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idproductoservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `puntoscliente`
+--
+ALTER TABLE `puntoscliente`
+  MODIFY `idpuntos` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `raza`
@@ -633,25 +699,25 @@ ALTER TABLE `tipousuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT de la tabla `vacuna`
 --
 ALTER TABLE `vacuna`
-  MODIFY `idvacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idvacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`
 --
 ALTER TABLE `venta`
-  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idventa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `veterinario`
 --
 ALTER TABLE `veterinario`
-  MODIFY `idveterinario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idveterinario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Restricciones para tablas volcadas
@@ -682,7 +748,8 @@ ALTER TABLE `cliente`
 --
 ALTER TABLE `detallevacuna`
   ADD CONSTRAINT `detallevacuna_ibfk_1` FOREIGN KEY (`idvacuna`) REFERENCES `vacuna` (`idvacuna`) ON DELETE CASCADE ON UPDATE CASCADE,
-  ADD CONSTRAINT `detallevacuna_ibfk_2` FOREIGN KEY (`idmascota`) REFERENCES `mascota` (`idmascota`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `detallevacuna_ibfk_2` FOREIGN KEY (`idmascota`) REFERENCES `mascota` (`idmascota`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `detallevacuna_ibfk_3` FOREIGN KEY (`idveterinario`) REFERENCES `veterinario` (`idveterinario`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `detalleventa`
@@ -710,6 +777,12 @@ ALTER TABLE `mascota`
 --
 ALTER TABLE `productoservicio`
   ADD CONSTRAINT `productoservicio_ibfk_1` FOREIGN KEY (`idtipoproductoservicio`) REFERENCES `tipoproductoservicio` (`idtipoproductoservicio`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `puntoscliente`
+--
+ALTER TABLE `puntoscliente`
+  ADD CONSTRAINT `puntoscliente_ibfk_1` FOREIGN KEY (`iddetalleventa`) REFERENCES `detalleventa` (`iddetalleventa`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `raza`

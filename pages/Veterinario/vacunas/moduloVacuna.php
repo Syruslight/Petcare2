@@ -40,8 +40,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
           <p>Realizado por el Dr. <?= $value[0] ?> <?= $value[1] ?></p>
         </h1>
 
-        <button class="add-newProduct" onclick="openModalVacuna()">+ Generar Vacuna</button>
-        <button class="add-newCategory" onclick="openModalLote()">+ Agregar Lote</button>
+        <button class="add-newProduct" onclick="openModalVacuna()">+ Agregar Lote</button>
+        <button class="add-newCategory" onclick="openModalLote()">+ Generar Vacuna</button>
       </div>
 
       <div class="container">
@@ -54,12 +54,14 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                   JOIN mascota ON detallevacuna.idmascota = mascota.idmascota
                   JOIN vacuna ON detallevacuna.idvacuna = vacuna.idvacuna
                   JOIN veterinario ON detallevacuna.idveterinario = veterinario.idveterinario
-                  WHERE detallevacuna.idveterinario =  $idVeterinario";
+                  WHERE detallevacuna.idveterinario =  $idVeterinario 
+                  ORDER BY detallevacuna.iddetallevacuna DESC";
       
           $result = $conn->query($sql);
       
           // Verifica si se obtuvieron resultados
           if ($result->num_rows > 0) {
+            $numero = $result->num_rows;
               echo "<table>";
               echo "<tr>";
               echo "<th>N°</th>";
@@ -71,29 +73,29 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
               echo "<th>Proxima Fecha</th>";
               echo "<th>Observación</th>";
               echo "<th>Restricciones</th>";
-             
-              
               echo "</tr>";
-      
+
               // Itera sobre los resultados y muestra los datos en la tabla
               while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
-                  echo "<td>".$row['iddetallevacuna']."</td>"; 
-                  echo "<td>".$row['lote']."</td>";
-                  echo "<td>".$row['tipo']."</td>"; 
-                  echo "<td>".$row['renian']."</td>";
-                  echo "<td>".$row['nombre']."</td>";
-                  echo "<td>".$row['fecha']."</td>";
-                  echo "<td>".$row['proxFecha']."</td>";
-                  echo "<td>".$row['observacion']."</td>";
-                  echo "<td>".$row['restricciones']."</td>";
-                 
-                 
+                  echo "<td>" . $numero . "</td>";
+                  echo "<td>" . $row['lote'] . "</td>";
+                  echo "<td>" . $row['tipo'] . "</td>";
+                  echo "<td>" . $row['renian'] . "</td>";
+                  echo "<td>" . $row['nombre'] . "</td>";
+                  echo "<td>" . $row['fecha'] . "</td>";
+                  echo "<td>" . $row['proxFecha'] . "</td>";
+                  echo "<td>" . $row['observacion'] . "</td>";
+                  echo "<td>" . $row['restricciones'] . "</td>";
                   echo "</tr>";
-                  }echo "</table>";
-                } else {
-                    echo "No se encontraron resultados.";
-                }
+          
+                  $numero--; // Incrementar el contador en cada iteración
+              }
+          
+              echo "</table>";
+          } else {
+              echo "No se encontraron resultados.";
+          }
                   ?>
      
           
