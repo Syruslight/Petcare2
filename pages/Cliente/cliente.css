@@ -441,8 +441,7 @@
 .info-activities {
   width: 988px;
   display: grid;
-  grid-template-columns: auto auto auto auto auto;
-  padding-left: 72px;
+  grid-template-columns: auto auto auto auto auto auto;
 }
 .scheme {
   display: flex;
@@ -450,19 +449,18 @@
   gap: 22px;
   padding-top: 29px;
   align-items: center;
-  & span {
-    width: 138px;
-    height: 40px;
-    font-family: "ABeeZee";
-    font-style: italic;
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 20px;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.016em;
-    color: #000000;
-  }
+}
+.text-stuffed {
+  height: 40px;
+  font-family: "ABeeZee";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 20px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.016em;
+  color: #000000;
 }
 .tittle-activities {
   margin: 0;

@@ -171,57 +171,86 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
             </div>
 
             <div class="header-activities">
-    <span>Actividad Reciente:</span>
-</div>
-<div class="wrapper-activities">
-    <div class="colors">
-        <div class="color-yellow"></div>
-        <div class="color-turquese"></div>
-        <div class="color-skyblue"></div>
-    </div>
-    <div class="info-activities">
-        <?php
-        if (empty($detallePuntos)) {
-            echo "<p>No hay detalles de puntos disponibles.</p>";
-        } else {
-            foreach ($detallePuntos as $detalle) {
-                $nombreProducto = $detalle['nombre'];
-                $fecha = $detalle['fecha'];
-                $precio = $detalle['precio'];
-                $cantidad = $detalle['cantidad'];
-                $total = $detalle['total'];
-                $puntos = $detalle['puntos'];
-                ?>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Producto o Servicio</h1>
-                    <span><?php echo $nombreProducto; ?></span>
+                <span>Actividad Reciente:</span>
+            </div>
+            <div class="wrapper-activities">
+                <div class="colors">
+                    <div class="color-yellow">
+                    </div>
+                    <div class="color-turquese">
+                    </div>
+                    <div class="color-skyblue">
+                    </div>
                 </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Fecha-Hora</h1>
-                    <span><?php echo $fecha; ?></span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Precio</h1>
-                    <span>s./ <?php echo $precio; ?></span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Cantidad</h1>
-                    <span id="miTexto"><?php echo $cantidad; ?></span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Total</h1>
-                    <span><?php echo $total; ?> pts</span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Puntos</h1>
-                    <span><?php echo $puntos; ?> pts</span>
-                </div>
+                <div class="info-activities">
                 <?php
-            }
-        }
-        ?>
-    </div>
-</div>
+                if (empty($detallePuntos)) {
+                    echo "<p>No hay detalles de puntos disponibles.</p>";
+                } else {
+                    foreach ($detallePuntos as $detalle) {
+                        $nombreProducto = $detalle['nombre'];
+                        $fecha = $detalle['fecha'];
+                        $precio = $detalle['precio'];
+                        $cantidad = $detalle['cantidad'];
+                        $total = $detalle['total'];
+                        $puntos = $detalle['puntos'];
+                        ?>
+
+                    <div class="scheme">
+                        <h1 class="tittle-activities">
+                            Producto o servicio
+                        </h1>
+                        <div class="text-stuffed">
+                            <span><?php echo $nombreProducto; ?></span>
+                        </div>
+                    </div>
+                    <div class="scheme">
+                        <h1 class="tittle-activities">
+                            Fecha-Hora
+                        </h1>
+                        <div class="text-stuffed">
+                            <span><?php echo $fecha; ?></span>
+                        </div>
+                    </div>
+                    <div class="scheme">
+                        <h1 class="tittle-activities">
+                            Precio
+                        </h1>
+                        <div class="text-stuffed">
+                            <span>s./ <?php echo $precio; ?></span>
+                        </div>
+                    </div>
+                    <div class="scheme">
+                        <h1 class="tittle-activities">
+                            Cantidad
+                        </h1>
+                        <div class="text-stuffed">
+                            <span id="miTexto"><?php echo $cantidad; ?></span>
+                        </div>
+                    </div>
+                    <div class="scheme">
+                        <h1 class="tittle-activities">
+                            Puntos
+                        </h1>
+                        <div class="text-stuffed">
+                            <span><?php echo $puntos; ?> pts</span>
+                        </div>
+                    </div>
+                    <div class="scheme">
+                        <h1 class="tittle-activities">
+                            Total
+                        </h1>
+                        <div class="text-stuffed">
+                        <span><?php echo $total; ?> pts</span>
+                        </div>
+                    </div>
+                    <?php
+                        }
+                    }
+                    ?>
+                </div>
+                
+            </div>
 
             <div class="footer">
                 <span class="copyrigth">©</span>
