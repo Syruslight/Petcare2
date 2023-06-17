@@ -16,5 +16,6 @@
     agregarDatosDetalleVacuna($idMascota, $idVacuna, $idVeterinario, $fechaProxima,$observacion, $restriciones,$conn);
     
 // Después de insertar correctamente el dato en la base de datos
-echo '<script>alert("Dato insertado correctamente");</script>';
+header('Location: ../pages/Veterinario/vacunas/moduloVacuna.php');
+
 ?>

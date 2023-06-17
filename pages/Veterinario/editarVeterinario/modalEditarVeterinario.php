@@ -14,7 +14,7 @@
                         <div class="editheader">
                             <aside class="contfoto">
                                 <img id="imgVeterinario" src="../../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" class="modal__img" width="95" height="89">
-                                <input id="fotovet" type="file" name="foto">
+                                <input id="fotovet" type="file" name="foto" hidden>
                             <label id="cambiar-foto" for="fotovet" onclick="previsualizarImagen('imgVeterinario','fotovet','../../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>')"><img class="image-profile"
                 src="../../../imagenes/perfilAdmin/pencil.png"  alt="pencil" width="32" height="30"></label>
 
