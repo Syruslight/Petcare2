@@ -59,7 +59,7 @@
   padding-bottom: 11px;
 }
 .second-seccion {
-  background: #f0feff;
+  background: #ffff;
   height: 647px;
   width: 100%;
   display: flex;
@@ -257,7 +257,7 @@
   justify-content: center;
   margin-top: 460px;
 
-  & span {
+  &span{
     font-family: "Poppins";
     font-style: normal;
     font-weight: 600;
@@ -274,22 +274,9 @@
   background-image: url("../../imagenes/perfilCliente/pencil.png");
   cursor: pointer;
 }
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000e3;
-  display: flex;
-  opacity: 0;
-  z-index: 2;
-  pointer-events: none;
-  transition: opacity 0.6s 0.9s;
-  --transform: translateY(-100vh);
-  --transition: transform 0.8s;
-}
 
+<<<<<<< HEAD
+=======
 .modal--show {
   opacity: 2;
   pointer-events: unset;
@@ -901,3 +888,4 @@
   border-radius: 50%;
 }
 /* Finaliza modal para editar Products */
+>>>>>>> 31f2aab4fcef573c21a4f168215d9875357f67fe
