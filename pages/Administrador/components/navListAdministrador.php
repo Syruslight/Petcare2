@@ -1,6 +1,6 @@
 
 
-<link rel="stylesheet" href='navListAdmin.css'>
+
         
 <div class="first-seccion">
                 <div class="logo">
@@ -89,5 +89,4 @@
 
     </section>      
 
-    <script src="../../../js/Interacciones.js"></script>
 

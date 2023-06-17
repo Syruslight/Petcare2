@@ -54,7 +54,7 @@ if (mysqli_num_rows($res) > 0) {
     <div class="wrapper-products">
         <div class="subwrapper-products">
             <div class="header-products">
-                <h1 class="tittle-products">Lista de Producto</h1>
+                <h1 class="tittle-products">Lista de Categorias</h1>
             </div>
             <div class="wrapper-tableProducts">
                 <div class="header-table">

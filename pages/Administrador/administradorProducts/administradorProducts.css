@@ -109,6 +109,7 @@
   display: flex;
   margin-top: 125px;
 }
+/*Finish dashboar*/
 .dash-information {
   height: 100%;
   display: flex;
@@ -526,8 +527,8 @@
   height: 100%;
 }
 .image-modals {
-  width: 100%;
-  height: auto;
+  width: 330px;
+  height: 370px;
 }
 .image-modals > img {
   width: 100%;
