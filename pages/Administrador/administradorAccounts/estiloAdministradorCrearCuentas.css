@@ -1,0 +1,246 @@
+.encabezadoCuenta {
+    display: flex;
+    width: auto;
+    align-items: center;
+    margin-left: 50px;
+  }
+  .tituloCuenta {
+    margin: 0;
+    font-family: "Poppins";
+   font-size: 30px;
+  
+    width: 70%;
+    gap: 15px;
+    }
+    .tituloCuenta p{
+        margin: 0;
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+       color: rgba(66, 66, 66, 0.781);
+
+        width: 70%;
+        }
+  .addNewAccount {
+    
+    width: 20%;
+    height: 44px;
+    background: #ffffff;
+    border: 3px solid #49c1b3;
+    border-radius: 30px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    text-align: center;
+    color: #49c1b3;
+    margin-right: 50px;
+  }
+.tablaCuentasAdmin{
+  margin-top: 30px;
+  padding: 30px;
+  background-color: white;
+  height: 620px;
+  width: auto;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+  .tablaCuentasCreadas {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .tablaCuentasCreadas th,
+  .tablaCuentasCreadas td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .tablaCuentasCreadas th {
+    background-color: #49c1b3;
+    color: white;
+  }
+  
+  .tablaCuentasCreadas tr {
+    background-color: #f2f2f2;
+  }
+  
+  .tablaCuentasCreadas tr:hover {
+    background-color: #e0f7f6;
+  }
+  
+  .tablaCuentasCreadas td {
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .tablaCuentasCreadas td:last-child {
+    text-align: center;
+  }
+  
+  @media screen and (max-width: 768px) {
+    .tablaCuentasCreadas {
+      overflow-x: auto;
+    }
+  }
+  /*Codigo Modal Administrador Crear Cuenta*/
+
+  .modalAdministradorCrearCuenta {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #000000e3;
+    display: flex;
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    transition: opacity 0.6s 0.9s;
+    --transform: translateY(-100vh);
+    --transition: transform 0.8s;
+  }
+  
+  .modalAdministradorCrearCuenta--show {
+    opacity: 2;
+    pointer-events: unset;
+    transition: opacity 0.6s;
+    --transform: translateY(0);
+    --transition: transform 0.8s 0.8s;
+  }
+  
+  .modalAdministradorCrearCuenta__container {
+    margin: auto;
+    width: 100%;
+    height: 500px;
+    max-width: 400px;
+    max-height: 500px;
+    background-color: #ffff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: var(--transform);
+    transition: var(--transition);
+  }
+  
+  .top-formAdministradorCrearCuenta {
+    height: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #57b8ace3;
+  }
+  
+  .tituloAdministradorCrearCuenta {
+    max-width: 390px;
+    min-width: 190px;
+    min-height: 190px;
+    max-height: 190px;
+    align-content: center;
+    margin-left: 110px;
+    display: inline-block;
+    margin-top: -15px;
+    
+  }
+  .tituloformCrearCuenta {
+    text-align: center;
+    font-size: 32px;
+    color: #ffffff;
+  }
+  
+  #closeModalAdministradorCrearCuenta:hover {
+    background-color: #e70505ee;
+    color: #ffffff;
+  }
+  #closeModalAdministradorCrearCuenta{
+    margin-top: 8px;
+    margin-right: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 17px;
+    background: #df2a2ae3;
+    height: 33px;
+    width: 33px;
+    cursor: pointer;
+  }
+  
+  .cuadro_modalAdministradorCrearCuenta {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: rgba (255, 255, 255, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+  }
+  
+
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch .toggle-button {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input.toggle-button:checked + .slider {
+    background-color: #E96397;
+}
+
+input.toggle-button:focus + .slider {
+    box-shadow: 0 0 1px #E96397;
+}
+
+input.toggle-button:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.estado-texto {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.Habilitado {
+    color:  #494949;
+}
+
+.Deshabilitado {
+    color: #383838;
+}
+
+
