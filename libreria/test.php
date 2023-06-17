@@ -2,33 +2,25 @@
 // Incluir la clase Dompdf
 require_once 'dompdf/autoload.inc.php';
 
-// Usar el namespace de Dompdf
 use Dompdf\Dompdf;
-
-// Crear una instancia de Dompdf
+// instantiate and use the dompdf class
 $dompdf = new Dompdf();
+?>
+<?php
+$html ='<html> <head>
 
-// Contenido HTML que se convertirá a PDF
-$html = '
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="UTF-8">
-  <title>Ejemplo de PDF con Dompdf</title>
 </head>
 <body>
-  <h1>Ejemplo de PDF con Dompdf</h1>
-  <p>¡Hola, mundo!</p>
-</body>
-</html>
+<h1> hola mundo
+                                    </body>
+                                    </html>
+
 ';
-
-// Cargar el contenido HTML en Dompdf
 $dompdf->loadHtml($html);
-
-// Renderizar el PDF
+// (Optional) Setup the paper size and orientation
+$dompdf->setPaper('A4', 'landscape');
+// Render the HTML as PDF
 $dompdf->render();
-
-// Generar el PDF y guardarlo en un archivo
-$dompdf->stream('ejemplo.pdf', ['Attachment' => false]);
+// Output the generated PDF to Browser
+$dompdf->stream();
 ?>
