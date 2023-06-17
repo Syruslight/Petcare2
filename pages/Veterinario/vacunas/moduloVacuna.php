@@ -16,6 +16,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href='../veterinario.css'>
+  <link rel="stylesheet" href='../editarVeterinario/estiloModalVeterinario.css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Veterinario</title>
 </head>
@@ -40,11 +41,15 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
           <p>Realizado por el Dr. <?= $value[0] ?> <?= $value[1] ?></p>
         </h1>
 
-        <button class="add-newProduct" onclick="openModalVacuna()">+ Agregar Lote</button>
-        <button class="add-newCategory" onclick="openModalLote()">+ Generar Vacuna</button>
+        <button class="add-newProduct" onclick="openModalVacuna()">+ Generar Vacuna</button>
+        <button class="add-newCategory" onclick="openModalLote()">+ Agregar Lote</button>
       </div>
 
-      <div class="container">
+      <div class="contFormVacuna">
+
+<div class="contenedorVacuna">
+
+      <div class="containerDetalleVacuna">
       <?php
   
       $idVeterinario = $value[7];
@@ -62,9 +67,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
           // Verifica si se obtuvieron resultados
           if ($result->num_rows > 0) {
             $numero = $result->num_rows;
-              echo "<table>";
+              echo "<table class='tablaDetalleVacuna'>";
               echo "<tr>";
-              echo "<th>N°</th>";
+              echo "<th >N°</th>";
               echo "<th>Lote</th>";
               echo "<th>Tipo</th>"; 
               echo "<th>Renian</th>";
@@ -100,10 +105,14 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
      
           
       </div>
-
+      </div>
+       </div>
     </div>
   </div>
 
+<?php
+  include('../editarVeterinario/modalEditarVeterinario.php');
+  ?>
 
   <?php
   include('formularioVacuna.php');

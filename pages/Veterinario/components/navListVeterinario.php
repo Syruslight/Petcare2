@@ -13,7 +13,7 @@
 
             <span class="user"><?= $value[0] ?>
                 <?= $value[1] ?></span>
-            <img class="boton-modal" src="../../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
+            <img class="botonmodalVeterinario" onclick="openModalVeterinario()" src="../../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
         </div>
         <span class="id"> <?= $value[2] ?> </span>
     <?php
