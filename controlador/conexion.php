@@ -385,6 +385,19 @@ function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo
     return $vec;
 }
 
+//Funcion para listar los tipos de productos 
+function listarTipoProducto($conn){
+    $sql = "SELECT nombre,estado FROM tipoproductoservicio where idtipoproductoservicio not like '1' ";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res)) {
+        $vec[] = array(
+            'nombre' => $f['nombre'],
+            'estado' => $f['estado'],
+        );
+    }
+    return $vec;
+}
 
 //Funcion para agregar productos desde dashboard de administrador:
 function agregarProducto($idCategoria,$fotProducto,$nombre,$descripcion,$precio){
