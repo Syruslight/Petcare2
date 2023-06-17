@@ -1,3 +1,17 @@
+function openModalCreacionCuentasAdministrador(){
+  const openModal = document.querySelector(".addNewAccount");
+  const modal = document.querySelector(".modalAdministradorCrearCuenta");
+  const closeModal = document.querySelector("#closeModalAdministradorCrearCuenta");
+  openModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.add("modalAdministradorCrearCuenta--show");
+  });
+  closeModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.remove("modalAdministradorCrearCuenta--show");
+  });
+}
+
 function openModalVeterinario(){
   const openModal = document.querySelector(".botonmodalVeterinario");
   const modal = document.querySelector(".modaleditarVeterinario");

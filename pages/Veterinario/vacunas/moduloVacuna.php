@@ -80,10 +80,10 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
               echo "<th>Restricciones</th>";
               echo "</tr>";
 
-              // Itera sobre los resultados y muestra los datos en la tabla
+         
               while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
-                  
+                  echo "<td>" . $numero . "</td>";
                   echo "<td>" . $row['lote'] . "</td>";
                   echo "<td>" . $row['tipo'] . "</td>";
                   echo "<td>" . $row['renian'] . "</td>";

@@ -15,15 +15,19 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+ 
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='../administradorIndex/administrador.css'>
+    <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
+        <link rel="stylesheet" href='../administradorAccounts/estiloAdministradorCrearCuentas.css'>
     <title>Document</title>
 </head>
 
 <body>
-<div class="wrapper">
+    <div class="wrapper">
         <div class="profile">
             <?php
             include('../components/navListAdministrador.php');
@@ -33,33 +37,120 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             <?php
             include('../components/headerAdministrador.php');
             ?>
-    <!--Formulario para registrar usuario nuevo-->
-    <form action="../../../llamadas/proceso_registrarCuentaVeterinario.php" method="post" enctype="multipart/form-data">
 
-        <div class="container mt-3">
-            <h2>Floating Labels - Inputs</h2>
-            <p>Click inside the input field to see the floating label effect:</p>
-            <form action="/action_page.php">
-                <div class="form-floating mb-3 mt-3">
-                    <input type="text" class="form-control" id="email" placeholder="Enter email" name="correoNuevo"
-                        required>
-                    <label for="email">Correo electronico:</label>
+<?php
+            include('../editAdministrador/editModalAdministrador.php');
+            ?>
+            <div class="encabezadoCuenta">
+                <h1 class="tituloCuenta">Lista de cuentas de Veterinarios
+                    <p>Bienvenido <?= $value[0] ?> <?= $value[1] ?> empieza a crear tus cuentas</p>
+                </h1>
+                <button id="open" class="addNewAccount" onclick="openModalCreacionCuentasAdministrador()">+ Nueva
+                    cuenta</button>
+
+            </div>
+            <!--Formulario para registrar usuario nuevo-->
+
+            <section class="modalAdministradorCrearCuenta">
+                <div class="modalAdministradorCrearCuenta__container">
+                    <div class="cuadro_modalAdministradorCrearCuenta">
+                        <div class="top-formAdministradorCrearCuenta">
+                            <div class="tituloAdministradorCrearCuenta">
+                                <h2 class="tituloformCrearCuenta">Crear Cuenta Veterinario</h2>
+                            </div>
+                            <div id="closeModalAdministradorCrearCuenta">
+                                &#10006
+                            </div>
+                        </div>
+                        <form class="formularioCrearCuentas"
+                            action="../../../llamadas/proceso_registrarCuentaVeterinario.php" method="post"
+                            enctype="multipart/form-data">
+
+                            <div class="container mt-3">
+                                <h2>Crear cuentas</h2>
+                                <p></p>
+                                <form action="/action_page.php">
+                                    <div class="form-floating mb-3 mt-3">
+                                        <input type="text" class="form-control" id="email" placeholder="Enter email"
+                                            name="correoNuevo" required>
+                                        <label for="email">Correo electronico:</label>
+                                    </div>
+                                    <div class="form-floating mt-3 mb-3">
+                                        <input type="text" class="form-control" id="pwd" placeholder="Enter password"
+                                            name="contraseniaNueva" required>
+                                        <label for="pwd">Contraseña</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Enviar</button>
+                                </form>
+                            </div>
+
+                        </form>
+
+
+
+
+
+
+                    </div>
                 </div>
-                <div class="form-floating mt-3 mb-3">
-                    <input type="text" class="form-control" id="pwd" placeholder="Enter password"
-                        name="contraseniaNueva" required>
-                    <label for="pwd">Contraseña</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Enviar</button>
-            </form>
-        </div>
+            </section>
 
-    </form>
 
-    <?php
+            <div class="tablaCuentasAdmin">
+                <?php
+                $sql = "SELECT email, pass, fechaCre, estado FROM usuario WHERE idtipousuario = 2 ORDER BY fechaCre DESC";
+                $result = $conn->query($sql);
+
+                if ($result->num_rows > 0) {
+                    $numero = $result->num_rows; // Crear la tabla para mostrar los datos
+                    echo "<table class='tablaCuentasCreadas'>
+    <thead>
+      <tr>
+      <th>N°</th>
+      <th>Fecha de Creación</th>
+        <th>Email</th>
+        <th>Password</th>
+        
+        <th>Estado</th>
+      </tr>
+    </thead>";
+
+                    // Mostrar los datos en la tabla
+                    while ($row = $result->fetch_assoc()) {
+                        $estado = ($row["estado"] == 2) ? "Habilitado" : "Deshabilitado";
+                        $estadoClass = ($row["estado"] == 2) ? "Habilitado" : "Deshabilitado";
+                        $disabled = ($row["estado"] == 2) ? "" : "disabled";
+
+                        echo "<tbody>
+                                    <tr> 
+                                            <td>" . $numero . "</td>;
+                                            <td>" . $row["fechaCre"] . "</td>
+                                            <td>" . $row["email"] . "</td>
+                                            <td>" . $row["pass"] . "</td>
+                                            <td>
+                                                <label class=\"switch\">
+                                                <input type=\"checkbox\" class=\"toggle-button\" " . $disabled . " checked=\"" . $row["estado"] . "\">
+                                                <span class=\"slider round\"></span>
+                                                </label>
+                                                <span class=\"estado-texto " . $estadoClass . "\">" . $estado . "</span>
+                                            </td>
+                                    </tr>
+                            </tbody>";
+                        $numero--;
+                    }
+
+                    echo "</table>";
+                } else {
+                    echo "No se encontraron veterinarios.";
+                }
+                ?>
+            </div>
+
+            <?php
             include('../../Administrador/components/footerAdministrador.php');
             ?>
         </div>
 </body>
+<script src="../../../js/Interacciones.js"></script>
 
 </html>
