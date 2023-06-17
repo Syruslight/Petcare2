@@ -16,6 +16,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href='../veterinario.css'>
+  <link rel="stylesheet" href='../editarVeterinario/estiloModalVeterinario.css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Veterinario</title>
 </head>
@@ -44,7 +45,11 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
         <button class="add-newCategory" onclick="openModalLote()">+ Agregar Lote</button>
       </div>
 
-      <div class="container">
+      <div class="contFormVacuna">
+
+<div class="contenedorVacuna">
+
+      <div class="containerDetalleVacuna">
       <?php
   
       $idVeterinario = $value[7];
@@ -54,15 +59,17 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                   JOIN mascota ON detallevacuna.idmascota = mascota.idmascota
                   JOIN vacuna ON detallevacuna.idvacuna = vacuna.idvacuna
                   JOIN veterinario ON detallevacuna.idveterinario = veterinario.idveterinario
-                  WHERE detallevacuna.idveterinario =  $idVeterinario";
+                  WHERE detallevacuna.idveterinario =  $idVeterinario 
+                  ORDER BY detallevacuna.iddetallevacuna DESC";
       
           $result = $conn->query($sql);
       
           // Verifica si se obtuvieron resultados
           if ($result->num_rows > 0) {
-              echo "<table>";
+            $numero = $result->num_rows;
+              echo "<table class='tablaDetalleVacuna'>";
               echo "<tr>";
-              echo "<th>N°</th>";
+              echo "<th >N°</th>";
               echo "<th>Lote</th>";
               echo "<th>Tipo</th>"; 
               echo "<th>Renian</th>";
@@ -71,37 +78,41 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
               echo "<th>Proxima Fecha</th>";
               echo "<th>Observación</th>";
               echo "<th>Restricciones</th>";
-             
-              
               echo "</tr>";
-      
+
               // Itera sobre los resultados y muestra los datos en la tabla
               while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
-                  echo "<td>".$row['iddetallevacuna']."</td>"; 
-                  echo "<td>".$row['lote']."</td>";
-                  echo "<td>".$row['tipo']."</td>"; 
-                  echo "<td>".$row['renian']."</td>";
-                  echo "<td>".$row['nombre']."</td>";
-                  echo "<td>".$row['fecha']."</td>";
-                  echo "<td>".$row['proxFecha']."</td>";
-                  echo "<td>".$row['observacion']."</td>";
-                  echo "<td>".$row['restricciones']."</td>";
-                 
-                 
+                  echo "<td>" . $numero . "</td>";
+                  echo "<td>" . $row['lote'] . "</td>";
+                  echo "<td>" . $row['tipo'] . "</td>";
+                  echo "<td>" . $row['renian'] . "</td>";
+                  echo "<td>" . $row['nombre'] . "</td>";
+                  echo "<td>" . $row['fecha'] . "</td>";
+                  echo "<td>" . $row['proxFecha'] . "</td>";
+                  echo "<td>" . $row['observacion'] . "</td>";
+                  echo "<td>" . $row['restricciones'] . "</td>";
                   echo "</tr>";
-                  }echo "</table>";
-                } else {
-                    echo "No se encontraron resultados.";
-                }
+          
+                  $numero--; // Incrementar el contador en cada iteración
+              }
+          
+              echo "</table>";
+          } else {
+              echo "No se encontraron resultados.";
+          }
                   ?>
      
           
       </div>
-
+      </div>
+       </div>
     </div>
   </div>
 
+<?php
+  include('../editarVeterinario/modalEditarVeterinario.php');
+  ?>
 
   <?php
   include('formularioVacuna.php');

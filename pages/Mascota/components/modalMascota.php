@@ -85,8 +85,8 @@
                             <div class="cont-radio ip">
                                 <select name="sexo" id="sexo" value="sexo" class="form-select" style="width: 109px;">
                                     <option selected>Sexo</option>
-                                    <option value="H">Hembra</option>
-                                    <option value="M">Macho</option>
+                                    <option value="Hembra">Hembra</option>
+                                    <option value="Macho">Macho</option>
                                 </select>
                             </div>
                             <input type="text" class="form-control ip" name="color" placeholder="Color">

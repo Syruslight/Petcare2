@@ -23,6 +23,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
 
     <meta name="viewport" content="width=device-width, initial-scasle=1.0">
     <link rel="stylesheet" href='cliente.css'>
+    <link rel="stylesheet" href='../Cliente/editarCliente/estiloModalEditarCliente.css'>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="../Mascota/mascotaEstilos.css">
@@ -68,7 +69,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                     <p>Puntos acumulados</p>
                                 </div>
                                 <div class="petyscore">
-                                    <span>580 </span>
+                                    <span>  <?= $value[8] ?> </span>
                                     <p>Pety puntos </p>
                                 </div>
                             </div>
@@ -79,7 +80,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                     <p>Puntos canjeados</p>
                                 </div>
                                 <div class="petyscore">
-                                    <span>580 </span>
+                                    <span><?= $value[9] ?> </span>
                                     <p>Pety puntos </p>
                                 </div>
                             </div>
@@ -174,16 +175,45 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
     <span>Actividad Reciente:</span>
 </div>
 <div class="wrapper-activities">
-    <div class="colors">
-        <div class="color-yellow"></div>
-        <div class="color-turquese"></div>
-        <div class="color-skyblue"></div>
-    </div>
+   
     <div class="info-activities">
         <?php
         if (empty($detallePuntos)) {
             echo "<p>No hay detalles de puntos disponibles.</p>";
         } else {
+            // Mostrar encabezados de la tabla fuera del bucle
+        ?>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Producto o servicio
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Fecha-Hora
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Precio
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Cantidad
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Puntos
+            </h1>
+        </div>
+        <div class="scheme">
+            <h1 class="tittle-activities">
+                Total
+            </h1>
+        </div>
+        <?php
             foreach ($detallePuntos as $detalle) {
                 $nombreProducto = $detalle['nombre'];
                 $fecha = $detalle['fecha'];
@@ -191,37 +221,44 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                 $cantidad = $detalle['cantidad'];
                 $total = $detalle['total'];
                 $puntos = $detalle['puntos'];
-                ?>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Producto o Servicio</h1>
-                    <span><?php echo $nombreProducto; ?></span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Fecha-Hora</h1>
-                    <span><?php echo $fecha; ?></span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Precio</h1>
-                    <span>s./ <?php echo $precio; ?></span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Cantidad</h1>
-                    <span id="miTexto"><?php echo $cantidad; ?></span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Total</h1>
-                    <span><?php echo $total; ?> pts</span>
-                </div>
-                <div class="scheme">
-                    <h1 class="tittle-activities">Puntos</h1>
-                    <span><?php echo $puntos; ?> pts</span>
-                </div>
-                <?php
+        ?>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span><?php echo $nombreProducto; ?></span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span><?php echo $fecha; ?></span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span>s./ <?php echo $precio; ?></span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span id="miTexto"><?php echo $cantidad; ?></span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span><?php echo $puntos; ?> pts</span>
+            </div>
+        </div>
+        <div class="scheme">
+            <div class="text-stuffed">
+                <span><?php echo $total; ?> pts</span>
+            </div>
+        </div>
+        <?php
             }
         }
         ?>
     </div>
 </div>
+
 
             <div class="footer">
                 <span class="copyrigth">©</span>
@@ -235,81 +272,16 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
         </div>
 
     </div>
-    <section class="modal">
-        <div class="modal__container">
-            <div class="cuadro_modal">
-                <div class="top-form">
-                    <div class="titulo-h2">
-                        <h2 class="tituloform">Editar Datos</h2>
-                    </div>
-                    <div id="close-modal">
-                        &#10006
-                    </div>
-                </div>
-                <form action="../../llamadas/proceso_actualizarDatosCliente.php" enctype="multipart/form-data"
-                    method="POST">
-
-                    <div class="editheader">
-                        <aside class="contfoto">
-                            <img id="img" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>"
-                                id=img width="95" height="89">
-                            <input id="foto" type="file" name="foto" hidden>
-                            <label id="cambiar-foto" for="foto"><img class="image-profile"
-                src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30"></label>
-
-                        </aside>
-                        <section class="textonomap">
-                            <div class="input-group">
-                                <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>"
-                                    required>
-                                <label for=""> Nombres</label>
-
-                            </div>
-                            <div class="input-group">
-                                <input class="estilo-separado" type="text" name="apellidos" value="<?= $value[1] ?>"
-                                    required>
-                                <label for=""> Apellidos</label>
-                            </div>
-
-                        </section>
-                    </div>
-
-                    <div class="modalinf">
-                        <div class="input-group1">
-                            <input class="estilo-separado1" type="TEXT" name="telefono" value="<?= $value[3] ?>"
-                                required>
-                            <label for=""> Telefono</label>
-                        </div>
-                        <div class="input-group2">
-                            <input class="estilo-separado1" type="TEXT" name="dni" value="<?= $value[2] ?> " required>
-                            <label for=""> DNI</label>
-                        </div>
-
-                        <input hidden name="idcliente" value="<?= $value[7] ?> " required>
-                        <input hidden name="foto2" value="<?= $value[6] ?> " required>
-                    </div>
-                    <div class="modalFoot">
-                        <div class="input-group3">
-                            <input class="estilo-separado" type="text" name="direccion" value="<?= $value[4] ?>"
-                                required>
-                            <label for=""> Dirección</label>
-                        </div>
-                    </div>
-                    <div class="contbtn">
-                        <button class="btn-mod">ACTUALIZAR DATOS</button>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
-    </section>
+   
     </section>
 
 
 
     <?php 
         include '../Mascota/components/modalMascota.php';
+    ?>
+     <?php 
+        include '../Cliente/editarCliente/modalEditarCliente.php';
     ?>
     <!-- MODAL EDITAR -->
     <section class="moda modalMascota modalMascotaEdit">
@@ -372,8 +344,8 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
     </section>
 
     <script src="../../js/modalMascota.js"></script>
-    <script src="../../js/Modal.js"></script>
-    <script src="../../js/registroNewUs.js"></script>
+    <script src="../../js/Interacciones.js"></script>
+    <script src="../../js/previsualizarImagen.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
         crossorigin="anonymous"></script>

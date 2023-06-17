@@ -16,6 +16,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href='../veterinario.css'>
+  <link rel="stylesheet" href='../editarVeterinario/estiloModalVeterinario.css'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <title>Veterinario</title>
 </head>
@@ -36,7 +37,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
       ?>
 
       <div class="HeaderVacuna">
-        <h1 class="tittle-products"> Registro de lotes  <p>Bienvenido Dr(a). <?= $value[0] ?> <?= $value[1] ?></p></h1>
+        <h1 class="tittle-products"> Registro de lotes <p>Bienvenido Dr(a). <?= $value[0] ?> <?= $value[1] ?></p>
+        </h1>
 
         <button class="add-newCategory" onclick="openModalLote()">+ Agregar Lote</button>
       </div>
@@ -47,9 +49,6 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
         <div class="contenedorLote">
 
           <div class="contLoteTable">
-
-      
-
           <?php
 $sql = "SELECT * FROM vacuna ORDER BY idvacuna DESC";
 $result = $conn->query($sql);
@@ -61,9 +60,9 @@ if ($result->num_rows > 0) {
     echo '<th>N°</th>';
     echo '<th>Lote</th>';
     echo '<th>Nombre</th>';
-    echo '<th>Descripcion</th>';
+    echo '<th>Descripción</th>';
     echo '<th>Estado</th>';
-    echo '<th>Accion</th>';
+    echo '<th>Acción</th>';
     echo '</tr>';
     echo '</thead>';
     echo '<tbody>';
@@ -78,7 +77,19 @@ if ($result->num_rows > 0) {
         echo "<td>";
         echo "<label class=\"toggle-container\">";
         echo "<input type=\"checkbox\" onchange=\"toggleStatus(this)\"";
-        // Comprobar el estado de la columna "estadoLote" y establecer el estado del botón de alternancia
+        
+        // Comparar el estado actual con el estado original almacenado en la base de datos
+        $sql_estado = "SELECT estadoLote FROM vacuna WHERE idvacuna = " . $row['idvacuna'];
+        $result_estado = $conn->query($sql_estado);
+        
+        if ($result_estado && $result_estado->num_rows > 0) {
+            $row_estado = $result_estado->fetch_assoc();
+            if ($row_estado['estadoLote'] == $row['estadoLote']) {
+                echo " disabled";
+            }
+        }
+        
+        // Resto del código para el botón de alternancia
         if ($row['estadoLote'] == 1) {
             echo " checked";
         }
@@ -88,9 +99,8 @@ if ($result->num_rows > 0) {
         echo "<span class=\"status\">" . ($row['estadoLote'] == 1 ? 'Activado' : 'Desactivado') . "</span>";
         echo "</label>" . '</td>';
         echo '<td>';
-        echo '<div class ="contenedorAccion">';
-        echo '<img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>';
-        echo '<img  class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>';
+        echo '<div class="contenedorAccion">';
+        echo '<img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">';
         echo '</div>';
         echo '</td>';
         echo '</tr>';
@@ -99,10 +109,10 @@ if ($result->num_rows > 0) {
     echo '</tbody>';
     echo '</table>';
 } else {
-    echo "<tr><td colspan=\"5\">No se encontraron registros.</td></tr>";
+    echo "<tr><td colspan=\"6\">No se encontraron registros.</td></tr>";
 }
 ?>
-          
+
 
 
           </div>
@@ -117,15 +127,16 @@ if ($result->num_rows > 0) {
     </div>
   </div>
 
-
+<?php
+  include('../editarVeterinario/modalEditarVeterinario.php');
+  ?>
   <?php
   include('formularioVacuna.php');
   ?>
   <?php
   include('formularioLotes.php');
   ?>
-
-
+ 
 
 
   <script>

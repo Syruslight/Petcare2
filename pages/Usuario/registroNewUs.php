@@ -32,7 +32,7 @@ session_start();
                 alt="avatar" >
             </div>
             <input id="foto" type="file" name="foto" hidden>
-            <label id="cambiar-foto" for="foto"><img class="image-profile"
+            <label id="cambiar-foto" onclick="previsualizarImagen('img', 'foto', '../../imagenes/perfilCliente/sinFoto.jpg')"  for="foto"><img class="image-profile"
                 src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30"></label>
 
 
@@ -103,7 +103,7 @@ session_start();
 
     </div>
   </div>
-  <script src="../../js/registroNewUs.js"></script>
+  <script src="../../js/previsualizarImagen.js"></script>
 
 </body>
 

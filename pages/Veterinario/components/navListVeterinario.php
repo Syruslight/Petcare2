@@ -6,19 +6,17 @@
 
     $email = $_SESSION['email'];
     foreach (listarVeterinario($email, $conn) as $key => $value) {
-        ?>
+    ?>
 
-        <img class="photo-profile" src="../../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile"
-            width="217" height="227">
+        <img class="photo-profile" src="../../../imagenes/fotosperfil/veterinario/<?= $value[6] ?>" alt="profile" width="217" height="227">
         <div class="profile-information">
 
             <span class="user"><?= $value[0] ?>
                 <?= $value[1] ?></span>
-            <img class="boton-modal" src="../../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32"
-                height="30">
+            <img class="botonmodalVeterinario" onclick="openModalVeterinario()" src="../../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
         </div>
         <span class="id"> <?= $value[2] ?> </span>
-        <?php
+    <?php
     }
     ?>
 </div>
@@ -57,7 +55,9 @@
         <div class="sign-off">
 
             <img src="https://img.icons8.com/ios/50/null/shutdown--v1.png" width="25" height="25" />
-            <span class="list">Cerrar sesion</span>
+            <form action="../../../llamadas/proceso_cerrar_sesion.php" method="POST">
+                <button type="submit" class="list" name="">Cerrar sesión</button>
+            </form>
 
         </div>
     </div>

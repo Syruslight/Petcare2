@@ -13,8 +13,8 @@
                             <?= $value[0] ?>
                             <?= $value[1] ?>
                         </span>
-                        <img class="boton-modal" src="../../imagenes/perfilCliente/pencil.png" alt="pencil" width="32"
-                            height="30">
+                        <img class="btnEditarCliente" src="../../imagenes/perfilCliente/pencil.png" alt="pencil" width="32"
+                            height="30" onclick="openModalEditCliente()">
                     </div>
 
                     <span class="id">DNI:

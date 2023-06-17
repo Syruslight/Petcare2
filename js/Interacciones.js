@@ -1,14 +1,46 @@
-const openModal = document.querySelector(".boton-modal");
-const modal = document.querySelector(".modal");
-const closeModal = document.querySelector("#close-modal");
-openModal.addEventListener("click", (e) => {
+function openModalVeterinario(){
+  const openModal = document.querySelector(".botonmodalVeterinario");
+  const modal = document.querySelector(".modaleditarVeterinario");
+  const closeModal = document.querySelector("#closeModalVeterinario");
+  openModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.add("modalVeterinario--show");
+  });
+  closeModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.remove("modalVeterinario--show");
+  });
+}
+
+
+function openmodalLogin(){
+  const openModal = document.querySelector(".boton-modal");
+  const modal = document.querySelector(".modal");
+  const closeModal = document.querySelector("#close-modal");
+  openModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.add("modal--show");
+  });
+  closeModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.remove("modal--show");
+  });
+}
+
+function openModalEditCliente(){
+  const openModalEditarCliente = document.querySelector(".btnEditarCliente");
+const modalEditarCliente = document.querySelector(".modalEditarCliente");
+const closeModalEditarCliente = document.querySelector("#closeModalEditarCliente");
+openModalEditarCliente.addEventListener("click", (e) => {
   e.preventDefault();
-  modal.classList.add("modal--show");
+  modalEditarCliente.classList.add("modalEditarCliente--show");
 });
-closeModal.addEventListener("click", (e) => {
+closeModalEditarCliente.addEventListener("click", (e) => {
   e.preventDefault();
-  modal.classList.remove("modal--show");
+  modalEditarCliente.classList.remove("modalEditarCliente--show");
 });
+}
+
 
 function openModalVacuna(){
   const openModalVacuna = document.querySelector(".add-newProduct");

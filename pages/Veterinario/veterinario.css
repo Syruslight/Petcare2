@@ -107,6 +107,7 @@
 }
 .dash-information {
   height: 100%;
+  width: auto;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -437,385 +438,16 @@
   margin-right: 22.5px;
 }
 
-/*Inicio de Modal*/
-
-.boton-modal {
-  background-image: url("../../imagenes/perfilCliente/pencil.png");
-}
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #000000e3;
-  display: flex;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.6s 0.9s;
-  --transform: translateY(-100vh);
-  --transition: transform 0.8s;
-}
-
-.modal--show {
-  opacity: 2;
-  pointer-events: unset;
-  transition: opacity 0.6s;
-  --transform: translateY(0);
-  --transition: transform 0.8s 0.8s;
-}
-
-.modal__container {
-  margin: auto;
-  width: 100%;
-  height: 500px;
-  max-width: 400px;
-  max-height: 500px;
-  background-color: #ffff;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: var(--transform);
-  transition: var(--transition);
-}
-
-.top-form {
-  height: 60px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  background-color: #57b8ace3;
-}
-
-.titulo-h2 {
-  max-width: 390px;
-  min-width: 190px;
-  min-height: 190px;
-  max-height: 190px;
-  align-content: center;
-  margin-left: 110px;
-  display: inline-block;
-  margin-top: -15px;
-}
-.tituloform {
-  text-align: center;
-  font-size: 32px;
-  color: #ffffff;
-}
-
-#close-modal:hover {
-  background-color: #e70505ee;
-  color: #ffffff;
-}
-#close-modal {
-  margin-top: 8px;
-  margin-right: 10px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  color: #ffffff;
-  font-size: 17px;
-  background: #df2a2ae3;
-  height: 33px;
-  width: 33px;
-  cursor: pointer;
-}
-
-.cuadro_modal {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  background-color: rgba (255, 255, 255, 0.2);
-  border-radius: 20px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
-}
-
-.editheader {
-  max-width: 390px;
-  min-width: 190px;
-  min-height: 190px;
-  max-height: 190px;
-  width: 100%;
-  height: 30vh;
-  display: flex;
-}
-
-.contfoto {
-  max-width: 190px;
-  min-width: 190px;
-  min-height: 190px;
-  max-height: 190px;
-}
-
-#img {
-  margin-top: 15px;
-  height: 80%;
-  width: 80%;
-  border-radius: 10%;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  border: 3px solid #d867c5;
-  overflow-clip-margin: content-box;
-  overflow: clip;
-}
-
-#cambiar-foto img {
-  margin-left: 145px;
-  margin-top: -100%;
-  width: 35px;
-  height: 35px;
-  border: none;
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 0px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  transition: 0.5s ease;
-}
-#cambiar-foto img:hover {
-  opacity: 0.8;
-  transform: scale(1.1);
-}
-.textonomap {
-  width: 100%;
-  max-width: 500px;
-  height: 100%;
-  overflow: hidden;
-}
-.input-group {
-  width: 95%;
-  position: relative;
-  margin: 40px 0;
-  border-radius: 15px;
-  background-color: rgba(240, 240, 240, 0.959);
-  border-bottom: 1px solid #eead20;
-}
-
-.input-group label {
-  margin-left: 5px;
-  width: auto;
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #1ba38cef;
-  background-color: #ffff;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.input-group input {
-  margin-left: 8px;
-  width: 100%;
-  height: 40px;
-  font-size: 16px;
-  color: #4d4d4d;
-  padding: 0 5px;
-
-  background: transparent;
-  border: none;
-  outline: none;
-}
-.estilo-separado {
-  width: 100%;
-}
-.estilo-separado:focus ~ label {
-  top: -5px;
-}
-
-.estilo-separado:valid ~ label {
-  top: -5px;
-}
-.modalinf {
-  justify-content: space-between;
-  display: flex;
-  margin-top: 15px;
-}
-.input-group1 {
-  width: 40%;
-  position: relative;
-  margin-left: 20px;
-  border-bottom: 1px solid #eead20;
-  border-radius: 15px;
-  background-color: rgba(240, 240, 240, 0.959);
-}
-
-.input-group1 label {
-  margin-left: 5px;
-  width: auto;
-  background-color: #ffffff;
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #1ba38cef;
-  pointer-events: none;
-
-  transition: 0.5s;
-}
-
-.input-group1 input {
-  margin-left: 8px;
-  width: 100%;
-  height: 40px;
-  font-size: 16px;
-  color: #1a1b1b;
-  border: none;
-  background: transparent;
-  outline: none;
-}
-.estilo-separado1 {
-  width: 100%;
-}
-.estilo-separado1:focus ~ label {
-  top: -5px;
-}
-
-.estilo-separado1:valid ~ label {
-  top: -5px;
-}
-
-.input-group2 {
-  width: 45%;
-  position: relative;
-  margin-right: 20px;
-  border-bottom: 1px solid #eead20;
-  border-radius: 15px;
-  background-color: rgba(240, 240, 240, 0.959);
-}
-
-.input-group2 label {
-  margin-left: 5px;
-  width: auto;
-  background-color: #ffffff;
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #1ba38cef;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.input-group2 input {
-  margin-left: 8px;
-  width: 100%;
-  height: 40px;
-  font-size: 16px;
-
-  color: #1a1b1b;
-  border: none;
-  background: transparent;
-  outline: none;
-}
-.estilo-separado2 {
-  width: 100%;
-}
-.estilo-separado2:focus ~ label {
-  top: -5px;
-}
-
-.estilo-separado2:valid ~ label {
-  top: -5px;
-}
-
-.modalFoot {
-  max-width: 390px;
-  min-width: 390px;
-  min-height: 90px;
-  max-height: 90px;
-  margin-top: 10px;
-}
-
-.input-group3 {
-  margin-left: 20px;
-  top: 25px;
-  width: 92%;
-  position: relative;
-  margin-right: 20px;
-  border-radius: 15px;
-  border-bottom: 1px solid #eead20;
-  background-color: rgba(240, 240, 240, 0.959);
-}
-
-.input-group3 label {
-  width: auto;
-  margin-left: 5px;
-  position: absolute;
-  top: 50%;
-  left: 5px;
-  transform: translateY(-50%);
-  font-size: 16px;
-  color: #1ba38cef;
-  pointer-events: none;
-  transition: 0.5s;
-}
-
-.input-group3 input {
-  width: 100%;
-  height: 40px;
-  font-size: 16px;
-  text-shadow: #2a9d8f;
-  color: #1a1b1b;
-  margin-left: 8px;
-  border: none;
-  background: transparent;
-  outline: none;
-}
-.estilo-separado3 {
-  width: 100%;
-}
-.estilo-separado3:focus ~ label {
-  top: -5px;
-}
-
-.estilo-separado3:valid ~ label {
-  top: -5px;
-}
-
-.contbtn {
-  display: flex;
-  justify-content: center;
-}
-
-.btn-mod {
-  background: #e761dcf8; /* color de fondo */
-  color: #ffffff; /* color de fuente */
-  border: 2px solid #e447cf;
-  padding: 12px 70px;
-  border-radius: 15px; /* redondear bordes */
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-  display: inline-block;
-  z-index: 1;
-  overflow: hidden;
-  display: flex;
-  margin: 10px;
-  cursor: pointer;
-}
-.btn-mod:hover {
-  border: 1px solid #cc29b6;
-  background-color: #d43ac0;
-}
 
 /*formato de lotes y vacunas*/
 
 .contForm {
-  width: 100%;
+  width: auto;
   display: flex;
   justify-content: space-between;
   margin-top: 10px;
-  margin-right: -10px;
+  margin-right: 15px;
+  margin-left: 15px;
 }
 
 .formVacuna {
@@ -856,7 +488,9 @@
 }
 
 .contLoteTable {
-  width: 100%;
+  margin-right: 15px;
+  margin-left: 20px;
+  width: auto;
   height: 100%;
   margin-top: 20px;
   box-sizing: border-box;
@@ -1001,6 +635,7 @@
 }
 
 .tablaLotes {
+
   width: 100%;
   height: 100%;
   border-collapse: collapse;
@@ -1011,12 +646,20 @@ td {
   padding: 10px;
   text-align: left;
   border-bottom: 1px solid #96c0ba;
+  
+}
+.tablaLotes tbody{
+  color: rgba(0, 0, 0, 0.815);
 }
 
 .tablaLotes th {
   background-color: #83cab2;
+  height: 45px;
+ 
+  font-size: 20px;
 }
 .tablaLotes thead th {
+  text-align: center;
   overflow: hidden;
   position: sticky;
   top: 0;
@@ -1024,6 +667,7 @@ td {
 
 .tablaLotes tbody tr:nth-child(even) {
   background-color: #f9f9f9;
+
 }
 
 .tablaLotes tbody tr:hover {
@@ -1137,8 +781,8 @@ position: inherit;
 .HeaderVacuna {
  
   margin-top: 30px;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 60px;
+  margin-right: 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1163,8 +807,48 @@ position: inherit;
   width: 225px;
   height: 44px;
   background: #ffffff;
-  border: 3px solid #E96397;
+  border: 3px solid #75cab8;
   border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  color: #75cab8;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.add-newProduct {
+  border: none;
+  margin-right: 50px;
+  width: 225px;
+  height: 44px;
+  background: #75cab8;
+  border: 3px solid #75cab8;
+  border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 21px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+
+.add-newCategory {
+  border: none;
+  width: 225px;
+  height: 44px;
+  border:3px solid #E96397;
+  background-color: white;
+    border-radius: 30px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -1172,24 +856,6 @@ position: inherit;
   line-height: 21px;
   text-align: center;
   color: #E96397;
-}
-.add-newProduct:hover{
-  background-color: #E96397;
-  color: white;
-}
-.add-newCategory {
-  border: none;
-  width: 225px;
-  height: 44px;
-  background: #75cac0;
-  border-radius: 30px;
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 21px;
-  text-align: center;
-  color: #ffffff;
 }
 
 .modalVacuna{
@@ -1401,8 +1067,8 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked + .toggle-slider {
-  background-color: #e96396dc;
-  border-color: #e96396dc;
+  background-color: #f76da2dc;
+  border-color: #f76da2dc;
 }
 
 input[type="checkbox"]:checked + .toggle-slider:before {
@@ -1419,4 +1085,132 @@ input[type="checkbox"]:checked + .toggle-slider .slider {
       z-index: 1;
     }
 
+/**/
+
+
+
+
+
+
+
+/**/
+
+.contFormVacuna {
+  height: 710px;
+  width: 90%;
+  border-left: 1px solid #ccc;
+  margin-left: 20px;
+  flex: 1;
+  padding-top: 15px;
+  background-color: #f9f9f9;
+ 
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-left: 40px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+
+  overflow: hidden;
+}
+
+.contenedorVacuna {
+  width: 100%;
+  margin-top: -20px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.containerDetalleVacuna {
+  margin-right: 15px;
+  margin-left: 20px;
+  width: auto;
+  height: 100%;
+  margin-top: 20px;
+  box-sizing: border-box;
+  overflow: auto;
+  max-height: 630px; /* ajusta la altura máxima del contenedor según tus necesidades */
+  overflow-y: auto;
+}
+
+.tablaDetalleVacuna {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: auto; /* Cambia a table-layout: auto; */
+}
+
+.tablaDetalleVacuna th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #96c0ba;
+}
+
+.tablaDetalleVacuna tbody {
+  color: rgba(0, 0, 0, 0.815);
+}
+
+.tablaDetalleVacuna th {
+  background-color: #83cab2;
+  height: 45px;
+  font-size: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.tablaDetalleVacuna td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #96c0ba;
+  word-break: break-word; /* Agrega esta propiedad */
+}
+.tablaDetalleVacuna th.small-column {
+  width: 80px; /* Cambia el ancho según tus necesidades */
+}
+
+.tablaDetalleVacuna thead th {
+  text-align: center;
+  overflow: hidden;
+}
+
+.tablaDetalleVacuna tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tablaDetalleVacuna tbody tr:hover {
+  background-color: #dbdbdb;
+}
+
+/* Media queries para hacerla responsive */
+@media screen and (max-width: 600px) {
+  .tablaDetalleVacuna {
+    font-size: 14px;
+  }
+
+  .tablaDetalleVacuna th,
+  .tablaDetalleVacuna td {
+    padding: 5px;
+  }
+
+  .tablaDetalleVacuna thead th {
+    height: 40px;
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .tablaDetalleVacuna {
+    font-size: 12px;
+  }
+
+  .tablaDetalleVacuna th,
+  .tablaDetalleVacuna td {
+    padding: 3px;
+  }
+
+  .tablaDetalleVacuna thead th {
+    height: 35px;
+    font-size: 14px;
+  }
+}
 /**/
