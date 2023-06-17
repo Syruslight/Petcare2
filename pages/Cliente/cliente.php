@@ -303,7 +303,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                     <div class="row-short">
                                         <input type="text" class="form-control ip me-3" id="pesoEnvio" name="peso" placeholder="Peso">
                                         <select name="etapa" id="etapaEnvio" class="form-select" style="width: 110px; height:42px">
-                                            <option selected disabled>Selecciona Etapa</option>
+                                            <option selected disabled>Etapa</option>
                                             <option value="Cria">Cría</option>
                                             <option value="Juvenil">Juvenil</option>
                                             <option value="Adulto">Adulto</option>
