@@ -196,7 +196,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
     </section>
 
-    <!-- Inicia el terrible modal de editar producto -->
+    <!-- Inicia el terrible modal de crear producto -->
     <section>
         <div id="modal_wrapper" class="modal-wrapper">
       
@@ -245,26 +245,36 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         <form action="">
                             <div class="formu-modals"> 
                                 <div class="first-group">
-                                    <label class="label-reuse"for="">Nombre del producto:</label>
-                                    <input class="text-nameProduct"type="text">
+                                    <label class="label-reuse" for="">Nombre del producto:</label>
+                                    <input class="text-nameProduct" type="text" name="nombre_P">
                                 </div>
                                 <div class="second-group">
-                                    <!-- <div class="group-selects">
+                                    <div class="group-selects">
                                         <label class="label-reuse" for="">Tipo:</label>
-                                        <select class="selectProdcuts"name="select" id="">
-                                            <option value="Comida">Comida</option>
-                                            <option value="Limpieza">Limpieza</option>
-                                            <option value="General">General</option>
-                                        </select>
-                                    </div> -->
+                                        <select class="selectProdcuts" name="Categoria_P" id="Categoria_P">
+                                        <option selected>Selecciona Tipo Producto</option>
+                                <?php
+                                // Query para obtener los tipos de productos
+                                $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and idtipoproductoservicio not like 1 "; // Reemplaza "tabla_especie" con el nombre de tu tabla
+                                // Guardar resultados en array
+                                $resultTipoProducto = mysqli_query($conn, $queryTipoProducto);
+                                while ($rowProducto = mysqli_fetch_assoc($resultTipoProducto)) {
+                                    $nombreTipoProducto = $rowProducto['nombre']; 
+                                    $idTipoProducto = $rowProducto['idtipoproductoservicio'];         
+                                    echo "<option value=\"$idTipoProducto\">$nombreTipoProducto</option>";
+                                }
+                                ?>
+                            </select>
+
+                                    </div>
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Precio</label>
-                                        <input class="text-namePrice"type="text">
+                                        <input class="text-namePrice"type="text" name ="precio_P">
                                     </div>
                                 </div>
                                 <div class="thirds-group">
                                     <label class="label-reuse"for="">Descripcion:</label>
-                                    <textarea class="text-descriptionProduct"type="area"></textarea>
+                                    <textarea class="text-descriptionProduct"type="area" name="descripcion_P"></textarea>
                                 </div>
                             </div>
                         </form>

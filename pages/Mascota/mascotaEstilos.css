@@ -202,21 +202,20 @@ body::-webkit-scrollbar-thumb {
 #row-tablaMascota {
   padding: 1rem 0rem 0rem 0rem;
   width: 100%;
-  height: 80vh;
+  height: 76vh;
   background-color: #ebebf3;
 }
-
-#row-tablaMascota {
+#row-tablaMascota .card-body{
   overflow-y: auto;
 }
-#row-tablaMascota::-webkit-scrollbar {
+#row-tablaMascota .card-body::-webkit-scrollbar {
   width: 10px;
 }
-#row-tablaMascota::-webkit-scrollbar-thumb {
+#row-tablaMascota .card-body::-webkit-scrollbar-thumb {
   background: #c0dfd5;
   border-radius: 2px;
 }
-#row-tablaMascota::-webkit-scrollbar-thumb:hover {
+#row-tablaMascota .card-body::-webkit-scrollbar-thumb:hover {
   background: #2a9d8f;
   border-radius: 2px;
 }
@@ -226,6 +225,7 @@ body::-webkit-scrollbar-thumb {
 #row-tablaMascota .card {
   background-color: #c0dfd5;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
+  max-height: 600px;
 }
 #row-tablaMascota h4 {
   font-size: 40px;
@@ -243,7 +243,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 600;
 }
 #row-tablaMascota .six {
-  margin: 1rem 0rem 1rem 0rem;
+  margin: 1rem 0rem 0.5rem 1.2rem;
 }
 #row-tablaMascota input {
   width: 20%;
@@ -334,7 +334,7 @@ tbody tr:hover {
 .modalMascotaAgre .container {
   background-color: #c8dfda;
   width: auto;
-  height: 362px;
+  height: 380px;
   border-radius: 5px 5px 15px 15px;
   padding: 0px;
   /* border: 4px solid #1b3030; */
@@ -345,13 +345,14 @@ tbody tr:hover {
 }
 #modal-Register .button .btn {
   background-color: #1bc5bd;
-  width: 110px;
-  height: 44px;
+  width: 162px;
+  height: 50px;
   color: #1b3030;
   border: 2px solid #1b3030;
   font-size: 19px;
   font-weight: 700;
   text-align: center;
+  border-radius: 40px;
 }
 #modal-Register .row .button {
   display: flex;
@@ -362,7 +363,7 @@ tbody tr:hover {
 #modal-Register .row .button .btn:hover {
   border: 1px solid #111d1c;
   background-color: #0cf1e6;
-  transform: scale(0.99);
+  transform: scale(1.04);
 }
 #modal-Register .container .header-ReMas {
   background-color: #57b8ace3;
@@ -396,22 +397,27 @@ tbody tr:hover {
   padding-left: 0px;
   align-items: center;
 }
+.modalMascotaAgre #modal-Register .data {
+  width: 720px;
+}
 #modal-Register.data .data-col2 {
   width: 391px;
 }
-#modal-Register .row .data-col2 input,
-#modal-Register .row .data-col2 select {
+.modalMascotaAgre #modal-Register .row .data-col2 input,
+.modalMascotaAgre #modal-Register .row .data-col2 select {
   background-color: rgba(240, 240, 240, 0.959);
-  border-bottom: 1px solid #eead20;
-  margin: 0px 0px 18px 0px;
+  border-bottom: 1px solid #E96397;
+  border-width: 0px 2px 2px 0px;
+  margin: 0px 0px 25px 0px;
   font-weight: 600;
 }
 #modal-Register .row .data-col2 label {
-  margin: 0px 0px 18px 0px;
+  margin: 0px 0px 25px 0px;
   font-weight: 600;
 }
 .form-control {
-  width: 193px;
+  width: 203px;
+  height: 42px;
   display: inline;
 }
 .form-select {
@@ -430,7 +436,8 @@ tbody tr:hover {
 
 #modal-Register .ip {
   /* width: 94.6px; */
-  width: 80px;
+  width: 92px;
+  height: 42px;
 }
 #modal-Register .cont-radio .form-check-input {
   margin-left: 0px !important;
@@ -456,26 +463,41 @@ tbody tr:hover {
 #modal-Register .cont-este {
   margin-right: 20px;
   display: flex;
-  gap: 4px;
+  gap: 8px;
   align-items: center;
 }
 #modal-Register .data-col1 {
   width: 35%;
-  margin-right: -30px;
+  margin-right: -40px;
+  height: 272px;
 }
 #modal-Register .data-col1 .row {
   width: 100%;
   margin: 0px;
 }
-
+.iconoRegisMascota{
+  width: 38px;
+  height: 38px;
+  margin-left: 160px;
+  margin-top: -74px;
+  border-radius: 5px;
+  transition: 0.7s ease;
+  border: solid 2px black;
+  padding: 3px;
+  cursor: pointer;
+}
+.iconoRegisMascota:hover {
+  transform: rotate(360deg);
+}
 .foto {
   display: flex;
-  width: 160px;
-  height: 140px;
-  margin: 7px;
+  width: 162px;
+  height: 166px;
+  margin: 1px 7px 7px 7px;
   overflow: hidden;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
-#cambiar-foto {
+/* #cambiar-foto {
   background-color: #1bc5bd;
   border: 2px solid #1b3030;
   border-radius: 2px;
@@ -491,15 +513,14 @@ tbody tr:hover {
 }
 #cambiar-foto:active {
   background-color: #1df3e8;
-}
+} */
 #img {
-  border-radius: 50%;
+  border-radius: 8px;
   width: 100%;
   height: 100%;
   margin: 0px;
   margin-right: auto;
   display: block;
-  border: 2px solid #1b3030;
   overflow-clip-margin: content-box;
   overflow: clip;
 }
@@ -516,7 +537,7 @@ tbody tr:hover {
   margin: auto;
   border-radius: 5px 5px 20px 20px;
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  width: 480px;
+  width: 485px;
   height: 432px;
   background-position: center center;
   background-repeat: no-repeat;
@@ -529,9 +550,34 @@ tbody tr:hover {
 .modalMascotaEdit .container {
   background-color: #c8dfda;
   width: 490px;
-  height: 344px;
+  height: 353px;
   border-radius: 5px 5px 15px 15px;
   padding: 0px;
+}
+#modal-Register .row .data-col2 .form-edit input,
+#modal-Register .row .data-col2 .form-edit select{
+  background-color: rgba(240, 240, 240, 0.959);
+  border-bottom: 1px solid #E96397;
+  border-width: 0px 2px 2px 0px;
+  margin: 0px 0px 30px 0px;
+  font-weight: 600;
+}
+#modal-Register .row .data-col2 .form-edit label {
+  margin: 0px 0px 30px 0px;
+}
+.modalMascotaEdit .row .button{
+ margin-top: -3px;
+}
+.modalMascotaEdit .row .button .btn{
+  width: 223px !important;
+ }
+.edad-footer{
+  background-color: rgba(240, 240, 240, 0.959);
+  border-bottom: 1px solid #E96397;
+  border-width: 0px 2px 2px 0px;
+  margin: 0px 0px 25px 0px;
+  font-weight: 600;
+  text-align: center;
 }
 .modalMascotaEdit .container .data{
   margin: 0px 0px 0px 18px !important;
@@ -541,39 +587,45 @@ tbody tr:hover {
 }
 .modalMascotaEdit .container .data-col2 {
   width: 50% !important;
+  height: 272px;
 }
 .modalMascotaEdit .container .data-col1 {
   width: 50% !important;
   height: 100%;
   margin-right: 0px !important;
 }
-.modalMascotaEdit .container .data-col2 .cont-radio {
+.modalMascotaEdit .container .data-col2 .form-edit .cont-radio {
   display: block;
 }
-.modalMascotaEdit .container .data-col2 .cont-radio .cont-este {
-  gap: 13px !important;
+.modalMascotaEdit .container .data-col2 .form-edit .cont-radio .cont-este {
+  gap: 16px !important;
+  margin-right: 0px !important;
 }
-.modalMascotaEdit .container .data-col2 .cont-radio .cont-este input:checked {
-  border: solid 2px #eead20 !important;
+.modalMascotaEdit .container .data-col2 .form-edit .cont-radio .cont-este input:checked {
+  border: solid 2px #E96397 !important;
 }
 .modalMascotaEdit .form-control{
-  width: 229.39px;
+  width: 222px;
 }
 .modalMascotaEdit .row-short .ip{
-  width: 85px !important;
+  width: 90px !important;
 }
 .modalMascotaEdit #perfil-img{
-  border-radius: 50%;
+  border-radius: 8px;
   width: 100%;
   height: 100%;
   margin: 0px;
   margin-right: auto;
   display: block;
-  border: 2px solid #1b3030;
   overflow-clip-margin: content-box;
   overflow: clip;
 }
-
+.modalMascotaEdit .iconoRegisMascota{
+  margin-left: 150px;
+  margin-top: -72px;
+  border: none;
+  border-radius: 8px;
+}
 /* Modal Carnet */
 #modal-Carnet {
   margin: auto;

@@ -1,5 +1,5 @@
-<!-- MODAL REGISTRO -->
-<section class="moda  modalMascota modalMascotaAgre">
+    <!-- MODAL REGISTRO -->
+    <section class="moda modalMascota modalMascotaAgre">
     <div class="row" id="modal-Register">
         <div class=" container">
             <div class="row header-ReMas justify-content-end">
@@ -13,13 +13,13 @@
             <div class="row data">
                 <form action="../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
                     <div class="data-col2">
-                        <input type="text" id="nombre" class="form-control" name="nombreMascota" placeholder="Nombre">
+                        <input type="text" id="nombre" class="form-control me-4" name="nombreMascota" placeholder="Nombre">
                         <input type="date" name="fechaNac" class="form-control">
                         <input hidden value="<?= $value[7] ?>" name="idCliente">
 
                         <!-- Combo de especies -->
                         <div class="select-RaEs">
-                            <select name="especie" id="especie" class="form-select" style="width: 193px;"
+                            <select name="especie" id="especie" class="form-select me-3" style="width: 203px; height: 42px;"
                                 onchange="cargarRazas()">
                                 <option selected>Selecciona Especie</option>
                                 <?php
@@ -37,7 +37,7 @@
                             </select>
 
                             <!-- Combo de razas -->
-                            <select name="raza" id="raza" class="form-select" style="width: 193px;">
+                            <select name="raza" id="raza" class="form-select" style="width: 203px; height: 42px; margin-right: 8px;">
                                 <option selected>Selecciona Raza</option>
                             </select>
                         </div>
@@ -80,10 +80,9 @@
                             }
                         </script>
 
-
-                        <div class="row-short">
+                        <div class="row-short me-4">
                             <div class="cont-radio ip">
-                                <select name="sexo" id="sexo" value="sexo" class="form-select" style="width: 109px;">
+                                <select name="sexo" id="sexo" value="sexo" class="form-select" style="width: 108px; height: 42px;">
                                     <option selected>Sexo</option>
                                     <option value="Hembra">Hembra</option>
                                     <option value="Macho">Macho</option>
@@ -91,17 +90,14 @@
                             </div>
                             <input type="text" class="form-control ip" name="color" placeholder="Color">
                         </div>
-                        <div class="row-short">
+                        <div class="row-short" style="margin-right: 6px;">
                             <input type="text" class="form-control ip" name="peso" placeholder="Peso">
-                            <input type="text" class="form-control" style="width: 109px;" id="renian" name="renian"
+                            <input type="text" class="form-control" style="width: 109px; " id="renian" name="renian"
                                 placeholder="Renian">
-
                         </div>
 
-
-
                         <div class="cont-radio">
-                            <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 193px;">
+                            <select name="etapa" id="etapa" value="etapa" class="form-select" style="width: 203px;height: 42px;">
                                 <option selected>Selecciona Etapa</option>
                                 <option value="Cria">Cría</option>
                                 <option value="Juvenil">Juvenil</option>
@@ -117,27 +113,24 @@
                         </div>
                     </div>
 
-
-                    <div class="data-col1">
-                        <div class="row">
-                            <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
-
-                            <label id="cambiar-foto" for="foto">Subir Foto</label>
-                        </div>
+                    <div class="data-col1">                          
                         <div class="row">
                             <div class="fotoPos">
                                 <div class="foto">
                                     <img id="img" src="../../imagenes/huella.jpg" alt="avatar">
                                 </div>
                             </div>
+                            <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
+                            <label id="cambiar-foto" for="foto"><img  class="iconoRegisMascota" src="../../imagenes/perfilCliente/upload.svg" alt="RegisMascota"></label>                           
                             <div class="button">
                                 <input type="submit" name="registrar" value="Registrar" class="btn">
                             </div>
                         </div>
+                        
+
                     </div>
                 </form>
             </div>
-
         </div>
     </div>
 </section>

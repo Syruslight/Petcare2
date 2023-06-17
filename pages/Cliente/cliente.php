@@ -294,52 +294,52 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                     <div class="row">
                         <h3 class="mb-3"><span>Editar Mascota</span></h3>
                     </div>
-                </div>
+                    </div>
                 <div class="row data">
                 <form action="" method="post" enctype="multipart/form-data">
                             <div class="data-col2">
-                                <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" placeholder="Nombre">
-                                <div class="row-short">
-                                    <input type="text" class="form-control ip" id="pesoEnvio" name="peso" placeholder="Peso">
-                                    <input type="text" class="form-control" style="width: 120px;" id="edadEnvio" name="edad" placeholder="Edad" disabled>
-                                </div>
-                                <div class="cont-radio">
-                                    <select name="etapa" id="etapaEnvio" class="form-select" style="width: 220px;">
-                                        <option selected disabled>Selecciona Etapa</option>
-                                        <option value="Cria">Cría</option>
-                                        <option value="Juvenil">Juvenil</option>
-                                        <option value="Adulto">Adulto</option>
-                                    </select>
-                                    <div class="cont-este">
-                                        <label class="form-check-label">Esterilizado:</label>
-                                        <input type="radio" name="esterilizado" class="form-check-input" id="siEnvio" value="SI">
-                                        <label class="form-check-label" for="siEnvio">Si</label>
-                                        <input type="radio" name="esterilizado" class="form-check-input" id="noEnvio" value="NO">
-                                        <label class="form-check-label" for="noEnvio">No</label>
+                                <div class="form-edit">
+                                    <input type="text" id="nombreEnvio" class="form-control" name="nombreMascota" placeholder="Nombre">
+                                    <div class="row-short">
+                                        <input type="text" class="form-control ip me-3" id="pesoEnvio" name="peso" placeholder="Peso">
+                                        <select name="etapa" id="etapaEnvio" class="form-select" style="width: 110px; height:42px">
+                                            <option selected disabled>Etapa</option>
+                                            <option value="Cria">Cría</option>
+                                            <option value="Juvenil">Juvenil</option>
+                                            <option value="Adulto">Adulto</option>
+                                        </select>
                                     </div>
-                                    <input type="hidden" id="fotodefecto" name="fotoDefecto">
-                                    <input type="hidden" id="idmascotaEnvio" name="idmascota">
+                                    <div class="cont-radio">
+                                        <div class="cont-este">
+                                            <label class="form-check-label">Esterilizado:</label>
+                                            <input type="radio" name="esterilizado" class="form-check-input" id="siEnvio" value="SI">
+                                            <label class="form-check-label" for="siEnvio">Si</label>
+                                            <input type="radio" name="esterilizado" class="form-check-input" id="noEnvio" value="NO">
+                                            <label class="form-check-label" for="noEnvio">No</label>
+                                        </div>
+                                        <input type="hidden" id="fotodefecto" name="fotoDefecto">
+                                        <input type="hidden" id="idmascotaEnvio" name="idmascota">
+                                    </div>      
+                                </div>
+                                <div class="button">
+                                        <input type="submit" name="editar" value="Editar" class="btn">
                                 </div>
                             </div>
                             <div class="data-col1">
-                                <div class="row">
-                                    <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
-                                    <label id="cambiar-foto" for="foto">Subir Foto</label>
-                                </div>
                                 <div class="row">
                                     <div class="fotoPos">
                                         <div class="foto">
                                             <img id="perfil-img" alt="profile">
                                         </div>
                                     </div>
-                                    <div class="button">
-                                        <input type="submit" name="editar" value="Editar" class="btn">
-                                    </div>
+                                    <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
+                                    <label id="cambiar-foto" for="foto"><img  class="iconoRegisMascota" src="../../imagenes/perfilCliente/pencil.png" alt="EditMascota"></label>
+                                    <input type="text" class="form-control edad-footer" style="width: 140px;margin-top: -3px;" id="edadEnvio" name="edad" placeholder="Edad" disabled>
                                 </div>
                             </div>
                         </form>
                 </div>
-            </div>
+            
         </div>
     </section>
 
