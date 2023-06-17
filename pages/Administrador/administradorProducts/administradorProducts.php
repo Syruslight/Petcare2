@@ -18,6 +18,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='administradorProducts.css'>
+    <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
@@ -36,6 +37,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
         <div class="dash-information">
             <?php
             include('../components/headerAdministrador.php');
+           ?>
+              <?php
+            include('../editAdministrador/editModalAdministrador.php');
            ?>
 
            <div class="wrapper-products">
@@ -189,75 +193,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
 
-<!--Modal editar Pefil -->
 
-    <section class="modal">
-        <div class="modal__container">
-            <div class="cuadro_modal">
-                <div class="top-form">
-                    <div class="titulo-h2">
-                        <h2 class="tituloform">Editar Datos</h2>
-                    </div>
-                    <div id="close-modal">
-                        &#10006
-                    </div>
-                </div>
-                <form action="../../../llamadas/proceso_actualizarDatosAdministrador.php" enctype="multipart/form-data"
-                    method="POST">
-
-                    <div class="editheader">
-                        <aside class="contfoto">
-                            <img id="img" src="../../../imagenes/fotosperfil/administrador/<?= $value[6] ?>"
-                                class="modal__img" width="95" height="89">
-                                <input id="foto" type="file" name="foto" hidden>
-                            <label id="cambiar-foto" for="foto"><img class="image-profile"
-                src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30"></label>
-                        </aside>
-                        <section class="textonomap">
-                            <div class="input-group">
-                                <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>"
-                                    required>
-                                <label for=""> Nombres</label>
-
-                            </div>
-                            <div class="input-group">
-                                <input class="estilo-separado" type="text" name="apellidos" value="<?= $value[1] ?>"
-                                    required>
-                                <label for=""> Apellidos</label>
-                            </div>
-
-                        </section>
-                    </div>
-                    <div class="modalinf">
-                        <div class="input-group1">
-                            <input class="estilo-separado1" type="TEXT" name="telefono" value="<?= $value[3] ?>"
-                                required>
-                            <label for=""> Telefono</label>
-                        </div>
-                        <div class="input-group2">
-                            <input class="estilo-separado1" type="TEXT" name="dni" value="<?= $value[2] ?> " required>
-                            <label for=""> DNI</label>
-                        </div>
-
-                        <input hidden name="idadministrador" value="<?= $value[7] ?> " required>
-                        <input hidden name="foto2" value="<?= $value[6] ?> " required>
-                    </div>
-                    <div class="modalFoot">
-                        <div class="input-group3">
-                            <input class="estilo-separado" type="text" name="direccion" value="<?= $value[4] ?>"
-                                required>
-                            <label for=""> Dirección</label>
-                        </div>
-                    </div>
-                    <div class="contbtn">
-                        <button class="btn-mod">ACTUALIZAR DATOS</button>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
-    </section>
     </section>
 
     <!-- Inicia el terrible modal de crear producto -->
@@ -287,17 +223,18 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                     <div class="wrapper-bodyModals">
                         <div class="photos-Modals">
                             <div class="image-modals">
-                                <img src="../../../imagenes/perfilAdmin/updatePhotoProducts.png" >
+                                <img id="imgProducto" src="../../../imagenes/sinImagen.jpg" >
                             </div>
                          <div class="update-photos">
-                                <span class="text-updatePhoto">Subir Foto</span>
-                                <lord-icon 
+                            <input id="fotoProductoSRC" type="file" hidden>
+                                <label class="text-updatePhoto" for="fotoProductoSRC" onclick="previsualizarImagen('imgProducto', 'fotoProductoSRC', '../../../imagenes/sinImagen.jpg')">Subir Foto
+                                 <lord-icon
                                     src="https://cdn.lordicon.com/wfadduyp.json"
                                     trigger="click"
                                     colors="primary:#ffffff"
                                     state="hover-1"
                                     style="width:39px;height:39px">
-                                </lord-icon>
+                                </lord-icon></label>
                             </div>
                             
 
@@ -359,8 +296,8 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
 
-<script src="../../../js/registroNewUs.js"></script>
-    <script src="../../../js/Modal.js"></script>
+<script src="../../../js/previsualizarImagen.js"></script>
+    <script src="../../../js/Interacciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/swiperAdmin.js"></script>
 <script src="../../../js/administrador/modals-products.js"></script>

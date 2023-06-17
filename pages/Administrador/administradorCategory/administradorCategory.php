@@ -18,6 +18,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='administradorCategory.css'>
+    <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
@@ -38,145 +39,76 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             include('../components/headerAdministrador.php');
            ?>
 
-           <div class="wrapper-products">
-            <div class="subwrapper-products">
-                <div class="header-products">
-                    <h1 class="tittle-products">Lista de Producto</h1>
+<?php
+// Realiza la consulta para obtener los datos de la base de datos
+$sql = "SELECT t.nombre, t.estado, COUNT(p.idproductoservicio) AS afiliaciones
+        FROM tipoproductoservicio t
+        LEFT JOIN productoservicio p ON t.idtipoproductoservicio = p.idtipoproductoservicio
+        WHERE t.idtipoproductoservicio NOT LIKE '1'
+        GROUP BY t.idtipoproductoservicio";
+$res = mysqli_query($conn, $sql);
+
+// Verifica si se obtuvieron resultados
+if (mysqli_num_rows($res) > 0) {
+    ?>
+    <div class="wrapper-products">
+        <div class="subwrapper-products">
+            <div class="header-products">
+                <h1 class="tittle-products">Lista de Producto</h1>
+            </div>
+            <div class="wrapper-tableProducts">
+                <div class="header-table">
+                    <button class="add-newCategory">+ Nueva Categoría</button>
                 </div>
-                <div class="wrapper-tableProducts">
-                   <div class="header-table">
-                   <button class="add-newCategory">+ Nueva Catergoria</button>
-                    </div>
-                   <div class="wrapper-onlyTable">
+                <div class="wrapper-onlyTable">
                     <div class="tittle-table">
                         <div>
-
                             <span class="tittle-textProduct">N°</span>
                             <span class="tittle-textType">Nombre</span>
                             <span class="tittle-textPrice">Afiliaciones</span>
                             <span class="tittle-textDescription">Estado</span>
-                            <span class="tittle-textAction">Accion</span>
+                            <span class="tittle-textAction">Acción</span>
                         </div>
                         <hr class="linea">
                     </div>
                     <div class="wrapper-table">
-                        <div class="dates-table"> <!--Inicia el primer producto-->
-                            <span class="table-nameFood">01</span>
-                            <span class="table-type">Comida</span>
-                            <span class="table-price">12 Productos</span>
-                            <div class="toogleStatus">   
-                                <div class="toggle-switch">
-                                    <input  type="checkbox"
-                                    id="switch1"
-                                    class="toggle-switch-checkbox"
-                                    onchange="toggleSwitch('variable1', this.checked)" />
-                                    <label for="switch1" class="toggle-switch-label"></label>
-                                    <span class="slider round"></span>
-                                    <span class="toggle-switch-text" id="status1">
-                                        Inactivo
-                                    </span>
-                                </div>                             
+                        <?php
+                        $numero = 1; // Variable para el contador
+                        while ($f = mysqli_fetch_array($res)) {
+                            ?>
+                            <div class="dates-table">
+                                <span class="table-nameFood"><?php echo $numero; ?></span>
+                                <span class="table-type"><?php echo $f['nombre']; ?></span>
+                                <span class="table-price"><?php echo $f['afiliaciones']; ?> Productos</span>
+                                <div class="toogleStatus">
+                                    <div class="toggle-switch">
+                                        <input type="checkbox" id="switch<?php echo $numero; ?>" class="toggle-switch-checkbox" onchange="toggleSwitch('variable<?php echo $numero; ?>', this.checked)" <?php if ($f['estado'] == '1') echo 'checked'; ?> />
+                                        <label for="switch<?php echo $numero; ?>" class="toggle-switch-label"></label>
+                                        <span class="slider round"></span>
+                                        <span class="toggle-switch-text" id="status<?php echo $numero; ?>"><?php echo ($f['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>
+                                    </div>
+                                </div>
+                                <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40">
+                                <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
                             </div>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
-                        </div>
-                        <hr class="linea">
-
-                        <div class="dates-table"> <!--Inicia el segundo producto-->
-                            <span class="table-nameFood">02</span>
-                            <span class="table-type">Comida</span>
-                            <span class="table-price">12 Productos</span>
-                            <div class="toogleStatus">   
-                                <div class="toggle-switch">
-                                    <input  type="checkbox"
-                                    id="switch2"
-                                    class="toggle-switch-checkbox"
-                                    onchange="toggleSwitch('variable2', this.checked)" />
-                                    <label for="switch2" class="toggle-switch-label"></label>
-                                    <span class="slider round"></span>
-                                    <span class="toggle-switch-text" id="status2">
-                                        Inactivo
-                                    </span>
-                                </div>                             
-                            </div>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
-                        </div>
-                        <hr class="linea">
-
-                        <div class="dates-table"> <!--Inicia el tercero producto-->
-                            <span class="table-nameFood">03</span>
-                            <span class="table-type">Comida</span>
-                            <span class="table-price">12 Productos</span>
-                            <div class="toogleStatus">   
-                                <div class="toggle-switch">
-                                    <input  type="checkbox"
-                                    id="switch3"
-                                    class="toggle-switch-checkbox"
-                                    onchange="toggleSwitch('variable3', this.checked)" />
-                                    <label for="switch3" class="toggle-switch-label"></label>
-                                    <span class="slider round"></span>
-                                    <span class="toggle-switch-text" id="status3">
-                                        Inactivo
-                                    </span>
-                                </div>                             
-                            </div>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
-                        </div>
-                        <hr class="linea">
-
-                        <div class="dates-table"> <!--Inicia el cuarto producto-->
-                            <span class="table-nameFood">04</span>
-                            <span class="table-type">Comida</span>
-                            <span class="table-price">12 Productos</span>
-                            <div class="toogleStatus">   
-                                <div class="toggle-switch">
-                                    <input  type="checkbox"
-                                    id="switch4"
-                                    class="toggle-switch-checkbox"
-                                    onchange="toggleSwitch('variable4', this.checked)" />
-                                    <label for="switch4" class="toggle-switch-label"></label>
-                                    <span class="slider round"></span>
-                                    <span class="toggle-switch-text" id="status4">
-                                        Inactivo
-                                    </span>
-                                </div>                             
-                            </div>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
-                        </div>
-                        <hr class="linea">
-
-                        <div class="dates-table"> <!--Inicia el quinto producto-->
-                            <span class="table-nameFood">05</span>
-                            <span class="table-type">Comida</span>
-                            <span class="table-price">12 Productos</span>
-                            <div class="toogleStatus">   
-                                <div class="toggle-switch">
-                                    <input  type="checkbox"
-                                    id="switch5"
-                                    class="toggle-switch-checkbox"
-                                    onchange="toggleSwitch('variable5', this.checked)" />
-                                    <label for="switch5" class="toggle-switch-label"></label>
-                                    <span class="slider round"></span>
-                                    <span class="toggle-switch-text" id="status5">
-                                        Inactivo
-                                    </span>
-                                </div>                             
-                            </div>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
-                        </div>
-                        <hr class="linea">
-
-        
-
+                            <hr class="linea">
+                            <?php
+                            $numero++; // Incrementar el contador en cada iteración
+                        }
+                        ?>
                     </div>
-                   </div>
                 </div>
             </div>
-           </div>
+        </div>
+    </div>
+    <?php
+} else {
+    echo "No se encontraron resultados.";
+}
+?>
+           <?php
+            include('../editAdministrador/editModalAdministrador.php');
+            ?>
            <?php
             include('../components/footerAdministrador.php');
             ?>
@@ -194,75 +126,6 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
 
-<!--Modal editar Pefil -->
-
-    <section class="modal">
-        <div class="modal__container">
-            <div class="cuadro_modal">
-                <div class="top-form">
-                    <div class="titulo-h2">
-                        <h2 class="tituloform">Editar Datos</h2>
-                    </div>
-                    <div id="close-modal">
-                        &#10006
-                    </div>
-                </div>
-                <form action="../../../llamadas/proceso_actualizarDatosAdministrador.php" enctype="multipart/form-data"
-                    method="POST">
-
-                    <div class="editheader">
-                        <aside class="contfoto">
-                            <img id="img" src="../../../imagenes/fotosperfil/administrador/<?= $value[6] ?>"
-                                class="modal__img" width="95" height="89">
-                                <input id="foto" type="file" name="foto" hidden>
-                            <label id="cambiar-foto" for="foto"><img class="image-profile"
-                src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32" height="30"></label>
-                        </aside>
-                        <section class="textonomap">
-                            <div class="input-group">
-                                <input class="estilo-separado" type="text" name="nombres" value="<?= $value[0] ?>"
-                                    required>
-                                <label for=""> Nombres</label>
-
-                            </div>
-                            <div class="input-group">
-                                <input class="estilo-separado" type="text" name="apellidos" value="<?= $value[1] ?>"
-                                    required>
-                                <label for=""> Apellidos</label>
-                            </div>
-
-                        </section>
-                    </div>
-                    <div class="modalinf">
-                        <div class="input-group1">
-                            <input class="estilo-separado1" type="TEXT" name="telefono" value="<?= $value[3] ?>"
-                                required>
-                            <label for=""> Telefono</label>
-                        </div>
-                        <div class="input-group2">
-                            <input class="estilo-separado1" type="TEXT" name="dni" value="<?= $value[2] ?> " required>
-                            <label for=""> DNI</label>
-                        </div>
-
-                        <input hidden name="idadministrador" value="<?= $value[7] ?> " required>
-                        <input hidden name="foto2" value="<?= $value[6] ?> " required>
-                    </div>
-                    <div class="modalFoot">
-                        <div class="input-group3">
-                            <input class="estilo-separado" type="text" name="direccion" value="<?= $value[4] ?>"
-                                required>
-                            <label for=""> Dirección</label>
-                        </div>
-                    </div>
-                    <div class="contbtn">
-                        <button class="btn-mod">ACTUALIZAR DATOS</button>
-                    </div>
-
-                </form>
-
-            </div>
-        </div>
-    </section>
     </section>
 
     <!-- Inicia el terrible modal de editar producto -->
@@ -354,8 +217,8 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
 
-<script src="../../../js/registroNewUs.js"></script>
-    <script src="../../../js/Modal.js"></script>
+<script src="../../../js/previsualizarImagen.js"></script>
+    <script src="../../../js/Interacciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
 <script src="modals-products.js"></script>
 <script src="../../../js/administrador/toogleSwitchCategory.js"></script>

@@ -12,6 +12,20 @@ function openModalVeterinario(){
   });
 }
 
+function openModalAdministrador(){
+  const openModal = document.querySelector(".openModalAdministrador");
+  const modal = document.querySelector(".modalAdministrador");
+  const closeModal = document.querySelector("#cloaseModalAdministrador");
+  openModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.add("modalAdministrador--show");
+  });
+  closeModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.remove("modalAdministrador--show");
+  });
+}
+
 
 function openmodalLogin(){
   const openModal = document.querySelector(".boton-modal");
