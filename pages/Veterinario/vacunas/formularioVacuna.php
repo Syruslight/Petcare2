@@ -1,12 +1,13 @@
 <section class="modalVacuna">
-    <div class="modal__container">
+    <div class="modalVacuna__container">
         <div class="wrappervacuna">
             <div class="top-formvacuna">
+                <h2>Generar Vacuna</h2>
                 <div id="closeModalVacuna">
                     &#10006;
                 </div>
             </div>
-            <form action="../../../llamadas/proceso_registrarDetalleVacuna.php" method="post"
+            <form class="formularioVacuna" action="../../../llamadas/proceso_registrarDetalleVacuna.php" method="post"
                 enctype="multipart/form-data">
                 <label for="" class="etiqueta_nombre"> Ingrese el RENIAN de la mascota:</label>
                 <div class="grupotex1">
