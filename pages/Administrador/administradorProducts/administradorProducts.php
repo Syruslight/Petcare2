@@ -312,14 +312,14 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                     <input class="text-nameProduct"type="text">
                                 </div>
                                 <div class="second-group">
-                                    <!-- <div class="group-selects">
+                                    <div class="group-selects">
                                         <label class="label-reuse" for="">Tipo:</label>
                                         <select class="selectProdcuts"name="select" id="">
                                             <option value="Comida">Comida</option>
                                             <option value="Limpieza">Limpieza</option>
                                             <option value="General">General</option>
                                         </select>
-                                    </div> -->
+                                    </div>
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Precio</label>
                                         <input class="text-namePrice"type="text">
