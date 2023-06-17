@@ -83,7 +83,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
               // Itera sobre los resultados y muestra los datos en la tabla
               while ($row = $result->fetch_assoc()) {
                   echo "<tr>";
-                  echo "<td>" . $numero . "</td>";
+                  
                   echo "<td>" . $row['lote'] . "</td>";
                   echo "<td>" . $row['tipo'] . "</td>";
                   echo "<td>" . $row['renian'] . "</td>";
@@ -94,7 +94,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                   echo "<td>" . $row['restricciones'] . "</td>";
                   echo "</tr>";
           
-                  $numero--; // Incrementar el contador en cada iteración
+                  $numero--; // Desincrementar el contador en cada iteración
               }
           
               echo "</table>";
