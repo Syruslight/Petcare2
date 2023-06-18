@@ -74,6 +74,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
             </div>
 
             <!-- Servicios -->
+            
             <div class="row align-items-center" id="row-servicios">
                 <div class="conte-servicio text-center">
                     <!-- Items Servicio-->
@@ -102,6 +103,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                     <!-- Fin Items Servicio-->
                 </div>
             </div>
+
 
             <div class="container" id="row-tablaMascota">
                 <div class="row">
@@ -146,9 +148,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         <?php
         include 'components/modalMascota.php';
         ?>
-
-
-
        <!-- MODAL EDITAR -->
        <section class="moda modalMascota modalMascotaEdit">
             <div class="row" id="modal-Register">

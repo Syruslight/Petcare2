@@ -2,6 +2,7 @@
 // Incluir la clase Dompdf
 require_once '../../libreria/dompdf/autoload.inc.php';
 require('../../controlador/conexion.php');
+
 $conn = conectar();
 
 use Dompdf\Dompdf;
@@ -37,173 +38,120 @@ $html = '
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <style>
-    body {
-        font-family: Arial, sans-serif;
-        color: #333333;
-    }
-
-    .container {
-        background-color: #ffffff;
-        padding: 20px;
-    }
-
-    .card-mascota {
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-    }
-
-    .card-carnet {
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .card-title {
-        margin-bottom: 20px;
-    }
-
-    .img-card {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .img-card img {
-        width: 200px;
-        height: auto;
-        border-radius: 50%;
-    }
-
-    .card-body {
-        display: flex;
-        justify-content: space-between;
-    }
-
-    .card-text {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .co1,
-    .co2 {
-        flex: 1;
-    }
-
-    .list-unstyled {
-        padding-left: 0;
-        margin-top: 0;
-        margin-bottom: 0;
-    }
-
-    .list-unstyled li {
-        margin-bottom: 10px;
-        list-style: none;
-    }
-
-    .carnet-tit {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    .table-data {
-        margin-top: 20px;
-    }
-
-    .table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    .table th,
-    .table td {
-        padding: 8px;
-    }
-
-    .table thead {
-        background-color: #333333;
-        color: #ffffff;
-    }
-
-    .table tbody tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
-</style>
+<style>
+.contenedorImgTexto {
+    display: flex;
+    align-items: center;
+    height: 33vh; /* El 33% de la altura visible del documento */
+  }
+  
+  .imageWrapper {
+    flex: 0 0 auto;
+    width: 20%;
+    max-height: 100%;
+    overflow: hidden;
+  }
+  
+  .profile-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .contenedorTexto {
+    flex: 1 1 auto;
+  }
+  
+  .listWrapper {
+    display: flex;
+    align-items: center;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .label {
+    font-weight: bold;
+  }
+  
+  .value {
+    margin-left: 5px;
+  }
+      </style>
 </head>
 <body>
-<section class="moda modalMascota modalMascotaCarne">
-    <div  id="modal-Carnet">
+<section class="moda modalMascota modalMascotaCarne">';
 
-        <div class="container">
-            
-            <div class="row mascota-container">
-                <div class="card-mascota">
-                    <div class="card">
+while ($row = $result2->fetch_assoc()) {
+    $ruta_imagen = '../../imagenes/fotosperfil/mascota/' . $row['fotoPerfil'];
 
-                        <div class="card-body">
-                        <div class="card-text">
-                        <div class="co1">
-                        <ul>';
-                        while ($row = $result2->fetch_assoc()) {
-                            $html .= ' <li> 
-                                        <div>
-                                        <span class="label">Renian:</span>
-                                        <span class="value">'. $row['renian'] . ' </span>
-                                        </div> 
-                                        </li>
-                                        <li> 
-                                        <div>
-                                        <span class="label">Edad:</span>
-                                        <span class="value">'. $row['edad'] . ' </span>
-                                        </div> 
-                                        </li>
-                                        <li> 
-                                        <div>
-                                        <span class="label">Sexo:</span>
-                                        <span class="value">'. $row['sexo'] . ' </span>
-                                        </div> 
-                                        </li>
-                                        <li> 
-                                        <div>
-                                        <span class="label">Peso:</span>
-                                        <span class="value">'. $row['peso'] . ' Kg. </span>
-                                        </div> 
-                                        </li>
-                                        <li> 
-                                        <div>
-                                        <span class="label">Raza:</span>
-                                        <span class="value">'. $row['nombre_raza'] . ' </span>
-                                        </div> 
-                                        </li>
-                                        <li> 
-                                        <div>
-                                        <span class="label">Esterilizado:</span>
-                                        <span class="value">'. $row['esterilizado'] . ' </span>
-                                        </div> 
-                                        </li>';}
+    // Leer el contenido de la imagen
+    $imagen_data = file_get_contents($ruta_imagen);
 
-$html .= '</ul>
-        </div>
+    // Convertir la imagen a base64
+    $imagen_base64 = base64_encode($imagen_data);
+
+    $html .= '<div class="contenedorImgTexto">
+    <table>
+  <tr>
+    <td> <div class="imageWrapper">
+      <img class="profile-image" src="data:image/jpeg;base64,' . $imagen_base64 . '">
+    </div></td>
+    <td> <div class="contenedorTexto">
+      <div class="listWrapper">
+        <ul>
+          <li> 
+            <span class="label">Renian:</span>
+            <span class="value">' . $row['renian'] . ' </span>
+          </li>
+          <li> 
+            <span class="label">Edad:</span>
+            <span class="value">' . $row['edad'] . ' </span>
+          </li>
+          <li> 
+            <span class="label">Sexo:</span>
+            <span class="value">' . $row['sexo'] . ' </span>
+          </li>
+          <li> 
+            <span class="label">Peso:</span>
+            <span class="value">' . $row['peso'] . ' Kg. </span>
+          </li>
+          <li> 
+            <span class="label">Raza:</span>
+            <span class="value">' . $row['nombre_raza'] . ' </span>
+          </li>
+          <li> 
+            <span class="label">Esterilizado:</span>
+            <span class="value">' . $row['esterilizado'] . ' </span>
+          </li> 
+        </ul>
+      </div>
     </div>
-</div>
-</div>
-<div class="card-carnet">
+    </td>
+  </tr>
+</table>
+   
+   
+  </div>
+';
+}
+
+
+
+$html .= '
+   
+
     <div class="row carnet-tit">
         <h1>CARNET DE SALUD</h1>
     </div>
-    <div class="container-carnet">
-        <div class="card carnet-data">
-            <div class="row header-tabla">
+   
                 <img src="../../../imagenes/PHlogo.png" alt="logo" class="col">
                 <span class="col">Mis vacunas</span>
                 <img src="../../../imagenes/PHlogo.png" alt="logo" class="col">
-            </div>
-            <div class="row carnet-tabla">
-                <div class="row table-data">
+           
+           
                     <table class="table table-borderless table-striped table-responsive text-center">
                         <thead>
                             <tr>
@@ -217,26 +165,22 @@ $html .= '</ul>
                         </thead>
                         <tbody>';
 
-                            while ($row = $result->fetch_assoc()) {
-                                $html .= '<tr>
-                                            <td>' . $row['fecha'] . '</td>
-                                            <td>' . $row['lote'] . '</td>
-                                            <td>' . $row['tipo'] . '</td>
-                                            <td>' . $row['proxima'] . '</td>
-                                            <td>' . $row['observacion'] . '</td>
-                                            <td>' . $row['restriccion'] . '</td>
-                                        </tr>';
-                            }
+while ($row = $result->fetch_assoc()) {
+    $html .= '
+                            <tr>
+                                <td>' . $row['fecha'] . '</td>
+                                <td>' . $row['lote'] . '</td>
+                                <td>' . $row['tipo'] . '</td>
+                                <td>' . $row['proxima'] . '</td>
+                                <td>' . $row['observacion'] . '</td>
+                                <td>' . $row['restriccion'] . '</td>
+                            </tr>';
+}
 
-                        $html .= '</tbody>
-                        </table>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+$html .= '
+                        </tbody>
+                    </table>
+               
 </section>
 </body>
 </html>';
@@ -247,5 +191,5 @@ $dompdf->setPaper('A4', 'landscape');
 // Render the HTML as PDF
 $dompdf->render();
 // Output the generated PDF to Browser
-$dompdf->stream();
+$dompdf->stream('CarnetMascota.pdf');
 ?>
