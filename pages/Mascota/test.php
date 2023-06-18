@@ -92,6 +92,8 @@ while ($row = $result2->fetch_assoc()) {
 
     // Convertir la imagen a base64
     $imagen_base64 = base64_encode($imagen_data);
+    //Asignas el nombre a la variable nombre mascota para nombre del pdf
+    $nombreMascota = $row['nombre'];
 
     $html .= '<div class="contenedorImgTexto">
     <table>
@@ -104,6 +106,7 @@ while ($row = $result2->fetch_assoc()) {
         <ul>
           <li> 
             <span class="label">Renian:</span>
+            
             <span class="value">' . $row['renian'] . ' </span>
           </li>
           <li> 
@@ -191,5 +194,8 @@ $dompdf->setPaper('A4', 'landscape');
 // Render the HTML as PDF
 $dompdf->render();
 // Output the generated PDF to Browser
-$dompdf->stream('CarnetMascota.pdf');
+//Concatenas el nombre de la mascota + el nombre en una nueva variable
+$nommbreDocumento = "CarnetMascota" . "$nombreMascota" . ".pdf";
+//asginas el nuevo nombre del pdf a la variable
+$dompdf->stream($nommbreDocumento);
 ?>
