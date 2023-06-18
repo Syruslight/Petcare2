@@ -84,7 +84,8 @@ if (mysqli_num_rows($res) > 0) {
                                 <span class="table-price"><?php echo $f['afiliaciones']; ?> Productos</span>
                                 <div class="toogleStatus">
                                     <div class="toggle-switch">
-                                        <input type="checkbox" id="<?php echo $toggleID; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idtipoproductoservicio; ?>, this.checked)" <?php if ($f['estado'] == '1') echo 'checked'; ?> />
+                                    <input type="checkbox" id="switch<?php echo $idtipoproductoservicio; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idtipoproductoservicio; ?>, this.checked)" <?php if ($f['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($f['estado'] == '1') ? 'true' : 'false'; ?>" />
+
                                         <label for="<?php echo $toggleID; ?>" class="toggle-switch-label"></label>
                                         <span class="slider round"></span>
                                         <span class="toggle-switch-text" id="<?php echo $statusID; ?>"><?php echo ($f['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>
@@ -103,20 +104,21 @@ if (mysqli_num_rows($res) > 0) {
             </div>
         </div>
     </div>
-
     <script>
     function updateStatus(id, checked) {
+        var switchElement = document.getElementById('switch' + id);
+        var originalState = switchElement.getAttribute('data-original-state'); //Se obtiene el estado del toggle original
+
         var confirmation = confirm("¿Desea cambiar el estado de la categoría?");
         if (confirmation) {
             var xhr = new XMLHttpRequest();
             xhr.onload = function() {
                 if (xhr.status === 200) {
-                    // Actualización exitosa, realiza las acciones necesarias
-                    console.log(xhr.responseText); // Puedes mostrar la respuesta en la consola para verificarla
+                    // Actualización exitosa:
+                    console.log(xhr.responseText); // Repuesta en consola para verificar 
                     var statusElement = document.getElementById('status' + id);
                     statusElement.textContent = checked ? 'Activado' : 'Desactivado';
                 } else {
-                    // Ocurrió un error durante la actualización
                     console.error('Error al actualizar el estado');
                 }
             };
@@ -125,12 +127,14 @@ if (mysqli_num_rows($res) > 0) {
             xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
             xhr.send(params);
         } else {
-            // El usuario canceló la actualización, restablece el estado del toggle
-            var switchElement = document.getElementById('switch' + id);
-            switchElement.checked = checked;
+            // El usuario canceló la actualización, restablecer el estado original del toggle
+            switchElement.checked = originalState === 'true';
         }
     }
 </script>
+
+
+
 
 
     <?php
