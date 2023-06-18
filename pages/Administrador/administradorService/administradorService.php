@@ -119,6 +119,7 @@ $conn = conectar();
 
     <!-- Inicia el terrible modal de crear servicio -->
     <section>
+    <form action="../../../llamadas/proceso_registrar_servicio.php" method="post" enctype="multipart/form-data" >
         <div id="modal_wrapper" class="modal-wrapper">
             <div class="modals">
                 <div>
@@ -141,52 +142,39 @@ $conn = conectar();
                         </lord-icon>
                     </div>
                     <div class="wrapper-bodyModals">
-                        <div class="photos-Modals">
+                    <div class="photos-Modals">
                             <div class="image-modals">
-                                <img src="../../../imagenes/perfilAdmin/updatePhotoProducts.png" >
+                                <img id="imgProducto" src="../../../imagenes/sinImagen.jpg" >
                             </div>
                          <div class="update-photos">
-                                <span class="text-updatePhoto">Subir Foto</span>
-                                <lord-icon
+                            <input id="fotoProductoSRC" type="file" name="foto_S" hidden>
+                                <label class="text-updatePhoto" for="fotoProductoSRC" onclick="previsualizarImagen('imgProducto', 'fotoProductoSRC', '../../../imagenes/sinImagen.jpg')">Subir Foto
+                                 <lord-icon
                                     src="https://cdn.lordicon.com/wfadduyp.json"
                                     trigger="click"
                                     colors="primary:#ffffff"
                                     state="hover-1"
                                     style="width:39px;height:39px">
-                                </lord-icon>
+                                </lord-icon></label>
                             </div>
-                            
-
-
-
                         </div>
-                        
-                        <form action="">
                             <div class="formu-modals"> 
                                 <div class="first-group">
-                                    <label class="label-reuse"for="">Nombre del producto:</label>
-                                    <input class="text-nameProduct"type="text">
+                                    <label class="label-reuse" for="">Nombre del servicio:</label>
+                                    <input class="text-nameProduct" type="text" name="nombre_S">
                                 </div>
                                 <div class="second-group">
-                                    <div class="group-selects">
-                                        <label class="label-reuse" for="">Tipo:</label>
-                                        <select class="selectProdcuts"name="select" id="">
-                                            <option value="Comida">Comida</option>
-                                            <option value="Limpieza">Limpieza</option>
-                                            <option value="General">General</option>
-                                        </select>
-                                    </div>
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Precio</label>
-                                        <input class="text-namePrice"type="text">
+                                        <input class="text-namePrice"type="text"  name ="precio_S">
                                     </div>
                                 </div>
                                 <div class="thirds-group">
                                     <label class="label-reuse"for="">Descripcion:</label>
-                                    <textarea class="text-descriptionProduct"type="area"></textarea>
+                                    <textarea class="text-descriptionProduct" type="area" name="descripcion_S"></textarea>
                                 </div>
                             </div>
-                        </form>
+                        
                     </div>
                     <div class="footer-modals">
                 <button class="add-button">Agregar</button>
@@ -200,6 +188,7 @@ $conn = conectar();
                 </div>
             </div>
     </div>
+    </form>
     </section>
 
     

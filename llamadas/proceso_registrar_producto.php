@@ -22,7 +22,7 @@
 	    $fotProducto = "../imagenes/productos_servicios/productos/".$foto;
 		copy($ruta, $fotProducto);
 	}
-    
     agregarProducto($idCategoria2,$foto,$nombre,$descripcion,$precio,$conn);
+
     header('location:../pages/Administrador/administradorProducts/administradorProducts.php');
 ?>

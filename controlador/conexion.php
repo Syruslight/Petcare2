@@ -419,15 +419,15 @@ function listarServicios($conn) {
             'nombre' => $f['nombre'],
             'descripcion' => $f['descripcion'],
             'precio' => $f['precio']
-        );
+        ); 
         $vec[] = $servicio;
     }
     return $vec;
 }
 
 //Funcion para crear servicios 
-function crearServicios($idTipoProductoServicio,$nombre,$precio,$descripcion,$fotoProductoServicio, $estado, $conn){
-    $sql = "insert into productoservicio(idtipoproductoservicio,nombre,precio,descripcion,fotoProductoServicio,estado) values ('$idTipoProductoServicio','$nombre','$precio','$descripcion','$fotoProductoServicio','$estado')";
+function agregarServicios($fotProducto,$nombre,$descripcion,$precio,$conn){
+    $sql = "insert into productoservicio(idtipoproductoservicio,fotoProductoServicio,nombre,descripcion,precio,estado) values (1,'$fotProducto','$nombre','$descripcion','$precio',1)";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
