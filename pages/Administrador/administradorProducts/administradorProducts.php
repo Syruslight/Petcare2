@@ -47,7 +47,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                 <div class="header-products">
                     <h1 class="tittle-products">Lista de Producto</h1>
                     <button id="open" class="add-newProduct">+ Nuevo producto</button>
-                    <button class="add-newCategory">+ Nueva Catergoria</button>
+                    <button class="add-newCategory">+ Nueva Categoria</button>
                 </div>
                 <div class="wrapper-tableProducts">
                    <div class="header-table">
@@ -220,13 +220,14 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             style="width:40px;height:40px">
                         </lord-icon>
                     </div>
+                    <form action="../../../llamadas/proceso_registrar_producto.php" method="post" enctype="multipart/form-data" >
                     <div class="wrapper-bodyModals">
                         <div class="photos-Modals">
                             <div class="image-modals">
                                 <img id="imgProducto" src="../../../imagenes/sinImagen.jpg" >
                             </div>
                          <div class="update-photos">
-                            <input id="fotoProductoSRC" type="file" hidden>
+                            <input id="fotoProductoSRC" type="file" name="foto_P" hidden>
                                 <label class="text-updatePhoto" for="fotoProductoSRC" onclick="previsualizarImagen('imgProducto', 'fotoProductoSRC', '../../../imagenes/sinImagen.jpg')">Subir Foto
                                  <lord-icon
                                     src="https://cdn.lordicon.com/wfadduyp.json"
@@ -242,7 +243,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
                         </div>
                         
-                        <form action="">
+                        
                             <div class="formu-modals"> 
                                 <div class="first-group">
                                     <label class="label-reuse" for="">Nombre del producto:</label>
@@ -277,7 +278,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                     <textarea class="text-descriptionProduct"type="area" name="descripcion_P"></textarea>
                                 </div>
                             </div>
-                        </form>
+                        
                     </div>
                     <div class="footer-modals">
                 <button class="add-button">Agregar</button>
@@ -291,6 +292,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                 </div>
             </div>
     </div>
+    </form>
     </section>
 
 

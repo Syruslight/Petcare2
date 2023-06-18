@@ -46,11 +46,7 @@ $html ='
     <div class="row modal-SaludMascota" id="modal-Carnet">
 
         <div class="container" style="background-color: #c8dfda>
-            <div class="row header-ReMas justify-content-end">
-                <div class="row close-btn">
-                    <span class="btn btn-dark modal__close" style="width: 50px;">✖</span>
-                </div>
-            </div>
+            
             <div class="row mascota-container">
                 <div class="card-mascota">
                   

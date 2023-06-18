@@ -6,8 +6,8 @@
     $idCategoria = $_REQUEST['id'];
 
     $razaSeleccionada = $_POST['Categoria_P'];
-$razaData = explode('-', $razaSeleccionada);
-$idraza = $razaData[0];
+    $razaData = explode('-', $razaSeleccionada);
+    $idCategoria2 = $razaData[0];
 
 
 
@@ -23,6 +23,6 @@ $idraza = $razaData[0];
 		copy($ruta, $fotProducto);
 	}
     
-    agregarProducto($idCategoria,$foto,$nombre,$descripcion,$precio);
+    agregarProducto($idCategoria2,$foto,$nombre,$descripcion,$precio,$conn);
     header('location:../pages/Administrador/administradorProducts/administradorProducts.php');
 ?>
