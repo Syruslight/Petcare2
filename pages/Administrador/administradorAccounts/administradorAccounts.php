@@ -17,8 +17,6 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
- 
-        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='../administradorIndex/administrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
@@ -98,7 +96,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
             <div class="tablaCuentasAdmin">
                 <?php
-                $sql = "SELECT email, pass, fechaCre, estado FROM usuario WHERE idtipousuario = 2 ORDER BY fechaCre DESC";
+                $sql = "SELECT email, pass, fechaCre, estado FROM usuario WHERE idtipousuario = 3 ORDER BY fechaCre DESC";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -123,7 +121,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
                         echo "<tbody>
                                     <tr> 
-                                            <td>" . $numero . "</td>;
+                                            <td>" . $numero . "</td>
                                             <td>" . $row["fechaCre"] . "</td>
                                             <td>" . $row["email"] . "</td>
                                             <td>" . $row["pass"] . "</td>

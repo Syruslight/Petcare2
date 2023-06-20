@@ -1,0 +1,10 @@
+.tituloDocumento{
+    justify-content: center;
+    background-color: red;
+    text-align: center;
+}
+
+.tituloDocumento h1{
+    color: white;
+}
+

@@ -14,13 +14,16 @@ inner join detallevacuna as detallevacuna on mascota.idmascota= detallevacuna.id
 inner join vacuna as vacuna on vacuna.idvacuna=detallevacuna.idvacuna
 WHERE mascota.idmascota=$idmascota";
 
-$sentencia2 = "SELECT mascota.nombre, mascota.fotoPerfil, 
+$sentencia2 = "SELECT UPPER(mascota.nombre) AS nombre_mascota, mascota.fotoPerfil, 
 CONCAT(
     FLOOR(DATEDIFF(CURRENT_DATE(), mascota.fechaNac) / 365), ' años, ',
     FLOOR((DATEDIFF(CURRENT_DATE(), mascota.fechaNac) % 365) / 30), ' meses, ',
     DATEDIFF(CURRENT_DATE(), mascota.fechaNac) % 30, ' días'
-) AS edad, mascota.sexo, mascota.peso, raza.nombre AS nombre_raza, mascota.esterilizado, mascota.renian
-FROM mascota INNER JOIN raza ON mascota.idraza = raza.idraza
+) AS edad, mascota.sexo, mascota.peso, raza.nombre AS nombre_raza, mascota.esterilizado, mascota.renian,
+cliente.apellidos, cliente.nombres
+FROM mascota 
+INNER JOIN raza ON mascota.idraza = raza.idraza
+INNER JOIN cliente ON mascota.idcliente = cliente.idcliente
 WHERE mascota.idmascota=$idmascota";
 
 $result = $conn->query($sentencia);
@@ -38,48 +41,117 @@ $html = '
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>
+    <link rel="stylesheet" href="estiloPDFMascota.css">
+    <style>
+    .tituloDocumento{
+      justify-content: center;
+
+      text-align: center;
+  }
+
+  .tituloDocumento p{
+color: grey;
+}
+
+.tituloDocumento{
+  justify-content: center;
+
+  text-align: center;
+}
+
+.tituloDocumento p{
+color: grey;
+}
+
+* {
+margin: 3px;
+padding: 3px;
+box-sizing: border-box;
+}
+
 .contenedorImgTexto {
-    display: flex;
-    align-items: center;
-    height: 33vh; /* El 33% de la altura visible del documento */
-  }
-  
-  .imageWrapper {
-    flex: 0 0 auto;
-    width: 20%;
-    max-height: 100%;
-    overflow: hidden;
-  }
-  
-  .profile-image {
-    width: 100%;
-    height: auto;
-  }
-  
-  .contenedorTexto {
-    flex: 1 1 auto;
-  }
-  
-  .listWrapper {
-    display: flex;
-    align-items: center;
-  }
-  
-  ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .label {
-    font-weight: bold;
-  }
-  
-  .value {
-    margin-left: 5px;
-  }
-      </style>
+margin: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+background-color: #f2f2f2;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contenedorTexto {
+width: auto;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+.td1 {
+width: 70%;
+align-items: center;
+flex: 1; /* Ocupa todo el espacio disponible */
+}
+
+.td2 {
+width: auto;
+float: right;
+
+}
+ul {
+list-style: none;
+padding: 0;
+margin: 0;
+}
+
+.label {
+font-weight: bold;
+color: #000000;
+}
+
+
+.value {
+color: #0b5e50;
+}
+
+.imageWrapper {
+background-color: #0b5e50;
+position: relative;
+/* Ajusta el tamaño del contenedor según tus necesidades */
+height: 180px; /* Ajusta el tamaño del contenedor según tus necesidades */
+overflow: hidden;
+border-radius: 15px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+
+}
+
+.profile-image {
+
+border: 2px solid rgb(214, 214, 214);
+border-radius: 15px;
+width: auto;
+height: 100%;
+justify-content: center;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+
+}
+.tablaDatos{
+
+width: 100%;
+}
+.td2 .imageWrapper {
+  text-align: center;
+}
+
+.td2 .imageWrapper .profile-image {
+  display: block;
+  margin: 0 auto;
+}
+
+
+    </style>
 </head>
 <body>
 <section class="moda modalMascota modalMascotaCarne">';
@@ -93,18 +165,22 @@ while ($row = $result2->fetch_assoc()) {
     // Convertir la imagen a base64
     $imagen_base64 = base64_encode($imagen_data);
     //Asignas el nombre a la variable nombre mascota para nombre del pdf
-    $nombreMascota = $row['nombre'];
+    $nombreMascota = $row['nombre_mascota'];
 
-    $html .= '<div class="contenedorImgTexto">
-    <table>
-  <tr>
-    <td> <div class="imageWrapper">
-      <img class="profile-image" src="data:image/jpeg;base64,' . $imagen_base64 . '">
-    </div></td>
-    <td> <div class="contenedorTexto">
-      <div class="listWrapper">
-        <ul>
-          <li> 
+    $html .= '<div class="tituloDocumento">
+    <h1>HISTORIAL VETERINARIO DE '.$row['nombre_mascota'].'</h1>
+    <p>Sr(a) '.$row['nombres'].' '.$row['apellidos'].' en Pet&Care nos preocupamos por el bienestar de sus mascotas.  </p>
+    <p>Por eso recuerde que no existe vacuna que dure toda la vida, por ello es necesario poner refuerzo  </p>
+    <p>a nuestra mascota, tanto cachorros y adultos.</p>
+</div>
+<div class="contenedorImgTexto"> 
+<table class="tablaDatos">
+<tr>
+<td class="td1">
+ <div class="contenedorTexto">
+    <ul>
+     <li> 
+
             <span class="label">Renian:</span>
             
             <span class="value">' . $row['renian'] . ' </span>
@@ -129,13 +205,18 @@ while ($row = $result2->fetch_assoc()) {
             <span class="label">Esterilizado:</span>
             <span class="value">' . $row['esterilizado'] . ' </span>
           </li> 
-        </ul>
-      </div>
+    </ul>    
     </div>
-    </td>
-  </tr>
+</td>
+<td  class="td2">
+ <div class="imageWrapper">
+    <img class="profile-image" src="data:image/jpeg;base64,' . $imagen_base64 . '">
+  </div>
+</td>
+</tr>
 </table>
    
+
    
   </div>
 ';
@@ -158,10 +239,10 @@ $html .= '
                     <table class="table table-borderless table-striped table-responsive text-center">
                         <thead>
                             <tr>
-                                <th scope="col">Fecha</th>
+                                <th scope="col">Fecha Aplicada</th>
                                 <th scope="col">Lote</th>
-                                <th scope="col">Tipo</th>
-                                <th scope="col">Próxima</th>
+                                <th scope="col">Vacuna</th>
+                                <th scope="col">Próxima Fecha</th>
                                 <th scope="col" class="th">Observación</th>
                                 <th scope="col" class="th">Restricción</th>
                             </tr>
@@ -190,7 +271,7 @@ $html .= '
 
 $dompdf->loadHtml($html);
 // (Optional) Setup the paper size and orientation
-$dompdf->setPaper('A4', 'landscape');
+$dompdf->setPaper('A4', 'portrait');
 // Render the HTML as PDF
 $dompdf->render();
 // Output the generated PDF to Browser
