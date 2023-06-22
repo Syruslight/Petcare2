@@ -63,6 +63,19 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                         onclick="togglePopup()"
                                     />
                                     <div class="popup" id="popup">
+                                        <?php foreach(obtenerTipoProd($conn) as $tipo): ?>
+                                                <div class="checkbox-overlay">
+                                                <input
+                                                    type="checkbox"
+                                                    id="checkbox1"
+                                                    name="checkbox"
+                                                    onchange="updateCheckbox('checkbox1')"
+                                                    class="filter-checkbox"
+                                                    value="<?php echo $tipo['nombre']?>"
+                                                />
+                                                <label for="checkbox1"><?php echo $tipo['nombre']?></label>
+                                                </div>
+                                        <?php endforeach ?>
                                         <div class="checkbox-overlay">
                                         <input
                                             type="checkbox"
