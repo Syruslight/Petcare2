@@ -9,10 +9,12 @@ use Dompdf\Dompdf;
 
 $idmascota = $_GET['idmascota'];
 
-$sentencia = "SELECT vacuna.fecha as fecha, vacuna.lote as lote, vacuna.tipo as tipo, detallevacuna.proxFecha as proxima, detallevacuna.observacion as observacion, detallevacuna.restricciones as restriccion FROM `mascota` as mascota 
-inner join detallevacuna as detallevacuna on mascota.idmascota= detallevacuna.idmascota 
-inner join vacuna as vacuna on vacuna.idvacuna=detallevacuna.idvacuna
-WHERE mascota.idmascota=$idmascota";
+$sentencia = "SELECT vac.fecha as fecha, vac.lote as lote, vac.tipo as tipo, dv.proxFecha as proxima, dv.observacion as observacion, dv.restricciones as restriccion, v.nombres as nombreVeterinario 
+FROM detallevacuna dv 
+JOIN mascota m on dv.idmascota= m.idmascota
+JOIN veterinario v ON dv.idveterinario= v.idveterinario
+JOIN vacuna vac ON dv.idvacuna= vac.idvacuna
+WHERE m.idmascota = $idmascota";
 
 $sentencia2 = "SELECT UPPER(mascota.nombre) AS nombre_mascota, mascota.fotoPerfil, 
 CONCAT(
@@ -245,6 +247,7 @@ $html .= '
                                 <th scope="col">Próxima Fecha</th>
                                 <th scope="col" class="th">Observación</th>
                                 <th scope="col" class="th">Restricción</th>
+                                <th scope="col" class="th">Veterinario</th>
                             </tr>
                         </thead>
                         <tbody>';
@@ -258,6 +261,7 @@ while ($row = $result->fetch_assoc()) {
                                 <td>' . $row['proxima'] . '</td>
                                 <td>' . $row['observacion'] . '</td>
                                 <td>' . $row['restriccion'] . '</td>
+                                <td>' . $row['nombreVeterinario'] . ' </td>
                             </tr>';
 }
 
