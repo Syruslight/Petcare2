@@ -9,7 +9,6 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 ?>
 <?php
 } ?>
-<!--Perfil del administrador (deriva o esta incluido de su pagina principal)-->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,110 +37,82 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             <?php
             include('../components/headerAdministrador.php');
             ?>
-<?php
-// Realiza la consulta para obtener los datos de la base de datos
-$sql = "SELECT t.idtipoproductoservicio, t.nombre, t.estado, COUNT(p.idproductoservicio) AS afiliaciones
+            <?php
+            // Realiza la consulta para obtener los datos de la base de datos
+            $sql = "SELECT t.idtipoproductoservicio, t.nombre, t.estado, COUNT(p.idproductoservicio) AS afiliaciones
         FROM tipoproductoservicio t
         LEFT JOIN productoservicio p ON t.idtipoproductoservicio = p.idtipoproductoservicio
         WHERE t.idtipoproductoservicio NOT LIKE '1'
         GROUP BY t.idtipoproductoservicio";
-$res = mysqli_query($conn, $sql);
+            $res = mysqli_query($conn, $sql);
 
-// Verifica si se obtuvieron resultados
-if (mysqli_num_rows($res) > 0) {
-    ?>
-    <div class="wrapper-products">
-        <div class="subwrapper-products">
-            <div class="header-products">
-                <h1 class="tittle-products">Lista de Categorias</h1>
-            </div>
-            <div class="wrapper-tableProducts">
-                <div class="header-table">
-                    <button class="add-newCategory">+ Nueva Categoría</button>
-                </div>
-                <div class="wrapper-onlyTable">
-                    <div class="tittle-table">
-                        <div>
-                            <span class="tittle-textProduct">N°</span>
-                            <span class="tittle-textType">Nombre</span>
-                            <span class="tittle-textPrice">Afiliaciones</span>
-                            <span class="tittle-textDescription">Estado</span>
-                            <span class="tittle-textAction">Acción</span>
+            // Verifica si se obtuvieron resultados
+            if (mysqli_num_rows($res) > 0) {
+            ?>
+                <div class="wrapper-products">
+                    <div class="subwrapper-products">
+                        <div class="header-products">
+                            <h1 class="tittle-products">Lista de Categorias</h1>
                         </div>
-                        <hr class="linea">
-                    </div>
-                    <div class="wrapper-table">
-                        <?php
-                        $numero = 1; // Variable para el contador
-                        while ($f = mysqli_fetch_array($res)) {
-                            $idtipoproductoservicio = $f['idtipoproductoservicio']; // Obtén el ID del registro actual
-                            $toggleID = 'switch' . $idtipoproductoservicio; // ID del elemento del toggle
-                            $statusID = 'status' . $idtipoproductoservicio; // ID del elemento del texto de estado
-                            ?>
-                            <div class="dates-table">
-                                <span class="table-nameFood"><?php echo $numero; ?></span>
-                                <span class="table-type"><?php echo $f['nombre']; ?></span>
-                                <span class="table-price"><?php echo $f['afiliaciones']; ?> Productos</span>
-                                <div class="toogleStatus">
-                                    <div class="toggle-switch">
-                                    <input type="checkbox" id="switch<?php echo $idtipoproductoservicio; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idtipoproductoservicio; ?>, this.checked)" <?php if ($f['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($f['estado'] == '1') ? 'true' : 'false'; ?>" />
-
-                                        <label for="<?php echo $toggleID; ?>" class="toggle-switch-label"></label>
-                                        <span class="slider round"></span>
-                                        <span class="toggle-switch-text" id="<?php echo $statusID; ?>"><?php echo ($f['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>
-                                    </div>
-                                </div>
-                                <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40">
-                                <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
+                        <div class="wrapper-tableProducts">
+                            <div class="header-table">
+                                <button class="add-newCategory">+ Nueva Categoría</button>
                             </div>
-                            <hr class="linea">
-                            <?php
-                            $numero++; // Incrementar el contador en cada iteración
-                        }
-                        ?>
+                            <div class="wrapper-onlyTable">
+                                <div class="tittle-table">
+                                    <div>
+                                        <span class="tittle-textProduct">N°</span>
+                                        <span class="tittle-textType">Nombre</span>
+                                        <span class="tittle-textPrice">Afiliaciones</span>
+                                        <span class="tittle-textDescription">Estado</span>
+                                        <span class="tittle-textAction">Acción</span>
+                                    </div>
+                                    <hr class="linea">
+                                </div>
+                                <div class="wrapper-table">
+                                    <?php
+                                    $numero = 1; // Variable para el contador
+                                    while ($f = mysqli_fetch_array($res)) {
+                                        $idtipoproductoservicio = $f['idtipoproductoservicio']; // Obtén el ID del registro actual
+                                        $toggleID = 'switch' . $idtipoproductoservicio; // ID del elemento del toggle
+                                        $statusID = 'status' . $idtipoproductoservicio; // ID del elemento del texto de estado
+                                    ?>
+                                        <div class="dates-table">
+                                            <span class="table-nameFood"><?php echo $numero; ?></span>
+                                            <span class="table-type"><?php echo $f['nombre']; ?></span>
+                                            <span class="table-price"><?php echo $f['afiliaciones']; ?> Productos</span>
+                                            <div class="toogleStatus">
+                                                <div class="toggle-switch">
+                                                    <input type="checkbox" id="switch<?php echo $idtipoproductoservicio; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idtipoproductoservicio; ?>, this.checked, '¿Desea cambiar el estado de la categoría?')" <?php if ($f['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($f['estado'] == '1') ? 'true' : 'false'; ?>" />
+                                                    <label for="<?php echo $toggleID; ?>" class="toggle-switch-label"></label>
+                                                    <span class="slider round"></span>
+                                                    <span class="toggle-switch-text" id="<?php echo $statusID; ?>"><?php echo ($f['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>
+                                                </div>
+                                            </div>
+                                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40">
+                                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
+                                        </div>
+                                        <hr class="linea">
+                                    <?php
+                                        $numero++; // Incrementar el contador en cada iteración
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-    <script>
-    function updateStatus(id, checked) {
-        var switchElement = document.getElementById('switch' + id);
-        var originalState = switchElement.getAttribute('data-original-state'); //Se obtiene el estado del toggle original
-
-        var confirmation = confirm("¿Desea cambiar el estado de la categoría?");
-        if (confirmation) {
-            var xhr = new XMLHttpRequest();
-            xhr.onload = function() {
-                if (xhr.status === 200) {
-                    // Actualización exitosa:
-                    console.log(xhr.responseText); // Repuesta en consola para verificar 
-                    var statusElement = document.getElementById('status' + id);
-                    statusElement.textContent = checked ? 'Activado' : 'Desactivado';
-                } else {
-                    console.error('Error al actualizar el estado');
-                }
-            };
-            var params = 'id=' + encodeURIComponent(id) + '&checked=' + encodeURIComponent(checked ? 1 : 0);
-            xhr.open('POST', 'update_status.php', true);
-            xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-            xhr.send(params);
-        } else {
-            // El usuario canceló la actualización, restablecer el estado original del toggle
-            switchElement.checked = originalState === 'true';
-        }
-    }
-</script>
 
 
 
 
 
-    <?php
-} else {
-    echo "No se encontraron resultados.";
-}
-?>
+
+            <?php
+            } else {
+                echo "No se encontraron resultados.";
+            }
+            ?>
 
 
             <?php
@@ -240,9 +211,7 @@ if (mysqli_num_rows($res) > 0) {
         </div>
     </section>
 
-
-
-
+    <script src="../../../js/cambiarEstado.js"></script>
     <script src="../../../js/previsualizarImagen.js"></script>
     <script src="../../../js/Interacciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>

@@ -85,7 +85,7 @@ modalVacuna.classList.remove("modalVacuna--show");
 }
 
 function openModalLote(){
-  const openModalLote = document.querySelector(".add-newCategory");
+const openModalLote = document.querySelector(".add-newCategory");
 const modalLote = document.querySelector(".modalLote");
 const closeModalLote = document.querySelector("#closeModalLote");
 openModalLote.addEventListener("click", (e) => {
