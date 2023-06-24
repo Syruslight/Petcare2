@@ -22,7 +22,29 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
-   
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Ejecutar la búsqueda al cargar la página
+            buscarProducto('');
+
+            $('#busqueda').on('input', function () {
+                var query = $(this).val();
+                buscarProducto(query);
+            });
+        });
+
+        function buscarProducto(query) {
+            $.ajax({
+                url: '../../../llamadas/proceso_busqueda_productos.php',
+                method: 'POST',
+                data: { query: query },
+                success: function (response) {
+                    $('#resultados').html(response);
+                }
+            });
+        }
+    </script>
 
 </head>
 
@@ -53,7 +75,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                    <div class="header-table">
                         <div class="search-product">
                             <span class="search">Buscar:</span>
-                            <input class="input-search" type="search" name="busqueadaDNI" placeholder="">
+                            <input class="input-search" type="search" name="busqueadaDNI" placeholder="" id="busqueda">
                         </div>
                         <div class="image-container">
 
@@ -114,7 +136,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         
                         <span class="text-filter">Filtrar</span>
                     </div>
-                   <div id="item-list" class="wrapper-onlyTable">
+                <div id="item-list" class="wrapper-onlyTable">
                     <div class="tittle-table">
                         <div>
 
@@ -126,7 +148,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         </div>
                         <hr class="linea">
                     </div>
-                    <div class="wrapper-table">
+                    <div id="resultados" class="wrapper-table">
                         <div  class="dates-table"> <!--Inicia el primer producto-->
                             <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
                             <span class="table-nameFood">Comida de Perro</span>
