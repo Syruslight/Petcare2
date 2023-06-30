@@ -56,7 +56,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         </div>
                         <div class="wrapper-tableProducts">
                             <div class="header-table">
-                                <button class="add-newCategory">+ Nueva Categoría</button>
+                                <button class="add-newCategory" id="open" onclick="openModalCreateCategory()">+ Nueva Categoría</button>
                             </div>
                             <div class="wrapper-onlyTable">
                                 <div class="tittle-table">
@@ -90,7 +90,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                                 </div>
                                             </div>
                                             <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40">
-                                            <img id="open" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
+                                            <img  class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
                                         </div>
                                         <hr class="linea">
                                     <?php
@@ -137,7 +137,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
     </section>
 
-    <!-- Inicia el terrible modal de editar producto -->
+    <!-- Inicia el terrible modal de crear Categoria -->
     <section>
         <div id="modal_wrapper" class="modal-wrapper">
 
@@ -215,7 +215,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <script src="../../../js/previsualizarImagen.js"></script>
     <script src="../../../js/Interacciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="modals-products.js"></script>
+    <script src="../../../js/administrador/modals-editService.js"></script>
     <script src="../../../js/administrador/toogleSwitchCategory.js"></script>
 </body>
 
