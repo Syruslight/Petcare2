@@ -45,84 +45,79 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
 
       <div class="contForm">
+    <div class="contenedorLote">
+        <div class="contLoteTable">
+            <?php
+            $sql = "SELECT * FROM vacuna ORDER BY idvacuna DESC";
+            $result = $conn->query($sql);
 
-        <div class="contenedorLote">
+            if ($result->num_rows > 0) {
+                echo "<table class='tablaLotes'>";
+                echo '<thead>';
+                echo '<tr>';
+                echo '<th>N°</th>';
+                echo '<th>Lote</th>';
+                echo '<th>Nombre</th>';
+                echo '<th>Descripción</th>';
+                echo '<th>Estado</th>';
+                echo '<th>Acción</th>';
+                echo '</tr>';
+                echo '</thead>';
+                echo '<tbody>';
 
-          <div class="contLoteTable">
-          <?php
-$sql = "SELECT * FROM vacuna ORDER BY idvacuna DESC";
-$result = $conn->query($sql);
+                // Iterar sobre los registros y mostrarlos en la tabla
+                while ($row = $result->fetch_assoc()) {
+                    echo '<tr>';
+                    echo '<td>' . $row['idvacuna'] . '</td>';
+                    echo '<td>' . $row['lote'] . '</td>';
+                    echo '<td>' . $row['tipo'] . '</td>';
+                    echo '<td>' . $row['descripcion'] . '</td>';
+                    echo '<td>';
 
-if ($result->num_rows > 0) {
-    echo "<table class='tablaLotes'>";
-    echo '<thead>';
-    echo '<tr>';
-    echo '<th>N°</th>';
-    echo '<th>Lote</th>';
-    echo '<th>Nombre</th>';
-    echo '<th>Descripción</th>';
-    echo '<th>Estado</th>';
-    echo '<th>Acción</th>';
-    echo '</tr>';
-    echo '</thead>';
-    echo '<tbody>';
+                    // Obtener el estado actual de la vacuna
+                    $estadoLote = $row['estadoLote'];
+                    $estadoTexto = ($estadoLote == 1) ? 'Activado' : 'Desactivado';
 
-    // Iterar sobre los registros y mostrarlos en la tabla
-    while ($row = $result->fetch_assoc()) {
-        echo '<tr>';
-        echo '<td>' . $row['idvacuna'] . '</td>';
-        echo '<td>' . $row['lote'] . '</td>';
-        echo '<td>' . $row['tipo'] . '</td>';
-        echo '<td>' . $row['descripcion'] . '</td>';
-        echo "<td>";
-        echo "<label class=\"toggle-container\">";
-        echo "<input type=\"checkbox\" onchange=\"toggleStatus(this)\"";
-        
-        // Comparar el estado actual con el estado original almacenado en la base de datos
-        $sql_estado = "SELECT estadoLote FROM vacuna WHERE idvacuna = " . $row['idvacuna'];
-        $result_estado = $conn->query($sql_estado);
-        
-        if ($result_estado && $result_estado->num_rows > 0) {
-            $row_estado = $result_estado->fetch_assoc();
-            if ($row_estado['estadoLote'] == $row['estadoLote']) {
-                echo " disabled";
+                    echo "<label class=\"toggle-container\">";
+                    echo "<input type=\"checkbox\" onchange=\"toggleStatus(this, " . $row['idvacuna'] . ")\"";
+
+                    // Comparar el estado actual con el estado original almacenado en la base de datos
+                /*    $sql_estado = "SELECT estadoLote FROM vacuna WHERE idvacuna = " . $row['idvacuna'];
+                    $result_estado = $conn->query($sql_estado);
+
+                    if ($result_estado && $result_estado->num_rows > 0) {
+                        $row_estado = $result_estado->fetch_assoc();
+                        if ($row_estado['estadoLote'] == $estadoLote) {
+                            echo " disabled";
+                        }
+                    }
+
+                    // Resto del código para el botón de alternancia
+                    if ($estadoLote == 1) {
+                        echo " checked";
+                    } */
+
+                    echo ">";
+                    echo "<span class=\"toggle-slider\"></span>";
+                    echo "<span class=\"status\">" . $estadoTexto . "</span>";
+                    echo "</label>" . '</td>';
+                    echo '<td>';
+                    echo '<div class="contenedorAccion">';
+                    echo '<img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">';
+                    echo '</div>';
+                    echo '</td>';
+                    echo '</tr>';
+                }
+
+                echo '</tbody>';
+                echo '</table>';
+            } else {
+                echo "<tr><td colspan=\"6\">No se encontraron registros.</td></tr>";
             }
-        }
-        
-        // Resto del código para el botón de alternancia
-        if ($row['estadoLote'] == 1) {
-            echo " checked";
-        }
-        
-        echo ">";
-        echo "<span class=\"toggle-slider\"></span>";
-        echo "<span class=\"status\">" . ($row['estadoLote'] == 1 ? 'Activado' : 'Desactivado') . "</span>";
-        echo "</label>" . '</td>';
-        echo '<td>';
-        echo '<div class="contenedorAccion">';
-        echo '<img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">';
-        echo '</div>';
-        echo '</td>';
-        echo '</tr>';
-    }
-
-    echo '</tbody>';
-    echo '</table>';
-} else {
-    echo "<tr><td colspan=\"6\">No se encontraron registros.</td></tr>";
-}
-?>
-
-
-
-          </div>
-
-
+            ?>
         </div>
-
-
-
-      </div>
+    </div>
+</div>
 
     </div>
   </div>

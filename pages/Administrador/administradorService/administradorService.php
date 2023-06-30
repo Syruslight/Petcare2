@@ -43,35 +43,37 @@ $conn = conectar();
         <h1 >Mis Servicios</h1> 
         <button id="open" onclick="openModalCreateService()" class="add-newService">+Nuevo Servicio</button>            
    </div>
+
    <div class="wrapper-deck">
-       <?php
-       $servicios = listarServicios($conn);
-       foreach ($servicios as $servicio) {
-           echo '<div class="card">';
-           echo '<img src="../../../imagenes/productos_servicios/servicios/' . $servicio['foto'] . '" class="card-img-top" alt="...">';
-           echo '<div class="card-body">';
-           echo '<div>';
-           echo '<h5 class="card-title">' . $servicio['nombre'] . '</h5>';
-           echo '<p class="card-text">' . $servicio['descripcion'] . '</p>';
-           echo '<p class="card-text">s/.' . $servicio['precio'] . '</p>';
-           echo '</div>'; 
-           echo '<img onclick="openModalEdithService()" class="edit-pencil openModalEdithService" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width=35 height=35>';
-           echo '<div class="toggle-switch">';
-           echo '<input  type="checkbox"';
-           echo 'id="switch5"';
-           echo 'class="toggle-switch-checkbox"';
-           echo 'onchange="toggleSwitch("variable5", this.checked)" />';
-           echo '<label for="switch5" class="toggle-switch-label"></label>';
-           echo '<span class="slider round"></span>';
-           echo '<span class="toggle-switch-text" id="status5" hidden>';
-           echo 'Inactivo';
-           echo '</span>';
-           
-           echo '</div>';
-           echo '</div>';
-           echo '</div>';
-       }
-       ?>
+    <?php
+    $servicios = listarServicios($conn);
+    foreach ($servicios as $servicio) {
+        ?>
+        <div class="card">
+            <img src="../../../imagenes/productos_servicios/servicios/<?php echo $servicio['foto']; ?>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <div>
+                    <h5 class="card-title"><?php echo $servicio['nombre']; ?></h5>
+                    <p class="card-text"><?php echo $servicio['descripcion']; ?></p>
+                    <p class="card-text">s/.<?php echo $servicio['precio']; ?></p>
+                </div>
+                <img class="edit-pencil openModalEdithService" data-nombre="<?php echo $servicio['nombre']; ?>" data-precio="<?php echo $servicio['precio']; ?>" 
+                data-descripcion="<?php echo $servicio['descripcion']; ?>" data-foto="<?php echo $servicio['foto']; ?>" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width="35" height="35">
+
+               <!-- <div class="toggle-switch">
+                    <input type="checkbox" id="switch<?php echo $servicio['id']; ?>" class="toggle-switch-checkbox" onchange='toggleSwitch("variable<?php echo $servicio['id']; ?>", this.checked)'>
+                    <label for="switch<?php echo $servicio['id']; ?>" class="toggle-switch-label"></label>
+                    <span class="slider round"></span>
+                    <span class="toggle-switch-text" id="status<?php echo $servicio['id']; ?>" hidden>Inactivo</span>
+                </div>-->
+            </div>
+        </div>
+        <?php
+    }
+    ?>
+</div>
+
+       </div>
     <!-- <div class="card">
        <img src="../../../imagenes/perfilAdmin/bañitoDog.png" class="card-img-top" alt="Baño Medico">
        <div class="card-body">
@@ -219,10 +221,11 @@ $conn = conectar();
                     <div class="wrapper-bodyModals">
                         <div class="photos-Modals">
                             <div class="image-modals">
-                                <img src="../../../imagenes/perfilAdmin/updatePhotoProducts.png" >
+                            <img id="perfil-img" alt="profile">
                             </div>
                          <div class="update-photos">
-                                <span class="text-updatePhoto">Subir Foto</span>
+                         
+                         <span class="text-updatePhoto">Subir Foto</span>
                                 <lord-icon
                                     src="https://cdn.lordicon.com/wfadduyp.json"
                                     trigger="click"
@@ -240,8 +243,8 @@ $conn = conectar();
                         <form action="">
                             <div class="formu-modals"> 
                                 <div class="first-group">
-                                    <label class="label-reuse" for="">Nombre del producto:</label>
-                                    <input class="text-nameProduct" type="text">
+                                    <label class="label-reuse" for="">Nombreservicio:</label>
+                                    <input class="text-nameProduct" type="text" id="nombreServicioEnvio">
                                 </div>
                                 <div class="second-group">
                                     <div class="group-selects">
@@ -254,12 +257,12 @@ $conn = conectar();
                                     </div>
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Precio</label>
-                                        <input class="text-namePrice"type="text">
+                                        <input class="text-namePrice" type="text" id="precioServicioEnvio">
                                     </div>
                                 </div>
                                 <div class="thirds-group">
                                     <label class="label-reuse"for="">Descripcion:</label>
-                                    <textarea class="text-descriptionProduct"type="area"></textarea>
+                                    <textarea class="text-descriptionProduct"type="area" id="descripcionServicioEnvio"></textarea>
                                 </div>
                             </div>
                         </form>
