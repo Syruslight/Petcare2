@@ -416,15 +416,17 @@ function obtenerTipoProd($conn){
 #     Servicios
 //Funcion para listar servicios //modificar el estado 
 function listarServicios($conn) {
-    $sql = "SELECT productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio FROM productoservicio WHERE productoservicio.idtipoproductoservicio = '1'";
+    $sql = "SELECT productoservicio.idproductoservicio, productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio, productoservicio.estado FROM productoservicio WHERE productoservicio.idtipoproductoservicio = '1'";
     $res = mysqli_query($conn, $sql);
     $vec = array();
     while ($f = mysqli_fetch_array($res)) {
         $servicio = array(
+            'idproductoservicio' => $f['idproductoservicio'],
             'foto' => $f['foto'],
             'nombre' => $f['nombre'],
             'descripcion' => $f['descripcion'],
-            'precio' => $f['precio']
+            'precio' => $f['precio'],
+            'estado' => $f['estado']
         ); 
         $vec[] = $servicio;
     }

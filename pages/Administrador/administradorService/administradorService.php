@@ -48,6 +48,9 @@ $conn = conectar();
     <?php
     $servicios = listarServicios($conn);
     foreach ($servicios as $servicio) {
+        $idproductoservicio = $servicio['idproductoservicio']; // Obtén el ID del registro actual
+        $toggleID = 'switch' . $idproductoservicio; // ID del elemento del toggle
+        $statusID = 'status' . $idproductoservicio; // ID del elemento del texto de estado
         ?>
         <div class="card">
             <img src="../../../imagenes/productos_servicios/servicios/<?php echo $servicio['foto']; ?>" class="card-img-top" alt="...">
@@ -57,15 +60,19 @@ $conn = conectar();
                     <p class="card-text"><?php echo $servicio['descripcion']; ?></p>
                     <p class="card-text">s/.<?php echo $servicio['precio']; ?></p>
                 </div>
+            
+        <div>
                 <img class="edit-pencil openModalEdithService" data-nombre="<?php echo $servicio['nombre']; ?>" data-precio="<?php echo $servicio['precio']; ?>" 
                 data-descripcion="<?php echo $servicio['descripcion']; ?>" data-foto="<?php echo $servicio['foto']; ?>" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width="35" height="35">
-
-               <!-- <div class="toggle-switch">
-                    <input type="checkbox" id="switch<?php echo $servicio['id']; ?>" class="toggle-switch-checkbox" onchange='toggleSwitch("variable<?php echo $servicio['id']; ?>", this.checked)'>
-                    <label for="switch<?php echo $servicio['id']; ?>" class="toggle-switch-label"></label>
-                    <span class="slider round"></span>
-                    <span class="toggle-switch-text" id="status<?php echo $servicio['id']; ?>" hidden>Inactivo</span>
-                </div>-->
+                <div class="toogleStatus">
+            <div class="toggle-switch">
+                <input type="checkbox" id="<?php echo $toggleID; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idproductoservicio; ?>, this.checked, '¿Desea cambiar el estado de la categoría?')" <?php if ($servicio['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($servicio['estado'] == '1') ? 'true' : 'false'; ?>" />
+                <label for="<?php echo $toggleID; ?>" class="toggle-switch-label"></label>
+                <span class="slider round"></span>
+                <span class="toggle-switch-text" id="<?php echo $statusID; ?>"><?php echo ($servicio['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>
+            </div>
+        </div>
+                </div>
             </div>
         </div>
         <?php
@@ -283,7 +290,7 @@ $conn = conectar();
 
 
 
-    
+    <script src="../../../js/cambiarEstado.js"></script>
     <script src="../../../js/Interacciones.js"></script>
     <script src="../../../js/previsualizarImagen.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
