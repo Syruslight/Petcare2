@@ -94,9 +94,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                 <?php
                 $sql = "SELECT email, pass, fechaCre, estado FROM usuario WHERE idtipousuario = 3 ORDER BY fechaCre DESC";
                 $result = $conn->query($sql);
-
                 if ($result->num_rows > 0) {
                     $numero = $result->num_rows; // Crear la tabla para mostrar los datos
+                    
                     echo "<table class='tablaCuentasCreadas'>
     <thead>
       <tr>

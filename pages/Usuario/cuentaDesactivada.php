@@ -1,0 +1,1 @@
+Tu cuenta ha sido desactivada, contacte con el administrador para mayor detalle.
