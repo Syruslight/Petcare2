@@ -6,7 +6,7 @@ $conn = conectar();
 $query = $_POST['query'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT * FROM productoservicio WHERE nombre LIKE '%$query%'";
+$sql = "SELECT * FROM productoservicio WHERE nombre LIKE '%$query%' AND idtipoproductoservicio NOT IN ('1', '2', '3')";
 $result = $conn->query($sql);
 
 

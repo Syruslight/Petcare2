@@ -98,41 +98,8 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                                 <label for="checkbox1"><?php echo $tipo['nombre']?></label>
                                                 </div>
                                         <?php endforeach ?>
-                                        <div class="checkbox-overlay">
-                                        <input
-                                            type="checkbox"
-                                            id="checkbox1"
-                                            name="checkbox"
-                                            onchange="updateCheckbox('checkbox1')"
-                                            class="filter-checkbox"
-                                            value="Comida"
-                                        />
-                                        <label for="checkbox1">Comida</label>
-                                        </div>
-                                        <div class="checkbox-overlay">
-                                        <input
-                                            type="checkbox"
-                                            id="checkbox2"
-                                            name="checkbox"
-                                            onchange="updateCheckbox('checkbox2')"
-                                            class="filter-checkbox"
-                                            value="Limpieza"
-                                        />
-                                        <label for="checkbox2">Limpieza</label>
-                                        </div>
-                                        <div class="checkbox-overlay">
-                                        <input
-                                            type="checkbox"
-                                            id="checkbox3"
-                                            name="checkbox"
-                                            onchange="updateCheckbox('checkbox3')"
-                                            class="filter-checkbox"
-                                            value="General"
-                                        />
-                                        <label for="checkbox3">General</label>
-                                        </div>
                                     </div>
-                                    </div>                                
+                        </div>                                
                         
                         <span class="text-filter">Filtrar</span>
                     </div>
@@ -149,41 +116,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         <hr class="linea">
                     </div>
                     <div id="resultados" class="wrapper-table">
-                        <div  class="dates-table"> <!--Inicia el primer producto-->
-                            <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                            <span class="table-nameFood">Comida de Perro</span>
-                            <span class="item table-type">Comida</span>
-                            <span class="table-price">s./40.00</span>
-                            <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img  class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
-                        </div>
-                        <hr class="linea">
 
-                        <div  class="dates-table"> <!--Inicia el segundo producto-->
-                            <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                            <span class="table-nameFood">Comida de Perro</span>
-                            <span class="item table-type">Limpieza</span>
-                            <span class="table-price">s./40.00</span>
-                            <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
-                        </div>
-                        <hr class="linea">
-
-                        
-                        <div  class="dates-table"> <!--Inicia el tercero producto-->
-                            <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                            <span class="table-nameFood">Comida de Perro</span>
-                            <span class="item table-type">Comida</span>
-                            <span class="table-price">s./40.00</span>
-                            <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                            <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
-                        </div>
-                        <hr class="linea">
-
-                        
                         <div  class="dates-table"> <!--Inicia el cuarto producto-->
                             <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
                             <span class="table-nameFood">Comida de Perro</span>
