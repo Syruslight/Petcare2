@@ -9,6 +9,7 @@ $query = $_POST['query'];
 $sql = "SELECT * FROM productoservicio WHERE nombre LIKE '%$query%' AND idtipoproductoservicio NOT IN ('1', '2', '3')";
 $result = $conn->query($sql);
 
+$output='';
 
 if ($result->num_rows > 0) {
   // Construir la tabla de resultados
@@ -19,7 +20,8 @@ if ($result->num_rows > 0) {
                         <span class="item table-type">test</span>
                         <span class="table-price">S./' . $row['precio'] . '</span>
                         <span class="table-description">' . $row['descripcion'] . '</span>
-                        <img  id="openModalEdithProduct" onclick="openModalEdithProduct()" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>';
+                        <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
+                        <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>';
                    
     }
         $output .= '</div>
