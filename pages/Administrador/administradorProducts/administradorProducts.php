@@ -291,7 +291,8 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                     <div class="wrapper-bodyModals">
                         <div class="photos-Modals">
                             <div class="image-modals">
-                                <img id="imgProducto" src="../../../imagenes/sinImagen.jpg" >
+                                
+                                <img id="perfil-producto" src="../../../imagenes/sinImagen.jpg" >
                             </div>
                          <div class="update-photos">
                             <input id="fotoProductoSRC" type="file" name="foto_P" hidden>
@@ -314,7 +315,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <div class="formu-modals"> 
                                 <div class="first-group">
                                     <label class="label-reuse" for="">Nombre del producto:</label>
-                                    <input class="text-nameProduct" type="text" name="nombre_P">
+                                    <input class="text-nameProduct" type="text" name="nombre_P" id="nombreProductoEnvio">                                    
                                 </div>
                                 <div class="second-group">
                                     <div class="group-selects">
@@ -337,12 +338,12 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                     </div>
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Precio</label>
-                                        <input class="text-namePrice"type="text" name ="precio_P">
+                                        <input class="text-namePrice"type="text" name ="precio_P" id= "precioProductoEnvio">
                                     </div>
                                 </div>
                                 <div class="thirds-group">
                                     <label class="label-reuse" for="">Descripcion:</label>
-                                    <textarea class="text-descriptionProduct"type="area" name="descripcion_P"></textarea>
+                                    <textarea class="text-descriptionProduct"type="area" name="descripcion_P" id= "descripcionProductoEnvio"></textarea>
                                 </div>
                             </div>
                         

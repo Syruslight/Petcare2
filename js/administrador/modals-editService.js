@@ -70,6 +70,19 @@ function openModalEdithProduct() {
   const closeModal = document.getElementById("close1");
   openModal.addEventListener("click", (e) => {
     e.preventDefault();
+
+    const nombreProducto = e.target.getAttribute("data-nombreproducto");  
+    const precioProducto = e.target.getAttribute("data-precioproducto");
+    const descripcionProducto = e.target.getAttribute("data-descripcionproducto"); 
+    const fotoproducto = e.target.getAttribute("data-fotoproducto");
+  
+
+    document.querySelector("#nombreProductoEnvio").value = nombreProducto;
+    document.querySelector("#precioProductoEnvio").value = precioProducto;
+    document.querySelector("#descripcionProductoEnvio").value = descripcionProducto;
+    document.querySelector("#perfil-producto").src = "../../imagenes/productos_servicios/productos/" + fotoproducto;
+
+
     modal.classList.add("modalProduct--show");
   });
   closeModal.addEventListener("click", (e) => {
