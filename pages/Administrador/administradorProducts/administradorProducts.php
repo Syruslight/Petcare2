@@ -68,7 +68,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             <div class="subwrapper-products">
                 <div class="header-products">
                     <h1 class="tittle-products">Lista de Producto</h1>
-                    <button id="open" onclick="openModalCreateProdcut()" class="add-newProduct">+ Nuevo producto</button>
+                    <button id="open" onclick="openModalCreateProduct()" class="add-newProduct">+ Nuevo producto</button>
                     <button class="add-newCategory">+ Nueva Categoria</button>
                 </div>
                 <div class="wrapper-tableProducts">
@@ -123,7 +123,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <span class="item table-type">Comida</span>
                             <span class="table-price">s./40.00</span>
                             <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
+                            <!-- <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40> -->
                             <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
                         </div>
                         <hr class="linea">
@@ -135,7 +135,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <span class="item table-type">General</span>
                             <span class="table-price">s./40.00</span>
                             <span class="table-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor expedita aperiam commodi impedit eum illum, totam voluptas facere! Ducimus delectus laboriosam corrupti atque earum ut, totam recusandae nulla molestiae cupiditate.</span>
-                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
+                            <!-- <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40> -->
                             <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>
                         </div>
                         <hr class="linea">

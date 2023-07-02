@@ -150,12 +150,12 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <div class="circle-center"></div>
                             <div class="circle-left"></div>
                         </div>
-                        <h1 class="title-newProduct">Nuevo producto</h1>
+                        <h1 class="title-newProduct">Nueva Categoria</h1>
                         <lord-icon class="close" id="close" src="https://cdn.lordicon.com/nhfyhmlt.json" trigger="hover" colors="primary:#121331" state="hover-2" style="width:40px;height:40px">
                         </lord-icon>
                     </div>
                     <div class="wrapper-bodyModals">
-                        <div class="photos-Modals">
+                        <!-- <div class="photos-Modals">
                             <div class="image-modals">
                                 <img src="../../../imagenes/perfilAdmin/updatePhotoProducts.png">
                             </div>
@@ -168,16 +168,16 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
 
-                        </div>
+                        </div> -->
 
                         <form action="">
                             <div class="formu-modals">
                                 <div class="first-group">
-                                    <label class="label-reuse" for="">Nombre del producto:</label>
+                                    <label class="label-reuse" for="">Nombre</label>
                                     <input class="text-nameProduct" type="text">
                                 </div>
                                 <div class="second-group">
-                                    <div class="group-selects">
+                                    <!-- <div class="group-selects">
                                         <label class="label-reuse" for="">Tipo:</label>
                                         <select class="selectProdcuts" name="select" id="">
                                             <option value="Comida">Comida</option>
@@ -185,14 +185,17 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                             <option value="General">General</option>
                                         </select>
                                     </div>
+                                     -->
                                     <div class="group-text">
-                                        <label class="label-reuse" for="">Precio</label>
+                                        <label class="label-reuse" for="">Afiliaciones</label>
                                         <input class="text-namePrice" type="text">
                                     </div>
                                 </div>
                                 <div class="thirds-group">
-                                    <label class="label-reuse" for="">Descripcion:</label>
-                                    <textarea class="text-descriptionProduct" type="area"></textarea>
+                                    <label class="toggle-switch">
+                                        <input type="checkbox">
+                                        <span class="toggle-slider round"></span>
+                                    </label>
                                 </div>
                             </div>
                         </form>

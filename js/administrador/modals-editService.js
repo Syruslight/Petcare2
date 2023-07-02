@@ -1,12 +1,12 @@
 // Modal para services
 
 function openModalEdithService() {
-  const openModalButtons = document.querySelectorAll('.openModalEdithService');
-  const modal = document.querySelector('.modal-edithService');
-  const closeModal = document.querySelector('#close1');
-  
+  const openModalButtons = document.querySelectorAll(".openModalEdithService");
+  const modal = document.querySelector(".modal-edithService");
+  const closeModal = document.querySelector("#close1");
+
   openModalButtons.forEach((button) => {
-    button.addEventListener('click', (e) => {
+    button.addEventListener("click", (e) => {
       e.preventDefault();
       const nombreServicio = e.target.getAttribute("data-nombre");
       const precioServicio = e.target.getAttribute("data-precio");
@@ -17,21 +17,19 @@ function openModalEdithService() {
 
       document.querySelector("#nombreServicioEnvio").value = nombreServicio;
       document.querySelector("#precioServicioEnvio").value = precioServicio;
-      document.querySelector("#descripcionServicioEnvio").value = descripcionServicio;
-      document.querySelector("#perfil-img").src = "../../../imagenes/productos_servicios/servicios/" + fotoperfil1;
-      
-      
-      
-      
-      modal.classList.add('modalService--show');
+      document.querySelector("#descripcionServicioEnvio").value =
+        descripcionServicio;
+      document.querySelector("#perfil-img").src =
+        "../../../imagenes/productos_servicios/servicios/" + fotoperfil1;
+
+      modal.classList.add("modalService--show");
     });
   });
-  
-  closeModal.addEventListener('click', (e) => {
+
+  closeModal.addEventListener("click", (e) => {
     e.preventDefault();
-    modal.classList.remove('modalService--show');
+    modal.classList.remove("modalService--show");
   });
-  
 }
 openModalEdithService();
 
@@ -51,7 +49,7 @@ function openModalCreateService() {
 }
 
 // Modal para Products
-function openModalCreateProdcut() {
+function openModalCreateProduct() {
   const open = document.getElementById("open");
   const modal_container = document.getElementById("modal_wrapper");
   const close = document.getElementById("close");

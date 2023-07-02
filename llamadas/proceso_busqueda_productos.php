@@ -20,8 +20,7 @@ if ($result->num_rows > 0) {
                         <span class="item table-type">test</span>
                         <span class="table-price">S./' . $row['precio'] . '</span>
                         <span class="table-description">' . $row['descripcion'] . '</span>
-                        <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width=45 height=40>
-                        <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>';
+                        <img id="openModalEdithProduct" onclick="openModalEdithProduct()"  class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>';
                    
     }
         $output .= '</div>
