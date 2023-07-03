@@ -66,8 +66,7 @@ color: grey;
 }
 
 * {
-margin: 3px;
-padding: 3px;
+margin: 0px;
 box-sizing: border-box;
 }
 
@@ -116,7 +115,6 @@ color: #0b5e50;
 }
 
 .imageWrapper {
-background-color: #0b5e50;
 position: relative;
 /* Ajusta el tamaño del contenedor según tus necesidades */
 height: 180px; /* Ajusta el tamaño del contenedor según tus necesidades */
@@ -152,6 +150,72 @@ width: 100%;
   margin: 0 auto;
 }
 
+.carnet-tit {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.carnet-tit h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+.tabla-container {
+  margin: 0 20px; /* Aplica un margen de 20px tanto en el lado derecho como en el lado izquierdo */
+}
+
+.tablaVacuna {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.tablaVacuna th,
+.tablaVacuna td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.tablaVacuna th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.tablaVacuna tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.tablaVacuna tr:hover {
+  background-color: #eaeaea;
+}
+
+.tablaVacuna th:first-child,
+.tablaVacuna td:first-child {
+  text-align: left;
+}
+
+.tablaVacuna .th {
+  font-weight: bold;
+}
+
+.logoIcono {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  width: 100%;
+  height: 60px;
+  background-color: #333333;
+  z-index: 9999;
+  margin-bottom: 20px;
+  }
+
+.logoImagen {
+  margin-top: 7px;
+  width: auto;
+  height: 45px;
+  object-fit: contain;
+  margin-left: 92%;
+}
 
     </style>
 </head>
@@ -167,19 +231,35 @@ while ($row = $result2->fetch_assoc()) {
     // Convertir la imagen a base64
     $imagen_base64 = base64_encode($imagen_data);
     //Asignas el nombre a la variable nombre mascota para nombre del pdf
+
+
+    $imagenLogo = '../../imagenes/gatito.jpg';
+
+    // Leer el contenido de la imagen
+    $imagenData = file_get_contents($imagenLogo);
+
+    // Convertir la imagen a base64
+    $logobase64 = base64_encode($imagenData);
+
+
+
     $nombreMascota = $row['nombre_mascota'];
 
-    $html .= '<div class="tituloDocumento">
+    $html .= '
+    <div class="logoIcono">
+    <img class="logoImagen" src="data:image/jpeg;base64,' . $logobase64 . '">
+                </div>
+    <div class="tituloDocumento">
     <h1>HISTORIAL VETERINARIO DE '.$row['nombre_mascota'].'</h1>
-    <p>Sr(a) '.$row['nombres'].' '.$row['apellidos'].' en Pet&Care nos preocupamos por el bienestar de sus mascotas.  </p>
-    <p>Por eso recuerde que no existe vacuna que dure toda la vida, por ello es necesario poner refuerzo  </p>
-    <p>a nuestra mascota, tanto cachorros y adultos.</p>
+    <p>Sr(a) '.$row['nombres'].' '.$row['apellidos'].' a continuación presentamos el carnet de vacunación</p>
 </div>
 <div class="contenedorImgTexto"> 
 <table class="tablaDatos">
 <tr>
 <td class="td1">
  <div class="contenedorTexto">
+ <h3>Datos de la mascota:</h3>
+
     <ul>
      <li> 
 
@@ -222,6 +302,8 @@ while ($row = $result2->fetch_assoc()) {
    
   </div>
 ';
+
+
 }
 
 
@@ -233,12 +315,8 @@ $html .= '
         <h1>CARNET DE SALUD</h1>
     </div>
    
-                <img src="../../../imagenes/PHlogo.png" alt="logo" class="col">
-                <span class="col">Mis vacunas</span>
-                <img src="../../../imagenes/PHlogo.png" alt="logo" class="col">
-           
-           
-                    <table class="table table-borderless table-striped table-responsive text-center">
+    <div class="tabla-container">    
+                    <table class="tablaVacuna">
                         <thead>
                             <tr>
                                 <th scope="col">Fecha Aplicada</th>
@@ -268,14 +346,14 @@ while ($row = $result->fetch_assoc()) {
 $html .= '
                         </tbody>
                     </table>
-               
+                    </div>
 </section>
 </body>
 </html>';
 
 $dompdf->loadHtml($html);
 // (Optional) Setup the paper size and orientation
-$dompdf->setPaper('A4', 'portrait');
+$dompdf->setPaper('A4', 'landscape');
 // Render the HTML as PDF
 $dompdf->render();
 // Output the generated PDF to Browser
