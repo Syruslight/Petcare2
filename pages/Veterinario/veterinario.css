@@ -233,8 +233,139 @@
 }
 
 
-
-
+.contenedorCitas{
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  width: auto;
+  padding: 20px;
+  height: 655px;
+}
+.contenedorCitas h2{
+margin-left: 20px;
+}
+.contenedorSuperiorCitas{
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+ 
+}
+.barraBusqueda{
+  padding-left: 15px;
+  border-radius: 12px;
+  background: #EBEBEB;
+  width: 403px;
+height: 43px;
+display: flex;
+align-items: center;
+}
+.barraBusqueda input{
+  padding: 5px;
+  width: 85%;
+  height: 30px;
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+}
+.barraBusqueda input:focus {
+  outline: none;
+  border-color: transparent;
+}
+.filtroSeleccion label {
+  color: #302f2f;
+  margin-right: 10px;
+  font-size: 18px;
+}
+.filtroSeleccion select {
+border-radius: 15px;
+height: 43px;
+  background-color: #EBEBEB;
+  border: 1px solid #ccc;
+  padding: 5px 30px 5px 10px;
+  color: #333;
+  width: 170px;
+  cursor: pointer;
+  font-size: 18px;
+}
+/* Estilos al seleccionar una opción */
+.filtroSeleccion select:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.filtroFecha {
+  align-items: center;
+}
+.filtroFecha label {
+  margin-right: 10px;
+  font-size: 18px;
+}
+.filtroFecha input{
+  border-radius: 15px;
+  height: 30px;
+    background-color: #EBEBEB;
+    border: 1px solid #ccc;
+    padding: 5px 5px 5px 10px;
+    color: #333;
+    width: auto;
+    cursor: pointer;
+    font-size: 18px;
+}
+/* Estilo para el campo de fecha cuando está enfocado */
+.filtroFecha input[type="date"]:focus {
+  outline: none;
+}
+.contenedorTablaCita{
+  padding: 20px;
+  max-height: 500px; /* Ajusta el tamaño máximo según tus necesidades */
+  overflow-y: auto; 
+ 
+}
+.tablaCitas {
+  width: 100%;
+  border-collapse: collapse;
+}
+.tablaCitas th,
+.tablaCitas td {
+  padding: 8px;
+  text-align: center;
+}
+.tablaCitas td{
+  height: 70px;
+  font-size: 18px;
+  color: #464545;
+}
+.tablaCitas th {
+  height: 50px;
+  font-size: 18px;
+  background-color: #2a9d8f;
+  text-align: center;
+  color: white;
+  overflow: hidden;
+}
+.tablaCitas thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.tablaCitas tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.tablaCitas tr {
+  text-align: center;
+}
+.tablaCitas tr:hover {
+  background-color: #95cfcc85;
+}
+.tablaCitas select {
+  font-size: 18px;
+  width: 100%;
+  padding: 4px;
+  border: none;
+  background-color: transparent;
+  color: #333;
+ 
+}
 
 
 
