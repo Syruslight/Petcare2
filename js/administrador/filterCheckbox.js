@@ -31,22 +31,25 @@ function filterProducts() {
 }
 
 // Escuchar los cambios en los checkboxes y llamar a la función de filtrado
-var checkboxes = document.getElementsByClassName("filter-checkbox");
-for (var k = 0; k < checkboxes.length; k++) {
-  checkboxes[k].addEventListener("change", filterProducts);
-}
-
 function updateCheckbox(checkboxId) {
-  const checkbox = document.getElementById(checkboxId);
-  const checked = checkbox.checked;
+  var checkboxes = document.getElementsByClassName("filter-checkbox");
+  var tiposSeleccionados = [];
 
-  // Obtener todos los elementos <hr> dentro del contenedor
-  const hrElements = document.querySelectorAll(".linea");
-
-  // Ocultar o mostrar los <hr> según el estado del checkbox
-  if (checked) {
-    hrElements.forEach((hr) => (hr.style.display = "none"));
-  } else {
-    hrElements.forEach((hr) => (hr.style.display = "flex"));
+  for (var i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      tiposSeleccionados.push(checkboxes[i].getAttribute("data-tipo"));
+    }
   }
+
+  // Enviar solicitud AJAX para filtrar los resultados
+  var xmlhttp = new XMLHttpRequest();
+  xmlhttp.onreadystatechange = function () {
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      document.getElementById("resultados").innerHTML = xmlhttp.responseText;
+    }
+  };
+
+  xmlhttp.open("GET", "filtrar_productos.php?tipos=" + JSON.stringify(tiposSeleccionados), true);
+  xmlhttp.send();
 }
+

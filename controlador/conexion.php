@@ -385,6 +385,16 @@ function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo
     return $vec;
 }
 
+function actualizarProductos($idproductoservicio, $nombre, $precio, $descripcion, $fotoProductoServicio, $tipoProducto, $conn)
+{
+    $sql = "UPDATE productoservicio
+    SET nombre = '$nombre', precio = '$precio', descripcion = '$descripcion',
+    fotoProductoServicio = '$fotoProductoServicio', idtipoproductoservicio = '$tipoProducto'
+    WHERE idproductoservicio = $idproductoservicio";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+
 //Funcion para listar los tipos de productos 
 function listarTipoProducto($conn){
     $sql = "SELECT nombre,estado FROM tipoproductoservicio where idtipoproductoservicio not like '1' ";
@@ -448,7 +458,6 @@ function listarServiciosPorId($idServicio, $conn) {
         $vec[] = $f;
     return $vec;
 }
-
 
 
 //Funcion para editar los servicios (precio nombre descripcion estado - desactivarlo)

@@ -6,31 +6,42 @@ $conn = conectar();
 $query = $_POST['query'];
 
 // Realizar la consulta a la base de datos
-$sql = "SELECT * FROM productoservicio WHERE nombre LIKE '%$query%' AND idtipoproductoservicio NOT IN ('1', '2', '3')";
+$sql = "SELECT productoservicio.idproductoservicio, productoservicio.nombre, productoservicio.precio, productoservicio.descripcion, productoservicio.fotoProductoServicio,
+        tipoproductoservicio.nombre as tipoProducto 
+        FROM productoservicio INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio 
+        WHERE productoservicio.nombre LIKE '%$query%' AND productoservicio.idtipoproductoservicio NOT IN ('1', '2', '3')
+        AND tipoproductoservicio.estado = 1";
+
+
 $result = $conn->query($sql);
 
 $output='';
 
 if ($result->num_rows > 0) {
   // Construir la tabla de resultados
-    foreach($result as $row) {
-        $output = '     <div  class="dates-table">
-                        <img class="image-product"src="../../../imagenes/perfilAdmin/foodPet.png" width=60 height=60>
-                        <span class="table-nameFood">' . $row['nombre'] . '</span>
-                        <span class="item table-type">test</span>
-                        <span class="table-price">S./' . $row['precio'] . '</span>
-                        <span class="table-description">' . $row['descripcion'] . '</span>
-                        <img id="openModalEdithProduct" onclick="openModalEdithProduct()" data-nombreproducto="' .$row['nombre'] .'"
-                        data-precioproducto="' .$row['precio'] .'" data-descripcionproducto="' .$row['descripcion'] .'"
-                        data-fotoproducto="' .$row['fotoProductoServicio'] .'"
-                        class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width=45 height=40>';                     
-    }
-        $output .= '</div>
-                    <hr class="linea">';
-  
+  $output = '<div class="wrapper-results">';
+  foreach ($result as $row) {
+      $output .= '<div class="result-item">
+                      <img class="image-product" src="../../../imagenes/productos_servicios/productos/'. $row['fotoProductoServicio'] . '" width="60" height="60">
+                      <div class="result-info">
+                          <span class="table-nameFood">' . $row['nombre'] . '</span>
+                          <span class="item table-type">' . $row['tipoProducto']. '</span>
+                          <span class="table-price">S./' . $row['precio'] . '</span>
+                          <span class="table-description">' . $row['descripcion'] . '</span>
+                      </div>
+                      <img class="openModalEdithProduct" onclick="openModalEdithProduct(event)" data-nombreproducto="' . $row['nombre'] . '"
+    data-precioproducto="' . $row['precio'] . '" data-descripcionproducto="' . $row['descripcion'] . '" data-tipoproducto="' . $row['tipoProducto'] . '"
+    data-fotoproducto="' . $row['fotoProductoServicio'] . '"  data-idproducto="' . $row['idproductoservicio'] . '"
+    src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
+
+                  </div>';
+  }
+  $output .= '</div>';
 } else {
-    $output = ' <div  class="dates-table"> No se encontraron resultados. </div>';
+  $output = '<div class="dates-table">No se encontraron resultados.</div>';
 }
+
+
 echo $output;
 $conn->close();
 ?>

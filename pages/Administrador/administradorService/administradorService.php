@@ -232,14 +232,14 @@ $conn = conectar();
                             </div>
                          <div class="update-photos">
                          
-                         <span class="text-updatePhoto">Subir Foto</span>
-                                <lord-icon
+                         <label class="text-updatePhoto" for="fotoProductoSRC" onclick="previsualizarImagen('perfil-img', 'fotoProductoSRC', '../../../imagenes/sinImagen.jpg')">Subir Foto
+                                 <lord-icon
                                     src="https://cdn.lordicon.com/wfadduyp.json"
                                     trigger="click"
                                     colors="primary:#ffffff"
                                     state="hover-1"
                                     style="width:39px;height:39px">
-                                </lord-icon>
+                                </lord-icon></label>
                             </div>
                             
 

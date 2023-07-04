@@ -64,32 +64,46 @@ function openModalCreateProduct() {
   });
 }
 
-function openModalEdithProduct() {
-  const openModal = document.getElementById("openModalEdithProduct");
-  const modal = document.getElementById("modal-edithProduct");
-  const closeModal = document.getElementById("close1");
-  openModal.addEventListener("click", (e) => {
-    e.preventDefault();
+function openModalEdithProduct(event) {
+  const button = event.target;
+  const modal = document.querySelector(".modal-edithProduct");
+  const closeModal = document.querySelector("#close1");
 
-    const nombreProducto = e.target.getAttribute("data-nombreproducto");  
-    const precioProducto = e.target.getAttribute("data-precioproducto");
-    const descripcionProducto = e.target.getAttribute("data-descripcionproducto"); 
-    const fotoproducto = e.target.getAttribute("data-fotoproducto");
+  const idProducto = button.getAttribute("data-idproducto");
+  const nombreProducto = button.getAttribute("data-nombreproducto");
+  const precioProducto = button.getAttribute("data-precioproducto");
+  const descripcionProducto = button.getAttribute("data-descripcionproducto");
+  const fotoproducto = button.getAttribute("data-fotoproducto");
+  const tipoProducto = button.getAttribute("data-tipoproducto");
+
+  const fotoproducto1 = fotoproducto;
   
 
-    document.querySelector("#nombreProductoEnvio").value = nombreProducto;
-    document.querySelector("#precioProductoEnvio").value = precioProducto;
-    document.querySelector("#descripcionProductoEnvio").value = descripcionProducto;
-    document.querySelector("#perfil-producto").src = "../../imagenes/productos_servicios/productos/" + fotoproducto;
 
+  document.querySelector("#idProductoEnvio").value = idProducto;
+  document.querySelector("#nombreProductoEnvio").value = nombreProducto;
+  document.querySelector("#precioProductoEnvio").value = precioProducto;
+  document.querySelector("#descripcionProductoEnvio").value = descripcionProducto;
+  document.querySelector("#productoEnvio").src = "../../../imagenes/productos_servicios/productos/" + fotoproducto;
+  document.querySelector("#nombrefotoProductoEnvio").value = fotoproducto1;
 
-    modal.classList.add("modalProduct--show");
-  });
+  //Codigo para tipo del producto (combo box)
+  const tipoSelect = document.querySelector("#tipoEnvio");
+  for (let i = 0; i < tipoSelect.options.length; i++) {
+      if (tipoSelect.options[i].value === tipoProducto) {
+          tipoSelect.selectedIndex = i;
+      break;
+      }
+  }  
+
+  modal.classList.add("modalProduct--show");
+
   closeModal.addEventListener("click", (e) => {
     e.preventDefault();
     modal.classList.remove("modalProduct--show");
   });
 }
+
 
 // Modal para Category
 function openModalCreateCategory() {
