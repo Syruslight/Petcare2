@@ -80,7 +80,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                 <input class="input-search" type="search" name="busqueadaDNI" placeholder="" id="busqueda">
                             </div>
                             <div class="image-container">
-
+                                <!--Comienza codigo para filtro -->
                                 <img src="../../../imagenes/icono-filtro.png" width="35px" height="35px" alt="Imagen" onclick="togglePopup()" />
                                 <div class="popup" id="popup">
                                     <?php foreach (obtenerTipoProd($conn) as $tipo) : ?>

@@ -418,7 +418,7 @@ function agregarProducto($idCategoria,$fotProducto,$nombre,$descripcion,$precio,
 
 //Funcion para obtener el tipo de producto
 function obtenerTipoProd($conn){
-    $sql= "select * from tipoproductoservicio where estado='1'";
+    $sql= "select * from tipoproductoservicio where estado='1' and idtipoproductoservicio NOT IN ('1', '2', '3')";
     $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
     return $res;
 }
@@ -426,7 +426,7 @@ function obtenerTipoProd($conn){
 #     Servicios
 //Funcion para listar servicios //modificar el estado 
 function listarServicios($conn) {
-    $sql = "SELECT productoservicio.idproductoservicio, productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio, productoservicio.estado FROM productoservicio WHERE productoservicio.idtipoproductoservicio = '1'";
+    $sql = "SELECT productoservicio.idproductoservicio, productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio, productoservicio.estado FROM productoservicio WHERE productoservicio.idtipoproductoservicio   IN ('1', '2','3')" ;
     $res = mysqli_query($conn, $sql);
     $vec = array();
     while ($f = mysqli_fetch_array($res)) {
@@ -463,10 +463,10 @@ function listarServiciosPorId($idServicio, $conn) {
 //Funcion para editar los servicios (precio nombre descripcion estado - desactivarlo)
 function actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $estado, $conn)
 {
-    $sql = "UPDATE productoservicio SET nombre = '$nombre', precio = '$precio', descripcion = '$descripcion', fotoProductoServicio = '$fotoProductoServicio', estado = '$estado' WHERE idproductoservicio = $idproductoservicio;";
+    $sql = "UPDATE productoservicio SET nombre = '$nombre', precio = '$precio', descripcion = '$descripcion', 
+    fotoProductoServicio = '$fotoProductoServicio', estado = '$estado' WHERE idproductoservicio = $idproductoservicio;";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
-
 
 # Area de puntos
 
@@ -490,5 +490,26 @@ function listarDetallePuntosCliente($idCliente, $conn) {
 
     return $detallePuntos;
 }
+
+# Area de mantenimiento de cuentas
+
+//Funcion para listar la cuenta de los veterinarios 
+function listarCuentasVeterinarios($conn) {
+    $sql = "SELECT idusuario,email, pass, fechaCre, estado FROM usuario WHERE idtipousuario = 3 ORDER BY fechaCre DESC";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res)) {
+        $cuentaVeterinario = array(
+            'idusuario' => $f['idusuario'],
+            'email' => $f['email'],
+            'pass' => $f['pass'],
+            'fechaCre' => $f['fechaCre'],
+            'estado' => $f['estado']        
+        ); 
+        $vec[] = $cuentaVeterinario;
+    }
+    return $vec;
+}
+
 
 ?>

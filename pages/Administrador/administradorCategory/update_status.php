@@ -12,7 +12,7 @@ if (!empty($id) && ($checked == '0' || $checked == '1')) {
     $estado = $checked;
     $sql = "UPDATE tipoproductoservicio SET estado = '$estado' WHERE idtipoproductoservicio = '$id'";
     $result = mysqli_query($conn, $sql);
-
+    
     // Verifica si la actualización fue exitosa
     if ($result) {
         echo "Estado actualizado exitosamente";

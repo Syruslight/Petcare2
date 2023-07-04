@@ -83,7 +83,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                             <span class="table-price"><?php echo $f['afiliaciones']; ?> Productos</span>
                                             <div class="toogleStatus">
                                                 <div class="toggle-switch">
-                                                    <input type="checkbox" id="switch<?php echo $idtipoproductoservicio; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idtipoproductoservicio; ?>, this.checked, '¿Desea cambiar el estado de la categoría?')" <?php if ($f['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($f['estado'] == '1') ? 'true' : 'false'; ?>" />
+                                                    <input type="checkbox" id="switch<?php echo $idtipoproductoservicio; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idtipoproductoservicio; ?>, 
+                                                    this.checked, '¿Desea cambiar el estado de la categoría?')" <?php if ($f['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($f['estado'] == '1')
+                                                     ? 'true' : 'false'; ?>" />
                                                     <label for="<?php echo $toggleID; ?>" class="toggle-switch-label"></label>
                                                     <span class="slider round"></span>
                                                     <span class="toggle-switch-text" id="<?php echo $statusID; ?>"><?php echo ($f['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>

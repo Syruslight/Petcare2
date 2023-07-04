@@ -42,6 +42,6 @@ if ($result->num_rows > 0) {
 }
 
 
-echo $output;
+echo $output; //Envio de datos
 $conn->close();
 ?>

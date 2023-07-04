@@ -91,53 +91,57 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
             <div class="tablaCuentasAdmin">
-                <?php
-                $sql = "SELECT email, pass, fechaCre, estado FROM usuario WHERE idtipousuario = 3 ORDER BY fechaCre DESC";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    $numero = $result->num_rows; // Crear la tabla para mostrar los datos
-                    
-                    echo "<table class='tablaCuentasCreadas'>
-    <thead>
-      <tr>
-      <th>N°</th>
-      <th>Fecha de Creación</th>
-        <th>Email</th>
-        <th>Password</th>
-        <th>Estado</th>
-      </tr>
-    </thead>";
+            <?php
+// Llamar a la función listarCuentasVeterinarios pasando la conexión
+$cuentasVeterinarios = listarCuentasVeterinarios($conn);
 
-                    // Mostrar los datos en la tabla
-                    while ($row = $result->fetch_assoc()) {
-                        $estado = ($row["estado"] == 2) ? "Habilitado" : "Deshabilitado";
-                        $estadoClass = ($row["estado"] == 2) ? "Habilitado" : "Deshabilitado";
-                 //     $disabled = ($row["estado"] == 2) ? "" : "disabled";
+if (!empty($cuentasVeterinarios)) {
+    $numero = count($cuentasVeterinarios);
 
-                        echo "<tbody>
-                                    <tr> 
-                                            <td>" . $numero . "</td>
-                                            <td>" . $row["fechaCre"] . "</td>
-                                            <td>" . $row["email"] . "</td>
-                                            <td>" . $row["pass"] . "</td>
-                                            <td>
-                                                <label class=\"switch\">
-                                                <input type=\"checkbox\" class=\"toggle-button\" checked=\"" . $row["estado"] . "\">
-                                                <span class=\"slider round\"></span>
-                                                </label>
-                                                <span class=\"estado-texto " . $estadoClass . "\">" . $estado . "</span>
-                                            </td>
-                                    </tr>
-                            </tbody>";
-                        $numero--;
-                    }
+    echo "<table class='tablaCuentasCreadas'>
+        <thead>
+            <tr>
+                <th>N°</th>
+                <th>Fecha de Creación</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Estado</th>
+            </tr>
+        </thead>";
 
-                    echo "</table>";
-                } else {
-                    echo "No se encontraron veterinarios.";
-                }
-                ?>
-            </div>
+    // Mostrar los datos en la tabla
+    foreach ($cuentasVeterinarios as $cuenta) {
+        $estado = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
+        $estadoClass = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
+
+        $toggleID = 'switch' . $cuenta['idusuario']; // ID del elemento del toggle
+
+        echo "<tbody>
+            <tr> 
+                <td>" . $numero . "</td>
+                <td>" . $cuenta['fechaCre'] . "</td>
+                <td>" . $cuenta['email'] . "</td>
+                <td>" . $cuenta['pass'] . "</td>
+                <td>
+                    <label class=\"switch\">
+                        <input type=\"checkbox\" class=\"toggle-button\" id=\"" . $toggleID . "\" checked=\"" . $cuenta['estado'] . "\">
+                        <span class=\"slider round\"></span>
+                    </label>
+                    <span class=\"estado-texto " . $estadoClass . "\">" . $estado . "</span>
+                </td>
+            </tr>
+        </tbody>";
+
+        $numero--;
+    }
+
+    echo "</table>";
+} else {
+    echo "No se encontraron veterinarios.";
+}
+?>
+
+</div>
 
             <?php
             include('../../Administrador/components/footerAdministrador.php');
