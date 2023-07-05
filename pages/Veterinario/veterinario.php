@@ -237,37 +237,7 @@ function filtrarTablaPorEstado(estado) {
 }
 </script>
 
-<script>
-// Obtener la tabla y el filtro de fecha
-var tablaCitas = document.querySelector('.tablaCitas');
-var filtroFecha = document.getElementById('filtrarFecha');
 
-// Agregar evento change al filtro de fecha
-filtroFecha.addEventListener('change', function() {
-    var fechaSeleccionada = this.value;
-
-    // Mostrar todas las filas de la tabla
-    var filas = tablaCitas.querySelectorAll('tbody tr');
-    filas.forEach(function(fila) {
-        fila.style.display = '';
-    });
-
-    // Filtrar la tabla por fecha
-    filtrarTablaPorFecha(fechaSeleccionada);
-});
-
-// Función para filtrar la tabla por fecha
-function filtrarTablaPorFecha(fecha) {
-    var filas = tablaCitas.querySelectorAll('tbody tr');
-    filas.forEach(function(fila) {
-        var columnaFecha = fila.querySelector('td:nth-child(2)');
-        var fechaTabla = columnaFecha.textContent.trim();
-        if (fechaTabla !== fecha) {
-            fila.style.display = 'none';
-        }
-    });
-}
-</script>
 
 
                 <script src="../../js/previsualizarImagen.js"></script>

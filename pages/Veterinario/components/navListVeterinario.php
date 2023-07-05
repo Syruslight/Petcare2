@@ -37,7 +37,7 @@
         </div>
         <div class="icons">
             <img src="https://img.icons8.com/ios/50/null/database--v1.png" width="25" height="25" />
-            <span class="list">Servicios</span>
+            <a href="../../../pages/Veterinario/horario/horario.php"><span class="list">Mi horario</span></a>
         </div>
         <div class="icons">
             <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25" height="25" />

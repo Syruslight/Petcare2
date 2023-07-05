@@ -1,3 +1,18 @@
+function openModalHorario(){
+  const openModal = document.querySelector(".botonHorario");
+  const modal = document.querySelector(".modalHorario");
+  const closeModal = document.querySelector("#CloseModalHorario");
+  openModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.add("modalHorario--show");
+  });
+  closeModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.remove("modalHorario--show");
+  });
+}
+
+
 function openModalCreacionCuentasAdministrador(){
   const openModal = document.querySelector(".addNewAccount");
   const modal = document.querySelector(".modalAdministradorCrearCuenta");
