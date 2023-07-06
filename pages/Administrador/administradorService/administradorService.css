@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 .wrapper {
   width: 100%;
   height: 1024px;
@@ -64,6 +65,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
+  height: 647px;
 }
 .categories {
   display: flex;
@@ -107,7 +109,7 @@
 }
 .sign-off {
   display: flex;
-  margin-top: 125px;
+  margin-top: 102px;
 }
 /*Finish dashboar*/
 .dash-information {
@@ -185,19 +187,51 @@
   grid-template-columns: auto auto auto;
   gap: 20px;
   align-items: center;
-  margin-left: 89px;
+  margin-left: 47px;
   margin-top: 40px;
+  overflow-y: auto;
+  height: 741px;
+}
+.wrapper-deck::-webkit-scrollbar {
+  width: 10px;
+}
+.wrapper-deck::-webkit-scrollbar-thumb {
+  background: #c0dfd5;
+  border-radius: 2px;
+}
+.wrapper-deck::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f;
+  border-radius: 2px;
 }
 .card {
   width: 309px;
   height: 313px;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.356);
 }
 .card-body {
   display: flex;
+  max-height: 128px;
+  height: 128px;
+  padding: 16px 16px 16px 12px !important;
 }
 .edit-pencil {
-  margin-top: 80px;
-  margin-left: 20px;
+  position: absolute;
+  left: 270px;
+  bottom: 132px;
+}
+.card-img-top{
+  width: 307px !important;
+  max-width: 307px;
+  height: 225px;
+  max-height: 240px;
+  object-fit: cover;
+  object-position: center;
+}
+.card-text-container{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 2px;
 }
 /* Aca  comienza en Toogle status para cambiar el estado */
 .toggle-switch {
@@ -205,7 +239,7 @@
   display: inline-block;
   width: 60px;
   height: 34px;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   margin-left: 20px;
 }
 
@@ -219,9 +253,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 50px;
+  width: 60px;
   height: 100%;
-  border-radius: 34px;
+  border-radius: 30px;
   background-color: #ccc;
   cursor: pointer;
 }
@@ -250,9 +284,17 @@
   font-size: 14px;
   color: #888;
   position: absolute;
-  top: 50%;
-  left: 70px;
+  top: 43px;
+  left: 0px;
   transform: translateY(-50%);
+}
+.card-text-container p{
+  margin-top: -2px;
+  margin-bottom: 4px;
+  margin-left: 13px;
+  font-size: 19px;
+  font-weight: 600;
+  color: #EE1010;
 }
 /*aca termina el toogle*/
 .footer {
@@ -262,8 +304,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 365px;
-
   &span {
     font-family: "Poppins";
     font-style: normal;
@@ -424,6 +464,9 @@
 }
 .image-modals > img {
   width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 100%;
 }
 
 .update-photos {

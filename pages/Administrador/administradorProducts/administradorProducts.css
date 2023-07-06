@@ -259,6 +259,20 @@
   margin-right: 10px;
 }
 /* Aca termina el terrible combo */
+.result-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0px 30px 0px;
+}
+.result-info{
+  display: flex;
+  align-items: center;
+  gap: 73px;
+}
+.result-img{
+  margin-right: 48px !important;
+}
 .text-filter {
   font-family: "Poppins";
   font-style: normal;
@@ -274,8 +288,12 @@
   margin-top: 11px;
   flex-direction: column;
 }
+.row-table{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
 .tittle-textProduct {
-  margin-left: 60px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -283,6 +301,7 @@
   line-height: 21px;
   text-align: center;
   color: #000000;
+  margin-right: 58px;
 }
 .tittle-textType {
   font-family: "Poppins";
@@ -292,7 +311,6 @@
   line-height: 21px;
   text-align: center;
   color: #000000;
-  margin-left: 90px;
 }
 .tittle-textPrice {
   font-family: "Poppins";
@@ -302,7 +320,6 @@
   line-height: 21px;
   text-align: center;
   color: #000000;
-  margin-left: 90px;
 }
 .tittle-textDescription {
   font-family: "Poppins";
@@ -312,7 +329,6 @@
   line-height: 21px;
   text-align: center;
   color: #000000;
-  margin-left: 180px;
 }
 .tittle-textAction {
   font-family: "Poppins";
@@ -322,7 +338,6 @@
   line-height: 21px;
   text-align: center;
   color: #000000;
-  margin-left: 180px;
 }
 .linea {
   width: 1000px;
@@ -332,15 +347,23 @@
   overflow-y: scroll;
   height: 580px;
 }
+.wrapper-table::-webkit-scrollbar {
+  width: 10px;
+}
+.wrapper-table::-webkit-scrollbar-thumb {
+  background: #c0dfd5;
+  border-radius: 2px;
+}
+.wrapper-table::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f;
+  border-radius: 2px;
+}
 .dates-table {
   display: flex;
   align-items: center;
 }
-.image-product {
-  margin-left: 50px;
-}
 .table-nameFood {
-  width: 80px;
+  width: 150px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -349,8 +372,7 @@
   color: rgba(156, 156, 156, 0.78);
 }
 .table-type {
-  width: 100px;
-  margin-left: 50px;
+  width: 110px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -359,7 +381,6 @@
   color: rgba(156, 156, 156, 0.78);
 }
 .table-price {
-  margin-left: 50px;
   width: 90px;
   font-family: "Poppins";
   font-style: normal;
@@ -367,20 +388,32 @@
   font-size: 22px;
   line-height: 21px;
   color: rgba(156, 156, 156, 0.78);
+  padding-right: 10px;
 }
 .table-description {
-  width: 300px;
-  margin-left: 80px;
-  margin-right: 90px;
+  width: 250px;
+  height: 23px;
+  overflow-y: auto;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
   line-height: 21px;
   color: rgba(156, 156, 156, 0.78);
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-right: 34px;
 }
+.table-description::-webkit-scrollbar {
+  width: 10px;
+}
+.table-description::-webkit-scrollbar-thumb {
+  background: #c0dfd5;
+  border-radius: 2px;
+}
+.table-description::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f;
+  border-radius: 2px;
+}
+
 /* .image-edit {
   margin-right: 15px;
 } */
@@ -552,7 +585,9 @@
   height: 370px;
 }
 .image-modals > img {
-  width: 100%;
+  width: auto;
+  object-position: center;
+  height: 96%;
 }
 
 .update-photos {

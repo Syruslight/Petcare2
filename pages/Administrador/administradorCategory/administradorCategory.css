@@ -261,6 +261,17 @@
   overflow-y: scroll;
   height: 580px;
 }
+.wrapper-table::-webkit-scrollbar {
+  width: 10px;
+}
+.wrapper-table::-webkit-scrollbar-thumb {
+  background: #c0dfd5;
+  border-radius: 2px;
+}
+.wrapper-table::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f;
+  border-radius: 2px;
+}
 .dates-table {
   display: flex;
   align-items: center;

@@ -41,7 +41,7 @@ $conn = conectar();
        <div class="wrapper-services">
    <div class="header-services">
         <h1 >Mis Servicios</h1> 
-        <button id="open" onclick="openModalCreateService()" class="add-newService">+Nuevo Servicio</button>            
+        <button id="open" onclick="openModalCreateService()" class="add-newService">+ Nuevo Servicio</button>            
    </div>
 
    <div class="wrapper-deck">
@@ -54,16 +54,16 @@ $conn = conectar();
         ?>
         <div class="card">
             <img src="../../../imagenes/productos_servicios/servicios/<?php echo $servicio['foto']; ?>" class="card-img-top" alt="...">
+            <img class="edit-pencil openModalEdithService" data-nombre="<?php echo $servicio['nombre']; ?>" data-precio="<?php echo $servicio['precio']; ?>" 
+                data-descripcion="<?php echo $servicio['descripcion']; ?>" data-foto="<?php echo $servicio['foto']; ?>" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width="35" height="35">
             <div class="card-body">
                 <div>
                     <h5 class="card-title"><?php echo $servicio['nombre']; ?></h5>
                     <p class="card-text"><?php echo $servicio['descripcion']; ?></p>
-                    <p class="card-text">s/.<?php echo $servicio['precio']; ?></p>
                 </div>
             
-        <div>
-                <img class="edit-pencil openModalEdithService" data-nombre="<?php echo $servicio['nombre']; ?>" data-precio="<?php echo $servicio['precio']; ?>" 
-                data-descripcion="<?php echo $servicio['descripcion']; ?>" data-foto="<?php echo $servicio['foto']; ?>" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width="35" height="35">
+        <div class="card-text-container">
+        <p class="card-text">s/.<?php echo $servicio['precio']; ?></p>
                 <div class="toogleStatus">
             <div class="toggle-switch">
                 <input type="checkbox" id="<?php echo $toggleID; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idproductoservicio; ?>, this.checked, '¿Desea cambiar el estado de la categoría?')" <?php if ($servicio['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($servicio['estado'] == '1') ? 'true' : 'false'; ?>" />
@@ -72,7 +72,9 @@ $conn = conectar();
                 <span class="toggle-switch-text" id="<?php echo $statusID; ?>"><?php echo ($servicio['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>
             </div>
         </div>
+        
                 </div>
+                
             </div>
         </div>
         <?php
