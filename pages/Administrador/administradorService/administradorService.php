@@ -55,7 +55,8 @@ $conn = conectar();
         <div class="card">
             <img src="../../../imagenes/productos_servicios/servicios/<?php echo $servicio['foto']; ?>" class="card-img-top" alt="...">
             <img class="edit-pencil openModalEdithService" data-nombre="<?php echo $servicio['nombre']; ?>" data-precio="<?php echo $servicio['precio']; ?>" 
-                data-descripcion="<?php echo $servicio['descripcion']; ?>" data-foto="<?php echo $servicio['foto']; ?>" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width="35" height="35">
+                data-descripcion="<?php echo $servicio['descripcion']; ?>" data-foto="<?php echo $servicio['foto']; ?>" 
+                data-idservicio="<?php echo $servicio['idproductoservicio']; ?>" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width="35" height="35">
             <div class="card-body">
                 <div>
                     <h5 class="card-title"><?php echo $servicio['nombre']; ?></h5>
@@ -66,7 +67,7 @@ $conn = conectar();
         <p class="card-text">s/.<?php echo $servicio['precio']; ?></p>
                 <div class="toogleStatus">
             <div class="toggle-switch">
-                <input type="checkbox" id="<?php echo $toggleID; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idproductoservicio; ?>, this.checked, '¿Desea cambiar el estado de la categoría?')" <?php if ($servicio['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($servicio['estado'] == '1') ? 'true' : 'false'; ?>" />
+                <input type="checkbox" id="<?php echo $toggleID; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idproductoservicio; ?>, this.checked, '¿Desea cambiar el estado del servicio?')" <?php if ($servicio['estado'] == '1') echo 'checked'; ?> data-original-state="<?php echo ($servicio['estado'] == '1') ? 'true' : 'false'; ?>" />
                 <label for="<?php echo $toggleID; ?>" class="toggle-switch-label"></label>
                 <span class="slider round"></span>
                 <span class="toggle-switch-text" id="<?php echo $statusID; ?>"><?php echo ($servicio['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>
@@ -227,14 +228,21 @@ $conn = conectar();
                             style="width:40px;height:40px">
                         </lord-icon>
                     </div>
+                    <form action="../../../llamadas/proceso_actualizarDatosServicios.php" method="post" enctype="multipart/form-data">
+
                     <div class="wrapper-bodyModals">
                         <div class="photos-Modals">
                             <div class="image-modals">
-                            <img id="perfil-img" alt="profile">
-                            </div>
+                            <!--Nombre del servicio oculta para guardase en caso no se actualice-->
+                            <input class="text-nameProduct" type="text" name="nombrefotoServicio_PE" id="nombrefotoServicioEnvio" hidden>
+
+                            <img id="servicioEnvio" class="producto-image"> <!--Aqui se obtiene la url del producto para mostrar el guardado-->
+                            <input id="fotoServicioSRC" type="file" name="fotoNuevaServicio" hidden >
+    
+                        </div>
                          <div class="update-photos">
                          
-                         <label class="text-updatePhoto" for="fotoProductoSRC" onclick="previsualizarImagen('perfil-img', 'fotoProductoSRC', '../../../imagenes/sinImagen.jpg')">Subir Foto
+                         <label class="text-updatePhoto" for="fotoServicioSRC" onclick="previsualizarImagen('servicioEnvio', 'fotoServicioSRC', '../../../imagenes/sinImagen.jpg')">Subir Foto
                                  <lord-icon
                                     src="https://cdn.lordicon.com/wfadduyp.json"
                                     trigger="click"
@@ -249,11 +257,10 @@ $conn = conectar();
 
                         </div>
                         
-                        <form action="">
                             <div class="formu-modals"> 
                                 <div class="first-group">
                                     <label class="label-reuse" for="">Nombreservicio:</label>
-                                    <input class="text-nameProduct" type="text" id="nombreServicioEnvio">
+                                    <input class="text-nameProduct" type="text" id="nombreServicioEnvio" name="nombre_SE">
                                 </div>
                                 <div class="second-group">
                                     <div class="group-selects">
@@ -266,15 +273,15 @@ $conn = conectar();
                                     </div>
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Precio</label>
-                                        <input class="text-namePrice" type="text" id="precioServicioEnvio">
+                                        <input class="text-namePrice" type="text" id="precioServicioEnvio" name="precio_SE">
+                                        <input class="text-namePrice" type="text" id="idServicioEnvio" name="id_SE" hidden>
                                     </div>
                                 </div>
                                 <div class="thirds-group">
                                     <label class="label-reuse"for="">Descripcion:</label>
-                                    <textarea class="text-descriptionProduct"type="area" id="descripcionServicioEnvio"></textarea>
+                                    <textarea class="text-descriptionProduct"type="area" id="descripcionServicioEnvio" name="descripcion_SE"></textarea>
                                 </div>
                             </div>
-                        </form>
                     </div>
                     <div class="footer-modals">
                 <button class="add-button">Actualizar</button>
@@ -287,6 +294,8 @@ $conn = conectar();
                     <div class="frame frame-2"></div>
                 </div>
             </div>
+            </form>
+
     </div>
     </section>
 

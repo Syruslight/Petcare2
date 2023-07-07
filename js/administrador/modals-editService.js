@@ -8,19 +8,24 @@ function openModalEdithService() {
   openModalButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       e.preventDefault();
+      
+      const idServicio= e.target.getAttribute("data-idservicio");
       const nombreServicio = e.target.getAttribute("data-nombre");
       const precioServicio = e.target.getAttribute("data-precio");
       const descripcionServicio = e.target.getAttribute("data-descripcion");
-      const fotoperfil = e.target.getAttribute("data-foto");
-      const fotoperfil1 = fotoperfil; // Nueva variable foto por defecto (la que esta guardada en la BD)
+      const fotoservicio = e.target.getAttribute("data-foto");
+      const fotoservicio1 = fotoservicio; // Nueva variable foto por defecto (la que esta guardada en la BD)
       // aqui falta otra variable para guardar la nueva foto en caso de haber
+      
+      document.querySelector("#servicioEnvio").src = "../../../imagenes/productos_servicios/servicio/" + fotoservicio;
+      document.querySelector("#nombrefotoServicioEnvio").value = fotoservicio1;
 
+
+      document.querySelector("#idServicioEnvio").value= idServicio;
       document.querySelector("#nombreServicioEnvio").value = nombreServicio;
       document.querySelector("#precioServicioEnvio").value = precioServicio;
-      document.querySelector("#descripcionServicioEnvio").value =
-        descripcionServicio;
-      document.querySelector("#perfil-img").src =
-        "../../../imagenes/productos_servicios/servicios/" + fotoperfil1;
+      document.querySelector("#descripcionServicioEnvio").value = descripcionServicio;
+      //document.querySelector("#perfil-img").src =  "../../../imagenes/productos_servicios/servicios/" + fotoservicio1;
 
       modal.classList.add("modalService--show");
     });

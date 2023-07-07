@@ -91,57 +91,57 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
             <div class="tablaCuentasAdmin">
-            <?php
-// Llamar a la función listarCuentasVeterinarios pasando la conexión
-$cuentasVeterinarios = listarCuentasVeterinarios($conn);
+    <?php
+    // Llamar a la función listarCuentasVeterinarios pasando la conexión
+    $cuentasVeterinarios = listarCuentasVeterinarios($conn);
 
-if (!empty($cuentasVeterinarios)) {
-    $numero = count($cuentasVeterinarios);
+    if (!empty($cuentasVeterinarios)) {
+        $numero = count($cuentasVeterinarios);
 
-    echo "<table class='tablaCuentasCreadas'>
-        <thead>
-            <tr>
-                <th>N°</th>
-                <th>Fecha de Creación</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>Estado</th>
-            </tr>
-        </thead>";
+        echo "<table class='tablaCuentasCreadas'>
+            <thead>
+                <tr>
+                    <th>N°</th>
+                    <th>Fecha de Creación</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>";
 
-    // Mostrar los datos en la tabla
-    foreach ($cuentasVeterinarios as $cuenta) {
-        $estado = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
-        $estadoClass = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
+        // Mostrar los datos en la tabla
+        foreach ($cuentasVeterinarios as $cuenta) {
+            $estado = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
+            $estadoClass = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
 
-        $toggleID = 'switch' . $cuenta['idusuario']; // ID del elemento del toggle
+            $toggleID = 'switch' . $cuenta['idusuario']; // ID del elemento del toggle
 
-        echo "<tbody>
-            <tr> 
-                <td>" . $numero . "</td>
-                <td>" . $cuenta['fechaCre'] . "</td>
-                <td>" . $cuenta['email'] . "</td>
-                <td>" . $cuenta['pass'] . "</td>
-                <td>
-                    <label class=\"switch\">
-                        <input type=\"checkbox\" class=\"toggle-button\" id=\"" . $toggleID . "\" checked=\"" . $cuenta['estado'] . "\">
-                        <span class=\"slider round\"></span>
-                    </label>
-                    <span class=\"estado-texto " . $estadoClass . "\">" . $estado . "</span>
-                </td>
-            </tr>
-        </tbody>";
+            echo "<tbody>
+                <tr> 
+                    <td>" . $numero . "</td>
+                    <td>" . $cuenta['fechaCre'] . "</td>
+                    <td>" . $cuenta['email'] . "</td>
+                    <td>" . $cuenta['pass'] . "</td>
+                    <td>
+                        <div class=\"toggle-switch\">
+                            <input type=\"checkbox\" id=\"" . $toggleID . "\" class=\"toggle-switch-checkbox\" onchange=\"updateStatus(" . $cuenta['idusuario'] . ", this.checked, '¿Desea cambiar el estado del veterinario?')\" " . ($cuenta['estado'] == '2' ? 'checked' : '') . " data-original-state=\"" . ($cuenta['estado'] == '2' ? 'true' : 'false') . "\" " . ($cuenta['estado'] == '3' ? 'disabled' : '') . "/>
+                            <label for=\"" . $toggleID . "\" class=\"toggle-switch-label\"></label>
+                            <div class=\"toggle-switch-text " . $estadoClass . "\">" . $estado . "</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>";
 
-        $numero--;
+            $numero--;
+        }
+
+        echo "</table>";
+    } else {
+        echo "No se encontraron veterinarios.";
     }
-
-    echo "</table>";
-} else {
-    echo "No se encontraron veterinarios.";
-}
-?>
-
+    ?>
 </div>
+
 
             <?php
             include('../../Administrador/components/footerAdministrador.php');
@@ -149,5 +149,6 @@ if (!empty($cuentasVeterinarios)) {
         </div>
 </body>
 <script src="../../../js/Interacciones.js"></script>
-
+<script src="../../../js/cambiarEstado.js"></script>
+    
 </html>

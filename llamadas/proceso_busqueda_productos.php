@@ -9,7 +9,7 @@ $query = $_POST['query'];
 $sql = "SELECT productoservicio.idproductoservicio, productoservicio.nombre, productoservicio.precio, productoservicio.descripcion, productoservicio.fotoProductoServicio,
         tipoproductoservicio.nombre as tipoProducto 
         FROM productoservicio INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio 
-        WHERE productoservicio.nombre LIKE '%$query%' AND productoservicio.idtipoproductoservicio NOT IN ('1', '2', '3')
+        WHERE productoservicio.nombre LIKE '%$query%' AND productoservicio.idtipoproductoservicio NOT IN ('2', '7', '12')
         AND tipoproductoservicio.estado = 1";
 
 

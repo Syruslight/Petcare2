@@ -2,43 +2,22 @@
 require '../controlador/conexion.php';
 $conn = conectar();
 
-$idproductoservicio = $_REQUEST['id_PE'];
-$nombre = $_REQUEST['nombre_PE'];
-$precio = $_REQUEST['precio_PE'];
-$descripcion = $_REQUEST['descripcion_PE'];
-$tipoProducto = $_REQUEST['tipoProductoE'];
+$idproductoservicio = $_REQUEST['id_SE'];
+$nombre = $_REQUEST['nombre_SE'];
+$precio = $_REQUEST['precio_SE'];
+$descripcion = $_REQUEST['descripcion_SE'];
 
-// Arrary de tipo producto a id
-$tipoProductoMap = array(
-    'Comida para perros' => '4',
-    'Comida para gatos' => '5',
-    'Comida para conejos' => '6',
-    'Juguetes para perros' => '7',
-    'Juguetes para gatos' => '8',
-    'Juguetes para conejos' => '9'
-);
-
-
-if (isset($tipoProductoMap[$tipoProducto])) {
-    $idTipoProducto = $tipoProductoMap[$tipoProducto];
-} else {
-    $idTipoProducto = '4'; // Defecto 4
-}
-
-
-
-
-$fotoProductoServicio = $_FILES['fotoNuevaProducto']['name']; 
-$ruta = $_FILES['fotoNuevaProducto']['tmp_name'];
+$fotoProductoServicio = $_FILES['fotoNuevaServicio']['name']; 
+$ruta = $_FILES['fotoNuevaServicio']['tmp_name'];
 
 // Obtener la foto anterior del formulario
-$foto_anterior = $_REQUEST['nombrefotoProducto_PE']; //Nombre del producto guardado en la bd
+$foto_anterior = $_REQUEST['nombrefotoServicio_PE']; //Nombre del producto guardado en la bd
 
 
 // Verificar si se ha seleccionado una nueva foto
 if (!empty($fotoProductoServicio)) {
 	// Se ha seleccionado una nueva foto, guardarla y actualizar la variable $foto
-	$fotprod = "../imagenes/productos_servicios/productos/" . $fotoProductoServicio;
+	$fotprod = "../imagenes/productos_servicios/servicios/" . $fotoProductoServicio;
 	copy($ruta, $fotprod);
 } else {
 	// No se ha seleccionado una nueva foto, utilizar la foto anterior
@@ -46,9 +25,9 @@ if (!empty($fotoProductoServicio)) {
 }
 
 //probando valores 
-//echo "Valores de los parámetros: idproductoservicio=$fotoProductoServicio";
+//echo "Valores de los parámetros: nombre=$idproductoservicio";
 //echo "Ruta del archivo temporal: " . $ruta;
 
-actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $estado, $conn);
-header('Location: ../pages/Administrador/administradorProducts/administradorProducts.php');
+actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $conn);
+header('Location: ../pages/Administrador/administradorService/administradorService.php');
 ?>
