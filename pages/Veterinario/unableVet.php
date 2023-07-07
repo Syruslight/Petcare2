@@ -37,9 +37,9 @@ $conn = conectar();
 
             <span class="user"><?= $value[0] ?>
                 <?= $value[1] ?></span>
-            <img class="botonmodalVeterinario" onclick="openModalVeterinario()" src="../../../imagenes/perfilVeterinario/pencil.png" alt="pencil" width="32" height="30">
+         
         </div>
-        <span class="id"> <?= $value[2] ?> </span>
+        <span class="id"> &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<?= $value[2] ?> </span>
     <?php
     }
     ?>

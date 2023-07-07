@@ -51,12 +51,16 @@
                 $_SESSION['email'] = $email;
                 header("location:../pages/Usuario/registroNewUs.php");
             }
-            else {
+            else if ($estadoUsuario ==2){
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;
                 header("location:../pages/Veterinario/veterinario.php"); //Cambiar ruta 
-            }   break;
-        
+            }   
+            else {
+                $_SESSION['usuario'] = $usu;
+                $_SESSION['email'] = $email;
+                header("location:../pages/Veterinario/unableVet.php"); //Cambiar ruta 
+            }break;
         default:
             echo('<script>alert("Usuario o contraseña incorrecta"); window.history.back()</script>');
     }        
