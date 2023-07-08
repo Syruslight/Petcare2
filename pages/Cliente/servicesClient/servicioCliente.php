@@ -226,13 +226,83 @@ foreach (listarCliente($email, $conn) as $key => $value) {
       <form  method="post" enctype="multipart/form-data">
         <!--Se realizan 4 divisiones-->
         <div class="page slide-page">
-         
+            <div class="wrapper-reservar">
+                <div class="part-upReser">
+                    <div class="info-upReser" >
+                        <h1 class="title-Reserva">Servicio de Baño medicado</h1>
+                        <div class="wrapper-textReser">
+                            <span class="text-infoRese">Precio: <span class="result-rese">S/.45.00</span></span>
+                            <span class="text-infoRese">Duracion: <span class="result-rese">60mims</span></span>
+                        </div>
+                        <span class="info-textRese">
+                        Este servicio se basa en el baño usando shampoo, acondiconardor, crema para un mejor cuidado del pelaje canino
+                        </span>
+                    </div>
+                    <div class="image-upReser">
+                        <img  src="../../../imagenes/perfilCliente/reservaDog.png"  alt="perritoDucha" width="143px" height="83px">
+                    </div>
+                </div>
+                <div class="part-downReser">
+                    <div class="wrapper-downReser1">
+                        <div class="wrapper-selectReser">
+                            <span class="subtitle-reser">Mascota</span>
+                            <select name="select" class="select-reser">
+                            <option value="value1">xxxxxs</option>
+                            <option value="value2" selected>Seleccionar</option>
+                            <option value="value3">Conejos (48)</option>
+                            </select>
+                        </div>
+                        <div class="wrapper-selectReser">
+                            <span class="subtitle-reser">Dia de reserva</span>
+                            <select name="select" class="select-reser">
+                            <option value="value1">xxxxxs</option>
+                            <option value="value2" selected>Lunes- 29 de Julio 2023</option>
+                            <option value="value3">Cxxxdzdsds</option>
+                            </select>
+                        </div>
+                    </div>
+                 
+                    <div class="wrapper-downReser1">
+                        <div class="wrapper-selectReser">
+                            <span class="subtitle-reser">Veterinario</span>
+                            <select name="select" class="select-reser">
+                            <option value="value1">xxxxxs</option>
+                            <option value="value2" selected>Seleccionar</option>
+                            <option value="value3">Conejos (48)</option>
+                            </select>
+                        </div>
+                        <div class="wrapper-selectReser">
+                            <span class="subtitle-reser">Tiempo de servicio</span>
+                            <select name="select" class="select-reser">
+                            <option value="value1">xxxxxs</option>
+                            <option value="value2" selected> </option>
+                            <option value="value3">Cxxxdzdsds</option>
+                            </select>
+                        </div>
+                    </div>
+                 
+                </div>
+            </div>
           <div class="field">
             <button class="firstNext next">Siguiente</button>
           </div>
         </div>
         <div class="page">
-          
+          <div class="wrapper-payment">
+                <div class="method-payment">
+                  <div class="fisrt-methodPay">
+                    <span class="text-methodPay1">PAGA CON YAPE</span>
+                    <img src="../../../imagenes/perfilCliente/yape.png" alt="Yape" width="48px" height="48px">
+                  </div>
+                  <div class="second-methodPay">
+                    <span class="text-methodPay2" >PAGA CON PLIN</span>
+                    <img src="../../../imagenes/perfilCliente/plin.png" alt="Plin" width="48px" height="48px">
+                  </div>
+                </div>
+                <div class="image-payment">
+                <img src="../../../imagenes/perfilCliente/methodPayment.png" alt="" width="400px" height="160px">
+                </div>
+          </div>
           
           <div class="field btns">
             <button class="prev-1 prev">Atrás</button>
@@ -240,7 +310,15 @@ foreach (listarCliente($email, $conn) as $key => $value) {
           </div>
         </div>
         <div class="page">
-         
+            <div class="wrapper-confirmation">
+               <span class="text-confirmation">Por favor subir el comprobante de pago</span>
+               <div class="upload-confirmation">
+                <img src="../../../imagenes/perfilCliente/sendConfirmation.png" alt="" width="400px" height="210px">
+                <!-- <div class="upload-only">
+                    <span class="text-upload">Subir foto</span>
+                </div> -->
+               </div>
+            </div>
           <div class="field btns">
             <button class="prev-2 prev">Atrás</button>
             <button class="submit">Enviar</button>
