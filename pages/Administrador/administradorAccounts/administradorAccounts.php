@@ -15,10 +15,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='../administradorIndex/administrador.css'>
+    <link rel="stylesheet" href='../administradorProducts/administradorProducts.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
     <link rel="stylesheet" href='../administradorAccounts/estiloAdministradorCrearCuentas.css'>
     <title>Document</title>
@@ -63,19 +62,19 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         <form class="formularioCrearCuentas" action="../../../llamadas/proceso_registrarCuentaVeterinario.php" method="post" enctype="multipart/form-data">
 
                             <div class="container mt-3">
-                                <h2>Crear cuentas</h2>
-                                <p></p>
-                                <form action="/action_page.php">
+                                <div class="contenedorCrearCuenta">
+                                    <p class="textoCrearCuenta"><?= $value[0] ?> 
+                            <?= $value[1] ?>, recuerda que al crear la cuenta, ya no puede eliminarla, solo desactivarla</p>
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="text" class="form-control" id="email" placeholder="Enter email" name="correoNuevo" required>
+                                        <input type="text" id="inputCorreo" class="form-control" id="email" placeholder="Enter email" name="correoNuevo" required>
                                         <label for="email">Correo electronico:</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input type="text" class="form-control" id="pwd" placeholder="Enter password" name="contraseniaNueva" required>
+                                        <input id="inputContraseña" type="text" class="form-control" id="pwd" placeholder="Enter password" name="contraseniaNueva" required>
                                         <label for="pwd">Contraseña</label>
                                     </div>
-                                    <button type="submit" class="btn btn-primary">Enviar</button>
-                                </form>
+                                    <button class="botonEnviarCuenta" type="submit">Enviar</button>
+</div>
                             </div>
 
                         </form>
@@ -98,7 +97,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     if (!empty($cuentasVeterinarios)) {
         $numero = count($cuentasVeterinarios);
 
-        echo "<table class='tablaCuentasCreadas'>
+        echo "<div class='contenedorTablaCrearCuenta'><table class='tablaCuentasCreadas'>
             <thead>
                 <tr>
                     <th>N°</th>
@@ -142,7 +141,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     ?>
 </div>
 
-
+</div>  
             <?php
             include('../../Administrador/components/footerAdministrador.php');
             ?>
