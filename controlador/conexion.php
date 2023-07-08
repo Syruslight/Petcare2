@@ -491,6 +491,14 @@ function listarDetallePuntosCliente($idCliente, $conn) {
     return $detallePuntos;
 }
 
+//funcion registrar horario
+function agregarHorario( $idveterinario, $idproductoservicio, $fecha, $horarioinicio, $horariofin, $estado,$conn)
+{
+    $sql = "insert into horario(idveterinario,idproductoservicio,fecha,horarioinicio,horariofin,estado) 
+    values ('$idveterinario','$idproductoservicio','$fecha','$horarioinicio','$horariofin','$estado')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
 # Area de mantenimiento de cuentas
 
 //Funcion para listar la cuenta de los veterinarios 

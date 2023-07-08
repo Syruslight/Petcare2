@@ -42,8 +42,8 @@ $citasPendientes = 0;
 $citasCanceladas = 0;
 
 $sentencia1 = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio, 
-                CONCAT(h.horarioinicio, ' - ', h.horariofin) AS horario, CONCAT(cli.nombres, ' ', cli.apellidos) 
-                AS cliente, c.estado
+                h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) 
+                AS cliente, c.estadoAtencion
           FROM cita c
             INNER JOIN horario h ON c.idhorario = h.idhorario   
             INNER JOIN mascota m ON m.idmascota = c.idmascota
@@ -58,7 +58,7 @@ if ($resultado) {
 
     // Obtener la cantidad de citas en cada estado
     foreach ($registros as $registro) {
-        $estado = $registro['estado'];
+        $estado = $registro['estadoAtencion'];
         if ($estado == '1') {
             $citasRealizadas++;
         } elseif ($estado == '0') {
@@ -167,15 +167,18 @@ if ($resultado) {
         $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
         echo '<td>' . $fechaFormateada . '</td>';
         echo '<td>' . $registro['servicio'] . '</td>';
-        echo '<td>' . $registro['horario'] . '</td>';
+        $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
+        $horarioFin = date('h:i A', strtotime($registro['horariofin']));
+        
+        echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
         echo '<td>' . $registro['cliente'] . '</td>';
         echo '<td>' . $registro['nombreMascota'] . '</td>';
 
         echo '<td>
             <select class="estado">
-              <option value="pendiente" ' . ($registro['estado'] == '0' ? 'selected' : '') . '>Pendiente</option>
-              <option value="atendido" ' . ($registro['estado'] == '1' ? 'selected' : '') . '>Atendido</option>
-              <option value="cancelado" ' . ($registro['estado'] == '2' ? 'selected' : '') . '>Cancelado</option>
+              <option value="pendiente" ' . ($registro['estadoAtencion'] == '0' ? 'selected' : '') . '>Pendiente</option>
+              <option value="atendido" ' . ($registro['estadoAtencion'] == '1' ? 'selected' : '') . '>Atendido</option>
+              <option value="cancelado" ' . ($registro['estadoAtencion'] == '2' ? 'selected' : '') . '>Cancelado</option>
             </select>
           </td>';
         echo '</tr>';

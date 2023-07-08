@@ -1,3 +1,10 @@
+function actualizaridproductoservicio(selectElement) {
+  var inputElement = document.getElementById("idproductoservicioInput");
+  inputElement.value = selectElement.value;
+}
+
+
+
 function openModalHorario(){
   const openModal = document.querySelector(".botonHorario");
   const modal = document.querySelector(".modalHorario");
