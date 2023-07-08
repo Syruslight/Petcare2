@@ -4,6 +4,21 @@ function actualizaridproductoservicio(selectElement) {
 }
 
 
+function openModalReservarServicio(){
+  const openModal = document.querySelector(".reserve-service");
+  const modal = document.querySelector(".modalReservar");
+  const closeModal = document.querySelector("#CloseModalReservar");
+  openModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.add("modalReservar--show");
+  });
+  closeModal.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal.classList.remove("modalReservar--show");
+  });
+}
+
+
 
 function openModalHorario(){
   const openModal = document.querySelector(".botonHorario");
