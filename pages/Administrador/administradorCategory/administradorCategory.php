@@ -91,8 +91,8 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                                     <span class="toggle-switch-text" id="<?php echo $statusID; ?>"><?php echo ($f['estado'] == '1') ? 'Activado' : 'Desactivado'; ?></span>
                                                 </div>
                                             </div>
-                                            <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40">
-                                            <img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
+                                            <!-- <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40"> -->
+                                            <img id="open-edithCategory" onclick="openModalEdithCategory()"  class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
                                         </div>
                                         <hr class="linea">
                                     <?php
@@ -157,20 +157,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         </lord-icon>
                     </div>
                     <div class="wrapper-bodyModals">
-                        <!-- <div class="photos-Modals">
-                            <div class="image-modals">
-                                <img src="../../../imagenes/perfilAdmin/updatePhotoProducts.png">
-                            </div>
-                            <div class="update-photos">
-                                <span class="text-updatePhoto">Subir Foto</span>
-                                <lord-icon src="https://cdn.lordicon.com/wfadduyp.json" trigger="click" colors="primary:#ffffff" state="hover-1" style="width:39px;height:39px">
-                                </lord-icon>
-                            </div>
-
-
-
-
-                        </div> -->
+                      
 
                         <form action="">
                             <div class="formu-modals">
@@ -179,31 +166,73 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                     <input class="text-nameProduct" type="text">
                                 </div>
                                 <div class="second-group">
-                                    <!-- <div class="group-selects">
-                                        <label class="label-reuse" for="">Tipo:</label>
-                                        <select class="selectProdcuts" name="select" id="">
-                                            <option value="Comida">Comida</option>
-                                            <option value="Limpieza">Limpieza</option>
-                                            <option value="General">General</option>
-                                        </select>
-                                    </div>
-                                     -->
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Afiliaciones</label>
                                         <input class="text-namePrice" type="text">
                                     </div>
                                 </div>
                                 <div class="thirds-group">
-                                    <label class="toggle-switch">
-                                        <input type="checkbox">
-                                        <span class="toggle-slider round"></span>
-                                    </label>
+                                    <div class="toggle-switch">
+                                    <input  type="checkbox"
+                                    id="switch5"
+                                    class="toggle-switch-checkbox"
+                                    onchange="toggleSwitch('variable5', this.checked)" />
+                                    <label for="switch5" class="toggle-switch-label"></label>
+                                    <span class="slider round"></span>
+                                    <span class="toggle-switch-text" id="status5" hidden>
+                                    Inactivo
+                                    </span>
+                                </div>    
                                 </div>
                             </div>
                         </form>
                     </div>
                     <div class="footer-modals">
                         <button class="add-button">Agregar</button>
+                        <div class="footer-circle">
+                            <div class="footer-rigth"></div>
+                            <div class="footer-center"></div>
+                            <div class="footer-left"></div>
+                        </div>
+                    </div>
+                    <div class="frame frame-2"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+ <!-- Inicia el terrible modal de editar Categoria -->
+
+    <section>
+        <div id="modal-edithCategory" class="modal-edithCategory">
+
+            <div class="modals">
+                <div>
+                    <div class="frame frame-1"></div>
+                    <div class="wrapper-headerModals">
+                        <div class="only-circle">
+                            <div class="circle-rigth"></div>
+                            <div class="circle-center"></div>
+                            <div class="circle-left"></div>
+                        </div>
+                        <h1 class="title-newProduct">Categoria</h1>
+                        <lord-icon class="close" id="close1" src="https://cdn.lordicon.com/nhfyhmlt.json" trigger="hover" colors="primary:#121331" state="hover-2" style="width:40px;height:40px">
+                        </lord-icon>
+                    </div>
+                    <div class="wrapper-bodyModals1">
+
+                        <form action="">
+                            <div class="formu-modals">
+                                <div class="first-group">
+                                    <label class="label-reuse" for="">Nombre</label>
+                                    <input class="text-nameProduct" type="text">
+                                </div>
+                              
+                            </div>
+                        </form>
+                    </div>
+                    <div class="footer-modals1">
+                        <button class="add-button">Editar</button>
                         <div class="footer-circle">
                             <div class="footer-rigth"></div>
                             <div class="footer-center"></div>

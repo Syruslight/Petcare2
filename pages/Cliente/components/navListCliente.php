@@ -42,11 +42,12 @@
                             <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
                             <span class="list">Productos</span>
                         </div>
-                        </a>
+                        <a href="servicesClient/servicioCliente.php">
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/database--v1.png" width="25" height="25" />
                             <span class="list">servicios</span>
                         </div>
+                        </a>
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25"
                                 height="25" />

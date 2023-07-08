@@ -26,3 +26,4 @@
 
     header('location:../pages/Administrador/administradorProducts/administradorProducts.php');
 ?>
+
