@@ -18,7 +18,7 @@ function openModalEdithService() {
       // aqui falta otra variable para guardar la nueva foto en caso de haber
 
       document.querySelector("#servicioEnvio").src =
-        "../../../imagenes/productos_servicios/servicio/" + fotoservicio;
+        "../../../imagenes/productos_servicios/servicios/" + fotoservicio;
       document.querySelector("#nombrefotoServicioEnvio").value = fotoservicio1;
 
       document.querySelector("#idServicioEnvio").value = idServicio;
