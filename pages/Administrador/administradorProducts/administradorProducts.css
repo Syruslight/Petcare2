@@ -585,7 +585,7 @@
   height: 370px;
 }
 .image-modals > img {
-  width: auto;
+  width: 100%;
   object-position: center;
   height: 96%;
 }
