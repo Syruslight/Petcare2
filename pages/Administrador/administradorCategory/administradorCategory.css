@@ -261,6 +261,17 @@
   overflow-y: scroll;
   height: 580px;
 }
+.wrapper-table::-webkit-scrollbar {
+  width: 10px;
+}
+.wrapper-table::-webkit-scrollbar-thumb {
+  background: #c0dfd5;
+  border-radius: 2px;
+}
+.wrapper-table::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f;
+  border-radius: 2px;
+}
 .dates-table {
   display: flex;
   align-items: center;
@@ -361,7 +372,10 @@
   transform: translateY(-50%);
 }
 /* Aca termina el La lista de productos*/
-.image-delete {
+/* .image-delete {
+  margin-left: 175px;
+} */
+.image-edit {
   margin-left: 175px;
 }
 
@@ -402,9 +416,30 @@
   transition: opacity 0.3s ease;
 }
 
+.modal-edithCategory {
+  display: flex;
+  background: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  transition: opacity 0.3s ease;
+}
 .show {
   pointer-events: auto;
   opacity: 1;
+}
+.modalCategory--show {
+  opacity: 2;
+  pointer-events: unset;
+  transition: opacity 0.6s;
+  --transform: translateY(0);
+  --transition: transform 0.8s 0.8s;
 }
 
 .modals {
@@ -412,8 +447,8 @@
   position: relative;
 }
 .modals > div {
-  width: 920px;
-  height: 654px;
+  height: 500px;
+  width: 850px;
   background: #f5f5f5;
   max-width: 100%;
   border-radius: 15px;
@@ -423,7 +458,7 @@
 .frame {
   background: #30bcac;
   width: 80px;
-  height: 580px;
+  height: 400px;
   position: absolute;
   z-index: -1;
 }
@@ -439,7 +474,7 @@
 .wrapper-headerModals {
   display: flex;
   align-items: center;
-  width: 920px;
+  width: 830px;
   height: 72px;
   margin-left: 10px;
 }
@@ -494,9 +529,15 @@
 }
 .wrapper-bodyModals {
   display: flex;
-  margin-left: 78px;
+  margin-left: 60px;
   margin-top: 46px;
-  height: 420px;
+  width: 778px;
+  justify-content: center;
+}
+.wrapper-bodyModals1 {
+  display: flex;
+  margin-left: 60px;
+  margin-top: 120px;
   width: 778px;
   justify-content: center;
 }
@@ -612,7 +653,11 @@
 }
 .footer-modals {
   display: flex;
-  margin-top: 30px;
+  margin-top: 55px;
+}
+.footer-modals1 {
+  display: flex;
+  margin-top: 140px;
 }
 .add-button {
   width: 363px;
@@ -631,7 +676,7 @@
 .footer-circle {
   display: flex;
   flex-direction: column;
-  margin-left: 201px;
+  margin-left: 140px;
 }
 .footer-rigth {
   background: #30bcac;

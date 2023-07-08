@@ -15,11 +15,11 @@ function buildResultsTable($resultado) {
                   <span class="item table-type">' . $fila['tipoProducto'] . '</span>
                   <span class="table-price">S./' . $fila['precio'] . '</span>
                   <span class="table-description">' . $fila['descripcion'] . '</span>
-                </div>
-                <img class="openModalEdithProduct" onclick="openModalEdithProduct(event)" data-nombreproducto="' . $fila['nombre'] . '"
+                  <img class="openModalEdithProduct result-img" onclick="openModalEdithProduct(event)" data-nombreproducto="' . $fila['nombre'] . '"
                   data-precioproducto="' . $fila['precio'] . '" data-descripcionproducto="' . $fila['descripcion'] . '" data-tipoproducto="' . $fila['tipoProducto'] . '"
                   data-fotoproducto="' . $fila['fotoProductoServicio'] . '"  data-idproducto="' . $fila['idproductoservicio'] . '"
                   src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
+                </div>
               </div>';
   }
   $html .= '</div>';

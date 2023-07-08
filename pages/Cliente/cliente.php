@@ -174,7 +174,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
             <div class="header-activities">
     <span>Actividad Reciente:</span>
 </div>
-<div class="wrapper-activities">
+            <div class="wrapper-activities">
    
     <div class="info-activities">
         <?php

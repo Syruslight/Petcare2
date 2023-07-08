@@ -418,7 +418,7 @@ function agregarProducto($idCategoria,$fotProducto,$nombre,$descripcion,$precio,
 
 //Funcion para obtener el tipo de producto
 function obtenerTipoProd($conn){
-    $sql= "select * from tipoproductoservicio where estado='1' and idtipoproductoservicio NOT IN ('1', '2', '3')";
+    $sql= "select * from tipoproductoservicio where estado='1' and idtipoproductoservicio NOT IN ('2', '7', '12')";
     $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
     return $res;
 }
@@ -426,7 +426,7 @@ function obtenerTipoProd($conn){
 #     Servicios
 //Funcion para listar servicios //modificar el estado 
 function listarServicios($conn) {
-    $sql = "SELECT productoservicio.idproductoservicio, productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio, productoservicio.estado FROM productoservicio WHERE productoservicio.idtipoproductoservicio   IN ('1', '2','3')" ;
+    $sql = "SELECT productoservicio.idproductoservicio, productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio, productoservicio.estado FROM productoservicio WHERE productoservicio.idtipoproductoservicio   IN ('2', '7','12')" ;
     $res = mysqli_query($conn, $sql);
     $vec = array();
     while ($f = mysqli_fetch_array($res)) {
@@ -461,10 +461,10 @@ function listarServiciosPorId($idServicio, $conn) {
 
 
 //Funcion para editar los servicios (precio nombre descripcion estado - desactivarlo)
-function actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $estado, $conn)
+function actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $conn)
 {
     $sql = "UPDATE productoservicio SET nombre = '$nombre', precio = '$precio', descripcion = '$descripcion', 
-    fotoProductoServicio = '$fotoProductoServicio', estado = '$estado' WHERE idproductoservicio = $idproductoservicio;";
+    fotoProductoServicio = '$fotoProductoServicio' WHERE idproductoservicio = $idproductoservicio;";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 

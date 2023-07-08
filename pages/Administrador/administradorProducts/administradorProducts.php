@@ -96,7 +96,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         </div>
                         <div id="item-list" class="wrapper-onlyTable">
                             <div class="tittle-table">
-                                <div>
+                                <div class="row-table">
 
                                     <span class="tittle-textProduct">Producto</span>
                                     <span class="tittle-textType">Tipo</span>
