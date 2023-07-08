@@ -58,8 +58,10 @@
                             </div>
                         </a>
                         <div class="icons">
+
                             <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
-                            <span class="list">Reserva una cita</span>
+                            <a href="../../../../pages/Administrador/ReservaCitas/reservaCitas.php">
+                            <span class="list">Reserva de cita</span></a>
                         </div>
                         <a href="../administradorAccounts/administradorAccounts.php">
                         <div class="icons">

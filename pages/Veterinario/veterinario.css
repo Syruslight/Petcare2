@@ -240,7 +240,7 @@
   margin-right: 30px;
   width: auto;
   padding: 20px;
-  height: 655px;
+  height: 635px;
 }
 .contenedorCitas h2{
 margin-left: 20px;
@@ -324,17 +324,21 @@ height: 43px;
 .tablaCitas {
   width: 100%;
   border-collapse: collapse;
+  overflow: scroll;
 }
+
 .tablaCitas th,
 .tablaCitas td {
   padding: 8px;
   text-align: center;
 }
-.tablaCitas td{
+
+.tablaCitas td {
   height: 70px;
   font-size: 18px;
   color: #464545;
 }
+
 .tablaCitas th {
   height: 50px;
   font-size: 18px;
@@ -343,20 +347,25 @@ height: 43px;
   color: white;
   overflow: hidden;
 }
+
 .tablaCitas thead th {
   position: sticky;
   top: 0;
   z-index: 1;
 }
+
 .tablaCitas tr:nth-child(even) {
   background-color: #f9f9f9;
 }
+
 .tablaCitas tr {
   text-align: center;
 }
+
 .tablaCitas tr:hover {
   background-color: #95cfcc85;
 }
+
 .tablaCitas select {
   font-size: 18px;
   width: 100%;
@@ -364,9 +373,15 @@ height: 43px;
   border: none;
   background-color: transparent;
   color: #333;
- 
 }
 
+.textoVeterinario{
+  margin-bottom: 0px;
+  margin-top: 10px;
+  font-size: 24px;
+  margin-left: 30px;
+  font-weight: bold;
+}
 
 
 

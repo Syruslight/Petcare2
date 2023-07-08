@@ -1,0 +1,15 @@
+.contenedorReservarCitas{
+    width: 1050px;
+    background-color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding: 20px;
+    margin-top: 30px;
+    height: 645px;
+   
+}
+
+.contenedorTablaCitas{
+    overflow: scroll;
+    height: 500px;
+}
