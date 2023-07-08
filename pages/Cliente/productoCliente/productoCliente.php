@@ -47,229 +47,92 @@ foreach (listarCliente($email, $conn) as $key => $value) {
             </div> 
         </div>
         <div class="main-data">
-            <aside class="categorias-row">
-                <div class="categoria-list">
-                    <div class="card">
-                        <div class="card-header-categoria">
-                            <button class="title btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategoria" aria-expanded="false" aria-controls="collapseCategoria">
-                                <span>Perros (48)</span>    
-                                <i class="fa-solid fa-chevron-down" style="color: #00423f; right: 26px"></i>                       
-                            </button>
-                        </div>
-                        <div class="card-body-categoria collapse show" id="collapseCategoria"> <!-- Agrega la clase "collapse" al contenedor del colapso -->
-                            <ul class="values">
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Comida (10)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Limpieza (11)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Cuidado (4)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Juguetes (8)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Accesorios (28)</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header-categoria">
-                            <button class="title btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategoriax1" aria-expanded="false" aria-controls="collapseCategoriax1">
-                                <span>Gatos (89)</span>    
-                                <i class="fa-solid fa-chevron-down" style="color: #00423f; right: 26px"></i>                       
-                            </button>
-                        </div>
-                        <div class="card-body-categoria collapse show" id="collapseCategoriax1"> <!-- Agrega la clase "collapse" al contenedor del colapso -->
-                            <ul class="values">
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Comida (10)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Limpieza (11)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Cuidado (4)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Juguetes (8)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Accesorios (28)</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header-categoria">
-                            <button class="title btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCategoriax2" aria-expanded="false" aria-controls="collapseCategoriax2">
-                                <span>Conejo (67)</span>    
-                                <i class="fa-solid fa-chevron-down" style="color: #00423f; right: 26px"></i>                       
-                            </button>
-                        </div>
-                        <div class="card-body-categoria collapse show" id="collapseCategoriax2"> <!-- Agrega la clase "collapse" al contenedor del colapso -->
-                            <ul class="values">
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Comida (10)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Limpieza (11)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Cuidado (4)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Juguetes (8)</span>
-                                    </button>
-                                </li>
-                                <li>
-                                    <button class="btn" onclick="remplazarCheckIcon(this)">
-                                        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                        <span>Accesorios (28)</span>
-                                    </button>
-                                </li>     
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-    
-            </aside>
-            <div class="list-product">
-                <div class="card-product">
-                    <div class="card-head-product">
-                        <span>Carnaza pack 12 unids. sabor pollo</span>
-                    </div>
-                    <div class="card-img-product">
-                        <img src="../../../imagenes/productos_servicios/productos/Comida adulto Bell´s 15 kg.jpg" alt="foto-producto">
-                    </div>
-                    <div class="card-footer-product">
-                        <span>Precio: s/. 25.00</span>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="card-head-product">
-                        <span>Carnaza pack 12 unids. sabor pollo</span>
-                    </div>
-                    <div class="card-img-product">
-                        <img src="../../../imagenes/productos_servicios/productos/Comida adulto Bell´s 15 kg.jpg" alt="foto-producto">
-                    </div>
-                    <div class="card-footer-product">
-                        <span>Precio: s/. 25.00</span>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="card-head-product">
-                        <span>Carnaza pack 12 unids. sabor pollo</span>
-                    </div>
-                    <div class="card-img-product">
-                        <img src="../../../imagenes/productos_servicios/productos/Comida adulto Bell´s 15 kg.jpg" alt="foto-producto">
-                    </div>
-                    <div class="card-footer-product">
-                        <span>Precio: s/. 25.00</span>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="card-head-product">
-                        <span>Carnaza pack 12 unids. sabor pollo</span>
-                    </div>
-                    <div class="card-img-product">
-                        <img src="../../../imagenes/productos_servicios/productos/Comida adulto Bell´s 15 kg.jpg" alt="foto-producto">
-                    </div>
-                    <div class="card-footer-product">
-                        <span>Precio: s/. 25.00</span>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="card-head-product">
-                        <span>Carnaza pack 12 unids. sabor pollo</span>
-                    </div>
-                    <div class="card-img-product">
-                        <img src="../../../imagenes/productos_servicios/productos/Comida adulto Bell´s 15 kg.jpg" alt="foto-producto">
-                    </div>
-                    <div class="card-footer-product">
-                        <span>Precio: s/. 25.00</span>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="card-head-product">
-                        <span>Carnaza pack 12 unids. sabor pollo</span>
-                    </div>
-                    <div class="card-img-product">
-                        <img src="../../../imagenes/productos_servicios/productos/Comida adulto Bell´s 15 kg.jpg" alt="foto-producto">
-                    </div>
-                    <div class="card-footer-product">
-                        <span>Precio: s/. 25.00</span>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="card-head-product">
-                        <span>Carnaza pack 12 unids. sabor pollo</span>
-                    </div>
-                    <div class="card-img-product">
-                        <img src="../../../imagenes/productos_servicios/productos/Comida adulto Bell´s 15 kg.jpg" alt="foto-producto">
-                    </div>
-                    <div class="card-footer-product">
-                        <span>Precio: s/. 25.00</span>
-                    </div>
-                </div>
-                <div class="card-product">
-                    <div class="card-head-product">
-                        <span>Carnaza pack 12 unids. sabor pollo</span>
-                    </div>
-                    <div class="card-img-product">
-                        <img src="../../../imagenes/productos_servicios/productos/Comida adulto Bell´s 15 kg.jpg" alt="foto-producto">
-                    </div>
-                    <div class="card-footer-product">
-                        <span>Precio: s/. 25.00</span>
-                    </div>
-                </div>
+        <aside class="categorias-row">
+    <div class="categoria-list">
+        <?php
+        $especies = array("Perro", "Gato", "Conejo");
+
+        foreach ($especies as $especie) {
+            $query = "SELECT e.nombre AS nombre_especie, COUNT(DISTINCT ps.idproductoservicio) AS cantidad_productos
+                        FROM especie e
+                        LEFT JOIN tipoproductoservicio tp ON e.idespecie = tp.idespecie
+                        LEFT JOIN productoservicio ps ON tp.idtipoproductoservicio = ps.idtipoproductoservicio
+                        WHERE tp.idtipoproductoservicio IS NOT NULL AND e.nombre = '$especie'
+                        GROUP BY e.nombre";
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) > 0) {
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $nombre_especie = $row['nombre_especie'];
+                    $cantidad_productos = $row['cantidad_productos'];
+        ?>
+        <div class="card">
+            <div class="card-header-categoria">
+                <button class="title btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $nombre_especie; ?>" aria-expanded="false" aria-controls="collapse<?php echo $nombre_especie; ?>">
+                    <span><?php echo $nombre_especie . " (" . $cantidad_productos . ")"; ?></span>
+                    <i class="fa-solid fa-chevron-down" style="color: #00423f; right: 26px"></i>
+                </button>
+            </div>
+
+            <div class="card-body-categoria collapse" id="collapse<?php echo $nombre_especie; ?>">
+                <ul class="values">
+                    <?php
+                    $query_servicios = "SELECT tp.nombre AS nombre_categoria, COUNT(ps.idproductoservicio) AS cantidad_servicios
+                                        FROM tipoproductoservicio tp
+                                        LEFT JOIN productoservicio ps ON tp.idtipoproductoservicio = ps.idtipoproductoservicio
+                                        WHERE tp.idespecie = (SELECT idespecie FROM especie WHERE nombre = '$nombre_especie')
+                                        AND tp.idtipoproductoservicio NOT IN (3, 8, 13)
+                                        GROUP BY tp.nombre";
+                    $result_servicios = mysqli_query($conn, $query_servicios);
+
+                    if (mysqli_num_rows($result_servicios) > 0) {
+                        while ($row_servicios = mysqli_fetch_assoc($result_servicios)) {
+                            $nombre_categoria = $row_servicios['nombre_categoria'];
+                            $cantidad_servicios = $row_servicios['cantidad_servicios'];
+                    ?>
+                    <li>
+                        <button class="btn" onclick="remplazarCheckIcon(this)">
+                            <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
+                            <span><?php echo $nombre_categoria . " (" . $cantidad_servicios . ")"; ?></span>
+                        </button>
+                    </li>
+                    <?php
+                        }
+                    }
+                    ?>
+                </ul>
             </div>
         </div>
+        <?php
+                }
+            }
+        }
+        ?>
     </div>
+</aside>
+
+            <div class="list-product">
+    <?php
+    $productos = listarProductos($conn); // Reemplaza "obtenerProductos" con el nombre de tu función que realiza la consulta y obtiene los registros
+
+    foreach ($productos as $producto) {
+    ?>
+        <div class="card-product">
+            <div class="card-head-product">
+                <span><?php echo $producto['nombre']; ?></span>
+            </div>
+            <div class="card-img-product">
+                <img src="../../../imagenes/productos_servicios/productos/<?php echo $producto['foto']; ?>" alt="foto-producto">
+            </div>
+            <div class="card-footer-product">
+                <span>Precio: s/. <?php echo $producto['precio']; ?></span>
+            </div>
+        </div>
+    <?php
+    }
+    ?>
+</div>
+
 </section>
 </div>
 </div>

@@ -42,8 +42,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             $sql = "SELECT t.idtipoproductoservicio, t.nombre, t.estado, COUNT(p.idproductoservicio) AS afiliaciones
         FROM tipoproductoservicio t
         LEFT JOIN productoservicio p ON t.idtipoproductoservicio = p.idtipoproductoservicio
+        WHERE t.estado NOT LIKE '3'
         GROUP BY t.idtipoproductoservicio";
-            //WHERE t.idtipoproductoservicio NOT LIKE '1'
+            
             $res = mysqli_query($conn, $sql);
 
             // Verifica si se obtuvieron resultados
