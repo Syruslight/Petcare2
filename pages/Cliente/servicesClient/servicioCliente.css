@@ -157,6 +157,134 @@
   height: 766px;
   background: #fff;
 }
+.header-table {
+  height: 46px;
+}
+.header-table {
+  display: flex;
+  padding-left: 38px;
+  align-items: center;
+  margin-top: 22px;
+  height: 46px;
+}
+.search-service {
+  display: flex;
+  align-items: center;
+  width: 596px;
+  margin-right: 107px;
+  border-radius: 12px;
+  background: #ebebeb;
+  height: 46px;
+}
+.image-search {
+  margin-right: 8px;
+  margin-left: 10px;
+}
+.input-search {
+  color: #000;
+  font-family: Poppins;
+  font-size: 15.239px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  width: 312px;
+}
+.spancitoo {
+  color: #000;
+  font-family: Poppins;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.select-service {
+  margin-left: 19px;
+  width: 174px;
+  & select {
+    width: 174px;
+    height: 31px;
+    border-radius: 0px 20px 20px 0px;
+    background: #ebebeb;
+    color: #000;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.wrapper-cardService {
+  display: grid;
+  grid-template-columns: auto auto;
+  overflow-y: scroll;
+  height: 679px;
+}
+.cards-service {
+  width: 457px;
+  height: 200px;
+  border: 1px solid #a5a5a5;
+  background: #fff;
+  display: flex;
+  margin-left: 46px;
+  margin-top: 19px;
+}
+.image-card {
+  width: 136px;
+  height: 169px;
+  margin-left: 19px;
+  margin-top: 14px;
+}
+.info-card {
+  margin-left: 25px;
+}
+.title-cardService {
+  margin: 0;
+  color: #03544a;
+  font-family: Poppins;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  margin-top: 14px;
+  margin-bottom: 10px;
+}
+.price {
+  color: #e96397;
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  margin-right: 40px;
+}
+.duration {
+  color: #000908;
+  font-family: Poppins;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+}
+.after-text {
+  display: flex;
+}
+.text-cardService {
+  margin-top: 10px;
+}
+.reserve-service {
+  border-radius: 10px;
+  border: 1px solid #2a9d8f;
+  background: #2a9d8f;
+  width: 213px;
+  height: 30px;
+  color: #fff;
+  font-family: Poppins;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 21px;
+  margin-top: 15px;
+}
 /* Fin de catalogo de servicio */
 
 .footer {
