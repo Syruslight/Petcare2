@@ -2,13 +2,17 @@
 require('../../../controlador/conexion.php');
 $conn = conectar();
 ?>
+
 <?php
 session_start();
 $email = $_SESSION['email'];
+
 foreach (listarAdministrador($email, $conn) as $key => $value) {
 ?>
+
 <?php
 } ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,9 +21,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href='../administradorProducts/administradorProducts.css'>
-    <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
-    <link rel="stylesheet" href='../administradorAccounts/estiloAdministradorCrearCuentas.css'>
+    <link rel="stylesheet" href="../administradorProducts/administradorProducts.css">
+    <link rel="stylesheet" href="../editAdministrador/editModalAdministrador.css">
+    <link rel="stylesheet" href="../administradorAccounts/estiloAdministradorCrearCuentas.css">
     <title>Document</title>
 </head>
 
@@ -40,7 +44,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             ?>
             <div class="encabezadoCuenta">
                 <h1 class="tituloCuenta">Lista de cuentas de Veterinarios
-                    <p>Bienvenido <?= $value[0] ?> <?= $value[1] ?> empieza a crear tus cuentas</p>
+                    <p>Bienvenido <?= $value[0] ?> <?= $value[1] ?>, empieza a crear tus cuentas</p>
                 </h1>
                 <button id="open" class="addNewAccount" onclick="openModalCreacionCuentasAdministrador()">+ Nueva
                     cuenta</button>
@@ -59,95 +63,134 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                 &#10006
                             </div>
                         </div>
-                        <form class="formularioCrearCuentas" action="../../../llamadas/proceso_registrarCuentaVeterinario.php" method="post" enctype="multipart/form-data">
+                        <form class="formularioCrearCuentas"
+                            action="../../../llamadas/proceso_registrarCuentaVeterinario.php" method="post"
+                            enctype="multipart/form-data">
 
                             <div class="container mt-3">
                                 <div class="contenedorCrearCuenta">
-                                    <p class="textoCrearCuenta"><?= $value[0] ?> 
-                            <?= $value[1] ?>, recuerda que al crear la cuenta, ya no puede eliminarla, solo desactivarla</p>
+                                    <p class="textoCrearCuenta"><?= $value[0] ?>
+                                        <?= $value[1] ?>, recuerda que al crear la cuenta, ya no puede eliminarla, solo
+                                        desactivarla</p>
                                     <div class="form-floating mb-3 mt-3">
-                                        <input type="text" id="inputCorreo" class="form-control" id="email" placeholder="Enter email" name="correoNuevo" required>
-                                        <label for="email">Correo electronico:</label>
+                                        <input type="text" id="inputCorreo" class="form-control" id="email"
+                                            placeholder="Enter email" name="correoNuevo" required>
+                                        <label for="email">Correo electrónico:</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input id="inputContraseña" type="text" class="form-control" id="pwd" placeholder="Enter password" name="contraseniaNueva" required>
+                                        <input id="inputContraseña" type="text" class="form-control" id="pwd"
+                                            placeholder="Enter password" name="contraseniaNueva" required>
                                         <label for="pwd">Contraseña</label>
                                     </div>
                                     <button class="botonEnviarCuenta" type="submit">Enviar</button>
-</div>
+                                </div>
                             </div>
 
                         </form>
-
-
-
-
-
-
                     </div>
                 </div>
             </section>
 
-
             <div class="tablaCuentasAdmin">
-    <?php
-    // Llamar a la función listarCuentasVeterinarios pasando la conexión
-    $cuentasVeterinarios = listarCuentasVeterinarios($conn);
+                <?php
+                $idusuario = $value[7];
+                $sentencia = "SELECT u.pass
+                FROM usuario u
+                JOIN administrador a ON u.idusuario = a.idusuario
+                WHERE a.idadministrador = $idusuario";
 
-    if (!empty($cuentasVeterinarios)) {
-        $numero = count($cuentasVeterinarios);
+                $res = mysqli_query($conn, $sentencia);
 
-        echo "<div class='contenedorTablaCrearCuenta'><table class='tablaCuentasCreadas'>
-            <thead>
-                <tr>
-                    <th>N°</th>
-                    <th>Fecha de Creación</th>
-                    <th>Email</th>
-                    <th>Password</th>
-                    <th>Estado</th>
-                </tr>
-            </thead>";
+                if ($res && mysqli_num_rows($res) > 0) {
+                    $row = mysqli_fetch_assoc($res);
+                    $password = $row['pass'];
+                }
 
-        // Mostrar los datos en la tabla
-        foreach ($cuentasVeterinarios as $cuenta) {
-            $estado = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
-            $estadoClass = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
+                // Llamar a la función listarCuentasVeterinarios pasando la conexión
+                $cuentasVeterinarios = listarCuentasVeterinarios($conn);
 
-            $toggleID = 'switch' . $cuenta['idusuario']; // ID del elemento del toggle
+                if (!empty($cuentasVeterinarios)) {
+                    $numero = count($cuentasVeterinarios);
 
-            echo "<tbody>
-                <tr> 
-                    <td>" . $numero . "</td>
-                    <td>" . $cuenta['fechaCre'] . "</td>
-                    <td>" . $cuenta['email'] . "</td>
-                    <td>" . $cuenta['pass'] . "</td>
-                    <td>
-                        <div class=\"toggle-switch\">
-                            <input type=\"checkbox\" id=\"" . $toggleID . "\" class=\"toggle-switch-checkbox\" onchange=\"updateStatus(" . $cuenta['idusuario'] . ", this.checked, '¿Desea cambiar el estado del veterinario?')\" " . ($cuenta['estado'] == '2' ? 'checked' : '') . " data-original-state=\"" . ($cuenta['estado'] == '2' ? 'true' : 'false') . "\" " . ($cuenta['estado'] == '3' ? 'disabled' : '') . "/>
-                            <label for=\"" . $toggleID . "\" class=\"toggle-switch-label\"></label>
-                            <div class=\"toggle-switch-text " . $estadoClass . "\">" . $estado . "</div>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>";
+                    echo "<div class='contenedorTablaCrearCuenta'><table class='tablaCuentasCreadas'>
+                        <thead>
+                            <tr>
+                                <th>N°</th>
+                                <th hidden>id</th>
+                                <th>Fecha de Creación</th>
+                                <th>Email</th>
+                                <th>Password</th>
+                                <th>Estado</th>
+                            </tr>
+                        </thead>";
 
-            $numero--;
-        }
+                    // Mostrar los datos en la tabla
+                    foreach ($cuentasVeterinarios as $cuenta) {
+                        $estado = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
+                        $estadoClass = ($cuenta['estado'] == 2) ? "Habilitado" : "Deshabilitado";
 
-        echo "</table>";
-    } else {
-        echo "No se encontraron veterinarios.";
-    }
-    ?>
-</div>
+                        $toggleID = 'switch' . $cuenta['idusuario']; // ID del elemento del toggle
 
-</div>  
-            <?php
-            include('../../Administrador/components/footerAdministrador.php');
-            ?>
+                        echo "<tbody>
+                                <tr> 
+                                    <td>" . $numero . "</td>
+                                    <td hidden>" . $cuenta['idusuario'] . "</td>
+                                    <td>" . $cuenta['fechaCre'] . "</td>
+                                    <td>" . $cuenta['email'] . "</td>
+                                    <td id=\"password-" . $cuenta['idusuario'] . "\">" . str_repeat('*', strlen($cuenta['pass'])) . "<img src='../../../imagenes/paswordIcono.png' width='30px' height='30px' onclick=\"contAdmin(" . $cuenta['idusuario'] . ")\">" . "</td>
+                                    <td>
+                                        <div class=\"toggle-switch\">
+                                            <input type=\"checkbox\" id=\"" . $toggleID . "\" class=\"toggle-switch-checkbox\" onchange=\"updateStatus(" . $cuenta['idusuario'] . ", this.checked, '¿Desea cambiar el estado del veterinario?')\" " . ($cuenta['estado'] == '2' ? 'checked' : '') . " data-original-state=\"" . ($cuenta['estado'] == '2' ? 'true' : 'false') . "\" " . ($cuenta['estado'] == '3' ? 'disabled' : '') . "/>
+                                            <label for=\"" . $toggleID . "\" class=\"toggle-switch-label\"></label>
+                                            <div class=\"toggle-switch-text " . $estadoClass . "\">" . $estado . "</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>";
+
+                        $numero--;
+                    }
+
+                    echo "</table>";
+                } else {
+                    echo "No se encontraron veterinarios.";
+                }
+                ?>
+            </div>
+
         </div>
+        <?php
+        include('../../Administrador/components/footerAdministrador.php');
+        ?>
+    </div>
 </body>
+<script>
+   function contAdmin(idUsuario) {
+    var respuesta = prompt("Ingrese su contraseña:");
+    var password = '<?php echo addslashes($password); ?>';
+
+    if (respuesta === password) {
+        // Realizar una solicitud Ajax al servidor para obtener la contraseña del usuario
+        $.ajax({
+            url: 'obtenerContraseña.php',
+            method: 'POST',
+            data: {idUsuario: idUsuario},
+            success: function(response) {
+                var tdPassword = document.getElementById('password-' + idUsuario);
+                tdPassword.textContent = response;
+            },
+            error: function() {
+                alert('Error al obtener la contraseña del usuario.');
+            }
+        });
+    }else{
+        alert('Error al obtener la contraseña del usuario.');
+    }
+
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../../../js/Interacciones.js"></script>
 <script src="../../../js/cambiarEstado.js"></script>
-    
+
 </html>
