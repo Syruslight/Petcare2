@@ -119,7 +119,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                 <th hidden>id</th>
                                 <th>Fecha de Creación</th>
                                 <th>Email</th>
-                                <th>Password</th>
+                                <th>Contraseña</th>
                                 <th>Estado</th>
                             </tr>
                         </thead>";
@@ -137,7 +137,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                     <td hidden>" . $cuenta['idusuario'] . "</td>
                                     <td>" . $cuenta['fechaCre'] . "</td>
                                     <td>" . $cuenta['email'] . "</td>
-                                    <td id=\"password-" . $cuenta['idusuario'] . "\">" . str_repeat('*', strlen($cuenta['pass'])) . "<img src='../../../imagenes/paswordIcono.png' width='30px' height='30px' onclick=\"contAdmin(" . $cuenta['idusuario'] . ")\">" . "</td>
+                                    <td id=\"password-" . $cuenta['idusuario'] . "\">" . str_repeat('*', 8) . "<img src='../../../imagenes/paswordIcono.png' width='30px' height='30px' onclick=\"contAdmin(" . $cuenta['idusuario'] . ")\">" . "</td>
                                     <td>
                                         <div class=\"toggle-switch\">
                                             <input type=\"checkbox\" id=\"" . $toggleID . "\" class=\"toggle-switch-checkbox\" onchange=\"updateStatus(" . $cuenta['idusuario'] . ", this.checked, '¿Desea cambiar el estado del veterinario?')\" " . ($cuenta['estado'] == '2' ? 'checked' : '') . " data-original-state=\"" . ($cuenta['estado'] == '2' ? 'true' : 'false') . "\" " . ($cuenta['estado'] == '3' ? 'disabled' : '') . "/>
@@ -164,6 +164,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
         ?>
     </div>
 </body>
+
 <script>
    function contAdmin(idUsuario) {
     var respuesta = prompt("Ingrese su contraseña:");
@@ -177,18 +178,33 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             data: {idUsuario: idUsuario},
             success: function(response) {
                 var tdPassword = document.getElementById('password-' + idUsuario);
-                tdPassword.textContent = response;
+                var newPasswordHTML = response + " <img src='../../../imagenes/paswordIcono.png' width='30px' height='30px' onclick=\"encriptarContra(" + idUsuario + ")\">";
+                tdPassword.innerHTML = newPasswordHTML;
             },
             error: function() {
                 alert('Error al obtener la contraseña del usuario.');
             }
         });
-    }else{
+    } else {
         alert('Error al obtener la contraseña del usuario.');
     }
+}
 
+function encriptarContra(idUsuario) {
+    var tdPassword = document.getElementById('password-' + idUsuario);
+    var passwordText = tdPassword.innerText;
+    
+    if (passwordText.includes('')) {
+        // La contraseña ya está enmascarada, restaurar estructura original
+        var asterisks = '*'.repeat(8);
+        var newPasswordHTML = asterisks + " <img src='../../../imagenes/paswordIcono.png' width='30px' height='30px' onclick=\"contAdmin(" + idUsuario + ")\">";
+        tdPassword.innerHTML = newPasswordHTML;
+    } 
 }
 </script>
+
+
+
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../../../js/Interacciones.js"></script>
 <script src="../../../js/cambiarEstado.js"></script>
