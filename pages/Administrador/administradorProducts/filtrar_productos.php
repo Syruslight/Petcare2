@@ -36,7 +36,7 @@ if (count($tiposSeleccionados) > 0) {
           tipoproductoservicio.nombre as tipoProducto 
           FROM productoservicio 
           INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio 
-          WHERE productoservicio.idtipoproductoservicio NOT IN ('1', '2', '3')
+          WHERE tipocategoria not like 'Servicio'
           AND tipoproductoservicio.estado = 1
           AND productoservicio.idtipoproductoservicio IN ($tiposString)";
 
@@ -55,7 +55,7 @@ if (count($tiposSeleccionados) > 0) {
           tipoproductoservicio.nombre as tipoProducto 
           FROM productoservicio 
           INNER JOIN tipoproductoservicio ON productoservicio.idtipoproductoservicio = tipoproductoservicio.idtipoproductoservicio 
-          WHERE productoservicio.idtipoproductoservicio NOT IN ('1', '2', '3')
+          WHERE tipocategoria not like 'Servicio'
           AND tipoproductoservicio.estado = 1";
 
   $resultado = mysqli_query($conn, $sql) or die(mysqli_error($conn));
@@ -64,7 +64,7 @@ if (count($tiposSeleccionados) > 0) {
   if ($resultado->num_rows > 0) {
     $html = buildResultsTable($resultado);
   } else {
-    $html = '<div class="dates-table">No se encontraron resultados.</div>';
+    $html = '<div class="dates-table">No se encontraron productos.</div>';
   }
 }
 

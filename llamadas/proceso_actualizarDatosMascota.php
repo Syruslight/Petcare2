@@ -30,7 +30,15 @@ if ($_REQUEST['esterilizado'] == 'SI') {
 } elseif ($_REQUEST['esterilizado'] == 'NO') {
 
 }
-
 actualizarDatosMascota($idMascota, $nombre, $peso, $esterilizado, $etapa  , $fotoMascota, $conn);
+$envio= $_REQUEST['envio'];
+//Para hacer un redireccionamiento multiple 
+if($envio==1){
 	header('Location: ../pages/Mascota/mascotaIndex.php');
+}
+else if ($envio==2){
+	header('Location: ../pages/Cliente/cliente.php');
+}
+
+	
 ?>

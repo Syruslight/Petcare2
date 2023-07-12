@@ -184,6 +184,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         </div>
                                         <input type="hidden" id="fotodefecto" name="fotoDefecto">
                                         <input type="hidden" id="idmascotaEnvio" name="idMascota">
+                                        <input type="hidden" value="1" name="envio">
                                     </div>
                                 </div>
                                 <div class="button">

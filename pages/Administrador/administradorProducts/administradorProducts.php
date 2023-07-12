@@ -181,7 +181,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                             <option selected>Selecciona Tipo Producto</option>
                                             <?php
                                             // Query para obtener los tipos de productos
-                                            $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and idtipoproductoservicio not like 1 "; // Reemplaza "tabla_especie" con el nombre de tu tabla
+                                            $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and tipocategoria not like 'Servicio' ORDER by nombre"; // Reemplaza "tabla_especie" con el nombre de tu tabla
                                             // Guardar resultados en array
                                             $resultTipoProducto = mysqli_query($conn, $queryTipoProducto);
                                             while ($rowProducto = mysqli_fetch_assoc($resultTipoProducto)) {
@@ -273,6 +273,10 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <option value="Juguetes para perros">Juguetes para perros</option>
                             <option value="Juguetes para gatos">Juguetes para gatos</option>
                             <option value="Juguetes para conejos">Juguetes para conejos</option>
+                            <option value="Accesorios para perros">Accesorios para perros</option>
+                            <option value="Accesorios para gatos">Accesorios para gatos</option>
+                            <option value="Accesorios para conejos">Accesorios para conejos</option>
+                            
                         </select>
                     </div>
                     <div class="group-text">

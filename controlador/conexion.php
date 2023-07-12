@@ -14,11 +14,18 @@ function validarUsuario($email, $pass, $conn)
     $sql = "SELECT tipousuario.nombre as tipoUsuario, usuario.estado as estado
     FROM tipousuario INNER JOIN
          usuario on tipousuario.idtipousuario= usuario.idtipousuario
-         where usuario.email ='$email' AND usuario.pass ='$pass'";
-    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-    $fila = mysqli_fetch_assoc($res); // Utilizar mysqli_fetch_assoc en lugar de mysqli_fetch_row
-    return $fila; // Devolver la fila completa como un array asociativo
+         where usuario.email = ? AND usuario.pass = ?";
+         
+    $stmt = mysqli_prepare($conn, $sql);
+    mysqli_stmt_bind_param($stmt, 'ss', $email, $pass);
+    mysqli_stmt_execute($stmt);
+    
+    $res = mysqli_stmt_get_result($stmt);
+    $fila = mysqli_fetch_assoc($res);
+    
+    return $fila;
 }
+
 //Función para obtener el idUsuario y mostrar sus datos personales posteriormente 
 function obteneridUsuario($email, $pass, $conn)
 {
@@ -419,7 +426,7 @@ function agregarProducto($idCategoria,$fotProducto,$nombre,$descripcion,$precio,
 
 //Funcion para obtener el tipo de producto
 function obtenerTipoProd($conn){
-    $sql= "select * from tipoproductoservicio where estado='1' and idtipoproductoservicio NOT IN ('2', '7', '12')";
+    $sql= "SELECT * FROM tipoproductoservicio where estado like 1 and tipocategoria not like 'Servicio' ORDER by nombre";
     $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
     return $res;
 }
@@ -427,7 +434,7 @@ function obtenerTipoProd($conn){
 #     Servicios
 //Funcion para listar servicios //modificar el estado 
 function listarServicios($conn) {
-    $sql = "SELECT productoservicio.idproductoservicio, productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio, productoservicio.estado FROM productoservicio WHERE productoservicio.idtipoproductoservicio   IN ('2', '7','12')" ;
+    $sql = "SELECT productoservicio.idproductoservicio, productoservicio.fotoProductoServicio AS foto, productoservicio.nombre, productoservicio.descripcion, productoservicio.precio, productoservicio.estado FROM productoservicio INNER JOIN tipoproductoservicio on productoservicio.idtipoproductoservicio= tipoproductoservicio.idtipoproductoservicio WHERE tipoproductoservicio.tipocategoria like 'Servicio'" ;
     $res = mysqli_query($conn, $sql);
     $vec = array();
     while ($f = mysqli_fetch_array($res)) {

@@ -5,8 +5,8 @@
     $conn =conectar();
 
     //Para hacer el logeo se necesita el correo y la contraseña obtenidos del formulario ....
-    $email =$_REQUEST['email'];
-    $pass =$_REQUEST['pass'];
+    $email =$_POST['email'];
+    $pass =$_POST['pass'];
 
     //Al logearse se deben obtener dos datos: 
     $datosUsuario= validarUsuario($email,$pass,$conn);

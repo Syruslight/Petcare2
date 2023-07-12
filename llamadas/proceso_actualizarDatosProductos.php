@@ -10,12 +10,15 @@ $tipoProducto = $_REQUEST['tipoProductoE'];
 
 // Arrary de tipo producto a id
 $tipoProductoMap = array(
-    'Comida para perros' => '4',
-    'Comida para gatos' => '5',
-    'Comida para conejos' => '6',
-    'Juguetes para perros' => '7',
-    'Juguetes para gatos' => '8',
-    'Juguetes para conejos' => '9'
+    'Comida para perros' => '1',
+    'Comida para gatos' => '6',
+    'Comida para conejos' => '11',
+    'Juguetes para perros' => '4',
+    'Juguetes para gatos' => '9',
+    'Juguetes para conejos' => '14',
+    'Accesorios para perros' => '5',
+    'Accesorios para gatos' => '10',
+    'Accesorios para conejos' => '15'
 );
 
 
