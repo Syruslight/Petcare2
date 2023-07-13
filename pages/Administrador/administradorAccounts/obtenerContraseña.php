@@ -12,7 +12,7 @@ $res = mysqli_query($conn, $sentencia);
 if ($res && mysqli_num_rows($res) > 0) {
     $row = mysqli_fetch_assoc($res);
     $contrasenia = $row['pass'];
-    echo $contrasenia."<img src='../../../imagenes/paswordIcono.png' width='30px' height='30px' >";
+    echo $contrasenia;
 } else {
     echo 'Contraseña no encontrada.';
 }
