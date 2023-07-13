@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
-                            <label id="cambiar-foto" for="foto"><img  class="iconoRegisMascota" src="../../imagenes/perfilCliente/upload.svg" alt="RegisMascota"></label>                           
+                            <label id="cambiar-foto" for="foto" onclick="previsualizarImagen('img','foto','../../../imagenes/huella.jpg')"><img  class="iconoRegisMascota" src="../../imagenes/perfilCliente/upload.svg" alt="RegisMascota"></label>                           
                             <div class="button">
                                 <input type="submit" name="registrar" value="Registrar" class="btn">
                             </div>

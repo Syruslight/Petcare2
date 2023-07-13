@@ -383,6 +383,11 @@ tbody tr:hover {
     background-color: #bb0000e3;
   }
 }
+#modal-Register .container .data-col2 .cont-radio .cont-este input:checked {
+  border: solid 2px #E96397 !important;
+  background-color: #E96397;
+  box-shadow: none;
+}
 #modal-Register .row h3 {
   font-size: 40px;
   font-weight: 600;
@@ -603,6 +608,8 @@ tbody tr:hover {
 }
 .modalMascotaEdit .container .data-col2 .form-edit .cont-radio .cont-este input:checked {
   border: solid 2px #E96397 !important;
+  background-color: #E96397;
+  box-shadow: none;
 }
 .modalMascotaEdit .form-control{
   width: 222px;

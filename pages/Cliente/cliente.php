@@ -139,7 +139,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                         <div>
                                             <img class="butModal edits-pets" data-modal=".modalMascotaEdit" data-nombre="<?php echo $nombre; ?>" data-edad="<?php echo $edad; ?>" data-peso="<?php echo $peso; ?>" data-fotoperfil="<?php echo $fotoPerfil; ?>" data-esterilizado="<?php echo $esterilizado; ?>" data-idmascota="<?php echo $idmascota; ?>" data-etapa="<?php echo $etapa; ?>" src="../../imagenes/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
                                             <a href="../Mascota/test.php?idmascota='<?php echo $idmascota;?>'" data-idmascota="<?php echo $idmascota;?>'" class=" btn btn-sm"  data-nombre2="<?php echo $nombre; ?>" data-fotoperfil2="<?php echo $fotoPerfil; ?>" style="background-color:#1D3534; color:#1BC5BD;">
-                                                <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.png" alt="Logo" width="46" height="42">
+                                                <img class="pdf-pets" src="../../imagenes/perfilCliente/pdf.svg" alt="Logo" width="31" height="26">
                                             </a>   
                                         </div>
                                     </div>
@@ -321,7 +321,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                     </div>
                                 </div>
                                 <input class="form-control form-control-sm" id="fotoM" type="file" name="subirFotoMascota" hidden>
-                                <label id="cambiar-foto" for="foto"><img class="iconoRegisMascota" src="../../imagenes/perfilCliente/pencil.png" alt="EditMascota"></label>
+                                <label id="cambiar-foto" for="fotoM" onclick="previsualizarImagen('perfil-img','fotoM','../../imagenes/huella.jpg')"><img class="iconoRegisMascota" src="../../imagenes/perfilCliente/pencil.png" alt="EditMascota"></label>
                                 <input type="text" class="form-control edad-footer" style="width: 140px;margin-top: -3px;" id="edadEnvio" name="edad" placeholder="Edad" disabled>
                             </div>
                         </div>

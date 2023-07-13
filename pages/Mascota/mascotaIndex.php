@@ -111,8 +111,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         <div class="card">
                             <div class="card-header">
                                 <h4>Mis mascotas
-                                    <a href="" class="butModal btn float-end sa" data-modal=".modalMascotaAgre" style="background-color:#399731;">Agregar</a>
-                                    <a href="" class="btn float-end sa" style="background-color:#C01C1C">Eliminar</a>
+                                    <a href="" class="butModal btn float-end sa" data-modal=".modalMascotaAgre" style="background-color:#399731;margin-right: 12px;">Agregar</a>
                                 </h4>
                             </div>
                             <div class="six">
@@ -199,7 +198,13 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         </div>
                                     </div>
                                     <input class="form-control form-control-sm" id="fotoM" type="file" name="subirFotoMascota" hidden>
-                                    <label id="cambiar-foto" for="fotoM"><img  class="iconoRegisMascota" src="../../imagenes/perfilCliente/pencil.png" alt="editMascota"></label>
+                                    <label id="cambiar-foto" for="fotoM" onclick="previsualizarImagen('perfil-img','fotoM','../../imagenes/huella.jpg')"><img  class="iconoRegisMascota" src="../../imagenes/perfilCliente/pencil.png" alt="editMascota"></label>
+
+
+
+
+
+
                                     <input type="text" class="form-control edad-footer" style="width: 140px;margin-top: -3px;" id="edadEnvio" name="edad" placeholder="Edad" value="<?= $mascota['edadAnos'] ?> año(s) <?= $mascota['edadMeses'] ?> m" disabled>
                                 </div>                               
 

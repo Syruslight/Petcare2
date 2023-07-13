@@ -43,7 +43,7 @@ if ($result->num_rows > 0) {
               <td class="th">' . $row['esterilizado'] . '</td>
               <td class="td">
               <a href="" action="listar" class="butModal btn btn-sm" data-modal=".modalMascotaEdit" data-fotoperfil="' .$row['fotoPerfil'] .'" data-idmascota="' . $row['idmascota'] . '" data-etapa="' .$row['etapa'] .'" data-nombre="' . $row['nombre'] . '" data-edad="' . $row['edad'] . '" data-peso="' . $row['peso'] . '" data-esterilizado="' . $row['esterilizado'] . '" style="background-color:#1BC5BD; color:#1D3534;">editar</a>
-              <a href="test.php?idmascota='.$row['idmascota'] .'" data-idmascota="' . $row['idmascota'] . '" class=" btn btn-sm"  data-nombre2="' .$row['nombre'] .'" data-fotoperfil2="' .$row['fotoPerfil'] .'" style="background-color:#1D3534; color:#1BC5BD;">Ver Carnet</a>
+              <a href="test.php?idmascota='.$row['idmascota'] .'" data-idmascota="' . $row['idmascota'] . '" class=" btn btn-sm"  data-nombre2="' .$row['nombre'] .'" data-fotoperfil2="' .$row['fotoPerfil'] .'" style="background-color:#1D3534; color:#1BC5BD;">Generar carnet</a>
               </td>
           </tr>';
   }
