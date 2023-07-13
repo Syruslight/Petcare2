@@ -18,6 +18,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='administrador.css'>
+    <link rel="stylesheet" href='../components/navListAdministrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
@@ -61,15 +62,17 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             ?>
              <h1 class="tituloProductos">Productos Populares del Mes</h1>
             <div class="wrapper-drawer">
-               
+             
 
-
-                <!-- Swiper -->
-           
-
-                <div class="swiper">
+                    
+                    
+                    
+                    <!-- Swiper -->
+                    
+                    
+                    <div class="swiper">
     <div class="swiper-wrapper">
-
+        
         <!-- Inicia contenedor de swiper -->
         <?php
         $productos = listarProductos($conn);
@@ -98,7 +101,8 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 </div> <!-- Finish Swiper -->
 
 
-            </div>
+            
+        </div>
             <div class="wrapper-myclients">
                 <div class="subwrapper-myclients">
                     <div class="clients-search">

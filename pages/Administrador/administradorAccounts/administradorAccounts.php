@@ -23,6 +23,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../administradorProducts/administradorProducts.css">
     <link rel="stylesheet" href="../editAdministrador/editModalAdministrador.css">
+    <link rel="stylesheet" href='../components/navListAdministrador.css'>
     <link rel="stylesheet" href="../administradorAccounts/estiloAdministradorCrearCuentas.css">
     <title>Document</title>
 </head>
