@@ -49,7 +49,7 @@
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <button class="boton-modal" onclick="openmodalLogin()" type="submit">Iniciar Sesión</button>
+                            <button class="boton-modal"  role="button" onclick="openmodalLogin()" type="submit">Iniciar Sesión</button>
                         </ul>                       
                     </div>
             </div>           
