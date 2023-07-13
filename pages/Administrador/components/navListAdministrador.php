@@ -4,7 +4,7 @@
         
 <div class="first-seccion">
                 <div class="logo">
-                    <img src="../../../imagenes/perfilAdmin/logo.png" alt="Logo" width="168" height="46">
+                    <img class="image-logoPetcare" src="../../../imagenes/perfilAdmin/logo.png" alt="Logo" width="168" height="46">
                 </div>
                 <!--Codigo php para obtener la variable usuario-->
                 <?php
