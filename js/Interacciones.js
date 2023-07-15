@@ -8,18 +8,27 @@ function openModalReservarServicio() {
   const openModal = document.querySelector(".reserve-service");
   const modal = document.querySelector(".modalReservar");
   const closeModal = document.querySelector("#CloseModalReservar");
-  
-  openModal.addEventListener("mousedown", (e) => {
+
+  let isOpen = false; // Variable para controlar el estado del modal
+
+  openModal.addEventListener("click", (e) => {
     e.preventDefault();
-    modal.classList.add("modalReservar--show");
+
+    if (!isOpen) { // Verificar si el modal no está abierto
+      modal.classList.add("modalReservar--show");
+      isOpen = true; // Actualizar el estado del modal a abierto
+    }
   });
-  
-  closeModal.addEventListener("mousedown", (e) => {
+
+  closeModal.addEventListener("click", (e) => {
     e.preventDefault();
-    modal.classList.remove("modalReservar--show");
+
+    if (isOpen) { // Verificar si el modal está abierto
+      modal.classList.remove("modalReservar--show");
+      isOpen = false; // Actualizar el estado del modal a cerrado
+    }
   });
 }
-
 
 function openModalHorario(){
   const openModal = document.querySelector(".botonHorario");
@@ -79,19 +88,25 @@ function openModalAdministrador(){
 }
 
 
-function openmodalLogin(){
+function openmodalLogin() {
   const openModal = document.querySelector(".boton-modal");
   const modal = document.querySelector(".modal");
   const closeModal = document.querySelector("#close-modal");
-  openModal.addEventListener("mousedown", (e) => {
+
+  openModal.addEventListener("click", (e) => {
     e.preventDefault();
     modal.classList.add("modal--show");
   });
-  closeModal.addEventListener("mousedown", (e) => {
+
+  closeModal.addEventListener("click", (e) => {
     e.preventDefault();
     modal.classList.remove("modal--show");
   });
 }
+
+
+
+
 
 function openModalEditCliente(){
   const openModalEditarCliente = document.querySelector(".btnEditarCliente");
