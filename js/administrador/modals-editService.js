@@ -80,27 +80,20 @@ function openModalEdithProduct(event) {
   const precioProducto = button.getAttribute("data-precioproducto");
   const descripcionProducto = button.getAttribute("data-descripcionproducto");
   const fotoproducto = button.getAttribute("data-fotoproducto");
-  const tipoProducto = button.getAttribute("data-tipoproducto");
+  //const tipoProducto = button.getAttribute("data-tipoproducto");
 
   const fotoproducto1 = fotoproducto;
 
   document.querySelector("#idProductoEnvio").value = idProducto;
   document.querySelector("#nombreProductoEnvio").value = nombreProducto;
   document.querySelector("#precioProductoEnvio").value = precioProducto;
-  document.querySelector("#descripcionProductoEnvio").value =
-    descripcionProducto;
+  document.querySelector("#descripcionProductoEnvio").value = descripcionProducto;
   document.querySelector("#productoEnvio").src =
     "../../../imagenes/productos_servicios/productos/" + fotoproducto;
   document.querySelector("#nombrefotoProductoEnvio").value = fotoproducto1;
 
   //Codigo para tipo del producto (combo box)
-  const tipoSelect = document.querySelector("#tipoEnvio");
-  for (let i = 0; i < tipoSelect.options.length; i++) {
-    if (tipoSelect.options[i].value === tipoProducto) {
-      tipoSelect.selectedIndex = i;
-      break;
-    }
-  }
+
 
   modal.classList.add("modalProduct--show");
 

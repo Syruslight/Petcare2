@@ -25,11 +25,8 @@ $tipoProductoMap = array(
 if (isset($tipoProductoMap[$tipoProducto])) {
     $idTipoProducto = $tipoProductoMap[$tipoProducto];
 } else {
-    $idTipoProducto = '4'; // Defecto 4
+    $idTipoProducto = '1'; // Defecto 4
 }
-
-
-
 
 $fotoProductoServicio = $_FILES['fotoNuevaProducto']['name']; 
 $ruta = $_FILES['fotoNuevaProducto']['tmp_name'];
@@ -43,7 +40,9 @@ if (!empty($fotoProductoServicio)) {
 	// Se ha seleccionado una nueva foto, guardarla y actualizar la variable $foto
 	$fotprod = "../imagenes/productos_servicios/productos/" . $fotoProductoServicio;
 	copy($ruta, $fotprod);
-} else {
+} else if ($fotoProductoServicio.is_null(true)){
+        $fotoProductoServicio = "sinImagen.jpg"; } 
+else {
 	// No se ha seleccionado una nueva foto, utilizar la foto anterior
 	$fotoProductoServicio = $foto_anterior;
 }

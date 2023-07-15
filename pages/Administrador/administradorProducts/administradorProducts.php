@@ -264,22 +264,24 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                     <input class="text-nameProduct" type="text" name="nombre_PE" id="nombreProductoEnvio">
                 </div>
                 <div class="second-group">
-                    <div class="group-selects">
-                        <label class="label-reuse" for="">Tipo:</label>
-                        <select class="selectProdcuts" name="tipoProductoE" id="tipoEnvio">
-                            <option selected disabled>Seleccione el tipo de producto</option>
-                            <option value="Comida para perros">Comida para perros</option>
-                            <option value="Comida para gatos">Comida para gatos</option>
-                            <option value="Comida para conejos">Comida para conejos</option>
-                            <option value="Juguetes para perros">Juguetes para perros</option>
-                            <option value="Juguetes para gatos">Juguetes para gatos</option>
-                            <option value="Juguetes para conejos">Juguetes para conejos</option>
-                            <option value="Accesorios para perros">Accesorios para perros</option>
-                            <option value="Accesorios para gatos">Accesorios para gatos</option>
-                            <option value="Accesorios para conejos">Accesorios para conejos</option>
-                            
-                        </select>
-                    </div>
+                <div class="group-selects">
+                                        <label class="label-reuse" for="">Tipo:</label>
+                                        <select class="selectProdcuts" name="Categoria_P" id="Categoria_P">
+                                            <option selected>Selecciona Tipo Producto</option>
+                                            <?php
+                                            // Query para obtener los tipos de productos
+                                            $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and tipocategoria not like 'Servicio' ORDER by nombre"; // Reemplaza "tabla_especie" con el nombre de tu tabla
+                                            // Guardar resultados en array
+                                            $resultTipoProducto = mysqli_query($conn, $queryTipoProducto);
+                                            while ($rowProducto = mysqli_fetch_assoc($resultTipoProducto)) {
+                                                $nombreTipoProducto = $rowProducto['nombre'];
+                                                $idTipoProducto = $rowProducto['idtipoproductoservicio'];
+                                                echo "<option value=\"$idTipoProducto\">$nombreTipoProducto</option>";
+                                            }
+                                            ?>
+                                        </select>
+
+                                    </div>
                     <div class="group-text">
                         <label class="label-reuse" for="">Precio</label>
                         <input class="text-namePrice" type="text" name="id_PE" id="idProductoEnvio" hidden>
