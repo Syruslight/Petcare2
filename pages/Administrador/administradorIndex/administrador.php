@@ -18,6 +18,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='administrador.css'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
     <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
@@ -46,6 +47,57 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             });
         }
     </script>
+<style>
+    .custom-modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  
+}
+
+.custom-modal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px; 
+}
+
+.custom-modal-body {
+  margin-bottom: 20px;
+}
+
+.custom-modal-footer {
+  text-align: right;
+}
+
+.btn {
+  padding: 8px 16px;
+  margin-left: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-secondary {
+  background-color: #ccc;
+  color: #fff;
+}
+
+</style>
 
 </head>
 
@@ -81,14 +133,12 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             echo '<div class="swiper-slide">';
             echo '<div class="cardpet-sup">';
             echo '<div class="cardpet">';
-            echo '<img src="../../../imagenes/productos_servicios/productos/' . $producto['foto'] . '" width="64.42" height="70">';
+            echo '<img src="../../../imagenes/productos_servicios/productos/' . $producto['foto'] . '" width="60" height="60">';
             echo '<span class="type-product">' . $producto['nombre'] . '</span>';
-            echo '<span class="type-category">' . $producto['tipo'] . '</span>';
-            echo '</div>';
-            echo '<div class="semicrud-pet">';
-            echo '<span class="subtitle-price">Precio</span>';
+            echo '<span class="type-category">' . $producto['tipo'] . '</span>'; 
             echo '<span class="price">s/.' . $producto['precio'] . '</span>';
             echo '</div>';
+           
             echo '</div>';
             echo '</div>';
         }
@@ -146,8 +196,56 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
 
+<div class="custom-modal" id="confirmModal">
+  <div class="custom-modal-content">
+    <div class="custom-modal-body">
+      <p>¿Desea salir de la cuenta?</p>
+    </div>
+    <div class="custom-modal-footer">
+      <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
+      <button type="button" class="btn btn-primary" id="confirmBtn">Aceptar</button>
+    </div>
+  </div>
+</div>
     
-    </section>
+
+    <script>
+  document.addEventListener('DOMContentLoaded', function() {
+  const logoutBtn = document.getElementById('logoutBtn');
+  const confirmModal = document.getElementById('confirmModal');
+  const confirmBtn = document.getElementById('confirmBtn');
+  const cancelBtn = document.getElementById('cancelBtn');
+
+  logoutBtn.addEventListener('click', function() {
+    confirmModal.style.display = 'block';
+  });
+
+  confirmBtn.addEventListener('click', function() {
+    cerrarSesion();
+  });
+
+  cancelBtn.addEventListener('click', function() {
+    confirmModal.style.display = 'none';
+  });
+
+  function cerrarSesion() {
+    fetch('../../../llamadas/proceso_cerrar_sesion.php', {
+      method: 'POST'
+    })
+      .then(function(response) {
+        if (response.ok) {
+          window.location.href = '../../../index.php';
+        } else {
+          console.log('Error al cerrar sesión');
+        }
+      })
+      .catch(function(error) {
+        console.log('Error al cerrar sesión:', error);
+      });
+  }
+});
+
+</script>
 
 
 <script src="../../../js/previsualizarImagen.js"></script>

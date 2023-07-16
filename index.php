@@ -11,12 +11,7 @@
 
     <title>LandingPage</title>
 </head>
-<<<<<<< Updated upstream
-<body >
-=======
-
 <body>
->>>>>>> Stashed changes
     <header class="header" id="Inicio">
         <!-- <nav class="navbar navbar-light bg-dark">
             <div class="container">

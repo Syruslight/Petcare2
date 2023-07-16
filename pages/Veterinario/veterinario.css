@@ -992,79 +992,88 @@ color: white;
 
 }
 
-/*Toggle Button*/
 
 
-.toggle-container {
+
+/*toggle button */
+
+
+.toogleStatus {
   display: flex;
   align-items: center;
 }
 
-.toggle-slider {
-  width: 60px;
-  height: 30px;
-  background-color: #e6e6e6dc;
-  border-radius: 30px;
-  cursor: pointer;
-  border: 2px solid #ccc;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden;
+.toggle-switch {
   position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-.toggle-slider:before {
-  content: "";
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  height: 26px;
-  width: 26px;
-  background-color: #fff;
-  border-radius: 50%;
-  transition: 0.4s;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+.toggle-container {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
 }
 
-.toggle-slider .slider {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 26px;
-  height: 26px;
-  background-color: #ccc;
-  border-radius: 50%;
-  transition: 0.4s;
-}
-
-.status {
-  margin-left: 10px;
-  font-weight: bold;
-}
-
-input[type="checkbox"] {
+.toggle-switch-checkbox {
   display: none;
 }
 
-input[type="checkbox"]:checked + .toggle-slider {
-  background-color: #f76da2dc;
-  border-color: #f76da2dc;
+.toggle-switch-label {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  transition: background-color 0.4s;
 }
 
-input[type="checkbox"]:checked + .toggle-slider:before {
-  transform: translateX(30px);
+.toggle-switch-label:before {
+  content: "";
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.4s;
 }
 
-input[type="checkbox"]:checked + .toggle-slider .slider {
-  background-color: #fff;
-  transform: translateX(30px);
+.toggle-switch-checkbox:checked + .toggle-switch-label {
+  background-color: #E96397; /* Cambia el color a verde cuando esté activado */
 }
 
-  th {
-      position: relative;
-      z-index: 1;
-    }
+.toggle-switch-checkbox:checked + .toggle-switch-label:before {
+  transform: translateX(26px);
+}
 
-/**/
+.slider.round {
+  display: none;
+}
+
+.toggle-switch-text {
+  position: absolute;
+  top: calc(100% + 4px);
+  transform: translateX(-50%);
+  left: 50%;
+  color: #888;
+  font-size: 14px;
+  transition: color 0.4s;
+}
+
+.toggle-switch-checkbox:checked ~ .toggle-switch-text {
+  color: #E96397; /* Cambia el color a blanco cuando esté activado */
+}
+
+
+
 
 
 

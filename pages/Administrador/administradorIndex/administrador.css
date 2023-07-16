@@ -66,6 +66,7 @@
   display: flex;
 }
 .swiper-slide {
+  white-space: nowrap;
   font-size: 18px;
   text-align: center;
   display: flex !important;
@@ -77,11 +78,14 @@
   height: 140px !important;
   justify-content: center;
   border-radius: 20px;
+  overflow: hidden;
 }
+
 .cardpet-sup {
   display: flex;
 }
 .cardpet {
+  justify-content: space-between;
   display: flex;
   flex-direction: column;
   align-items: center;
