@@ -1,16 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <link rel="stylesheet" href="estilos.css"> 
-    <link rel="stylesheet" href="Estilos_modal_L&R.css"> 
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="Estilos_modal_L&R.css">
 
     <title>LandingPage</title>
 </head>
+<<<<<<< Updated upstream
 <body >
+=======
+
+<body>
+>>>>>>> Stashed changes
     <header class="header" id="Inicio">
         <!-- <nav class="navbar navbar-light bg-dark">
             <div class="container">
@@ -18,43 +24,43 @@
             </div>
         </nav> -->
 
-    <!-- Navbar -->
+        <!-- Navbar -->
         <nav class="navbar navbar-expand-lg header-nav fixed-top top-nav-collapse">
             <div class="container-fluid ms-4 me-4">
                 <!-- Logo -->
-                        <a class="navbar-brand" href="#">
-                            <img class="logo" src="Imagenes/PHlogo.png" alt="Pet&Care">
-                        </a>  
-                <!-- Fin Logo -->  
+                <a class="navbar-brand" href="#">
+                    <img class="logo" src="Imagenes/PHlogo.png" alt="Pet&Care">
+                </a>
+                <!-- Fin Logo -->
                 <!--NavBarDesplegable -->
-                    <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </button>
-                <!--FIN NavBarDesplegable -->    
-                    <div class="collapse navbar-collapse justify-content-end"                    id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item">
-                                <a class="nav-link active text-white" aria-current="page" href="#Inicio">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#row-nosotros">Quienes somos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#row-servicios">Servicios</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#row-productos">Productos</a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <button class="boton-modal"  role="button" onclick="openmodalLogin()" type="submit">Iniciar Sesión</button>
-                        </ul>                       
-                    </div>
-            </div>           
+                <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <!--FIN NavBarDesplegable -->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active text-white" aria-current="page" href="#Inicio">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#row-nosotros">Quienes somos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#row-servicios">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#row-productos">Productos</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <button class="boton-modal" role="button" onclick="openmodalLogin()" type="submit">Iniciar Sesión</button>
+                    </ul>
+                </div>
+            </div>
         </nav>
-    <!-- Fin Navbar -->
+        <!-- Fin Navbar -->
 
         <!-- CARRUSEL -->
         <section class="carousel slide" id="carousel-weston">
@@ -89,7 +95,7 @@
                 <h1 class="mb-5 shad">Atención 24H</h1>
                 <p>Nuestra pasión es trabajar juntos para la salud y<br>
                     el bienestar de tu mascota <i class="fa-sharp fa-solid fa-shield-heart fa-beat fa-lg" style="color: #ffffff;"></i><br></p>
-                    
+
                 <button type="button" class="btn mt-2">Registrate</button>
             </div>
         </div>
@@ -109,11 +115,11 @@
                     <!-- Texto y Titulo -->
                     <div class="col-md-6 mt-2">
                         <h1 class="mb-2 text-center">Sobre Nosotros</h1>
-                        <p>Somos una veterinaria  especializada en el cuidado estético de  
-                            animales, nosdedicamos a proporcionar servicios de alta calidad 
-                            para mejorar la apariencia y el  bienestar de sus mascotas. 
+                        <p>Somos una veterinaria especializada en el cuidado estético de
+                            animales, nosdedicamos a proporcionar servicios de alta calidad
+                            para mejorar la apariencia y el bienestar de sus mascotas.
                             Nos esforzamos por mantener un ambiente amigable y cómodo para nuestros pacientes, y estamos comprometidos en brindar un servicio personalizado para satisfacer las necesidades individuales de cada uno. </p>
-                        <p>Como parte de nuestro compromiso con nuestros clientes y sus mascotas, ofrecemos     servicios de urgencias las 24 horas del día para garantizar la tranquilidad y seguridad de nuestros pacientes en caso de emergencia.</p>
+                        <p>Como parte de nuestro compromiso con nuestros clientes y sus mascotas, ofrecemos servicios de urgencias las 24 horas del día para garantizar la tranquilidad y seguridad de nuestros pacientes en caso de emergencia.</p>
                     </div>
                     <!-- Fin Texto y Titulo -->
                 </div>
@@ -163,7 +169,7 @@
             </div>
         </div>
         <!-- Fin Servicios -->
-        <div class="row" id="row-contacto">  
+        <div class="row" id="row-contacto">
         </div>
         <!-- Frase -->
         <div class="row" id="row-frase">
@@ -182,7 +188,7 @@
             <div class="container">
                 <!-- Card #1 -->
                 <div class="box">
-                    <img class="image" src="Imagenes/comida.png" alt="" >
+                    <img class="image" src="Imagenes/comida.png" alt="">
                     <div class="content">
                         <img src="Imagenes/ComidaIcono.png" alt="">
                         <h3>Comida</h3>
@@ -205,7 +211,7 @@
         <!-- Fin Productos -->
     </main>
 
-<!-- Iplementando un login modal en la pagina web -->
+    <!-- Iplementando un login modal en la pagina web -->
 
     <section class="modal ">
         <div class="modal__container">
@@ -215,57 +221,61 @@
                         &#10006
                     </div>
                 </div>
-                    <!-- Proceso de iniciar sesión -->
-                        <div class="form-wrapper logeo">
-                            <form action="llamadas/proceso_logeoportipo.php" method="POST"> 
-                                <b><h2 class="texto-h2">Iniciar sesión</h2></b>
-                                <p class="textoparrafo">Entérate de las novedades que tenemos en Pet&Care para tí y tus mascotas</p>
-                                <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="email" required>
-                                    
-                                    <label for=""><i class="fa-solid fa-envelope icono-log"></i> Correo electronico</label>
-                                </div>
-                                <div class="input-group">
-                                    <input class="estilo-separado" type="password" name="pass" required>
-                                    
-                                    <label for=""><i class="fa-solid fa-lock icono-log"></i> Contraseña</label>
-                                </div>
-                                <button class="btnlogin">INICIAR SESIÓN</button>
-                            <div class="link">
+                <!-- Proceso de iniciar sesión -->
+                <div class="form-wrapper logeo">
+                    <form action="llamadas/proceso_logeoportipo.php" method="POST">
+                        <b>
+                            <h2 class="texto-h2">Iniciar sesión</h2>
+                        </b>
+                        <p class="textoparrafo">Entérate de las novedades que tenemos en Pet&Care para tí y tus mascotas</p>
+                        <div class="input-group">
+                            <input class="estilo-separado" type="text" name="email" required>
 
-                                <!-- Llamada al registro por si no cuenta con cuenta -->
-                                <p>¿Aún no tienes cuenta? <a class="btnlinklogin" href="#">Registrarse</a></p>
-                            </div>
-                            </form>
-                        </div> 
+                            <label for=""><i class="fa-solid fa-envelope icono-log"></i> Correo electronico</label>
+                        </div>
+                        <div class="input-group">
+                            <input class="estilo-separado" type="password" name="pass" required>
 
-                            <!-- vista registro de usuario -->
-                        <div class="form-wrapper registro">
-                            <form action="llamadas/proceso_registrousuario.php">
-                                <b><h2 class="texto-h2">Registrar datos</h2></b>
-                                <p class="textoparrafo">Únete a la familia de Pet&Care para conocer todos los beneficios que tenemos</p>
-                                <div class="input-group">
-                                    <input class="estilo-separado" type="text" name="email" required>
-                                
-                                    <label for="">   <i class="fa-solid fa-envelope icono-reg"></i> Correo electronico</label>
-                                </div>
-                                <div class="input-group">
-                                    <input class="estilo-separado" type="password" name="pass" required>
-                                    
-                                    <label for=""><i class="fa-solid fa-lock icono-reg"></i> Contraseña</label>
-                                </div>
-                            <div class="terminos">
-                                <label for=""><input type="checkbox"> Estoy de acuerdo con los terminos & condiciones</label>
-                            </div>
-                            <!-- Llamada por a la vista login por si tiene cuenta -->
-                                <button class="btnregistro">REGISTRAR</button>
-                            <div class="link">
-                                <p>¿Ya tienes cuenta? <a class="btnregistrolink" href="#">Iniciar sesión</a></p>
-                            </div>
-                            </form>
-                        </div> 
+                            <label for=""><i class="fa-solid fa-lock icono-log"></i> Contraseña</label>
+                        </div>
+                        <button class="btnlogin">INICIAR SESIÓN</button>
+                        <div class="link">
 
-                    </div>
+                            <!-- Llamada al registro por si no cuenta con cuenta -->
+                            <p>¿Aún no tienes cuenta? <a class="btnlinklogin" href="#">Registrarse</a></p>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- vista registro de usuario -->
+                <div class="form-wrapper registro">
+                    <form action="llamadas/proceso_registrousuario.php">
+                        <b>
+                            <h2 class="texto-h2">Registrar datos</h2>
+                        </b>
+                        <p class="textoparrafo">Únete a la familia de Pet&Care para conocer todos los beneficios que tenemos</p>
+                        <div class="input-group">
+                            <input class="estilo-separado" type="text" name="email" required>
+
+                            <label for=""> <i class="fa-solid fa-envelope icono-reg"></i> Correo electronico</label>
+                        </div>
+                        <div class="input-group">
+                            <input class="estilo-separado" type="password" name="pass" required>
+
+                            <label for=""><i class="fa-solid fa-lock icono-reg"></i> Contraseña</label>
+                        </div>
+                        <div class="terminos">
+                            <label for=""><input type="checkbox"> Estoy de acuerdo con los terminos & condiciones</label>
+                        </div>
+                        <!-- Llamada por a la vista login por si tiene cuenta -->
+                        <button class="btnregistro">REGISTRAR</button>
+                        <div class="link">
+                            <p>¿Ya tienes cuenta? <a class="btnregistrolink" href="#">Iniciar sesión</a></p>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -303,10 +313,10 @@
                         <a href="#" class="text-reset"><i class="fa-brands fa-square-twitter fa-beat"></i></a>
                         <a href="#" class="text-reset"><i class="fa-brands fa-square-instagram fa-beat"></i></a>
                         <a href="#" class="text-reset"><i class="fa-brands fa-youtube fa-beat"></i></a>
-                        <a href="#" class="text-reset"><i class="fa-brands fa-tiktok fa-beat"></i></a>                     
-                        
+                        <a href="#" class="text-reset"><i class="fa-brands fa-tiktok fa-beat"></i></a>
+
                     </li>
-                    
+
                 </ul>
                 <!-- Fin Redes Sociales -->
                 <hr class="mb-4">
@@ -324,4 +334,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b9a2b0c154.js" crossorigin="anonymous"></script>
 </body>
+
 </html>

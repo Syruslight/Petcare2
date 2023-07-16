@@ -45,84 +45,84 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
 
       <div class="contForm">
-    <div class="contenedorLote">
-        <div class="contLoteTable">
+        <div class="contenedorLote">
+          <div class="contLoteTable">
             <?php
             $sql = "SELECT * FROM vacuna ORDER BY idvacuna DESC";
             $result = $conn->query($sql);
 
             if ($result->num_rows > 0) {
-                echo "<table class='tablaLotes'>";
-                echo '<thead>';
+              echo "<table class='tablaLotes'>";
+              echo '<thead>';
+              echo '<tr>';
+              echo '<th>N°</th>';
+              echo '<th>Lote</th>';
+              echo '<th>Nombre</th>';
+              echo '<th>Descripción</th>';
+              echo '<th>Estado</th>';
+              echo '<th>Acción</th>';
+              echo '</tr>';
+              echo '</thead>';
+              echo '<tbody>';
+
+              // Iterar sobre los registros y mostrarlos en la tabla
+              while ($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<th>N°</th>';
-                echo '<th>Lote</th>';
-                echo '<th>Nombre</th>';
-                echo '<th>Descripción</th>';
-                echo '<th>Estado</th>';
-                echo '<th>Acción</th>';
-                echo '</tr>';
-                echo '</thead>';
-                echo '<tbody>';
+                echo '<td>' . $row['idvacuna'] . '</td>';
+                echo '<td>' . $row['lote'] . '</td>';
+                echo '<td>' . $row['tipo'] . '</td>';
+                echo '<td>' . $row['descripcion'] . '</td>';
+                echo '<td>';
 
-                // Iterar sobre los registros y mostrarlos en la tabla
-                while ($row = $result->fetch_assoc()) {
-                    echo '<tr>';
-                    echo '<td>' . $row['idvacuna'] . '</td>';
-                    echo '<td>' . $row['lote'] . '</td>';
-                    echo '<td>' . $row['tipo'] . '</td>';
-                    echo '<td>' . $row['descripcion'] . '</td>';
-                    echo '<td>';
+                // Obtener el estado actual de la vacuna
+                $idvacuna  = $row['idvacuna'];
+                $toggleID = 'switch' . $idvacuna;
+                $statusID = 'status' . $idvacuna;
+                $estado = $row['estadoLote'];                                
+                $estadoTexto = ($estado == 1) ? 'Activado' : 'Desactivado';
+                echo '<div class="toogleStatus">';
+                echo '<div class="toggle-switch">';
 
-                    // Obtener el estado actual de la vacuna
-                    $estadoLote = $row['estadoLote'];
-                    $estadoTexto = ($estadoLote == 1) ? 'Activado' : 'Desactivado';
 
-                    echo "<label class=\"toggle-container\">";
-                    echo "<input type=\"checkbox\" onchange=\"toggleStatus(this, " . $row['idvacuna'] . ")\"";
+                echo "<label class=\"toggle-container\">";
+                echo '<input type="checkbox" id="switch' . $idvacuna . '" class="toggle-switch-checkbox" onchange="updateStatus(' . $row['idvacuna'] . ', this.checked, \'¿Desea cambiar el estado de la categoría?\')"' . (($estado == '1') ? ' checked' : '') . ' data-original-state="' . (($estado == '1') ? 'true' : 'false') . '">';
 
-                    // Comparar el estado actual con el estado original almacenado en la base de datos
-                /*    $sql_estado = "SELECT estadoLote FROM vacuna WHERE idvacuna = " . $row['idvacuna'];
-                    $result_estado = $conn->query($sql_estado);
+                echo '<label for="' . $toggleID . '" class="toggle-switch-label"></label>';
+                echo '<span class="slider round"></span>';
+                
+                echo '<span class="toggle-switch-text" id="' . $statusID . '">' . (($row['estadoLote'] == '1') ? 'Activado' : 'Desactivado') . '</span>';
 
-                    if ($result_estado && $result_estado->num_rows > 0) {
-                        $row_estado = $result_estado->fetch_assoc();
-                        if ($row_estado['estadoLote'] == $estadoLote) {
-                            echo " disabled";
-                        }
-                    }
-
-                    // Resto del código para el botón de alternancia
-                    if ($estadoLote == 1) {
-                        echo " checked";
-                    } */
-
-                    echo ">";
-                    echo "<span class=\"toggle-slider\"></span>";
-                    echo "<span class=\"status\">" . $estadoTexto . "</span>";
-                    echo "</label>" . '</td>';
-                    echo '<td>';
-                    echo '<div class="contenedorAccion">';
-                    echo '<img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">';
-                    echo '</div>';
-                    echo '</td>';
-                    echo '</tr>';
+                echo '<input type="checkbox" ';
+                if ($row['estadoLote'] == '1') {
+                  echo 'checked ';
                 }
+                
+                echo 'data-original-state="' . (($row['estadoLote'] == '1') ? 'true' : 'false') . '">';
+                echo "<span class=\"toggle-slider\"></span>";
+                
+                echo "</label>" . '</td>';
+                echo '<td>';
+                echo '<div class="contenedorAccion">';
+                echo '<img class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">';
+                echo '</div>';
+                echo '</td>';
+                echo '</tr>';
+              }
 
-                echo '</tbody>';
-                echo '</table>';
+              echo '</tbody>';
+              echo '</table>';
             } else {
-                echo "<tr><td colspan=\"6\">No se encontraron registros.</td></tr>";
+              echo "<tr><td colspan=\"6\">No se encontraron registros.</td></tr>";
             }
             ?>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
     </div>
   </div>
 
-<?php
+  <?php
   include('../editarVeterinario/modalEditarVeterinario.php');
   ?>
   <?php
@@ -131,20 +131,22 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
   <?php
   include('formularioLotes.php');
   ?>
- 
+
 
 
   <script>
-    $(document).ready(function () {
-      $('#busqueda').keyup(function () {
+    $(document).ready(function() {
+      $('#busqueda').keyup(function() {
         var query = $(this).val();
 
         if (query !== '') {
           $.ajax({
             url: 'proceso_busquedaMascotaRenian.php',
             method: 'POST',
-            data: { query: query },
-            success: function (response) {
+            data: {
+              query: query
+            },
+            success: function(response) {
               if (response !== 'No se encontraron resultados.') {
                 // Separar la respuesta en ID y Nombre de mascota
                 var result = response.split(';');
@@ -172,16 +174,18 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
 
   <script>
-    $(document).ready(function () {
-      $('#busqueda2').keyup(function () {
+    $(document).ready(function() {
+      $('#busqueda2').keyup(function() {
         var query = $(this).val();
 
         if (query !== '') {
           $.ajax({
             url: 'proceso_busquedaIdVacuna.php',
             method: 'POST',
-            data: { query: query },
-            success: function (response) {
+            data: {
+              query: query
+            },
+            success: function(response) {
               if (response !== 'No se encontraron resultados.') {
                 // Separar la respuesta en ID de vacuna
                 var result = response.split(';');
@@ -202,6 +206,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
       });
     });
   </script>
+  <script src="../../../js/cambiarEstado.js"></script>
   <script src="../../../js/validar.js"></script>
   <script src="../../../js/obtenerFechaActual.js"></script>
   <script src="../../../js/Interacciones.js"></script>

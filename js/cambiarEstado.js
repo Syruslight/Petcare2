@@ -24,4 +24,7 @@ function updateStatus(id, checked, pTexto) {
         // El usuario canceló la actualización, restablecer el estado original del toggle
         switchElement.checked = originalState === 'true';
     }
+
+    //alert("parametro 1:"+ id+ "parametro 2 " + checked+ "parametro 3",pTexto)
+    //P1; 20, true, desea cambiar el estado de cateogria 
 }
