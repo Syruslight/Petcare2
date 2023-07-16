@@ -17,7 +17,7 @@
                     <aside class="contfoto">
 
                         <div class="imgcontainereditcliente">
-                            <img id="imgPersona" src="../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" width="95"
+                            <img id="imgPersona" src="../../../imagenes/fotosperfil/cliente/<?= $value[6] ?>" width="95"
                                 height="89">
                         </div>
 

@@ -18,6 +18,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='administradorCategory.css'>
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
+    <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -164,14 +165,28 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         <form action="">
                             <div class="formu-modals">
                                 <div class="first-group">
-                                    <label class="label-reuse" for="">Nombre</label>
+                                    <label class="label-reuse" for="">Categoria</label>
                                     <input class="text-nameProduct" type="text">
                                 </div>
                                 <div class="second-group">
-                                    <div class="group-text">
-                                        <label class="label-reuse" for="">Afiliaciones</label>
-                                        <input class="text-namePrice" type="text">
-                                    </div>
+                                <div class="group-selects">
+                                        <label class="label-reuse" for="">Categoria:</label>
+                                        <select class="selectProdcuts" name="Categoria_P" id="Categoria_P">
+                                            <option selected>Selecciona Tipo Producto</option>
+                                            <?php
+                                            // Query para obtener los tipos de productos
+                                            $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and tipocategoria not like 'Servicio' ORDER by nombre"; // Reemplaza "tabla_especie" con el nombre de tu tabla
+                                            // Guardar resultados en array
+                                            $resultTipoProducto = mysqli_query($conn, $queryTipoProducto);
+                                            while ($rowProducto = mysqli_fetch_assoc($resultTipoProducto)) {
+                                                $nombreTipoProducto = $rowProducto['nombre'];
+                                                $idTipoProducto = $rowProducto['idtipoproductoservicio'];
+                                                echo "<option value=\"$idTipoProducto\">$nombreTipoProducto</option>";
+                                            }
+                                            ?>
+                                        </select>
+
+                    </div>
                                 </div>
                                 <div class="thirds-group">
                                     <div class="toggle-switch">
@@ -217,7 +232,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <div class="circle-center"></div>
                             <div class="circle-left"></div>
                         </div>
-                        <h1 class="title-newProduct">Categoria</h1>
+                        <h1 class="title-newProduct">Editar Categoria</h1>
                         <lord-icon class="close" id="close1" src="https://cdn.lordicon.com/nhfyhmlt.json" trigger="hover" colors="primary:#121331" state="hover-2" style="width:40px;height:40px">
                         </lord-icon>
                     </div>
@@ -226,7 +241,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         <form action="">
                             <div class="formu-modals">
                                 <div class="first-group">
-                                    <label class="label-reuse" for="">Nombre</label>
+                                    <label class="label-reuse" for="">Nombre de categoria</label>
                                     <input class="text-nameProduct" type="text">
                                 </div>
                               

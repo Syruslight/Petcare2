@@ -46,7 +46,7 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 653px;
+  height: 647px;
 }
 .categories {
   display: flex;
@@ -90,7 +90,7 @@
 }
 .sign-off {
   display: flex;
-  margin-top: 125px;
+  margin-top: 115px;
   align-items: center;
   & button {
     margin-left: 5px;

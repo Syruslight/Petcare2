@@ -18,11 +18,17 @@ $conn = conectar();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='administradorService.css'>
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
+    <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>Pagina de administrador</title>
+   
 </head>
+<style>body {
+  margin:8px;
+
+}</style>
 <body>
 
 
@@ -114,16 +120,11 @@ $conn = conectar();
 
 
 
-<div class="footer">
+<!-- <div class="footer">
     <span class="copyrigth">©</span>
     <span> Vet&Care, todos los derechos reservados.</span>
-</div>
-</div>
+</div> -->
 
-
-     
-</div>
-</div>
 
 
 
@@ -177,6 +178,24 @@ $conn = conectar();
                                     <input class="text-nameProduct" type="text" name="nombre_S">
                                 </div>
                                 <div class="second-group">
+                                <div class="group-selects">
+                                        <label class="label-reuse" for="">Tipo:</label>
+                                        <select class="selectProdcuts" name="Categoria_P" id="Categoria_P">
+                                            <option selected>Selecciona Tipo Producto</option>
+                                            <?php
+                                            // Query para obtener los tipos de productos
+                                            $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and tipocategoria not like 'Servicio' ORDER by nombre"; // Reemplaza "tabla_especie" con el nombre de tu tabla
+                                            // Guardar resultados en array
+                                            $resultTipoProducto = mysqli_query($conn, $queryTipoProducto);
+                                            while ($rowProducto = mysqli_fetch_assoc($resultTipoProducto)) {
+                                                $nombreTipoProducto = $rowProducto['nombre'];
+                                                $idTipoProducto = $rowProducto['idtipoproductoservicio'];
+                                                echo "<option value=\"$idTipoProducto\">$nombreTipoProducto</option>";
+                                            }
+                                            ?>
+                                        </select>
+
+                                    </div>
                                     <div class="group-text">
                                         <label class="label-reuse" for="">Precio</label>
                                         <input class="text-namePrice"type="text"  name ="precio_S">

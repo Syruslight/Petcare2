@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-07-2023 a las 15:52:21
+-- Tiempo de generación: 12-07-2023 a las 21:33:19
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -60,18 +60,24 @@ CREATE TABLE `cita` (
   `idcliente` int(11) DEFAULT NULL,
   `idmascota` int(11) DEFAULT NULL,
   `idhorario` int(11) DEFAULT NULL,
-  `estadoAtencion` varchar(15) DEFAULT NULL,
-  `fechacreacion` datetime DEFAULT current_timestamp()
+  `estadopago` int(1) DEFAULT NULL,
+  `fechacreacion` datetime DEFAULT current_timestamp(),
+  `estadoAtencion` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `cita`
 --
 
-INSERT INTO `cita` (`idcita`, `idcliente`, `idmascota`, `idhorario`, `estadoAtencion`, `fechacreacion`) VALUES
-(1, 1, 1, 2, '1', '2023-07-07 18:07:56'),
-(2, 22, 3, 3, '0', '2023-07-07 18:10:30'),
-(3, 22, 5, 4, '2', '2023-07-07 18:13:06');
+INSERT INTO `cita` (`idcita`, `idcliente`, `idmascota`, `idhorario`, `estadopago`, `fechacreacion`, `estadoAtencion`) VALUES
+(2, 12, 12, 19, 1, '2023-07-08 03:39:45', 0),
+(3, 5, 5, 8, 1, '2023-07-08 03:39:45', 1),
+(4, 3, 3, 18, 1, '2023-07-08 03:39:45', 1),
+(5, 12, 12, 19, 1, '2023-07-08 03:40:07', 0),
+(6, 5, 5, 8, 1, '2023-07-08 03:40:07', 1),
+(7, 3, 3, 18, 1, '2023-07-08 03:40:07', 1),
+(8, 1, 1, 5, 1, '2023-07-08 04:00:05', 0),
+(9, 6, 6, 6, 0, '2023-07-08 04:00:05', 0);
 
 -- --------------------------------------------------------
 
@@ -120,7 +126,8 @@ INSERT INTO `cliente` (`idcliente`, `idusuario`, `nombres`, `apellidos`, `dni`, 
 (19, 19, 'Mirtha', 'Reyes', '78945612', '998877552', 'Av. Venezuela 3210', 'cliente19_m.jpg', 'Femenino', '1996-06-17', 6, 0),
 (20, 20, 'Teresa', 'Moreno', '74185236', '998822550', 'Jr. Las Casuarinas 5230', 'cliente20_m.jpg', 'Femenino', '1997-02-04', 6, 0),
 (22, 33, 'Clara', 'vaallejo', '47896558', '956856523', 'Jr. 300', 'playology-dri-tech.jpg', 'Femenino', '2001-05-01', 0, 0),
-(23, 34, 'Alfonso', 'Carrasco', '12345678', '941297309', 'Av. Brasil 543', 'predeterminadoHombre.jpg', 'Masculino', '1999-04-12', 0, 0);
+(23, 34, 'Alfonso', 'Carrasco', '12345678', '941297309', 'Av. Brasil 543', 'predeterminadoHombre.jpg', 'Masculino', '1999-04-12', 0, 0),
+(24, 35, 'Aurelio', 'Olaechea', '79845612', '958426351', 'Lima', 'renato.jpg', 'Masculino', '1992-08-18', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -144,28 +151,8 @@ CREATE TABLE `detallevacuna` (
 --
 
 INSERT INTO `detallevacuna` (`iddetallevacuna`, `idmascota`, `idvacuna`, `idveterinario`, `fecha`, `proxFecha`, `observacion`, `restricciones`) VALUES
-(1, 1, 1, 1, '2023-06-06', '2023-06-05', 'Ninguna', 'Ninguna'),
-(2, 5, 1, 7, '2023-06-08', '2023-07-01', 'Na', 'NA'),
-(3, 1, 4, 1, '2023-03-28', '2023-04-28', 'Ninguna', 'Ninguna'),
-(4, 2, 3, 1, '2023-01-19', '2023-02-03', 'Ninguna', 'Ninguna'),
-(5, 4, 7, 2, '2023-06-01', '2023-07-01', 'Ninguna', 'Ninguna'),
-(6, 6, 10, 3, '2023-02-13', '2023-05-13', 'Ninguna', 'Ninguna'),
-(7, 6, 13, 4, '2023-04-15', '2023-07-15', 'Ninguna', 'Ninguna'),
-(8, 6, 16, 5, '2023-05-29', '2023-08-29', 'Ninguna', 'Ninguna'),
-(9, 7, 11, 5, '2023-03-02', '2023-06-02', 'Ninguna', 'Ninguna'),
-(10, 7, 8, 6, '2023-01-31', '0000-00-00', 'Ninguna', 'Ninguna'),
-(11, 1, 7, 7, '2023-04-07', '2023-05-07', 'Ninguna', 'Ninguna'),
-(12, 12, 17, 8, '2023-05-12', '2023-08-12', 'Ninguna', 'Ninguna'),
-(13, 13, 18, 5, '2023-02-07', '2023-05-07', 'Ninguna', 'Ninguna'),
-(14, 14, 7, 5, '2023-06-05', '2023-07-05', 'Ninguna', 'Ninguna'),
-(15, 13, 18, 2, '2023-01-25', '2023-04-25', 'Ninguna', 'Ninguna'),
-(16, 3, 4, 4, '2023-04-26', '2023-05-26', 'Ninguna', 'Ninguna'),
-(17, 5, 4, 1, '2023-03-08', '2023-04-08', 'Ninguna', 'Ninguna'),
-(18, 6, 4, 2, '2023-06-18', '2023-07-18', 'Ninguna', 'Ninguna'),
-(19, 7, 17, 8, '2023-05-02', '2023-08-02', 'Ninguna', 'Ninguna'),
-(20, 10, 10, 8, '2023-02-22', '2023-05-22', 'Ninguna', 'Ninguna'),
-(21, 10, 16, 4, '2023-03-14', '2023-05-14', 'Ninguna', 'Ninguna'),
-(22, 10, 7, 4, '2023-06-23', '2023-07-23', 'Ninguna', 'Ninguna');
+(8, 1, 19, 7, '2023-07-08', '2023-07-29', 'xxxxxxxxxxxxxxxxxxxxxxxxx', 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'),
+(9, 12, 20, 7, '2023-07-11', '2023-07-22', 'XXXX', 'xxxx');
 
 -- --------------------------------------------------------
 
@@ -251,10 +238,25 @@ CREATE TABLE `horario` (
 --
 
 INSERT INTO `horario` (`idhorario`, `idveterinario`, `idproductoservicio`, `fecha`, `horarioinicio`, `horariofin`, `estado`) VALUES
-(1, 1, 1, '2023-07-07', '10:00:00.000000', '11:00:00.000000', '0'),
-(2, 7, 7, '2023-07-07', '08:00:00.000000', '09:00:00.000000', '1'),
-(3, 7, 1, '2023-07-07', '08:00:00.000000', '09:00:00.000000', '0'),
-(4, 7, 28, '2023-07-07', '15:00:00.000000', '16:00:00.000000', '1');
+(5, 2, 1, '0000-00-00', '00:00:00.000000', '00:00:00.000000', '0'),
+(6, 2, 2, '0000-00-00', '00:00:00.000000', '00:00:00.000000', '0'),
+(7, 1, 3, '2023-05-16', '10:00:00.000000', '11:00:00.000000', '0'),
+(8, 1, 3, '2023-05-16', '11:00:00.000000', '12:00:00.000000', '0'),
+(9, 2, 1, '2023-04-23', '09:00:00.000000', '10:00:00.000000', '0'),
+(10, 2, 2, '2023-04-18', '09:00:00.000000', '10:00:00.000000', '0'),
+(11, 3, 4, '2023-04-12', '14:00:00.000000', '15:00:00.000000', '0'),
+(12, 3, 4, '2023-03-11', '15:00:00.000000', '16:00:00.000000', '0'),
+(13, 4, 1, '2023-03-11', '12:00:00.000000', '13:00:00.000000', '0'),
+(14, 4, 1, '2023-06-28', '15:00:00.000000', '16:00:00.000000', '0'),
+(15, 5, 2, '2023-06-22', '10:00:00.000000', '11:00:00.000000', '0'),
+(16, 5, 27, '2023-05-16', '09:00:00.000000', '10:00:00.000000', '0'),
+(17, 6, 27, '2023-03-11', '16:00:00.000000', '17:00:00.000000', '0'),
+(18, 6, 28, '2023-02-17', '17:00:00.000000', '18:00:00.000000', '0'),
+(19, 7, 29, '2023-02-09', '10:00:00.000000', '11:00:00.000000', '0'),
+(20, 7, 29, '2023-01-05', '15:00:00.000000', '16:00:00.000000', '0'),
+(21, 8, 50, '2023-01-12', '14:00:00.000000', '15:00:00.000000', '0'),
+(22, 8, 50, '2023-01-12', '11:00:00.000000', '12:00:00.000000', '0'),
+(23, 7, 1, '2023-07-12', '17:00:00.000000', '18:00:00.000000', '0');
 
 -- --------------------------------------------------------
 
@@ -291,12 +293,14 @@ INSERT INTO `mascota` (`idmascota`, `idcliente`, `idraza`, `nombre`, `fechaNac`,
 (5, 5, 5, 'Motita', '2018-05-09', 12.00, 'Plomo', 'Schnauzer.jpeg', 'SI', 'Juvenil', '2023-05-19', 12365478, 'Hembra', '1'),
 (6, 6, 6, 'Lobo', '2015-05-15', 20.00, 'Plomo', 'Siberiano.jpeg', 'NO', 'Adulto', '2023-05-19', 36985214, 'Macho', '1'),
 (7, 7, 7, 'Michi', '2020-05-08', 8.00, 'blanco', 'Elfo.jpg', 'NO', 'Juvenil', '2023-05-19', 23654178, 'Macho', '1'),
-(10, 1, 1, 'Toffe', '2022-06-15', 9.45, 'Marron', 'Chihuahua.jpeg', 'SI', 'Cria', '2023-06-04', 123, 'Macho', '1'),
+(10, 1, 1, 'Toffe', '2022-06-15', 9.47, 'Marron', 'Chihuahua.jpeg', 'SI', 'Cria', '2023-06-04', 123, 'Macho', '1'),
 (11, 1, 3, 'Nova', '2018-03-29', 12.30, 'Negro', 'huella.jpg', 'SI', 'Adulto', '2023-06-08', 1234, 'Hembra', '1'),
-(12, 1, 8, 'Mascota', '2022-03-01', 13.45, 'Marron', 'huella.jpg', 'SI', 'Cria', '2023-06-08', 555, 'Macho', '1'),
+(12, 1, 8, 'Leo', '2022-03-01', 13.45, 'Marron', 'huella.jpg', 'SI', 'Cria', '2023-06-08', 555, 'Macho', '1'),
 (13, 1, 13, 'Rayo', '2021-01-01', 7.00, 'blanco marron', 'cuidados_del_conejo_belier_7683_orig.jpg', 'SI', 'Juvenil', '2023-06-09', 987159, 'Macho', '1'),
 (14, 1, 2, 'Peluche', '2013-04-10', 12.00, 'blanco', 'huella.jpg', 'SI', 'Adulto', '2023-06-16', 1542, 'Macho', '1'),
-(15, 23, 3, 'Nova', '2005-06-28', 12.30, 'negro', 'huella.jpg', 'SI', 'Juvenil', '2023-07-03', 789963, 'Hembra', '1');
+(15, 23, 3, 'Nova', '2005-06-28', 12.30, 'negro', 'huella.jpg', 'SI', 'Juvenil', '2023-07-03', 789963, 'Hembra', '1'),
+(16, 24, 2, 'Algodon de azucar', '2022-07-01', 9.00, 'blanco', 'El-cocker-spaniel-es-un-perro-fuerte-atletico-equilibrado-y-compacto.jpg', 'SI', 'Juvenil', '2023-07-11', 182, 'Macho', '1'),
+(17, 24, 12, 'Aceituna', '2023-06-10', 1.05, 'negro', 'images.jpg', 'SI', 'Cria', '2023-07-11', 184, 'Macho', '1');
 
 -- --------------------------------------------------------
 
@@ -319,7 +323,7 @@ CREATE TABLE `productoservicio` (
 --
 
 INSERT INTO `productoservicio` (`idproductoservicio`, `idtipoproductoservicio`, `nombre`, `precio`, `descripcion`, `fotoProductoServicio`, `estado`) VALUES
-(1, 2, 'servicio baño', 49.90, 'servicio de baño para perros', 'lavar-perro-mascota-casa.jpg', '1'),
+(1, 2, 'servicio baño', 49.99, 'servicio de baño para perros', 'lavar-perro-mascota-casa.jpg', '1'),
 (2, 2, 'servicio baño y corte', 59.90, 'servicio de baño y corte para perros', 'Baño y corte.jpeg', '1'),
 (3, 2, 'servicio deslanado', 59.90, 'servicio de deslanado para perros', 'Deslanado.jpg', '1'),
 (4, 2, 'servicio desmotado', 69.90, 'servicio de desmotado para perros', 'Desmotado.jpg', '1'),
@@ -469,29 +473,30 @@ CREATE TABLE `tipoproductoservicio` (
   `idtipoproductoservicio` int(11) NOT NULL,
   `nombre` varchar(150) DEFAULT NULL,
   `idespecie` int(11) NOT NULL,
-  `estado` char(1) DEFAULT NULL
+  `estado` char(1) DEFAULT NULL,
+  `tipocategoria` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tipoproductoservicio`
 --
 
-INSERT INTO `tipoproductoservicio` (`idtipoproductoservicio`, `nombre`, `idespecie`, `estado`) VALUES
-(1, 'Comida para perros', 1, '1'),
-(2, 'Limpieza para perros', 1, '1'),
-(3, 'Cuidado para perros', 1, '3'),
-(4, 'Juguetes para perros', 1, '1'),
-(5, 'Accesorios para perros', 1, '1'),
-(6, 'Comida para gatos', 2, '1'),
-(7, 'Limpieza para gatos', 2, '1'),
-(8, 'Cuidado para gatos', 2, '3'),
-(9, 'Juguetes para gatos', 2, '1'),
-(10, 'Accesorios para gatos', 2, '1'),
-(11, 'Comida para conejos', 3, '1'),
-(12, 'Limpieza para conejos', 3, '1'),
-(13, 'Cuidado para conejos', 3, '3'),
-(14, 'Juguetes para conejos', 3, '1'),
-(15, 'Accesorios para conejos', 3, '1');
+INSERT INTO `tipoproductoservicio` (`idtipoproductoservicio`, `nombre`, `idespecie`, `estado`, `tipocategoria`) VALUES
+(1, 'Comida para perros', 1, '1', 'Producto'),
+(2, 'Limpieza para perros', 1, '1', 'Servicio'),
+(3, 'Cuidado para perros', 1, '3', 'Producto'),
+(4, 'Juguetes para perros', 1, '1', 'Producto'),
+(5, 'Accesorios para perros', 1, '1', 'Producto'),
+(6, 'Comida para gatos', 2, '1', 'Producto'),
+(7, 'Limpieza para gatos', 2, '1', 'Servicio'),
+(8, 'Cuidado para gatos', 2, '3', 'Producto'),
+(9, 'Juguetes para gatos', 2, '1', 'Producto'),
+(10, 'Accesorios para gatos', 2, '1', 'Producto'),
+(11, 'Comida para conejos', 3, '1', 'Producto'),
+(12, 'Limpieza para conejos', 3, '1', 'Servicio'),
+(13, 'Cuidado para conejos', 3, '3', 'Producto'),
+(14, 'Juguetes para conejos', 3, '1', 'Producto'),
+(15, 'Accesorios para conejos', 3, '1', 'Producto');
 
 -- --------------------------------------------------------
 
@@ -565,7 +570,8 @@ INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `email`, `pass`, `fechaCre`
 (31, 3, 'veterinario@gmail.com', '123', '2023-06-01 01:00:49', '2'),
 (32, 3, 'pacovet@gmail.com', '123', '2023-06-11 23:54:23', '2'),
 (33, 1, 'clara@gmail.com', 'clara', '2023-06-17 09:59:06', '2'),
-(34, 1, 'pochito@gmail.com', '123', '2023-07-03 20:25:14', '2');
+(34, 1, 'pochito@gmail.com', '123', '2023-07-03 20:25:14', '2'),
+(35, 1, 'renato@gmail.com', '123', '2023-07-11 14:59:27', '2');
 
 -- --------------------------------------------------------
 
@@ -604,7 +610,9 @@ INSERT INTO `vacuna` (`idvacuna`, `lote`, `tipo`, `descripcion`, `fecha`, `estad
 (15, 'calci78', 'Enfermedad viral', 'Vacuna contra la enfermedad de la calcivirosis', '2023-07-03 14:15:00', 1),
 (16, 'leptoc16', 'Enfermedad viral', 'Vacuna contra la leptospirosis canina', '2023-06-08 11:00:00', 1),
 (17, 'rabfel32', 'Enfermedad viral', 'Vacuna contra la rabia felina', '2023-06-29 08:45:00', 1),
-(18, 'pasteo97', 'Enfermedad viral', 'Vacuna contra la pasteurelosis', '2023-05-24 13:30:00', 1);
+(18, 'pasteo97', 'Enfermedad viral', 'Vacuna contra la pasteurelosis', '2023-05-24 13:30:00', 1),
+(19, '00015-K29', 'Antirabica-3B024', 'xxxxxxxxxxxxxxxxxxxxxxxx', '2023-07-08 01:00:25', 1),
+(20, 'QWE_123', 'antihistamínico', 'Disponible para el 2024', '2023-07-11 15:23:37', 0);
 
 -- --------------------------------------------------------
 
@@ -774,7 +782,7 @@ ALTER TABLE `raza`
 --
 ALTER TABLE `tipoproductoservicio`
   ADD PRIMARY KEY (`idtipoproductoservicio`),
-  ADD KEY `idEspecie` (`idespecie`);
+  ADD KEY `idespecie` (`idespecie`);
 
 --
 -- Indices de la tabla `tipousuario`
@@ -824,19 +832,19 @@ ALTER TABLE `administrador`
 -- AUTO_INCREMENT de la tabla `cita`
 --
 ALTER TABLE `cita`
-  MODIFY `idcita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `idcita` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `cliente`
 --
 ALTER TABLE `cliente`
-  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `idcliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de la tabla `detallevacuna`
 --
 ALTER TABLE `detallevacuna`
-  MODIFY `iddetallevacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `iddetallevacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `detalleventa`
@@ -854,13 +862,13 @@ ALTER TABLE `especie`
 -- AUTO_INCREMENT de la tabla `horario`
 --
 ALTER TABLE `horario`
-  MODIFY `idhorario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idhorario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de la tabla `mascota`
 --
 ALTER TABLE `mascota`
-  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idmascota` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de la tabla `productoservicio`
@@ -896,13 +904,13 @@ ALTER TABLE `tipousuario`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `idusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- AUTO_INCREMENT de la tabla `vacuna`
 --
 ALTER TABLE `vacuna`
-  MODIFY `idvacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `idvacuna` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `venta`

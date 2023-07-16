@@ -24,6 +24,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <link rel="stylesheet" href="../administradorProducts/administradorProducts.css">
     <link rel="stylesheet" href="../editAdministrador/editModalAdministrador.css">
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
+    <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href="../administradorAccounts/estiloAdministradorCrearCuentas.css">
     <title>Document</title>
 </head>

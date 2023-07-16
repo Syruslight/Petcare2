@@ -41,7 +41,7 @@
             } else{
                 $_SESSION['usuario'] = $usu;
                 $_SESSION['email'] = $email;
-                header("location:../pages/Cliente/cliente.php");}
+                header("location:../pages/Cliente/clienteIndex/cliente.php");}
             break;
 
     #Para el tercer sprint

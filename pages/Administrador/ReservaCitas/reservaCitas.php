@@ -17,6 +17,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='../administradorProducts/administradorProducts.css'>
+    
     <link rel="stylesheet" href='../../Veterinario/veterinario.css'>
     <link rel="stylesheet" href='reservarCitas.css'>
     <title>Pagina de Veterinario</title>

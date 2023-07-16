@@ -20,6 +20,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
      <link rel="stylesheet" href="../Cliente/editarCliente/estiloModalEditarCliente.css">
      <link rel="stylesheet" href="mascotaEstilos.css">
+     <link rel="stylesheet" href="components/navListMascota.css">
    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 
@@ -198,7 +199,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         </div>
                                     </div>
                                     <input class="form-control form-control-sm" id="fotoM" type="file" name="subirFotoMascota" hidden>
-                                    <label id="cambiar-foto" for="fotoM" onclick="previsualizarImagen('perfil-img','fotoM','../../imagenes/huella.jpg')"><img  class="iconoRegisMascota" src="../../imagenes/perfilCliente/pencil.png" alt="editMascota"></label>
+                                    <label id="cambiar-foto" for="fotoM" onclick="previsualizarImagen('perfil-img','fotoM','../../../imagenes/huella.jpg')"><img  class="iconoRegisMascota" src="../../../imagenes/perfilCliente/pencil.png" alt="editMascota"></label>
 
 
 

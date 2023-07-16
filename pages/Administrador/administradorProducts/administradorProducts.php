@@ -19,6 +19,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='administradorProducts.css'>
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
+    <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
@@ -264,7 +265,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                     <input class="text-nameProduct" type="text" name="nombre_PE" id="nombreProductoEnvio">
                 </div>
                 <div class="second-group">
-                <div class="group-selects">
+                    <div class="group-selects">
                                         <label class="label-reuse" for="">Tipo:</label>
                                         <select class="selectProdcuts" name="Categoria_P" id="Categoria_P">
                                             <option selected>Selecciona Tipo Producto</option>
@@ -281,7 +282,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                             ?>
                                         </select>
 
-                                    </div>
+                    </div>
                     <div class="group-text">
                         <label class="label-reuse" for="">Precio</label>
                         <input class="text-namePrice" type="text" name="id_PE" id="idProductoEnvio" hidden>

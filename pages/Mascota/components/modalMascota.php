@@ -11,7 +11,7 @@
                 </div>
             </div>
             <div class="row data">
-                <form action="../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
+                <form action="../../../llamadas/proceso_registromascota.php" method="post" enctype="multipart/form-data">
                     <div class="data-col2">
                         <input type="text" id="nombre" class="form-control me-4" name="nombreMascota" placeholder="Nombre">
                         <input type="date" name="fechaNac" class="form-control">
@@ -75,7 +75,7 @@
                                 };
 
                                 // Realizar la solicitud <AJAX para obtener las razas correspondientes a la especie seleccionada
-                                xhr.open('GET', '../../llamadas/obtener_razas.php?idespecie=' + especieSeleccionada);
+                                xhr.open('GET', '../../../llamadas/obtener_razas.php?idespecie=' + especieSeleccionada);
                                 xhr.send();
                             }
                         </script>
@@ -117,11 +117,11 @@
                         <div class="row">
                             <div class="fotoPos">
                                 <div class="foto">
-                                    <img id="img" src="../../imagenes/huella.jpg" alt="avatar">
+                                    <img id="img" src="../../../imagenes/huella.jpg" alt="avatar">
                                 </div>
                             </div>
                             <input class="form-control form-control-sm" id="foto" type="file" name="foto" hidden>
-                            <label id="cambiar-foto" for="foto" onclick="previsualizarImagen('img','foto','../../../imagenes/huella.jpg')"><img  class="iconoRegisMascota" src="../../imagenes/perfilCliente/upload.svg" alt="RegisMascota"></label>                           
+                            <label id="cambiar-foto" for="foto" onclick="previsualizarImagen('img','foto','../../../imagenes/huella.jpg')"><img  class="iconoRegisMascota" src="../../../imagenes/perfilCliente/upload.svg" alt="RegisMascota"></label>                           
                             <div class="button">
                                 <input type="submit" name="registrar" value="Registrar" class="btn">
                             </div>
@@ -192,9 +192,9 @@
                     <div class="container-carnet">
                         <div class="card carnet-data">
                             <div class="row header-tabla">
-                                <img src="../../imagenes/PHlogo.png" alt="logo" class="col">
+                                <img src="../../..imagenes/PHlogo.png" alt="logo" class="col">
                                 <span class="col" style="color: #ffffff;">Mis vacunas</span>
-                                <img src="../../imagenes/PHlogo.png" alt="logo" class="col">
+                                <img src="../../..imagenes/PHlogo.png" alt="logo" class="col">
                             </div>
                             <div class="row carnet-tabla">
                                 <div class="row table-data">

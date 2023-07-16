@@ -1,6 +1,6 @@
 <div class="first-seccion">
                 <div class="logo">
-                    <img src="../../../imagenes/perfilCliente/logo.png" alt="Logo" width="168" height="46">
+                    <img class="image-logoPetcare" src="../../../imagenes/perfilCliente/logo.png" alt="Logo" width="168" height="46">
                 </div>
                 <!--Codigo php para obtener la variable usuario-->
                 <?php
@@ -26,28 +26,47 @@
                 ?>
                 </div>
             <div class="second-seccion">
+            <?php
+$current_page = basename($_SERVER['PHP_SELF']);
+?>
+
+<style>
+.categories a.active {
+    background-color: yellow;
+    border-radius: 10px;
+}
+</style>
+
                     <div class="categories">
+                    <a href="../clienteIndex/cliente.php" <?php echo ($current_page === "cliente.php") ? 'class="active"' : ''; ?>>
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/health-data.png" width="25" height="25" />
                             <span class="principal">Principal</span>
                         </div>
-                        <a href="../Mascota/mascotaIndex.php">
+
+                    </a>
+
+                        <a href="../../Mascota/mascotaIndex.php" <?php echo ($current_page === "mascotaIndex.php") ? 'class="active"' : ''; ?> >
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/conference-call--v1.png" width="25" height="25" />
                             <span class="list">Mis mascotas</span>
                         </div>
                         </a>
-                        <a href="productoCliente/productoCliente.php">
+
+                        <a href="../productoCliente/productoClient.php" <?php echo ($current_page === "productoClient.php") ? 'class="active"' : ''; ?> >
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
                             <span class="list">Productos</span>
                         </div>
-                        <a href="servicesClient/servicioCliente.php">
+                        </a>
+
+                        <a href="../servicesClient/servicioCliente.php"  <?php echo ($current_page === "servicioCliente.php") ? 'class="active"' : ''; ?> >
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/database--v1.png" width="25" height="25" />
                             <span class="list">servicios</span>
                         </div>
                         </a>
+
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25"
                                 height="25" />

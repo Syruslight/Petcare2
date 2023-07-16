@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .wrapper {
   width: 100%;
   height: 1024px;
@@ -7,7 +8,7 @@
   background: rgba(232, 232, 229, 1);
 }
 .profile {
-  width: 20%;
+  width: 283px !important;
   height: 1024px;
 }
 
@@ -27,35 +28,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-.dash-header {
-  width: 1153.08px;
-  height: 60px;
-  background: #94d2bd;
-  border: 1px solid rgba(0, 0, 0, 0.27);
-  box-shadow: 17px 8px 6px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  margin-bottom: 45px;
-
-  & img {
-    margin-right: 54px;
-    margin-top: 8px;
-  }
-}
-.tittle-header {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 14px;
-  line-height: 21px;
-  color: #264653;
-  padding-right: 17px;
-  padding-top: 24px;
-}
-.photo-profileheader {
-  border-radius: 50%;
 }
 
 /* Aca comienza el La lista de productos*/
@@ -427,7 +399,7 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 700;
-  font-size: 50px;
+  font-size: 40px;
   line-height: 21px;
   text-align: center;
   letter-spacing: 0.05em;
@@ -516,13 +488,13 @@
   display: flex;
   margin-top: 26px;
 }
-/* .group-selects {
+.group-selects {
   display: flex;
   flex-direction: column;
   gap: 11px;
   align-items: baseline;
   margin-right: 30px;
-} */
+}
 .selectProdcuts {
   background: #ffffff;
   border-width: 0px 2px 2px 0px;

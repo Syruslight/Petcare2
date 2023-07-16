@@ -30,26 +30,38 @@
                 ?>
 </div>
 <div class="second-seccion">
+<?php
+$current_page = basename($_SERVER['PHP_SELF']);
+?>
+
+<style>
+.categories a.active {
+    background-color: yellow;
+    border-radius: 10px;
+}
+</style>
+     
                     <div class="categories">
-                        <a href="../administradorIndex/administrador.php">
+                    <a href="../administradorIndex/administrador.php" <?php echo ($current_page === "administrador.php") ? 'class="active"' : ''; ?>>
                         <div class="icons">
-                            <img src="https://img.icons8.com/ios/50/null/health-data.png" width="25" height="25" />
-                            <span class="principal">Principal</span>
+                        <img src="https://img.icons8.com/ios/50/null/health-data.png" width="25" height="25" />
+                        <span class="principal">Principal</span>
                         </div>
-                        </a>    
-                        <a href="../administradorProducts/administradorProducts.php">
-                            <div class="icons">
-                                <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
-                                <span class="list">Productos</span>
-                            </div>
-                        </a>
-                        <a href="../administradorService/administradorService.php">
+                    </a>
+                    <a href="../administradorProducts/administradorProducts.php" <?php echo ($current_page === "administradorProducts.php") ? 'class="active"' : ''; ?>>
+                        <div class="icons">
+                        <img src="https://img.icons8.com/ios/50/null/chat-message-sent.png" width="25" height="25" />
+                        <span class="list">Productos</span>
+                        </div>
+                    </a>
+                        <a href="../administradorService/administradorService.php" <?php echo ($current_page === "administradorService.php") ? 'class="active"' : ''; ?> >
                             <div class="icons">
                                 <img src="https://img.icons8.com/ios/50/null/database--v1.png" width="25" height="25" />
                                 <span class="list">servicios</span>
                             </div>
                         </a>
-                        <a href="../administradorCategory/administradorCategory.php">
+
+                        <a href="../administradorCategory/administradorCategory.php" <?php echo ($current_page === "administradorCategory.php") ? 'class="active"' : ''; ?> >
 
                             <div class="icons">
                                 <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25"
@@ -57,18 +69,21 @@
                                 <span class="list">Categoria </span>
                             </div>
                         </a>
-                        <div class="icons">
 
+                        <a href="../../../../pages/Administrador/ReservaCitas/reservaCitas.php" <?php echo ($current_page === "reservaCitas.php") ? 'class="active"' : ''; ?>>
+                        <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
-                            <a href="../../../../pages/Administrador/ReservaCitas/reservaCitas.php">
-                            <span class="list">Reserva de cita</span></a>
+                            <span class="list">Reserva de cita</span>
                         </div>
-                        <a href="../administradorAccounts/administradorAccounts.php">
+                    </a>
+
+                        <a href="../administradorAccounts/administradorAccounts.php" <?php echo ($current_page === "administradorAccounts.php") ? 'class="active"' : ''; ?> >
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
                             <span class="list">Cuentas</span>
                         </div>
                         </a>
+
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/help--v1.png" width="25" height="25" />
                             <span class="list">Ayuda</span>
