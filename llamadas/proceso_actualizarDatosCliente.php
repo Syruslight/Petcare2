@@ -29,5 +29,5 @@ if (!empty($foto)) {
 
 
 actualizarDatosCliente($idCliente, $nombres, $apellidos, $telefono, $direccion, $dni, $foto, $conn);
-header('Location: ../pages/Cliente/cliente.php');
+header('Location: ../pages/Cliente/clienteIndex/cliente.php');
 ?>

@@ -204,8 +204,17 @@ body::-webkit-scrollbar-thumb {
   height: 76vh;
   background-color: #ebebf3;
 }
+#row-tablaMascota .table-container thead{
+  position: sticky;
+  top: -16px;
+  width: 1025px;
+  background-color: #ffffff;
+  height: 42px;
+}
 #row-tablaMascota .card-body {
+  height: 422px;
   overflow-y: auto;
+  padding-bottom: 0px !important;
 }
 #row-tablaMascota .card-body::-webkit-scrollbar {
   width: 10px;
@@ -224,7 +233,8 @@ body::-webkit-scrollbar-thumb {
 #row-tablaMascota .card {
   background-color: #c0dfd5;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
-  max-height: 600px;
+  max-height: 585px;
+  height: 585px;
 }
 #row-tablaMascota h4 {
   font-size: 40px;
@@ -232,6 +242,7 @@ body::-webkit-scrollbar-thumb {
 }
 #row-tablaMascota table {
   color: #464e5f;
+  margin-bottom: 0px !important;
 }
 #row-tablaMascota .card-header a {
   margin: 4px;

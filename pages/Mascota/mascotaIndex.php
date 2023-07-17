@@ -118,7 +118,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             <div class="six">
                                     <span>Buscar: <input type="text" id="busqueda" class="form-control" placeholder="Ingrese nombre mascota..."></span>
                                 </div> 
-                            <div class="card-body">                             
+                                <div class="table-container">
+                            <div class="card-body">  
                                 <table id="resultados" class="table table-borderless table-striped table-responsive text-center">
                                     <thead>
                                         <tr>
@@ -133,6 +134,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         </tr>
                                     </thead>
                                 </table>
+                            </div>
                             </div>
                         </div>
                     </div>

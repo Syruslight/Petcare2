@@ -1,0 +1,14 @@
+#row-tablaMascota .card-body {
+  overflow-y: auto;
+}
+#row-tablaMascota .card-body::-webkit-scrollbar {
+  width: 10px;
+}
+#row-tablaMascota .card-body::-webkit-scrollbar-thumb {
+  background: #c0dfd5;
+  border-radius: 2px;
+}
+#row-tablaMascota .card-body::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f;
+  border-radius: 2px;
+}
