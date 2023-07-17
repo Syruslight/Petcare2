@@ -138,7 +138,8 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                                         </div>
                                         <div>
                                             <img class="butModal edits-pets" data-modal=".modalMascotaEdit" data-nombre="<?php echo $nombre; ?>" data-edad="<?php echo $edad; ?>" data-peso="<?php echo $peso; ?>" data-fotoperfil="<?php echo $fotoPerfil; ?>" data-esterilizado="<?php echo $esterilizado; ?>" data-idmascota="<?php echo $idmascota; ?>" data-etapa="<?php echo $etapa; ?>" src="../../../imagenes/perfilCliente/edit-pencil.png" alt="Logo" width="35" height="34">
-                                            <a href="../../../Mascota/test.php?idmascota='<?php echo $idmascota;?>'" data-idmascota="<?php echo $idmascota;?>'" class=" btn btn-sm"  data-nombre2="<?php echo $nombre; ?>" data-fotoperfil2="<?php echo $fotoPerfil; ?>" style="background-color:#1D3534; color:#1BC5BD;">
+                                            <a href="../../Mascota/test.php?idmascota='<?php echo $idmascota;?>'" data-idmascota="<?php echo $idmascota;?>'" class=" btn btn-sm"  data-nombre2="<?php echo $nombre; ?>" data-fotoperfil2="<?php echo $fotoPerfil; ?>" style="background-color:#1D3534; color:#1BC5BD;">
+                                            
                                                 <img class="pdf-pets" src="../../../imagenes/perfilCliente/pdf.svg" alt="Logo" width="31" height="26">
                                             </a>   
                                         </div>
