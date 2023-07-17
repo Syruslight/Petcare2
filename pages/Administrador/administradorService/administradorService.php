@@ -180,11 +180,11 @@ $conn = conectar();
                                 <div class="second-group">
                                 <div class="group-selects">
                                         <label class="label-reuse" for="">Tipo:</label>
-                                        <select class="selectProdcuts" name="Categoria_P" id="Categoria_P">
-                                            <option selected>Selecciona Tipo Producto</option>
+                                        <select class="selectProdcuts" name="Categoria_S" id="Categoria_S">
+                                            <option selected>Selecciona Tipo Servicio</option>
                                             <?php
                                             // Query para obtener los tipos de productos
-                                            $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and tipocategoria not like 'Servicio' ORDER by nombre"; // Reemplaza "tabla_especie" con el nombre de tu tabla
+                                            $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and tipocategoria like 'Servicio' ORDER by nombre"; // Reemplaza "tabla_especie" con el nombre de tu tabla
                                             // Guardar resultados en array
                                             $resultTipoProducto = mysqli_query($conn, $queryTipoProducto);
                                             while ($rowProducto = mysqli_fetch_assoc($resultTipoProducto)) {

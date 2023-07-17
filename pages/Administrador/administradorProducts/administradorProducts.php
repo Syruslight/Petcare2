@@ -267,7 +267,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                 <div class="second-group">
                     <div class="group-selects">
                                         <label class="label-reuse" for="">Tipo:</label>
-                                        <select class="selectProdcuts" name="Categoria_P" id="Categoria_P">
+                                        <select class="selectProdcuts" name="Categoria_P2" id="Categoria_P2">
                                             <option selected>Selecciona Tipo Producto</option>
                                             <?php
                                             // Query para obtener los tipos de productos

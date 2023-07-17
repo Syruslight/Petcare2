@@ -452,8 +452,14 @@ function listarServicios($conn) {
 }
 
 //Funcion para crear servicios 
-function agregarServicios($fotProducto,$nombre,$descripcion,$precio,$conn){
-    $sql = "insert into productoservicio(idtipoproductoservicio,fotoProductoServicio,nombre,descripcion,precio,estado) values (1,'$fotProducto','$nombre','$descripcion','$precio',1)";
+function agregarServicios($idTipoProductoServicio,$fotProducto,$nombre,$descripcion,$precio,$conn){
+    $sql = "insert into productoservicio(idtipoproductoservicio,fotoProductoServicio,nombre,descripcion,precio,estado) values ('$idTipoProductoServicio,'$fotProducto','$nombre','$descripcion','$precio',1)";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+//Funcion para crear Categoria desde administrador: 
+function agregarCategoria($nombre,$idEspecie,$tipoCategoria,$conn){
+    $sql = "insert into tipoproductoservicio(nombre,idespecie, estado, tipocategoria) values ('$nombre','$idEspecie',1,'$tipoCategoria')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 

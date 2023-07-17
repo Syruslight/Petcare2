@@ -6,27 +6,9 @@ $idproductoservicio = $_REQUEST['id_PE'];
 $nombre = $_REQUEST['nombre_PE'];
 $precio = $_REQUEST['precio_PE'];
 $descripcion = $_REQUEST['descripcion_PE'];
-$tipoProducto = $_REQUEST['tipoProductoE'];
+//$tipoProducto = $_REQUEST['tipoProductoE'];
+$idtipoProducto = $_POST['Categoria_P2'];
 
-// Arrary de tipo producto a id
-$tipoProductoMap = array(
-    'Comida para perros' => '1',
-    'Comida para gatos' => '6',
-    'Comida para conejos' => '11',
-    'Juguetes para perros' => '4',
-    'Juguetes para gatos' => '9',
-    'Juguetes para conejos' => '14',
-    'Accesorios para perros' => '5',
-    'Accesorios para gatos' => '10',
-    'Accesorios para conejos' => '15'
-);
-
-
-if (isset($tipoProductoMap[$tipoProducto])) {
-    $idTipoProducto = $tipoProductoMap[$tipoProducto];
-} else {
-    $idTipoProducto = '1'; // Defecto 4
-}
 
 $fotoProductoServicio = $_FILES['fotoNuevaProducto']['name']; 
 $ruta = $_FILES['fotoNuevaProducto']['tmp_name'];
@@ -51,6 +33,6 @@ else {
 //echo "Valores de los parámetros: idproductoservicio=$fotoProductoServicio";
 //echo "Ruta del archivo temporal: " . $ruta;
 
-actualizarProductos($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $idTipoProducto, $conn);
+actualizarProductos($idproductoservicio, $nombre,$precio,$descripcion,$fotoProductoServicio, $idtipoProducto, $conn);
 header('Location: ../pages/Administrador/administradorProducts/administradorProducts.php');
 ?>

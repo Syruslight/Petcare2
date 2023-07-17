@@ -41,12 +41,12 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             ?>
             <?php
             // Realiza la consulta para obtener los datos de la base de datos
-            $sql = "SELECT t.idtipoproductoservicio, t.nombre, t.estado, COUNT(p.idproductoservicio) AS afiliaciones
+            $sql = "SELECT t.idtipoproductoservicio, t.nombre, t.tipocategoria AS tipoC,t.estado, COUNT(p.idproductoservicio) AS afiliaciones
         FROM tipoproductoservicio t
         LEFT JOIN productoservicio p ON t.idtipoproductoservicio = p.idtipoproductoservicio
         WHERE t.estado NOT LIKE '3'
         GROUP BY t.idtipoproductoservicio";
-            
+
             $res = mysqli_query($conn, $sql);
 
             // Verifica si se obtuvieron resultados
@@ -83,7 +83,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                         <div class="dates-table">
                                             <span class="table-nameFood"><?php echo $numero; ?></span>
                                             <span class="table-type"><?php echo $f['nombre']; ?></span>
-                                            <span class="table-price"><?php echo $f['afiliaciones']; ?> Productos</span>
+                                            <span class="table-price"><?php echo $f['afiliaciones']; ?> <?php echo $f['tipoC']; ?></span>
                                             <div class="toogleStatus">
                                                 <div class="toggle-switch">
                                                     <input type="checkbox" id="switch<?php echo $idtipoproductoservicio; ?>" class="toggle-switch-checkbox" onchange="updateStatus(<?php echo $idtipoproductoservicio; ?>, 
@@ -95,7 +95,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                                 </div>
                                             </div>
                                             <!-- <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40"> -->
-                                            <img id="open-edithCategory" onclick="openModalEdithCategory()"  class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
+                                            <img id="open-edithCategory" onclick="openModalEdithCategory()" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
                                         </div>
                                         <hr class="linea">
                                     <?php
@@ -160,49 +160,45 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         </lord-icon>
                     </div>
                     <div class="wrapper-bodyModals">
-                      
 
-                        <form action="">
+
+                    <form action="../../../llamadas/proceso_registrar_categoria.php" method="post" enctype="multipart/form-data" >
                             <div class="formu-modals">
                                 <div class="first-group">
                                     <label class="label-reuse" for="">Categoria</label>
-                                    <input class="text-nameProduct" type="text">
+                                    <input class="text-nameProduct" type="text" name = "nombreCategoria">
                                 </div>
                                 <div class="second-group">
-                                <div class="group-selects">
+                                    <div class="group-selects">
                                         <label class="label-reuse" for="">Categoria:</label>
-                                        <select class="selectProdcuts" name="Categoria_P" id="Categoria_P">
-                                            <option selected>Selecciona Tipo Producto</option>
+                                        <select class="selectProdcuts" name="tCategoria">
+                                            <option selected>Selecciona tipo de categoria</option>
+                                            <option value="Producto">Producto</option>
+                                            <option value="Servicio">Servicio</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="group-selects">
+                                        <label class="label-reuse" for="">Especie</label>
+                                        <select class="selectProdcuts" name="idEspecie">
+                                            <option selected>Selecciona Tipo Servicio</option>
                                             <?php
                                             // Query para obtener los tipos de productos
-                                            $queryTipoProducto = "SELECT * FROM tipoproductoservicio where estado like 1 and tipocategoria not like 'Servicio' ORDER by nombre"; // Reemplaza "tabla_especie" con el nombre de tu tabla
-                                            // Guardar resultados en array
+                                            $queryTipoProducto = "SELECT * FROM especie where estado like 1 ORDER by nombre";                                             // Guardar resultados en array
                                             $resultTipoProducto = mysqli_query($conn, $queryTipoProducto);
                                             while ($rowProducto = mysqli_fetch_assoc($resultTipoProducto)) {
                                                 $nombreTipoProducto = $rowProducto['nombre'];
-                                                $idTipoProducto = $rowProducto['idtipoproductoservicio'];
+                                                $idTipoProducto = $rowProducto['idespecie'];
                                                 echo "<option value=\"$idTipoProducto\">$nombreTipoProducto</option>";
                                             }
                                             ?>
                                         </select>
 
-                    </div>
+                                    </div>
                                 </div>
-                                <div class="thirds-group">
-                                    <div class="toggle-switch">
-                                    <input  type="checkbox"
-                                    id="switch5"
-                                    class="toggle-switch-checkbox"
-                                    onchange="toggleSwitch('variable5', this.checked)" />
-                                    <label for="switch5" class="toggle-switch-label"></label>
-                                    <span class="slider round"></span>
-                                    <span class="toggle-switch-text" id="status5" hidden>
-                                    Inactivo
-                                    </span>
-                                </div>    
-                                </div>
+
                             </div>
-                        </form>
+                        
                     </div>
                     <div class="footer-modals">
                         <button class="add-button">Agregar</button>
@@ -213,12 +209,13 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         </div>
                     </div>
                     <div class="frame frame-2"></div>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
- <!-- Inicia el terrible modal de editar Categoria -->
+    <!-- Inicia el terrible modal de editar Categoria -->
 
     <section>
         <div id="modal-edithCategory" class="modal-edithCategory">
@@ -244,7 +241,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                     <label class="label-reuse" for="">Nombre de categoria</label>
                                     <input class="text-nameProduct" type="text">
                                 </div>
-                              
+
                             </div>
                         </form>
                     </div>
