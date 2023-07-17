@@ -13,7 +13,6 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,8 +21,6 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
     <link rel="stylesheet" href='../../Veterinario/veterinario.css'>
     <link rel="stylesheet" href='reservarCitas.css'>
     <title>Pagina de Veterinario</title>
-
-
 </head>
 
 <body>
@@ -192,19 +189,20 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     $horarioFin = date('h:i A', strtotime($registro['horariofin']));
                                     echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
                                     echo '<td>' . $registro['cliente'] . '</td>';
-                                    echo '<td> <div class="grupoBoton" style="display: flex;">';
+
+                                    echo '<td>';
                                     echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
-                                    echo '<div class="grupoSelect"><select class="estadoPago" onchange="actualizarEstadoPago(this)">';
+
+                                    echo '<select class="estadoPago" onchange="actualizarEstadoPago(this)">';
                                     echo '<option value="0" ' . ($registro['estadopago'] == '0' ? 'selected' : '') . '>Pendiente</option>';
                                     echo '<option value="1" ' . ($registro['estadopago'] == '1' ? 'selected' : '') . '>Realizado</option>';
                                     echo '<option value="2" ' . ($registro['estadopago'] == '2' ? 'selected' : '') . '>No Realizado</option>';
-                                    echo '</select></div>';
-                                    echo '</td></div>';
+                                    echo '</select>';
+                                    echo '</td>';
                                     echo '</tr>';
-
                                 }
                                 ?>
-                                <img src="../../../imagenes/comprobanteFoto/" alt="">
+
                             </tbody>
                         </table>
                     </div>
@@ -219,7 +217,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     <th>Veterinario</th>
                                     <th>Horario</th>
                                     <th>Cliente</th>
-                                    <th>Pago</th>
+                                    <th>Mascota</th>
+                                    <th>Estado Pago</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -235,14 +234,16 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     $horarioFin = date('h:i A', strtotime($registro['horariofin']));
                                     echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
                                     echo '<td>' . $registro['cliente'] . '</td>';
-                                    echo '<td> <div class="grupoBoton" style="display: flex;">';
+                                    echo '<td>' . $registro['nombreMascota'] . '</td>';
+                                    echo '<td>';
                                     echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
-                                    echo '<div class="grupoSelect"><select class="estadoPago" onchange="actualizarEstadoPago(this)">';
+
+                                    echo '<select class="estadoPago" onchange="actualizarEstadoPago(this)">';
                                     echo '<option value="0" ' . ($registro['estadopago'] == '0' ? 'selected' : '') . '>Pendiente</option>';
                                     echo '<option value="1" ' . ($registro['estadopago'] == '1' ? 'selected' : '') . '>Realizado</option>';
                                     echo '<option value="2" ' . ($registro['estadopago'] == '2' ? 'selected' : '') . '>No Realizado</option>';
-                                    echo '</select></div>';
-                                    echo '</td></div>';
+                                    echo '</select>';
+                                    echo '</td>';
                                     echo '</tr>';
                                 }
                                 ?>
@@ -260,8 +261,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     <th>Veterinario</th>
                                     <th>Horario</th>
                                     <th>Cliente</th>
-                                    <th>Pago</th>
-
+                                    <th>Mascota</th>
+                                    <th>Estado Pago</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -277,14 +278,17 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     $horarioFin = date('h:i A', strtotime($registro['horariofin']));
                                     echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
                                     echo '<td>' . $registro['cliente'] . '</td>';
-                                    echo '<td> <div class="grupoBoton" style="display: flex;">';
+                                    echo '<td>' . $registro['nombreMascota'] . '</td>';
+                                    echo '<td>';
                                     echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
-                                    echo '<div class="grupoSelect"><select class="estadoPago" onchange="actualizarEstadoPago(this)">';
+
+
+                                    echo '<select class="estadoPago" onchange="actualizarEstadoPago(this)">';
                                     echo '<option value="0" ' . ($registro['estadopago'] == '0' ? 'selected' : '') . '>Pendiente</option>';
                                     echo '<option value="1" ' . ($registro['estadopago'] == '1' ? 'selected' : '') . '>Realizado</option>';
                                     echo '<option value="2" ' . ($registro['estadopago'] == '2' ? 'selected' : '') . '>No Realizado</option>';
-                                    echo '</select></div>';
-                                    echo '</td></div>';
+                                    echo '</select>';
+                                    echo '</td>';
                                     echo '</tr>';
                                 }
                                 ?>
@@ -294,7 +298,6 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                 </div>
             </div>
 
-            <!-- Modal de detalle de comprobante -->
             <div id="modalDetalleComprobante" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
@@ -370,16 +373,11 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                     });
                 }
             </script>
-
-            <script>
-                // Obtener el modal
-                var modal = document.getElementById('modalDetalleComprobante');
-
-
+            
+<script>
+ var modal = document.getElementById('modalDetalleComprobante');
                 var imagenComprobante = document.getElementById('imagenComprobante');
-
                 var detalleButtons = document.getElementsByClassName('detalleBtn');
-
                 for (var i = 0; i < detalleButtons.length; i++) {
                     detalleButtons[i].addEventListener('click', function () {
                         var imgSrc = this.getAttribute('data-img-src');
@@ -387,20 +385,17 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                         modal.style.display = 'block';
                     });
                 }
-
                 var closeBtn = document.getElementsByClassName('close')[0];
-
                 closeBtn.addEventListener('click', function () {
                     modal.style.display = 'none';
                 });
-
                 window.addEventListener('click', function (event) {
                     if (event.target == modal) {
                         modal.style.display = 'none';
                     }
                 });
+</script>
 
-            </script>
             <script src="../../../js/previsualizarImagen.js"></script>
             <script src="../../../js/Interacciones.js"></script>
 

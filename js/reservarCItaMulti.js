@@ -1,77 +1,29 @@
-const slidePage = document.querySelector(".slide-page");
-const nextBtnFirst = document.querySelector(".firstNext");
-const prevBtnSec = document.querySelector(".prev-1");
-const nextBtnSec = document.querySelector(".next-1");
-const prevBtnThird = document.querySelector(".prev-2");
-const nextBtnThird = document.querySelector(".next-2");
-const prevBtnFourth = document.querySelector(".prev-3");
-const submitBtn = document.querySelector(".submit");
-const progressText = document.querySelectorAll(".step p");
-const progressCheck = document.querySelectorAll(".step .check");
-const bullet = document.querySelectorAll(".step .bullet");
-let current = 1;
+var currentStep = 1;
+var form = document.getElementById('multipasos-form');
+var progressBar = document.querySelector('.progress');
 
-nextBtnFirst.addEventListener("click", function (event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
+function updateProgressBar() {
+    var totalSteps = document.querySelectorAll('.step').length;
+    var progressPercentage = ((currentStep - 1) / (totalSteps - 1)) * 100;
+    progressBar.style.width = progressPercentage + '%';
+}
 
-nextBtnSec.addEventListener("click", function (event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
+function nextStep(step) {
+    document.getElementById('step' + step).classList.remove('active');
+    document.getElementById('step' + (step + 1)).classList.add('active');
+    currentStep = step + 1;
+    updateProgressBar();
+}
 
-nextBtnThird.addEventListener("click", function (event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-75%";
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-});
+function prevStep(step) {
+    document.getElementById('step' + step).classList.remove('active');
+    document.getElementById('step' + (step - 1)).classList.add('active');
+    currentStep = step - 1;
+    updateProgressBar();
+}
 
-submitBtn.addEventListener("click", function () {
-  bullet[current - 1].classList.add("active");
-  progressCheck[current - 1].classList.add("active");
-  progressText[current - 1].classList.add("active");
-  current += 1;
-  setTimeout(function () {
-    alert("Your Form Successfully Signed up");
-    location.reload();
-  }, 800);
-});
-
-prevBtnSec.addEventListener("click", function (event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "0%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-
-prevBtnThird.addEventListener("click", function (event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-25%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
-});
-
-prevBtnFourth.addEventListener("click", function (event) {
-  event.preventDefault();
-  slidePage.style.marginLeft = "-50%";
-  bullet[current - 2].classList.remove("active");
-  progressCheck[current - 2].classList.remove("active");
-  progressText[current - 2].classList.remove("active");
-  current -= 1;
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    // Aquí puedes agregar la lógica para procesar los datos del formulario
+    alert('Formulario enviado correctamente');
 });
