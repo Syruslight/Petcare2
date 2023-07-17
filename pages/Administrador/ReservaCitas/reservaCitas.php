@@ -8,279 +8,403 @@ session_start();
 $email = $_SESSION['email'];
 foreach (listarVeterinario($email, $conn) as $key => $value) {
 } ?>
-<!--Perfil del veterinario (deriva o esta incluido de su pagina principal)-->
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='../administradorProducts/administradorProducts.css'>
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href='../../Veterinario/veterinario.css'>
     <link rel="stylesheet" href='reservarCitas.css'>
     <title>Pagina de Veterinario</title>
+
+
 </head>
 
 <body>
     <div class="wrapper">
         <div class="profile">
-            <?php
-            include('../components/navListAdministrador.php');
-            ?>
+            <?php include('../components/navListAdministrador.php'); ?>
         </div>
-
 
         <div class="dash-information">
+            <?php include('../components/headerAdministrador.php'); ?>
+
             <?php
-            include('../components/headerAdministrador.php');
+            // Obtener los estados de las citas
+            
+
+            $sentencia1 = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
+            h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) AS cliente,
+            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante
+            FROM cita c
+            INNER JOIN horario h ON c.idhorario = h.idhorario
+            INNER JOIN mascota m ON m.idmascota = c.idmascota
+            INNER JOIN productoservicio ps ON h.idproductoservicio = ps.idproductoservicio
+            INNER JOIN cliente cli ON c.idcliente = cli.idcliente
+            INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
+            WHERE c.estadopago = 0
+            ORDER BY fecha DESC;";
+
+            $resultado = mysqli_query($conn, $sentencia1);
+
+            // Consulta para citas con estado de pago igual a 0 (pendientes)
+            $sentenciaPendientes = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
+            h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) AS cliente,
+            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante
+            FROM cita c
+            INNER JOIN horario h ON c.idhorario = h.idhorario
+            INNER JOIN mascota m ON m.idmascota = c.idmascota
+            INNER JOIN productoservicio ps ON h.idproductoservicio = ps.idproductoservicio
+            INNER JOIN cliente cli ON c.idcliente = cli.idcliente
+            INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
+            WHERE c.estadopago = 1
+            ORDER BY fecha DESC;";
+
+            $resultadoPendientes = mysqli_query($conn, $sentenciaPendientes);
+
+            // Consulta para citas con estado de pago igual a 2 (canceladas)
+            $sentenciaCanceladas = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
+            h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) AS cliente,
+            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante
+            FROM cita c
+            INNER JOIN horario h ON c.idhorario = h.idhorario
+            INNER JOIN mascota m ON m.idmascota = c.idmascota
+            INNER JOIN productoservicio ps ON h.idproductoservicio = ps.idproductoservicio
+            INNER JOIN cliente cli ON c.idcliente = cli.idcliente
+            INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
+            WHERE c.estadopago = 2
+            ORDER BY fecha DESC;";
+
+            $resultadoCanceladas = mysqli_query($conn, $sentenciaCanceladas);
+
+
+            $citasTotales = mysqli_num_rows($resultadoPendientes) + mysqli_num_rows($resultado) + mysqli_num_rows($resultadoCanceladas);
+            $citasRealizadas = mysqli_num_rows($resultadoPendientes);
+            $citasPendientes = mysqli_num_rows($resultado);
+            $citasCanceladas = mysqli_num_rows($resultadoCanceladas);
             ?>
-        
-                 <?php
-// Obtener los estados de las citas
-$citasTotales = 0;
-$citasRealizadas = 0;
-$citasPendientes = 0;
-$citasCanceladas = 0;
+            <div class="contenedorGeneralEstadisticas">
+                <div id="citasTotales" class="contenedorUnitario">
+                    <div id="citasTotales" class="contenedorImg">
+                        <img src="../../../imagenes/citasTotales.png" alt="citasTotalesImagen">
+                    </div>
+                    <div class="contenedorKPICitas">
+                        <p class="tituloCitas">
+                            Citas Totales
+                        </p>
+                        <p class="numeroCitas">
+                            <?php echo $citasTotales; ?>
+                        </p>
+                    </div>
+                </div>
+                <div id="citasPendientes" class="contenedorUnitario">
+                    <div id="citasPendientes" class="contenedorImg">
+                        <img src="../../../imagenes/citasPendientes.png" alt="citasPendientes" width="69px"
+                            height="69px">
+                    </div>
+                    <div class="contenedorKPICitas">
+                        <p class="tituloCitas">
+                            Citas Pendientes
+                        </p>
+                        <p class="numeroCitas">
+                            <?php echo $citasPendientes; ?>
+                        </p>
+                    </div>
+                </div>
+                <div id="citasRealizadas" class="contenedorUnitario">
+                    <div id="citasRealizadas" class="contenedorImg">
+                        <img src="../../../imagenes/citasRealizadas.png" alt="citasRealizadas">
+                    </div>
+                    <div class="contenedorKPICitas">
+                        <p class="tituloCitas">
+                            Citas Realizadas
+                        </p>
+                        <p class="numeroCitas">
+                            <?php echo $citasRealizadas; ?>
+                        </p>
+                    </div>
+                </div>
 
-$sentencia1 = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
-h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) AS cliente,
-c.estadopago, c.estadoAtencion, v.nombres, v.apellidos
-FROM cita c
-INNER JOIN horario h ON c.idhorario = h.idhorario
-INNER JOIN mascota m ON m.idmascota = c.idmascota
-INNER JOIN productoservicio ps ON h.idproductoservicio = ps.idproductoservicio
-INNER JOIN cliente cli ON c.idcliente = cli.idcliente
-INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
-ORDER BY
-CASE c.estadopago
-WHEN 0 THEN 0
-WHEN 2 THEN 1
-WHEN 3 THEN 2
-ELSE 3
-END,
-fecha DESC;";
+                <div id="citasCanceladas" class="contenedorUnitario">
+                    <div id="citasCanceladas" class="contenedorImg">
+                        <img src="../../../imagenes/citasCanceladas.png" alt="citasCanceladas">
+                    </div>
+                    <div class="contenedorKPICitas">
+                        <p class="tituloCitas">
+                            Citas Canceladas
+                        </p>
+                        <p class="numeroCitas">
+                            <?php echo $citasCanceladas; ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
 
-$resultado = mysqli_query($conn, $sentencia1);
+            <div class="contenedorReservarCitas">
 
-if ($resultado) {
-    $registros = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
-
-    // Obtener la cantidad de citas en cada estado
-    foreach ($registros as $registro) {
-        $estado = $registro['estadoAtencion'];
-        if ($estado == '1') {
-            $citasRealizadas++;
-        } elseif ($estado == '0') {
-            $citasPendientes++;
-        } elseif ($estado == '2') {
-            $citasCanceladas++;
-        }
-        $citasTotales++;
-    }
-$idcita=$registro['idcita'];
-    // Mostrar las estadísticas y la tabla de citas en el código HTML
-    echo '
-    <div class="contenedorGeneralEstadisticas">
-        <div id="citasTotales" class="contenedorUnitario">
-            <div id="citasTotales" class="contenedorImg">
-                <img src="../../../imagenes/citasTotales.png" alt="citasTotalesImagen">
-            </div>
-            <div class="contenedorKPICitas">
-                <p class="tituloCitas">
-                    Citas Totales
-                </p>
-                <p class="numeroCitas">
-                    ' . $citasTotales . '
-                </p>
-            </div>
-        </div>
-        <div id="citasRealizadas" class="contenedorUnitario">
-            <div id="citasRealizadas" class="contenedorImg">
-                <img src="../../../imagenes/citasRealizadas.png" alt="citasRealizadas">
-            </div>
-            <div class="contenedorKPICitas">
-                <p class="tituloCitas">
-                    Citas Realizadas
-                </p>
-                <p class="numeroCitas">
-                    ' . $citasRealizadas . '
-                </p>
-            </div>
-        </div>
-        <div id="citasPendientes" class="contenedorUnitario">
-            <div id="citasPendientes" class="contenedorImg">
-                <img src="../../../imagenes/citasPendientes.png" alt="citasPendientes" width="69px" height="69px">
-            </div>
-            <div class="contenedorKPICitas">
-                <p class="tituloCitas">
-                    Citas Pendientes
-                </p>
-                <p class="numeroCitas">
-                    ' . $citasPendientes . '
-                </p>
-            </div>
-        </div>
-        <div id="citasCanceladas" class="contenedorUnitario">
-        <div id="citasCanceladas" class="contenedorImg">
-            <img src="../../../imagenes/citasCanceladas.png" alt="citasCanceladas">
-        </div>
-        <div class="contenedorKPICitas">
-            <p class="tituloCitas">
-                Citas Canceladas
-            </p>
-            <p class="numeroCitas">
-            ' . $citasCanceladas . '
-        </p>
-        </div>
-    </div>
-    </div>
-<div class="contenedorReservarCitas">
- <h2>Citas Programadas</h2>
                 <div class="contenedorSuperiorCitas">
-                    <div class="barraBusqueda">
-                        <img src="../../imagenes/busquedaCita.png" alt="">
-                        <input type="text" placeholder="Buscar cita">
-                    </div>
-                    <div class="filtroSeleccion">
-                        <label for="">Estado: </label>
-                        <select id="opcionesCitas" name="opciones">
-                            <option value="opcionTotal">Seleccionar</option>
-                            <option value="opcionPendiente">Pendiente</option>
-                            <option value="opcionAtendido">Realizado</option>
-                            <option value="opcionCancelado">No realizado</option>
-                        </select>
-                    </div>
-                    <div class="filtroFecha">
-                        <label for="">Fecha </label>
-                        <input id="filtrarFecha" type="date">
-                    </div>
+                    <h2>Citas Programadas</h2>
+
+
 
                 </div>
-                <div class="contenedorTablaCitas">
-    <table class="tablaCitas">
-        <thead>
-            <tr>
-                <th>N°</th>
-                <th>Fecha</th>
-                <th>Servicio</th>
-                <th>Veterinario</th>
-                <th>Horario</th>
-                <th>Cliente</th>
-                <th>Mascota</th>
-                <th>Estado Pago</th>
-            </tr>
-        </thead>
-        <tbody>';
 
-    foreach ($registros as $registro) {
-        echo '<tr>';
-        echo '<td id="fecha">' . $registro['idcita'] . '</td>';
-        $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
-        echo '<td>' . $fechaFormateada . '</td>';
-        echo '<td>' . $registro['servicio'] . '</td>';
-        echo '<td>' . $registro['nombres'] ." ". $registro['apellidos'] . '</td>';
-        $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
-        $horarioFin = date('h:i A', strtotime($registro['horariofin']));
-        
-        echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
-        echo '<td>' . $registro['cliente'] . '</td>';
-        echo '<td>' . $registro['nombreMascota'] . '</td>';
+                <div class="contenedorPrincipal">
+                    <div class="tab">
+                        <button class="tablinks" data-target="tablaCitasProgramadas"
+                            onclick="cambiarTab('tablaCitasProgramadas')">Citas Programadas</button>
+                        <button class="tablinks" data-target="tablaCitasRealizadas"
+                            onclick="cambiarTab('tablaCitasRealizadas')">Citas Realizadas</button>
+                        <button class="tablinks" data-target="tablaCitasNoRealizadas"
+                            onclick="cambiarTab('tablaCitasNoRealizadas')">Citas No Realizadas</button>
+                    </div>
+                    <div id="tablaCitasProgramadas" class="tablaCitas active">
+                        <!-- Tabla de citas programadas -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Fecha</th>
+                                    <th>Servicio</th>
+                                    <th>Veterinario</th>
+                                    <th>Horario</th>
+                                    <th>Cliente</th>
 
-        echo '<td>
-  <select class="estado" onchange="cambiarEstado(this)">
-    <option value="pendiente" ' . ($registro['estadopago'] == '0' ? 'selected' : '') . '>Pendiente</option>
-    <option value="atendido" ' . ($registro['estadopago'] == '1' ? 'selected' : '') . '>Realizado</option>
-    <option value="cancelado" ' . ($registro['estadopago'] == '2' ? 'selected' : '') . '>No Realizado</option>
-  </select>
-</td>';
-        echo '</tr>';
-    }
+                                    <th>Pago</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                while ($registro = mysqli_fetch_assoc($resultado)) {
+                                    echo '<tr>';
+                                    echo '<td>' . $registro['idcita'] . '</td>';
+                                    $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
+                                    echo '<td>' . $fechaFormateada . '</td>';
+                                    echo '<td>' . $registro['servicio'] . '</td>';
+                                    echo '<td>' . $registro['nombres'] . ' ' . $registro['apellidos'] . '</td>';
+                                    $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
+                                    $horarioFin = date('h:i A', strtotime($registro['horariofin']));
+                                    echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
+                                    echo '<td>' . $registro['cliente'] . '</td>';
+                                    echo '<td> <div class="grupoBoton" style="display: flex;">';
+                                    echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
+                                    echo '<div class="grupoSelect"><select class="estadoPago" onchange="actualizarEstadoPago(this)">';
+                                    echo '<option value="0" ' . ($registro['estadopago'] == '0' ? 'selected' : '') . '>Pendiente</option>';
+                                    echo '<option value="1" ' . ($registro['estadopago'] == '1' ? 'selected' : '') . '>Realizado</option>';
+                                    echo '<option value="2" ' . ($registro['estadopago'] == '2' ? 'selected' : '') . '>No Realizado</option>';
+                                    echo '</select></div>';
+                                    echo '</td></div>';
+                                    echo '</tr>';
 
-    echo '</tbody>
-    </table>';
-} else {
-    // Manejar el error en caso de que la consulta falle
-    echo 'Error al obtener los registros de la base de datos.';
-}
-echo '</div></div>'
-?>
+                                }
+                                ?>
+                                <img src="../../../imagenes/comprobanteFoto/" alt="">
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="tablaCitasRealizadas" class="tablaCitas">
+                        <!-- Tabla de citas realizadas -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Fecha</th>
+                                    <th>Servicio</th>
+                                    <th>Veterinario</th>
+                                    <th>Horario</th>
+                                    <th>Cliente</th>
+                                    <th>Pago</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                while ($registro = mysqli_fetch_assoc($resultadoPendientes)) {
+                                    echo '<tr>';
+                                    echo '<td>' . $registro['idcita'] . '</td>';
+                                    $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
+                                    echo '<td>' . $fechaFormateada . '</td>';
+                                    echo '<td>' . $registro['servicio'] . '</td>';
+                                    echo '<td>' . $registro['nombres'] . ' ' . $registro['apellidos'] . '</td>';
+                                    $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
+                                    $horarioFin = date('h:i A', strtotime($registro['horariofin']));
+                                    echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
+                                    echo '<td>' . $registro['cliente'] . '</td>';
+                                    echo '<td> <div class="grupoBoton" style="display: flex;">';
+                                    echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
+                                    echo '<div class="grupoSelect"><select class="estadoPago" onchange="actualizarEstadoPago(this)">';
+                                    echo '<option value="0" ' . ($registro['estadopago'] == '0' ? 'selected' : '') . '>Pendiente</option>';
+                                    echo '<option value="1" ' . ($registro['estadopago'] == '1' ? 'selected' : '') . '>Realizado</option>';
+                                    echo '<option value="2" ' . ($registro['estadopago'] == '2' ? 'selected' : '') . '>No Realizado</option>';
+                                    echo '</select></div>';
+                                    echo '</td></div>';
+                                    echo '</tr>';
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="tablaCitasNoRealizadas" class="tablaCitas">
+                        <!-- Tabla de citas no realizadas -->
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>N°</th>
+                                    <th>Fecha</th>
+                                    <th>Servicio</th>
+                                    <th>Veterinario</th>
+                                    <th>Horario</th>
+                                    <th>Cliente</th>
+                                    <th>Pago</th>
 
-            
-                <?php
-                include('../components/footerAdministrador.php');
-                ?>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                while ($registro = mysqli_fetch_assoc($resultadoCanceladas)) {
+                                    echo '<tr>';
+                                    echo '<td>' . $registro['idcita'] . '</td>';
+                                    $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
+                                    echo '<td>' . $fechaFormateada . '</td>';
+                                    echo '<td>' . $registro['servicio'] . '</td>';
+                                    echo '<td>' . $registro['nombres'] . ' ' . $registro['apellidos'] . '</td>';
+                                    $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
+                                    $horarioFin = date('h:i A', strtotime($registro['horariofin']));
+                                    echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
+                                    echo '<td>' . $registro['cliente'] . '</td>';
+                                    echo '<td> <div class="grupoBoton" style="display: flex;">';
+                                    echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
+                                    echo '<div class="grupoSelect"><select class="estadoPago" onchange="actualizarEstadoPago(this)">';
+                                    echo '<option value="0" ' . ($registro['estadopago'] == '0' ? 'selected' : '') . '>Pendiente</option>';
+                                    echo '<option value="1" ' . ($registro['estadopago'] == '1' ? 'selected' : '') . '>Realizado</option>';
+                                    echo '<option value="2" ' . ($registro['estadopago'] == '2' ? 'selected' : '') . '>No Realizado</option>';
+                                    echo '</select></div>';
+                                    echo '</td></div>';
+                                    echo '</tr>';
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de detalle de comprobante -->
+            <div id="modalDetalleComprobante" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <img id="imagenComprobante" src="" alt="Comprobante de Pago">
+                </div>
+            </div>
 
 
-<script>
-// Obtener la tabla y el selector de estado
-var tablaCitas = document.querySelector('.tablaCitas');
-var selectorEstado = document.getElementById('opcionesCitas');
+            <?php include('../components/footerAdministrador.php'); ?>
 
-// Agregar evento change al selector de estado
-selectorEstado.addEventListener('change', function() {
-    var estadoSeleccionado = this.value;
+            <script>
+                function actualizarEstadoPago(selectElement) {
+                    var nuevoEstado = selectElement.value;
+                    var idCita = selectElement.parentNode.parentNode.firstChild.innerText;
 
-    // Mostrar todas las filas de la tabla
-    var filas = tablaCitas.querySelectorAll('tbody tr');
-    filas.forEach(function(fila) {
-        fila.style.display = '';
-    });
+                    if (confirm("¿Está seguro de cambiar el estado de pago de la cita?")) {
+                        // Aquí puedes enviar una solicitud AJAX para actualizar el estado en la base de datos
+                        // y luego recargar la página para mostrar el nuevo estado actualizado
 
-    // Filtrar la tabla según el estado seleccionado
-    if (estadoSeleccionado === 'opcionPendiente') {
-        filtrarTablaPorEstado('pendiente');
-    } else if (estadoSeleccionado === 'opcionAtendido') {
-        filtrarTablaPorEstado('atendido');
-    } else if (estadoSeleccionado === 'opcionCancelado') {
-        filtrarTablaPorEstado('cancelado');
-    }
-});
+                        // Ejemplo de solicitud AJAX usando jQuery
+                        $.ajax({
+                            url: 'actualizar_estado_pago.php',
+                            method: 'POST',
+                            data: {
+                                idCita: idCita,
+                                nuevoEstado: nuevoEstado
+                            },
+                            success: function (response) {
+                                if (response === 'success') {
+                                    location.reload(); // Recargar la página después de la actualización exitosa
+                                    alert('Se actualizó correctamente el pago de la cita');
+                                } else {
+                                    alert('Error al actualizar el estado de pago');
+                                }
+                            },
+                            error: function () {
+                                alert('Error en la solicitud AJAX');
+                            }
+                        });
+                    } else {
+                        // Si el usuario cancela el cambio, debes revertir la selección en el elemento select
+                        var estadoActual = selectElement.getAttribute('data-estado-actual');
+                        selectElement.value = estadoActual;
+                    }
+                }
+            </script>
+            <script>
+                // Obtener los elementos de las pestañas y las tablas
+                var tabs = document.getElementsByClassName("tablinks");
+                var tabContent = document.getElementsByClassName("tablaCitas");
 
-// Función para filtrar la tabla por estado
-function filtrarTablaPorEstado(estado) {
-    var filas = tablaCitas.querySelectorAll('tbody tr');
-    filas.forEach(function(fila) {
-        var columnaEstado = fila.querySelector('.estado');
-        if (columnaEstado.value !== estado) {
-            fila.style.display = 'none';
-        }
-    });
-}
-</script>
+                // Agregar eventos de clic a las pestañas
+                for (var i = 0; i < tabs.length; i++) {
+                    tabs[i].addEventListener("click", function () {
+                        // Obtener el ID del elemento objetivo
+                        var targetId = this.getAttribute("data-target");
 
-<script>
-function cambiarEstado(selectElement) {
-  var nuevoEstado = selectElement.value;
-  var confirmacion = confirm("¿Deseas cambiar el estado?");
+                        // Ocultar todas las tablas
+                        for (var j = 0; j < tabContent.length; j++) {
+                            tabContent[j].classList.remove("active");
+                        }
 
-  if (confirmacion) {
-    // Obtener el ID de la cita desde el atributo data-idcita
-    var idcita = selectElement.parentNode.dataset.idcita;
+                        // Mostrar la tabla correspondiente al elemento objetivo
+                        document.getElementById(targetId).classList.add("active");
 
-    // Enviar solicitud AJAX al servidor para actualizar el estado en la base de datos
-    $.ajax({
-      url: 'actualiza_estado.php',
-      method: 'POST',
-      data: { idcita: idCita, estado: nuevoEstado },
-      success: function(response) {
-        alert('Estado actualizado correctamente');
-      },
-      error: function(xhr, status, error) {
-        console.log('Error al actualizar el estado');
-        console.log(xhr.responseText);
-      }
-    });
-  }
-}
-</script>
+                        // Remover la clase "active" de todas las pestañas
+                        for (var k = 0; k < tabs.length; k++) {
+                            tabs[k].classList.remove("active");
+                        }
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                        // Agregar la clase "active" a la pestaña seleccionada
+                        this.classList.add("active");
+                    });
+                }
+            </script>
 
-                <script src="../../js/previsualizarImagen.js"></script>
-                <script src="../../js/Interacciones.js"></script>
+            <script>
+                // Obtener el modal
+                var modal = document.getElementById('modalDetalleComprobante');
 
+
+                var imagenComprobante = document.getElementById('imagenComprobante');
+
+                var detalleButtons = document.getElementsByClassName('detalleBtn');
+
+                for (var i = 0; i < detalleButtons.length; i++) {
+                    detalleButtons[i].addEventListener('click', function () {
+                        var imgSrc = this.getAttribute('data-img-src');
+                        imagenComprobante.src = imgSrc;
+                        modal.style.display = 'block';
+                    });
+                }
+
+                var closeBtn = document.getElementsByClassName('close')[0];
+
+                closeBtn.addEventListener('click', function () {
+                    modal.style.display = 'none';
+                });
+
+                window.addEventListener('click', function (event) {
+                    if (event.target == modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+
+            </script>
+            <script src="../../../js/previsualizarImagen.js"></script>
+            <script src="../../../js/Interacciones.js"></script>
+
+        </div>
 </body>
 
 </html>

@@ -317,12 +317,13 @@ height: 43px;
 }
 .contenedorTablaCita{
   padding: 20px;
-  max-height: 500px; /* Ajusta el tamaño máximo según tus necesidades */
+  max-height: 1000px; /* Ajusta el tamaño máximo según tus necesidades */
   overflow-y: auto; 
  
 }
 .tablaCitas {
-  width: 100%;
+  margin: auto;
+  width: auto;
   border-collapse: collapse;
   overflow: scroll;
 }

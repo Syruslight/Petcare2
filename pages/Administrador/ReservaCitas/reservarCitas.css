@@ -13,3 +13,79 @@
     overflow: scroll;
     height: 500px;
 }
+
+
+
+.contenedorPrincipal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.tablinks {
+    background-color: #f2f2f2;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.tablinks.active {
+    background-color: #ccc;
+}
+
+.tablaCitas {
+    display: none;
+    margin-top: 10px;
+}
+
+.tablaCitas.active {
+    display: block;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Estilo del contenido del modal */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    max-width: 600px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  /* Estilo del botón de cierre */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Estilo de la imagen del comprobante */
+  #imagenComprobante {
+    max-width: 100%;
+    height: auto;
+  }

@@ -4,31 +4,9 @@ function actualizaridproductoservicio(selectElement) {
 }
 
 
-function openModalReservarServicio() {
-  const openModal = document.querySelector(".reserve-service");
-  const modal = document.querySelector(".modalReservar");
-  const closeModal = document.querySelector("#CloseModalReservar");
+  
 
-  let isOpen = false; // Variable para controlar el estado del modal
 
-  openModal.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (!isOpen) { // Verificar si el modal no está abierto
-      modal.classList.add("modalReservar--show");
-      isOpen = true; // Actualizar el estado del modal a abierto
-    }
-  });
-
-  closeModal.addEventListener("click", (e) => {
-    e.preventDefault();
-
-    if (isOpen) { // Verificar si el modal está abierto
-      modal.classList.remove("modalReservar--show");
-      isOpen = false; // Actualizar el estado del modal a cerrado
-    }
-  });
-}
 
 function openModalHorario(){
   const openModal = document.querySelector(".botonHorario");
