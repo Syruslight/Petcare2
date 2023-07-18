@@ -13,11 +13,12 @@ if (isset($_POST['veterinarioSeleccionado'])) {
     $result = mysqli_query($conn, $query);
 
     // Verifica si se encontraron horarios
+    echo "<option>Seleccionar Horario</option>";
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
-            $horarioInicio = date('h:i a', strtotime($row['horarioinicio']));
-            $horarioFin = date('h:i a', strtotime($row['horariofin']));
-            echo "<option value='$horarioInicio-$horarioFin'>$horarioInicio - $horarioFin</option>";
+            $horarioInicio = $row['horarioinicio'];
+            $horarioFin = $row['horariofin'];
+            echo "<option value='$horarioInicio-$horarioFin'>$horarioInicio-$horarioFin</option>";
         }
     } else {
         echo '<option value="">No se encontraron horarios disponibles</option>';

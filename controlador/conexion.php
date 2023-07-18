@@ -201,6 +201,14 @@ function agregarDatosMascota($idcliente, $idraza, $nombre, $fechaNac, $peso, $co
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
+//Función de registrar los datos de la cita desde el Perfil del Cliente
+function agregarCita($idCliente, $idMascota, $idhorario, $estadoPago, $fotoComprobante, $estadoAtencion,  $conn)
+{
+    $sql = "insert into mascota(idcliente,idmascota,idhorario,estadopago,fotoComprobante,estadoAtencion) values ('$idCliente','$idMascota','$idhorario','$estadoPago','$fotoComprobante','$estadoAtencion')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+
 //Función para listar los datos de la mascota, aplica para la busqueda dentro del perfil cliente como para el ver carnet
 function listarMascota($idMascota, $conn)
 {
