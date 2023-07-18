@@ -46,7 +46,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             INNER JOIN cliente cli ON c.idcliente = cli.idcliente
             INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
             WHERE c.estadopago = 0
-            ORDER BY fecha DESC;";
+            ORDER BY idcita DESC;";
 
             $resultado = mysqli_query($conn, $sentencia1);
 
@@ -61,7 +61,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             INNER JOIN cliente cli ON c.idcliente = cli.idcliente
             INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
             WHERE c.estadopago = 1
-            ORDER BY fecha DESC;";
+            ORDER BY idcita DESC;";
 
             $resultadoPendientes = mysqli_query($conn, $sentenciaPendientes);
 
@@ -76,7 +76,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             INNER JOIN cliente cli ON c.idcliente = cli.idcliente
             INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
             WHERE c.estadopago = 2
-            ORDER BY fecha DESC;";
+            ORDER BY idcita DESC;";
 
             $resultadoCanceladas = mysqli_query($conn, $sentenciaCanceladas);
 

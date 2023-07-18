@@ -77,8 +77,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
 
                                 <h1 class="title-cardService"><?php echo $servicio['nombre']; ?></h1>
                                 <div class="price-time">
-                                    <span class="price">Precio: <span
-                                            class="duration"><?php echo $servicio['precio']; ?></span></span>
+                                    <span class="price">Precio: <span class="duration"><?php echo $servicio['precio']; ?></span></span>
                                     <span class="price">Duracion: <span class="duration">60 minutos</span> </span>
                                 </div>
                                 <div class="after-text">
@@ -108,9 +107,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
 
 
 
-
-
-
         <section id="modalReservar" class="modalReservar">
             <div class="modalReservar__container">
                 <div class="cuadro_modalReservar">
@@ -130,7 +126,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             </div>
                         </div>
 
-
                         <form action="../../../llamadas/procesoAgregarCita.php" id="multipasos-form" method="post"
                             enctype="multipart/form-data">
                             <div class="step active" id="step1">
@@ -146,7 +141,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             </div>
                                             <span class="info-textRese" id="resultadoDescripción"></span>
                                         </div>
-
                                         <div class="image-upReser">
                                             <img id="resultadoFoto" src="" alt="perritoDucha" width="143px"
                                                 height="83px">
@@ -154,13 +148,11 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     </div>
                                     <div class="part-downReser">
                                         <div class="wrapper-downReser1">
-                                            <input type="text" value="<?php echo $value[7] ?>" name="idClienteCita"
-                                                >
+                                            <input type="text" value="<?php echo $value[7] ?>" name="idClienteCita">
                                             <input type="text" id="idproductoServicio"
                                                 value="<?php echo isset($_POST['idproductoservicio']) ? $_POST['idproductoservicio'] : ''; ?>"
-                                                name="idProductoServicioCita" >
-                                                <input type="text" id="inputIdHorario" name="inputIdHorario" />
-
+                                                name="idProductoServicioCita">
+                                            <input type="text" id="inputIdHorario" name="inputIdHorario" />
 
                                             <?php
                                             // Realizar la consulta a la base de datos para obtener las mascotas del cliente
@@ -173,26 +165,25 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                                 // Generar las opciones del select con los datos de las mascotas
                                                 echo '<div class="wrapper-selectReser">
                                                 <span class="subtitle-reser">Mascota</span>
-                                                <select name="select" class="select-reser">';
+                                                <select name="idMascotaCita" class="select-reser">';
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $idMascota = $row['idmascota'];
                                                     $nombreMascota = $row['nombre'];
-                                                    echo "<option name='idMascotaCita' value='$idMascota'>$nombreMascota</option>";
+                                                    echo "<option value='$idMascota'>$nombreMascota</option>";
                                                 }
                                                 echo '</select>
                                             </div>';
-
-
                                             } else {
                                                 // Si no se encontraron mascotas para el cliente, mostrar un mensaje alternativo o una opción por defecto
                                                 echo '<div class="wrapper-selectReser">
-                                                    <span class="subtitle-reser">Mascota</span>
-                                                    <select name="select" class="select-reser">
+                                                <span class="subtitle-reser">Mascota</span>
+                                                <select name="idMascotaCita" class="select-reser">
                                                     <option value="">No se encontraron mascotas</option>
-                                                    </select>
-                                                </div>';
+                                                </select>
+                                            </div>';
                                             }
                                             ?>
+
                                             <div class="wrapper-selectReser">
                                                 <span class="subtitle-reser">Fecha de reserva</span>
                                                 <select name="selectFecha" class="select-reser"
@@ -203,232 +194,236 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         </div>
                                     </div>
 
-                                    <?php
-                                    echo '<div class="wrapper-downReser1"><div class="wrapper-selectReser">
-                                        <span class="subtitle-reser">Veterinario</span>
-                                        <select name="selectVeterinario" onchange="mostrarVeterinarioSeleccionado(this)" id="selectVeterinario" class="select-reser">
-                                        <option value="">Seleccionar fecha</option>
-                                        </select>
-                                        </div>';
+                                    <div class="wrapper-downReser1">
+                                        <div class="wrapper-selectReser">
+                                            <span class="subtitle-reser">Veterinario</span>
+                                            <select name="selectVeterinario"
+                                                onchange="mostrarVeterinarioSeleccionado(this)" id="selectVeterinario"
+                                                class="select-reser">
+                                                <option value="">Seleccionar fecha</option>
+                                            </select>
+                                        </div>
 
-                                    echo '<div class="wrapper-selectReser">
-                                        <span class="subtitle-reser">Tiempo de servicio</span>
-                                        <select name="selectTiempoServicio" id="selectTiempoServicio" onchange="mostrarIdHorario(this)" class="select-reser" >
-                                        <option value="">Seleccionar fecha</option>
-                                        </select>
-                                        </div></div>';
-                                    ?>
+                                        <div class="wrapper-selectReser">
+                                            <span class="subtitle-reser">Tiempo de servicio</span>
+                                            <select name="selectTiempoServicio" id="selectTiempoServicio"
+                                                onchange="mostrarIdHorario(this)" class="select-reser">
+                                                <option value="">Seleccionar fecha</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="button-container">
+                                    <button type="button" onclick="nextStep(1)">Siguiente</button>
                                 </div>
                             </div>
-                            <div class="button-container">
-                                <button type="button" onclick="nextStep(1)">Siguiente</button>
-                            </div>
-                    </div>
-                    <div class="step" id="step2">
-                        <div class="wrapper-payment">
-                            <div class="method-payment">
-                                <div class="fisrt-methodPay">
-                                    <button class="text-methodPay1">PAGA CON YAPE</button>
-                                    <img src="../../../imagenes/perfilCliente/yape.png" alt="Yape" width="48px"
-                                        height="48px">
-                                </div>
-                                <div class="second-methodPay">
-                                    <button class="text-methodPay2">PAGA CON PLIN</button>
-                                    <img src="../../../imagenes/perfilCliente/plin.png" alt="Plin" width="48px"
-                                        height="48px">
-                                </div>
-                            </div>
-                            <div class="image-payment">
-                                <img id="payment-image" src="../../../imagenes/perfilCliente/methodPayment.png" alt=""
-                                    width="400px" height="160px">
-                            </div>
-                        </div>
 
-                        <div class="button-container">
-                            <button type="button" onclick="prevStep(2)">Anterior</button>
-                            <button type="button" onclick="nextStep(2)">Siguiente</button>
-                        </div>
-                    </div>
-                    <div class="step" id="step3">
-                        <div class="wrapper-confirmation">
-                            <span class="text-confirmation">Por favor subir el comprobante de pago</span>
-                            <div class="upload-confirmation">
-                                <img src="../../../imagenes/perfilCliente/sendConfirmation.png" alt="" width="400px"
-                                    height="210px">
-                                <input type="file" name="fotoComprobantePago">
+                            <div class="step" id="step2">
+                                <div class="wrapper-payment">
+                                    <div class="method-payment">
+                                        <div class="fisrt-methodPay">
+                                            <button class="text-methodPay1">PAGA CON YAPE</button>
+                                            <img src="../../../imagenes/perfilCliente/yape.png" alt="Yape" width="48px"
+                                                height="48px">
+                                        </div>
+                                        <div class="second-methodPay">
+                                            <button class="text-methodPay2">PAGA CON PLIN</button>
+                                            <img src="../../../imagenes/perfilCliente/plin.png" alt="Plin" width="48px"
+                                                height="48px">
+                                        </div>
+                                    </div>
+                                    <div class="image-payment">
+                                        <img id="payment-image" src="../../../imagenes/perfilCliente/methodPayment.png"
+                                            alt="" width="400px" height="160px">
+                                    </div>
+                                </div>
+                                <div class="button-container">
+                                    <button type="button" onclick="prevStep(2)">Anterior</button>
+                                    <button type="button" onclick="nextStep(2)">Siguiente</button>
+                                </div>
                             </div>
-                        </div>
-                        <div class="button-container">
-                            <button type="button" onclick="prevStep(3)">Anterior</button>
-                            <button type="submit">Enviar</button>
-                        </div>
-                    </div>
-                    </form>
 
+                            <div class="step" id="step3">
+                                <div class="wrapper-confirmation">
+                                    <span class="text-confirmation">Por favor subir el comprobante de pago</span>
+                                    <div class="upload-confirmation">
+                                        <img src="../../../imagenes/perfilCliente/sendConfirmation.png" alt=""
+                                            width="400px" height="210px">
+                                        <input type="file" name="fotoComprobantePago">
+                                    </div>
+                                </div>
+                                <div class="button-container">
+                                    <button type="button" onclick="prevStep(3)">Anterior</button>
+                                    <button type="submit">Enviar</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
             </div>
-    </div>
-    </div>
-    </section>
+        </section>
 
-    <script>
-        const yapeButton = document.querySelector('.text-methodPay1');
-        const plinButton = document.querySelector('.text-methodPay2');
-        const paymentImage = document.getElementById('payment-image');
 
-        yapeButton.addEventListener('click', function (event) {
-            event.preventDefault(); // Evita el envío del formulario
-            paymentImage.src = '../../../imagenes/yapeQrPet&Care.png';
-            paymentImage.alt = 'Yape';
-        });
 
-        plinButton.addEventListener('click', function (event) {
-            event.preventDefault(); // Evita el envío del formulario
-            paymentImage.src = '../../../imagenes/plinQrPet&Care.jpg';
-            paymentImage.alt = 'Plin';
-        });
-    </script>
+        <script>
+            const yapeButton = document.querySelector('.text-methodPay1');
+            const plinButton = document.querySelector('.text-methodPay2');
+            const paymentImage = document.getElementById('payment-image');
 
-    <script>
-        function setProgress(progress) {
-            var progressBar = document.getElementById("myBar");
-            progressBar.style.width = progress + "%";
+            yapeButton.addEventListener('click', function (event) {
+                event.preventDefault(); // Evita el envío del formulario
+                paymentImage.src = '../../../imagenes/yapeQrPet&Care.png';
+                paymentImage.alt = 'Yape';
+            });
 
-            if (progress >= 100) {
-                progressBar.parentElement.classList.add("complete");
-            } else {
-                progressBar.parentElement.classList.remove("complete");
+            plinButton.addEventListener('click', function (event) {
+                event.preventDefault(); // Evita el envío del formulario
+                paymentImage.src = '../../../imagenes/plinQrPet&Care.jpg';
+                paymentImage.alt = 'Plin';
+            });
+        </script>
+
+        <script>
+            function setProgress(progress) {
+                var progressBar = document.getElementById("myBar");
+                progressBar.style.width = progress + "%";
+
+                if (progress >= 100) {
+                    progressBar.parentElement.classList.add("complete");
+                } else {
+                    progressBar.parentElement.classList.remove("complete");
+                }
             }
-        }
 
-        // Ejemplo de uso
-        setProgress(50); // Establece el progreso al 50%
-    </script>
+            // Ejemplo de uso
+            setProgress(50); // Establece el progreso al 50%
+        </script>
 
-    <script>
-        function openModal(button) {
-            // Obtener los atributos del botón
-            var idproductoservicio = button.dataset.id;
+        <script>
+            function openModal(button) {
+                // Obtener los atributos del botón
+                var idproductoservicio = button.dataset.id;
 
-            document.querySelector('input[name="idProductoServicioCita"]').value = idproductoservicio;
+                document.querySelector('input[name="idProductoServicioCita"]').value = idproductoservicio;
 
-            var nombre = button.dataset.nombre;
-            var precio = button.dataset.precio;
-            var descripcion = button.dataset.descripcion;
-            var foto = button.dataset.foto;
+                var nombre = button.dataset.nombre;
+                var precio = button.dataset.precio;
+                var descripcion = button.dataset.descripcion;
+                var foto = button.dataset.foto;
 
-            // Actualizar los elementos con los atributos del servicio
-            document.getElementById('resultadoNombre').textContent = nombre;
-            document.getElementById('resultadoPrecio').textContent = precio;
-            document.getElementById('resultadoDescripción').textContent = descripcion;
-            document.getElementById('resultadoFoto').src = "../../../imagenes/productos_servicios/servicios/" + foto;
+                // Actualizar los elementos con los atributos del servicio
+                document.getElementById('resultadoNombre').textContent = nombre;
+                document.getElementById('resultadoPrecio').textContent = precio;
+                document.getElementById('resultadoDescripción').textContent = descripcion;
+                document.getElementById('resultadoFoto').src = "../../../imagenes/productos_servicios/servicios/" + foto;
 
-            // Guardar el idproductoservicio en una variable global
-            idProductoServicio = idproductoservicio;
+                // Guardar el idproductoservicio en una variable global
+                idProductoServicio = idproductoservicio;
 
-            // Llamar a la función para obtener las fechas basadas en el idproductoservicio
-            obtenerFechas(idproductoservicio);
+                // Llamar a la función para obtener las fechas basadas en el idproductoservicio
+                obtenerFechas(idproductoservicio);
 
-            // Abrir el modal
-            var modal = document.getElementById("modalReservar");
-            modal.style.display = "block";
-        }
+                // Abrir el modal
+                var modal = document.getElementById("modalReservar");
+                modal.style.display = "block";
+            }
 
-        function obtenerFechas(idproductoservicio) {
-            // Realizar la solicitud AJAX para obtener las fechas basadas en el idproductoservicio
-            fetch('obtener_fechas.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: 'idproductoservicio=' + idproductoservicio
-            })
-                .then(response => response.text())
-                .then(data => {
-                    var selectFecha = document.getElementById('selectFecha');
-                    selectFecha.innerHTML = data;
+            function obtenerFechas(idproductoservicio) {
+                // Realizar la solicitud AJAX para obtener las fechas basadas en el idproductoservicio
+                fetch('obtener_fechas.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'idproductoservicio=' + idproductoservicio
                 })
-                .catch(error => {
-                    console.log('Error: ', error);
-                });
-        }
+                    .then(response => response.text())
+                    .then(data => {
+                        var selectFecha = document.getElementById('selectFecha');
+                        selectFecha.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log('Error: ', error);
+                    });
+            }
 
-        function mostrarFechaSeleccionada(select) {
-            fechaSeleccionada = select.value;
+            function mostrarFechaSeleccionada(select) {
+                fechaSeleccionada = select.value;
 
-            // Realiza una nueva solicitud AJAX para obtener los veterinarios disponibles en la fecha seleccionada y el idproductoservicio correspondiente
-            fetch('obtener_veterinarios.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: 'fechaSeleccionada=' + fechaSeleccionada + '&idproductoservicio=' + idProductoServicio
-            })
-                .then(response => response.text())
-                .then(data => {
-                    var selectVeterinario = document.getElementById('selectVeterinario');
-                    selectVeterinario.innerHTML = data;
+                // Realiza una nueva solicitud AJAX para obtener los veterinarios disponibles en la fecha seleccionada y el idproductoservicio correspondiente
+                fetch('obtener_veterinarios.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'fechaSeleccionada=' + fechaSeleccionada + '&idproductoservicio=' + idProductoServicio
                 })
-                .catch(error => {
-                    console.log('Error: ', error);
-                });
-        }
+                    .then(response => response.text())
+                    .then(data => {
+                        var selectVeterinario = document.getElementById('selectVeterinario');
+                        selectVeterinario.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log('Error: ', error);
+                    });
+            }
 
-        function mostrarVeterinarioSeleccionado(select) {
-            var veterinarioSeleccionado = select.value;
+            function mostrarVeterinarioSeleccionado(select) {
+                var veterinarioSeleccionado = select.value;
 
-            // Realiza una nueva solicitud AJAX para obtener los horarios disponibles del veterinario seleccionado
-            fetch('obtener_horarios.php', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded'
-                },
-                body: 'veterinarioSeleccionado=' + veterinarioSeleccionado + '&fechaSeleccionada=' + fechaSeleccionada
-            })
-                .then(response => response.text())
-                .then(data => {
-                    var selectTiempoServicio = document.getElementById('selectTiempoServicio');
-                    selectTiempoServicio.innerHTML = data;
+                // Realiza una nueva solicitud AJAX para obtener los horarios disponibles del veterinario seleccionado
+                fetch('obtener_horarios.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'veterinarioSeleccionado=' + veterinarioSeleccionado + '&fechaSeleccionada=' + fechaSeleccionada
                 })
-                .catch(error => {
-                    console.log('Error: ', error);
-                });
-        }
+                    .then(response => response.text())
+                    .then(data => {
+                        var selectTiempoServicio = document.getElementById('selectTiempoServicio');
+                        selectTiempoServicio.innerHTML = data;
+                    })
+                    .catch(error => {
+                        console.log('Error: ', error);
+                    });
+            }
 
-        function mostrarIdHorario(select) {
-  var tiempoServicioSeleccionado = select.value;
-  var fechaSeleccionada = document.getElementById('selectFecha').value;
-  var veterinarioSeleccionado = document.getElementById('selectVeterinario').value;
-  var idProductoServicio = document.querySelector('input[name="idProductoServicioCita"]').value
+            function mostrarIdHorario(select) {
+                var tiempoServicioSeleccionado = select.value;
+                var fechaSeleccionada = document.getElementById('selectFecha').value;
+                var veterinarioSeleccionado = document.getElementById('selectVeterinario').value;
+                var idProductoServicio = document.querySelector('input[name="idProductoServicioCita"]').value
 
-  alert('id del producto: ' + idProductoServicio + ' - fecha: ' + fechaSeleccionada + ' - id veterinario: ' + veterinarioSeleccionado + ' - horario: ' + tiempoServicioSeleccionado);
+                alert('id del producto: ' + idProductoServicio + ' - fecha: ' + fechaSeleccionada + ' - id veterinario: ' + veterinarioSeleccionado + ' - horario: ' + tiempoServicioSeleccionado);
 
-  // Realiza una nueva solicitud AJAX para obtener el idhorario
-  fetch('obtener_idhorario.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: 'veterinarioSeleccionado=' + veterinarioSeleccionado + '&fechaSeleccionada=' + fechaSeleccionada + '&tiempoServicioSeleccionado=' + tiempoServicioSeleccionado  + '&idProductoServicio=' + idProductoServicio
-  })
-  .then(response => response.text())
-.then(data => {
-  document.getElementById("inputIdHorario").value = data;
-        
-     
-    })
-    .catch(error => {
-      console.log('Error: ', error);
-    });
-}
+                // Realiza una nueva solicitud AJAX para obtener el idhorario
+                fetch('obtener_idhorario.php', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: 'veterinarioSeleccionado=' + veterinarioSeleccionado + '&fechaSeleccionada=' + fechaSeleccionada + '&tiempoServicioSeleccionado=' + tiempoServicioSeleccionado + '&idProductoServicio=' + idProductoServicio
+                })
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById("inputIdHorario").value = data;
 
-        function closeModal() {
-            var modal = document.getElementById("modalReservar");
-            modal.style.display = "none";
-        }
-    </script>
 
-    <script src="../../../js/reservarCItaMulti.js"></script>
+                    })
+                    .catch(error => {
+                        console.log('Error: ', error);
+                    });
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("modalReservar");
+                modal.style.display = "none";
+            }
+        </script>
+
+        <script src="../../../js/reservarCItaMulti.js"></script>
 </body>
 
 </html>

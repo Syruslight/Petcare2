@@ -204,7 +204,7 @@ function agregarDatosMascota($idcliente, $idraza, $nombre, $fechaNac, $peso, $co
 //Función de registrar los datos de la cita desde el Perfil del Cliente
 function agregarCita($idCliente, $idMascota, $idhorario, $estadoPago, $fotoComprobante, $estadoAtencion,  $conn)
 {
-    $sql = "insert into mascota(idcliente,idmascota,idhorario,estadopago,fotoComprobante,estadoAtencion) values ('$idCliente','$idMascota','$idhorario','$estadoPago','$fotoComprobante','$estadoAtencion')";
+    $sql = "insert into cita(idcliente,idmascota,idhorario,estadopago,fotoComprobante,estadoAtencion) values ('$idCliente','$idMascota','$idhorario','$estadoPago','$fotoComprobante','$estadoAtencion')";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
