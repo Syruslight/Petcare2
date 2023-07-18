@@ -51,48 +51,45 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 &#10006
                             </div>
                         </div>
-                        <form action="../../../llamadas/proceso_registrar_horario.php" method="POST"
-                            enctype="multipart/form-data">
-                            <input type="hidden" name="idveterinario" value="<?php echo $value[7]; ?>">
-        
-                            <label for="fechahorario">Fecha:</label>
-                            <input type="date" name="fechahorario" required>
+                        <form action="../../../llamadas/proceso_registrar_horario.php" method="POST" enctype="multipart/form-data" class="formulario" >
+  <input type="hidden" name="idveterinario" value="<?php echo $value[7]; ?>">
+  <label for="fechahorario">Fecha:</label>
+  <input type="date" name="fechahorario" id="fechahorario"  required>
+  <label for="productoservicio">Servicio:</label>
+  <select name="idproductoservicio" onchange="actualizaridproductoservicio(this)" class="select" required>
+    <?php
+    $sentenciaproductoservicio = "SELECT ps.idproductoservicio, ps.descripcion 
+                                    FROM productoservicio ps
+                                    INNER JOIN tipoproductoservicio tp ON ps.idtipoproductoservicio = tp.idtipoproductoservicio
+                                    WHERE tp.tipocategoria = 'Servicio'";
+    $result = $conn->query($sentenciaproductoservicio);
+    echo "<option>Seleccionar</option>";
+    if ($result && $result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+        $idproductoservicio = $row['idproductoservicio'];
+        $nombre = $row['descripcion'];
+        echo "<option value='$idproductoservicio'>$nombre</option>";
+      }
+    } else {
+      echo "<option>No se encontraron productos</option>";
+    }
+    ?>
+  </select>
+  <input hidden type="text" id="idproductoservicioInput" name="idproductoservicio" value="<?php echo $idproductoservicio; ?>">
 
-                            <select name="idproductoservicio" onchange="actualizaridproductoservicio(this)">
-                                <?php
-                          
-                                $sentenciaproductoservicio = "SELECT ps.idproductoservicio, ps.descripcion 
-              FROM productoservicio ps
-              INNER JOIN tipoproductoservicio tp ON ps.idtipoproductoservicio = tp.idtipoproductoservicio
-              WHERE tp.tipocategoria = 'Servicio'";
-                                $result = $conn->query($sentenciaproductoservicio);
-                                    echo "<option>Seleccionar</option>";
-                                // Verificar si la consulta fue exitosa
-                                if ($result && $result->num_rows > 0) {
-                                    while ($row = $result->fetch_assoc()) {
-                                        $idproductoservicio = $row['idproductoservicio'];
-                                        $nombre = $row['descripcion'];
-                                       
-                                        echo "<option value='$idproductoservicio'>$nombre</option>";
-                                    }
-                                } else {
-                                    echo "<option>No se encontraron productos</option>";
-                                }
-                                ?>
-                            </select>
-                            <input hidden type="text" id="idproductoservicioInput" name="idproductoservicio"
-                                value="<?php echo $idproductoservicio; ?>">
+  <label for="horarioinicio">Hora de inicio:</label>
+  <input type="time" name="horarioinicio" id="horarioinicio" required onchange="actualizarHoraFin()">
+
+  <label for="horariofin">Hora de fin:</label>
+  <input type="time" name="horariofin" id="horariofin" required>
+
+  <button type="submit" class="boton">Generar Horario</button>
+
+  <div id="error-container" class="error-message"></div>
+  <div id="success-container" class="success-message"></div>
+</form>
 
 
-
-                            <label for="horarioinicio">Hora de inicio:</label>
-                            <input type="time" name="horarioinicio" required>
-
-                            <label for="horariofin">Hora de fin:</label>
-                            <input type="time" name="horariofin" required>
-
-                            <button type="submit">Generar Horario</button>
-                        </form>
                     </div>
                 </div>
             </section>
@@ -232,6 +229,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                     });
                 }
             </script>
+           <script src="../../../js/interaccionFormularioHorario.js"></script>
             <script src="../../../js/Interacciones.js"></script>
             <script src="../../js/previsualizarImagen.js"></script>
             <script src="../../js/Interacciones.js"></script>
