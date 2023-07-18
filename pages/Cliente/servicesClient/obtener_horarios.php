@@ -9,7 +9,7 @@ if (isset($_POST['veterinarioSeleccionado'])) {
     
 
     // Realiza una consulta para obtener los horarios disponibles del veterinario seleccionado
-    $query = "SELECT horarioinicio, horariofin FROM horario WHERE idveterinario = '$veterinarioSeleccionado' AND fecha = '$fechaSeleccionada' AND estado != 1";
+    $query = "SELECT horarioinicio, horariofin FROM horario WHERE fecha = '$fechaSeleccionada' AND idveterinario = '$veterinarioSeleccionado' and estado != 1";
     $result = mysqli_query($conn, $query);
 
     // Verifica si se encontraron horarios

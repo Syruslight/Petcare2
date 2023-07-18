@@ -116,7 +116,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         <div class="tituloReservar">
                             <h1>Reservar cita</h1>
                         </div>
-                        <div id="CloseModalReservar">
+                        <div id="CloseModalReservar" onclick="closeModal()">
                             &#10006;
                         </div>
                     </div>
@@ -170,6 +170,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                                 }
                                                 echo '</select>
                                             </div>';
+
+                                            
                                             } else {
                                                 // Si no se encontraron mascotas para el cliente, mostrar un mensaje alternativo o una opción por defecto
                                                 echo '<div class="wrapper-selectReser">
@@ -180,52 +182,27 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                                 </div>';
                                             }
                                             ?>
+                                            <div class="wrapper-selectReser">
+                                            <span class="subtitle-reser">Fecha de reserva</span>
+                                            <select name="selectFecha" class="select-reser" onchange="mostrarFechaSeleccionada(this)" id="selectFecha">
+                                                <option value="">Seleccionar fecha</option>
+                                            </select>
+                                        </div>
+                                        </div></div>
 
-<?php
-
-
-$fechasQuery = "SELECT DISTINCT fecha FROM horario WHERE estado != 1 order by fecha desc";
-$fechasResult = mysqli_query($conn, $fechasQuery);
-
-// Verificar si se encontraron fechas
-if (mysqli_num_rows($fechasResult) > 0) {
-    echo '<div class="wrapper-selectReser">
-            <span class="subtitle-reser">Dia de reserva</span>
-            <select name="selectFecha" class="select-reser" onchange="mostrarFechaSeleccionada(this)">
-              <option value="">Seleccionar fecha</option>'; // Opción por defecto
-    while ($fechaRow = mysqli_fetch_assoc($fechasResult)) {
-        $fecha = date('d/m/Y', strtotime($fechaRow['fecha']));
-        echo "<option value='$fechaRow[fecha]'>$fecha</option>";
-
-    }
-    echo '</select>
-          </div></div>';
-
-
-
-          echo '<div class="wrapper-downReser1"><div class="wrapper-selectReser">
-          <span class="subtitle-reser">Veterinario</span>
-          <select name="selectVeterinario"  onchange ="mostrarVeterinarioSeleccionado(this)" id="selectVeterinario" class="select-reser">';
-     
-  echo '</select>
-          </div>';
-  
-  echo '<div class="wrapper-selectReser">
-          <span class="subtitle-reser">Tiempo de servicio</span>
-          <select name="selectTiempoServicio" id="selectTiempoServicio" class="select-reser">';
-     
-  echo '</select>
-          </div></div>';
-  
-
-   
-}
-?>
-
-
-
-                                       
-
+                                        <?php 
+                                        echo '<div class="wrapper-downReser1"><div class="wrapper-selectReser">
+                                        <span class="subtitle-reser">Veterinario</span>
+                                        <select name="selectVeterinario" onchange="mostrarVeterinarioSeleccionado(this)" id="selectVeterinario" class="select-reser">
+                                        </select>
+                                        </div>';
+                              
+                                  echo '<div class="wrapper-selectReser">
+                                        <span class="subtitle-reser">Tiempo de servicio</span>
+                                        <select name="selectTiempoServicio" id="selectTiempoServicio" class="select-reser">
+                                        </select>
+                                        </div></div>';
+                                        ?>
                                     </div>
                                 </div>
                                 <div class="button-container">
@@ -263,9 +240,6 @@ if (mysqli_num_rows($fechasResult) > 0) {
                                     <div class="upload-confirmation">
                                         <img src="../../../imagenes/perfilCliente/sendConfirmation.png" alt=""
                                             width="400px" height="210px">
-                                        <!-- <div class="upload-only">
-                    <span class="text-upload">Subir foto</span>
-                </div> -->
                                     </div>
                                 </div>
                                 <div class="button-container">
@@ -280,10 +254,6 @@ if (mysqli_num_rows($fechasResult) > 0) {
             </div>
     </div>
     </section>
-
-
-
-
 
     <script>
         const yapeButton = document.querySelector('.text-methodPay1');
@@ -303,6 +273,21 @@ if (mysqli_num_rows($fechasResult) > 0) {
         });
     </script>
 
+    <script>
+        function setProgress(progress) {
+            var progressBar = document.getElementById("myBar");
+            progressBar.style.width = progress + "%";
+
+            if (progress >= 100) {
+                progressBar.parentElement.classList.add("complete");
+            } else {
+                progressBar.parentElement.classList.remove("complete");
+            }
+        }
+
+        // Ejemplo de uso
+        setProgress(50); // Establece el progreso al 50%
+    </script>
 
     <script>
         function openModal(button) {
@@ -319,93 +304,85 @@ if (mysqli_num_rows($fechasResult) > 0) {
             document.getElementById('resultadoDescripción').textContent = descripcion;
             document.getElementById('resultadoFoto').src = "../../../imagenes/productos_servicios/servicios/" + foto;
 
+            // Guardar el idproductoservicio en una variable global
+            idProductoServicio = idproductoservicio;
+
+            // Llamar a la función para obtener las fechas basadas en el idproductoservicio
+            obtenerFechas(idproductoservicio);
+
             // Abrir el modal
             var modal = document.getElementById("modalReservar");
             modal.style.display = "block";
         }
+
+        function obtenerFechas(idproductoservicio) {
+            // Realizar la solicitud AJAX para obtener las fechas basadas en el idproductoservicio
+            fetch('obtener_fechas.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'idproductoservicio=' + idproductoservicio
+            })
+                .then(response => response.text())
+                .then(data => {
+                    var selectFecha = document.getElementById('selectFecha');
+                    selectFecha.innerHTML = data;
+                })
+                .catch(error => {
+                    console.log('Error: ', error);
+                });
+        }
+
+        function mostrarFechaSeleccionada(select) {
+            fechaSeleccionada = select.value;
+            alert("Fecha seleccionada: " + fechaSeleccionada + " - idproductoservicio: " + idProductoServicio);
+
+            // Realiza una nueva solicitud AJAX para obtener los veterinarios disponibles en la fecha seleccionada y el idproductoservicio correspondiente
+            fetch('obtener_veterinarios.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'fechaSeleccionada=' + fechaSeleccionada + '&idproductoservicio=' + idProductoServicio
+            })
+                .then(response => response.text())
+                .then(data => {
+                    var selectVeterinario = document.getElementById('selectVeterinario');
+                    selectVeterinario.innerHTML = data;
+                })
+                .catch(error => {
+                    console.log('Error: ', error);
+                });
+        }
+
+        function mostrarVeterinarioSeleccionado(select) {
+            var veterinarioSeleccionado = select.value;
+            alert("Veterinario seleccionado: " + veterinarioSeleccionado + " - Fecha: " + fechaSeleccionada);
+
+            // Realiza una nueva solicitud AJAX para obtener los horarios disponibles del veterinario seleccionado
+            fetch('obtener_horarios.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: 'veterinarioSeleccionado=' + veterinarioSeleccionado + '&fechaSeleccionada=' + fechaSeleccionada
+            })
+                .then(response => response.text())
+                .then(data => {
+                    var selectTiempoServicio = document.getElementById('selectTiempoServicio');
+                    selectTiempoServicio.innerHTML = data;
+                })
+                .catch(error => {
+                    console.log('Error: ', error);
+                });
+        }
+
         function closeModal() {
-            var modal = document.getElementById("modalReservar");
-            modal.style.display = "none";
-        }
-
-        var closeIcon = document.getElementById("CloseModalReservar");
-        closeIcon.addEventListener("click", closeModal);
-
-        window.addEventListener("click", function (event) {
-            var modal = document.getElementById("modalReservar");
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
-
-
+        var modal = document.getElementById("modalReservar");
+        modal.style.display = "none";
+    }
     </script>
-
-
-    <script>
-        function setProgress(progress) {
-            var progressBar = document.getElementById("myBar");
-            progressBar.style.width = progress + "%";
-
-            if (progress >= 100) {
-                progressBar.parentElement.classList.add("complete");
-            } else {
-                progressBar.parentElement.classList.remove("complete");
-            }
-        }
-
-        // Ejemplo de uso
-        setProgress(50); // Establece el progreso al 50%
-
-    </script>
-
-<script>
-    var fechaSeleccionada
-function mostrarFechaSeleccionada(select) {
-   fechaSeleccionada = select.value;
-  alert("Fecha seleccionada: " + fechaSeleccionada);
-
-  // Realiza una nueva solicitud AJAX para obtener los veterinarios disponibles en la fecha seleccionada
-  fetch('obtener_veterinarios.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: 'fechaSeleccionada=' + fechaSeleccionada
-  })
-    .then(response => response.text())
-    .then(data => {
-      var selectVeterinario = document.getElementById('selectVeterinario');
-      selectVeterinario.innerHTML = data;
-    })
-    .catch(error => {
-      console.log('Error: ', error);
-    });
-}
-function mostrarVeterinarioSeleccionado(select) {
-  var veterinarioSeleccionado = select.value;
-  alert("Veterinario seleccionado: " + veterinarioSeleccionado + "fecha :" + fechaSeleccionada);
-
-  // Realiza una nueva solicitud AJAX para obtener los horarios disponibles del veterinario seleccionado
-  fetch('obtener_horarios.php', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded'
-    },
-    body: 'veterinarioSeleccionado=' + veterinarioSeleccionado
-  })
-    .then(response => response.text())
-    .then(data => {
-      var selectTiempoServicio = document.getElementById('selectTiempoServicio');
-      selectTiempoServicio.innerHTML = data;
-    })
-    .catch(error => {
-      console.log('Error: ', error);
-    });
-}
-
-</script>
-
 
     <script src="../../../js/reservarCItaMulti.js"></script>
 </body>
