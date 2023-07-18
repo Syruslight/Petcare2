@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+body{
+    font-family: 'Poppins';
+}
+.container-main{
+    width: 1158px;
+    height: 872px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container-form{
+    border-radius: 15px;
+    background: #F5F5F5;
+    box-shadow: 0px 4px 10px 0px rgba(0, 0, 0, 0.25);
+    width: 530px;
+    height: 630px;
+}
+.gato-background{
+    position: absolute;
+    width: 370px;
+    opacity: 0.07000000029802322;
+    z-index: 0;
+    pointer-events: none;
+}
+.gato-background img{
+    width: 100%;
+    height: 100%;
+}
+.perro-background{
+    position: absolute;
+    width: 238px;
+    align-self: flex-end;
+    margin-left: 780px;
+}
+.perro-background img{
+    width: 100%;
+    height: 100%;
+}
+
+h2{
+    text-align: center;
+    font-size: 38px;
+    font-weight: 500;
+    line-height: 45px;
+    margin: 25px 60px 0px 60px;
+}
+.data-form{
+    box-sizing: border-box;
+    padding: 40px;
+}
+.group-text{
+    display: flex;
+    justify-content: center;
+}
+.col-1-form{
+    box-sizing: border-box;
+    width: 37%;
+}
+
+.col-2-form{
+    width: 50%;
+}
+input:focus {
+    outline:none;
+}
+label {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 2px;
+    font-size: 17px;
+}
+.data-form input,select{
+    border-top: none;
+    border-left: none;
+    border-right: 2px solid #DF2573;
+    border-bottom: 2px solid #DF2573;
+    background: #FFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+    padding: 5px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+.col-1-form input,
+.col1-1-form select{
+    width: 100px;
+    height: 22px;
+}
+.col-2-form input,
+.col-2-form select{
+    width: 100%;
+    height: 34px;
+    box-sizing: border-box;
+}
+.text{
+    width: 391.5px;
+    margin: 0px 30px;
+}
+.btn-form{
+    text-align: center;
+    margin-top: 20px;
+}
+.btn-form button{
+
+    font-size: 20px;
+    color: #F5F5F5;
+    font-weight: 600;
+    width: 210px;
+    height: 50px;
+    border-radius: 18px;
+    border: none;
+    background-color: #DF2573;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+

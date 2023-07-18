@@ -41,15 +41,11 @@
         </div>
         <div class="icons">
             <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25" height="25" />
-            <span class="list">PetiPuntos </span>
+            <a href="../../../pages/Veterinario/ventas/ventas.php"><span class="list">Ventas </span></a>
         </div>
         <div class="icons">
             <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
             <span class="list">Reserva una cita</span>
-        </div>
-        <div class="icons">
-            <img src="https://img.icons8.com/ios/50/null/help--v1.png" width="25" height="25" />
-            <span class="list">Ayuda</span>
         </div>
 
         <div class="sign-off">
