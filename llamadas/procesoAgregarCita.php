@@ -8,6 +8,15 @@ $idhorario = $_POST['inputIdHorario'];
 $estadoPago = 0;
 $estadoAtencion = 0;
 
+$idHorario = $_POST['inputIdHorario'];
+$sql = "UPDATE horario SET estado = 1 WHERE idhorario = $idHorario";
+
+if ($conn->query($sql) === TRUE) {
+    echo "El estado del horario se actualizó correctamente a 1.";
+} else {
+    echo "Error al actualizar el estado del horario: " . $conn->error;
+}
+
 
 
 $fotoComprobante = "";
