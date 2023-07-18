@@ -207,7 +207,7 @@ $mascotas = listarDatosMascotaDasboardCliente($idCliente, $conn);
                             $fecha = $detalle['fecha'];
                             $precio = $detalle['precio'];
                             $cantidad = $detalle['cantidad'];
-                            $total = $detalle['total'];
+                            $total = $detalle['importe'];
                             $puntos = $detalle['puntos'];
                         ?>
                             <div class="scheme">

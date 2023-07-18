@@ -486,13 +486,12 @@ function actualizarServicios($idproductoservicio, $nombre,$precio,$descripcion,$
 
 //Funcion para listar el detalle de puntos por producto o servicio adquirido desde pagina principal de cliente
 function listarDetallePuntosCliente($idCliente, $conn) {
-    $sql = "SELECT productoservicio.nombre, venta.fecha, productoservicio.precio, detalleventa.cantidad, venta.total, puntoscliente.puntos 
+    $sql = "SELECT productoservicio.nombre, detalleventa.fecha, productoservicio.precio, detalleventa.cantidad, detalleventa.importe, puntoscliente.puntos 
             FROM puntoscliente
-            JOIN detalleventa ON puntoscliente.iddetalleventa = detalleventa.iddetalleventa
-            JOIN venta ON detalleventa.idventa = venta.idventa
+            JOIN detalleventa ON puntoscliente.iddetalleventa = detalleventa.iddetalleventa        
             JOIN productoservicio ON detalleventa.idproductoservicio = productoservicio.idproductoservicio
-            WHERE venta.idcliente = '$idCliente'
-            ORDER BY venta.fecha DESC
+            WHERE detalleventa.idcliente = '$idCliente'
+            ORDER BY detalleventa.fecha DESC
             LIMIT 3";
     
     $result = mysqli_query($conn, $sql);
