@@ -80,7 +80,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                         <label for="email">Correo electrónico:</label>
                                     </div>
                                     <div class="form-floating mt-3 mb-3">
-                                        <input id="inputContraseña" type="text" class="form-control" id="pwd"
+                                        <input id="inputContraseña" type="password" class="form-control" id="pwd"
                                             placeholder="Enter password" name="contraseniaNueva" required>
                                         <label for="pwd">Contraseña</label>
                                     </div>

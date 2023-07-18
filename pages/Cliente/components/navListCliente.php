@@ -66,12 +66,13 @@ $current_page = basename($_SERVER['PHP_SELF']);
                             <span class="list">servicios</span>
                         </div>
                         </a>
-
+                        <a href="../petiPuntos/petiPuntos.php"  <?php echo ($current_page === "petiPuntos.php") ? 'class="active"' : ''; ?> >
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25"
                                 height="25" />
                             <span class="list">PetiPuntos </span>
                         </div>
+                        </a>
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
                             <span class="list">Reserva una cita</span>
