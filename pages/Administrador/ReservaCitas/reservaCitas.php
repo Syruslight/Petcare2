@@ -51,20 +51,20 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             $resultado = mysqli_query($conn, $sentencia1);
 
             // Consulta para citas con estado de pago igual a 0 (pendientes)
-            $sentenciaPendientes = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
+            $sentenciaRealizada = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
             h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) AS cliente,
-            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante
+            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante, u.email as correo
             FROM cita c
             INNER JOIN horario h ON c.idhorario = h.idhorario
             INNER JOIN mascota m ON m.idmascota = c.idmascota
             INNER JOIN productoservicio ps ON h.idproductoservicio = ps.idproductoservicio
             INNER JOIN cliente cli ON c.idcliente = cli.idcliente
+            INNER JOIN usuario u ON cli.idusuario = u.idusuario
             INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
             WHERE c.estadopago = 1
-            ORDER BY idcita DESC;";
+            ORDER BY c.idcita DESC;";
 
-            $resultadoPendientes = mysqli_query($conn, $sentenciaPendientes);
-
+$resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
             // Consulta para citas con estado de pago igual a 2 (canceladas)
             $sentenciaCanceladas = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
             h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) AS cliente,
@@ -81,8 +81,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             $resultadoCanceladas = mysqli_query($conn, $sentenciaCanceladas);
 
 
-            $citasTotales = mysqli_num_rows($resultadoPendientes) + mysqli_num_rows($resultado) + mysqli_num_rows($resultadoCanceladas);
-            $citasRealizadas = mysqli_num_rows($resultadoPendientes);
+            $citasTotales = mysqli_num_rows($resultadoRealizado) + mysqli_num_rows($resultado) + mysqli_num_rows($resultadoCanceladas);
+            $citasRealizadas = mysqli_num_rows($resultadoRealizado);
             $citasPendientes = mysqli_num_rows($resultado);
             $citasCanceladas = mysqli_num_rows($resultadoCanceladas);
             ?>
@@ -214,27 +214,28 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
-                                    <th>Veterinario</th>
+                                    
                                     <th>Horario</th>
                                     <th>Cliente</th>
-                                    <th>Mascota</th>
+                                    <th>correo</th>
+                                    
                                     <th>Estado Pago</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                while ($registro = mysqli_fetch_assoc($resultadoPendientes)) {
+                                while ($registro = mysqli_fetch_assoc($resultadoRealizado)) {
                                     echo '<tr>';
                                     echo '<td>' . $registro['idcita'] . '</td>';
                                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                                     echo '<td>' . $fechaFormateada . '</td>';
-                                    echo '<td>' . $registro['servicio'] . '</td>';
-                                    echo '<td>' . $registro['nombres'] . ' ' . $registro['apellidos'] . '</td>';
+                                    echo '<td>' . $registro['servicio'] . '(' . $registro['nombres'] . ' ' . $registro['apellidos'] . ')'.'</td>';
                                     $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
                                     $horarioFin = date('h:i A', strtotime($registro['horariofin']));
                                     echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
-                                    echo '<td>' . $registro['cliente'] . '</td>';
-                                    echo '<td>' . $registro['nombreMascota'] . '</td>';
+                                    echo '<td>' . $registro['cliente'] . ' (' . $registro['nombreMascota'] . ')'. '</td>';
+                                    echo '<td>' . $registro['correo'] . '</td>';
+                                    
                                     echo '<td>';
                                     echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
 
@@ -329,6 +330,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 if (response === 'success') {
                                     location.reload(); // Recargar la página después de la actualización exitosa
                                     alert('Se actualizó correctamente el pago de la cita');
+
                                 } else {
                                     alert('Error al actualizar el estado de pago');
                                 }
