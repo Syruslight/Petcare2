@@ -35,21 +35,22 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             <?php include('../components/headerAdministrador.php'); ?>
 
             <?php
-            
+
             // Obtener los estados de las citas
             
 
             $sentencia1 = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
             h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) AS cliente,
-            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante
+            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante, u.email as correo
             FROM cita c
             INNER JOIN horario h ON c.idhorario = h.idhorario
             INNER JOIN mascota m ON m.idmascota = c.idmascota
             INNER JOIN productoservicio ps ON h.idproductoservicio = ps.idproductoservicio
             INNER JOIN cliente cli ON c.idcliente = cli.idcliente
+            INNER JOIN usuario u ON cli.idusuario = u.idusuario
             INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
             WHERE c.estadopago = 0
-            ORDER BY idcita DESC;";
+            ORDER BY c.idcita DESC;";
 
             $resultado = mysqli_query($conn, $sentencia1);
 
@@ -67,19 +68,20 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             WHERE c.estadopago = 1
             ORDER BY c.idcita DESC;";
 
-$resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
+            $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
             // Consulta para citas con estado de pago igual a 2 (canceladas)
             $sentenciaCanceladas = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio,
             h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) AS cliente,
-            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante
+            c.estadopago, c.estadoAtencion, v.nombres, v.apellidos, c.fotoComprobante, u.email as correo
             FROM cita c
             INNER JOIN horario h ON c.idhorario = h.idhorario
             INNER JOIN mascota m ON m.idmascota = c.idmascota
             INNER JOIN productoservicio ps ON h.idproductoservicio = ps.idproductoservicio
             INNER JOIN cliente cli ON c.idcliente = cli.idcliente
+            INNER JOIN usuario u ON cli.idusuario = u.idusuario
             INNER JOIN veterinario v ON h.idveterinario = v.idveterinario
             WHERE c.estadopago = 2
-            ORDER BY idcita DESC;";
+            ORDER BY c.idcita DESC;";
 
             $resultadoCanceladas = mysqli_query($conn, $sentenciaCanceladas);
 
@@ -186,12 +188,12 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
                                     echo '<td>' . $registro['idcita'] . '</td>';
                                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                                     echo '<td>' . $fechaFormateada . '</td>';
-                                    echo '<td>' . $registro['servicio'] . '</td>';
-                                    echo '<td>' . $registro['nombres'] . ' ' . $registro['apellidos'] . '</td>';
+                                    echo '<td>' . $registro['servicio'] . '(' . $registro['nombres'] . ' ' . $registro['apellidos'] . ')' . '</td>';
                                     $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
                                     $horarioFin = date('h:i A', strtotime($registro['horariofin']));
                                     echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
-                                    echo '<td>' . $registro['cliente'] . '</td>';
+                                    echo '<td>' . $registro['cliente'] . ' (' . $registro['nombreMascota'] . ')' . '</td>';
+                                    echo '<td>' . $registro['correo'] . '</td>';
 
                                     echo '<td>';
                                     echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
@@ -217,11 +219,11 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
                                     <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
-                                    
+
                                     <th>Horario</th>
                                     <th>Cliente</th>
                                     <th>correo</th>
-                                    
+
                                     <th>Estado Pago</th>
                                 </tr>
                             </thead>
@@ -232,13 +234,13 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
                                     echo '<td>' . $registro['idcita'] . '</td>';
                                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                                     echo '<td>' . $fechaFormateada . '</td>';
-                                    echo '<td>' . $registro['servicio'] . '(' . $registro['nombres'] . ' ' . $registro['apellidos'] . ')'.'</td>';
+                                    echo '<td>' . $registro['servicio'] . '(' . $registro['nombres'] . ' ' . $registro['apellidos'] . ')' . '</td>';
                                     $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
                                     $horarioFin = date('h:i A', strtotime($registro['horariofin']));
                                     echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
-                                    echo '<td>' . $registro['cliente'] . ' (' . $registro['nombreMascota'] . ')'. '</td>';
+                                    echo '<td>' . $registro['cliente'] . ' (' . $registro['nombreMascota'] . ')' . '</td>';
                                     echo '<td>' . $registro['correo'] . '</td>';
-                                    
+
                                     echo '<td>';
                                     echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
 
@@ -276,16 +278,15 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
                                     echo '<td>' . $registro['idcita'] . '</td>';
                                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                                     echo '<td>' . $fechaFormateada . '</td>';
-                                    echo '<td>' . $registro['servicio'] . '</td>';
-                                    echo '<td>' . $registro['nombres'] . ' ' . $registro['apellidos'] . '</td>';
+                                    echo '<td>' . $registro['servicio'] . '(' . $registro['nombres'] . ' ' . $registro['apellidos'] . ')' . '</td>';
                                     $horarioInicio = date('h:i A', strtotime($registro['horarioinicio']));
                                     $horarioFin = date('h:i A', strtotime($registro['horariofin']));
                                     echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
-                                    echo '<td>' . $registro['cliente'] . '</td>';
-                                    echo '<td>' . $registro['nombreMascota'] . '</td>';
+                                    echo '<td>' . $registro['cliente'] . ' (' . $registro['nombreMascota'] . ')' . '</td>';
+                                    echo '<td>' . $registro['correo'] . '</td>';
+
                                     echo '<td>';
                                     echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
-
 
                                     echo '<select class="estadoPago" onchange="actualizarEstadoPago(this)">';
                                     echo '<option value="0" ' . ($registro['estadopago'] == '0' ? 'selected' : '') . '>Pendiente</option>';
@@ -314,11 +315,12 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
 
             <?php
             include('../cerrarSesionAdmin/cerrarSessionAdm.php');
-            ?> 
+            ?>
             <script>
                 function actualizarEstadoPago(selectElement) {
                     var nuevoEstado = selectElement.value;
                     var idCita = selectElement.parentNode.parentNode.firstChild.innerText;
+                    var correo = selectElement.parentNode.parentNode.querySelector('td:nth-child(6)').innerText; // Obtener el correo
 
                     if (confirm("¿Está seguro de cambiar el estado de pago de la cita?")) {
                         // Aquí puedes enviar una solicitud AJAX para actualizar el estado en la base de datos
@@ -335,8 +337,13 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
                             success: function (response) {
                                 if (response === 'success') {
                                     location.reload(); // Recargar la página después de la actualización exitosa
-                                    alert('Se actualizó correctamente el pago de la cita');
-
+                                    if (nuevoEstado === '1') {
+                                        alert('El correo se ha enviado exitosamente a ' + correo);
+                                    } else if (nuevoEstado === '2') {
+                                        alert('No se envió el correo a ' + correo);
+                                    } else {
+                                        alert('Se actualizó correctamente el estado de pago.');
+                                    }
                                 } else {
                                     alert('Error al actualizar el estado de pago');
                                 }
@@ -351,6 +358,7 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
                         selectElement.value = estadoActual;
                     }
                 }
+
             </script>
             <script>
                 // Obtener los elementos de las pestañas y las tablas
@@ -381,9 +389,9 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
                     });
                 }
             </script>
-            
-<script>
- var modal = document.getElementById('modalDetalleComprobante');
+
+            <script>
+                var modal = document.getElementById('modalDetalleComprobante');
                 var imagenComprobante = document.getElementById('imagenComprobante');
                 var detalleButtons = document.getElementsByClassName('detalleBtn');
                 for (var i = 0; i < detalleButtons.length; i++) {
@@ -402,7 +410,7 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
                         modal.style.display = 'none';
                     }
                 });
-</script>
+            </script>
 
             <script src="../../../js/previsualizarImagen.js"></script>
             <script src="../../../js/Interacciones.js"></script>
