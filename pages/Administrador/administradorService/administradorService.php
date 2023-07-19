@@ -20,6 +20,7 @@ $conn = conectar();
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
     <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
+    <link rel="stylesheet" href='../cerrarSesionAdmin/cerrarSession.css'>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <title>Pagina de administrador</title>
@@ -44,7 +45,10 @@ $conn = conectar();
         ?>
       <?php
             include('../editAdministrador/editModalAdministrador.php');
-        ?> 
+        ?>
+        <?php
+            include('../cerrarSesionAdmin/cerrarSessionAdm.php');
+            ?> 
        <div class="wrapper-services">
    <div class="header-services">
         <h1 >Mis Servicios</h1> 
@@ -328,5 +332,6 @@ $conn = conectar();
 <script src="../../../js/administrador/toogleSwitchCategory.js"></script>
 <!-- <script src="../../../js/administrador/modals-products.js"></script> -->
 <script src="../../../js/administrador/modals-editService.js"></script>
+<script src="../cerrarSesionAdmin/cerrarSession.js"></script>
 </body>
 </html>

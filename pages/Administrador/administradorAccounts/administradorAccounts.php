@@ -26,6 +26,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
     <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href="../administradorAccounts/estiloAdministradorCrearCuentas.css">
+    <link rel="stylesheet" href='../cerrarSesionAdmin/cerrarSession.css'>
     <title>Document</title>
 </head>
 
@@ -44,6 +45,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             <?php
             include('../editAdministrador/editModalAdministrador.php');
             ?>
+              <?php
+            include('../cerrarSesionAdmin/cerrarSessionAdm.php');
+            ?> 
             <div class="encabezadoCuenta">
                 <h1 class="tituloCuenta">Lista de cuentas de Veterinarios
                     <p>Bienvenido <?= $value[0] ?> <?= $value[1] ?>, empieza a crear tus cuentas</p>
@@ -210,5 +214,6 @@ function encriptarContra(idUsuario) {
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="../../../js/Interacciones.js"></script>
 <script src="../../../js/cambiarEstado.js"></script>
+<script src="../cerrarSesionAdmin/cerrarSession.js"></script>
 
 </html>

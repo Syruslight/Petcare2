@@ -22,6 +22,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
     <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
+    <link rel="stylesheet" href='../cerrarSesionAdmin/cerrarSession.css'>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -47,7 +48,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             });
         }
     </script>
-<style>
+<!-- <style>
     .custom-modal {
   display: none;
   position: fixed;
@@ -97,7 +98,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
   color: #fff;
 }
 
-</style>
+</style> -->
 
 </head>
 
@@ -184,7 +185,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
         </div>
 
-
+        <?php
+            include('../cerrarSesionAdmin/cerrarSessionAdm.php');
+            ?>
 
 
     </div>
@@ -196,62 +199,14 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
 
 
-<div class="custom-modal" id="confirmModal">
-  <div class="custom-modal-content">
-    <div class="custom-modal-body">
-      <p>¿Desea salir de la cuenta?</p>
-    </div>
-    <div class="custom-modal-footer">
-      <button type="button" class="btn btn-secondary" id="cancelBtn">Cancelar</button>
-      <button type="button" class="btn btn-primary" id="confirmBtn">Aceptar</button>
-    </div>
-  </div>
-</div>
-    
 
-    <script>
-  document.addEventListener('DOMContentLoaded', function() {
-  const logoutBtn = document.getElementById('logoutBtn');
-  const confirmModal = document.getElementById('confirmModal');
-  const confirmBtn = document.getElementById('confirmBtn');
-  const cancelBtn = document.getElementById('cancelBtn');
-
-  logoutBtn.addEventListener('click', function() {
-    confirmModal.style.display = 'block';
-  });
-
-  confirmBtn.addEventListener('click', function() {
-    cerrarSesion();
-  });
-
-  cancelBtn.addEventListener('click', function() {
-    confirmModal.style.display = 'none';
-  });
-
-  function cerrarSesion() {
-    fetch('../../../llamadas/proceso_cerrar_sesion.php', {
-      method: 'POST'
-    })
-      .then(function(response) {
-        if (response.ok) {
-          window.location.href = '../../../index.php';
-        } else {
-          console.log('Error al cerrar sesión');
-        }
-      })
-      .catch(function(error) {
-        console.log('Error al cerrar sesión:', error);
-      });
-  }
-});
-
-</script>
 
 
 <script src="../../../js/previsualizarImagen.js"></script>
     <script src="../../../js/Interacciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/swiperAdmin.js"></script>
+    <script src="../cerrarSesionAdmin/cerrarSession.js"></script>
 
 </body>
 

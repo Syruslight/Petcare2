@@ -17,7 +17,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='veterinario.css'>
+    <link rel="stylesheet" href='components/navListVeterinario.css'>
     <link rel="stylesheet" href='../Veterinario/editarVeterinario/estiloModalVeterinario.css'>
+    <link rel="stylesheet" href='cerrarSesionVet/closeSessionVet.css'>
     <title>Pagina de Veterinario</title>
 </head>
 
@@ -208,6 +210,9 @@ echo '</div>'
                 <?php
                 include('components/footerVeterinario.php');
                 ?>
+                   <?php
+                include('cerrarSesionVet/closeSessionVet.php');
+                ?>
 
 
 <script>
@@ -252,6 +257,7 @@ function filtrarTablaPorEstado(estado) {
 
                 <script src="../../js/previsualizarImagen.js"></script>
                 <script src="../../js/Interacciones.js"></script>
+                <script src="cerrarSesionVet/closeSessionVet.js"></script>
 
 </body>
 

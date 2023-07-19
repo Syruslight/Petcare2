@@ -20,6 +20,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <link rel="stylesheet" href='../clienteIndex/cliente.css'>
     <link rel="stylesheet" href='petiPuntos.css'>
     <link rel="stylesheet" href='../components/navListCliente.css'>
+    <link rel="stylesheet" href="../cerrarSesionCliente/closeSessionClient.css">
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
@@ -37,6 +38,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         <div class="dash-information">
         <?php
             include('../components/headerCliente.php');
+            ?>
+                <?php
+            include('../cerrarSesionCliente/closeSessionClient.php');
             ?>
 
             <div class="wrapper-products">
@@ -137,6 +141,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <script src="../../../js/administrador/imagenPoup.js"></script>
     <script src="../../../js/administrador/filterCheckbox.js"></script>
     <script src="../../../js/administrador/modals-editService.js"></script>
+    <script src="../cerrarSesionCliente/closeSessionClient.js"></script>
 </body>
 
 </html>

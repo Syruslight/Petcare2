@@ -85,7 +85,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
                             <img src="https://img.icons8.com/ios/50/null/shutdown--v1.png" width="25" height="25" />
                             <form action="../../../llamadas/proceso_cerrar_sesion.php" method="POST">
-                                <button type="submit" class="list" name="">Cerrar sesión</button>
+                            <button type="button" class="list" name="" id="logoutBtn">Cerrar sesión</button>
                             </form>
                         </div>
                     </div>
