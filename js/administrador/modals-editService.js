@@ -133,3 +133,18 @@ function openModalEdithCategory() {
     modal_container.classList.remove("modalCategory--show");
   });
 }
+
+function openModalEdithPetiPunto() {
+  const open = document.getElementById("open-edithPetiPunto");
+  const modal_container = document.getElementById("modal-edithPetiPunto");
+  const close = document.getElementById("close1");
+  open.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal_container.classList.add("modalPetiPunto--show");
+  });
+
+  close.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal_container.classList.remove("modalPetiPunto--show");
+  });
+}

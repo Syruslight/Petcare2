@@ -1,7 +1,7 @@
 <?php
 function conectar()
 {
-    $conn = mysqli_connect("127.0.0.1", "root", "", "petcare");
+    $conn = mysqli_connect("localhost", "root", "", "petcare");
     return $conn;
 }
 

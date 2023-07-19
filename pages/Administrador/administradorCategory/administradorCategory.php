@@ -20,6 +20,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
     <link rel="stylesheet" href='../components/headerAdministrador.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
+    <link rel="stylesheet" href='../cerrarSesionAdmin/cerrarSession.css'>
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
@@ -127,7 +128,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
             include('../components/footerAdministrador.php');
             ?>
 
-
+<?php
+            include('../cerrarSesionAdmin/cerrarSessionAdm.php');
+            ?>
 
 
         </div>
@@ -265,6 +268,8 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="../../../js/administrador/modals-editService.js"></script>
     <script src="../../../js/administrador/toogleSwitchCategory.js"></script>
+
+    <script src="../cerrarSesionAdmin/cerrarSession.js"></script>
 </body>
 
 </html>

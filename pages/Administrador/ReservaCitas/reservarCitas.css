@@ -20,17 +20,35 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 550px;
 }
-
+.detalleBtn{
+    padding: 5px 10px;
+    border: none;
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    border-radius: 10px;
+    background-color: #E96397;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+}
 .tab {
     display: flex;
     margin-bottom: 10px;
+    margin-right: 560px;
 }
 
 .tablinks {
-    background-color: #f2f2f2;
     padding: 10px;
     cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #E96397;
+    color: white;
+    text-decoration: none;
 }
 
 .tablinks.active {

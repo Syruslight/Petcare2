@@ -18,6 +18,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         <link rel="stylesheet" href='../editarCliente/estiloModalEditarCliente.css'>
         <link rel="stylesheet" href='../clienteIndex/cliente.css'>
         <link rel="stylesheet" href='../components/navListCliente.css'>
+        <link rel="stylesheet" href="../cerrarSesionCliente/closeSessionClient.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
         <title>Pagina del cliente</title>
@@ -36,6 +37,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
             include('../components/headerCliente.php');
             ?>
             
+            <?php
+            include('../cerrarSesionCliente/closeSessionClient.php');
+            ?>
     <section class="container-main">
         <div>
             <h2 class="mb-3">Catalogo de productos</h2>
@@ -223,5 +227,6 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         crossorigin="anonymous"></script>
         <script src="https://kit.fontawesome.com/b9a2b0c154.js" crossorigin="anonymous"></script>
     <script src="../../../js/cliente/filtroProducto.js"></script>
+    <script src="../cerrarSesionCliente/closeSessionClient.js"></script>
 </body>
 </html>

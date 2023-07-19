@@ -1,0 +1,48 @@
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+  }
+  
+  .custom-modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px; 
+  }
+  
+  .custom-modal-body {
+    margin-bottom: 20px;
+  }
+  
+  .custom-modal-footer {
+    text-align: right;
+  }
+  
+  .btn {
+    padding: 8px 16px;
+    margin-left: 5px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  .btn-secondary {
+    background-color: #ccc;
+    color: #fff;
+  }

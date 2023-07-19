@@ -18,7 +18,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='../veterinario.css'>
     <link rel="stylesheet" href='../horario/horarioEstilo.css'>
+    <link rel="stylesheet" href='../components/navListVeterinario.css'>
     <link rel="stylesheet" href='../../Veterinario/editarVeterinario/estiloModalVeterinario.css'>
+    <link rel="stylesheet" href='../cerrarSesionVet/closeSessionVet.css'>
     <title>Pagina de Veterinario</title>
 </head>
 
@@ -195,6 +197,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             <?php
             include('../components/footerVeterinario.php');
             ?>
+             <?php
+            include('../cerrarSesionVet/closeSessionVet.php');
+            ?>
             <script>
                 // Obtener la tabla y el selector de estado
                 var tablaCitas = document.querySelector('.tablaHorario');
@@ -233,6 +238,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             <script src="../../../js/Interacciones.js"></script>
             <script src="../../js/previsualizarImagen.js"></script>
             <script src="../../js/Interacciones.js"></script>
+            <script src="../cerrarSesionVet/closeSessionVet.js"></script>
 
 </body>
 

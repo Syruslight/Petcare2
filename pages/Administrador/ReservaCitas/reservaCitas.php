@@ -20,6 +20,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href='../../Veterinario/veterinario.css'>
     <link rel="stylesheet" href='reservarCitas.css'>
+    <link rel="stylesheet" href='../components/navListAdministrador.css'>
+    <link rel="stylesheet" href='../cerrarSesionAdmin/cerrarSession.css'>
     <title>Pagina de Veterinario</title>
 </head>
 
@@ -33,6 +35,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             <?php include('../components/headerAdministrador.php'); ?>
 
             <?php
+            
             // Obtener los estados de las citas
             
 
@@ -309,6 +312,9 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
 
             <?php include('../components/footerAdministrador.php'); ?>
 
+            <?php
+            include('../cerrarSesionAdmin/cerrarSessionAdm.php');
+            ?> 
             <script>
                 function actualizarEstadoPago(selectElement) {
                     var nuevoEstado = selectElement.value;
@@ -400,6 +406,7 @@ $resultadoRealizado = mysqli_query($conn, $sentenciaRealizada);
 
             <script src="../../../js/previsualizarImagen.js"></script>
             <script src="../../../js/Interacciones.js"></script>
+            <script src="../cerrarSesionAdmin/cerrarSession.js"></script>
 
         </div>
 </body>

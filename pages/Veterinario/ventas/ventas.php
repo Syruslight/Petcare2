@@ -18,7 +18,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='../veterinario.css'>
     <link rel="stylesheet" href='../ventas/ventas-estilo.css'>
+    <link rel="stylesheet" href='../components/navListVeterinario.css'>
     <link rel="stylesheet" href='../../Veterinario/editarVeterinario/estiloModalVeterinario.css'>
+    <link rel="stylesheet" href='../cerrarSesionVet/closeSessionVet.css'>
     <title>Pagina de Veterinario</title>
 </head>
 
@@ -34,6 +36,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
         <div class="dash-information">
             <?php
             include('../components/headerVeterinario.php');
+            ?>
+              <?php
+            include('../cerrarSesionVet/closeSessionVet.php');
             ?>
 
 
@@ -129,6 +134,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             <script src="../../../js/Interacciones.js"></script>
             <script src="../../js/previsualizarImagen.js"></script>
             <script src="../../js/Interacciones.js"></script>
+            <script src="../cerrarSesionVet/closeSessionVet.js"></script>
 
 </body>
 

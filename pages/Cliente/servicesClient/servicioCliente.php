@@ -19,6 +19,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <link rel="stylesheet" href='servicioCliente.css'>
     <link rel="stylesheet" href='../components/navListCliente.css'>
     <link rel="stylesheet" href='../editAdministrador/editModalAdministrador.css'>
+    <link rel="stylesheet" href="../cerrarSesionCliente/closeSessionClient.css">
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
     <title>Pagina de administrador</title>
@@ -38,6 +39,9 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         <div class="dash-information">
             <?php
             include('../components/headerCliente.php');
+            ?>
+                 <?php
+            include('../cerrarSesionCliente/closeSessionClient.php');
             ?>
             <div class="title-service">
                 <h1>Catalogo de servicio </h1>
@@ -424,6 +428,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         </script>
 
         <script src="../../../js/reservarCItaMulti.js"></script>
+        <script src="../cerrarSesionCliente/closeSessionClient.js"></script>
 </body>
 
 </html>
