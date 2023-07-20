@@ -16,6 +16,7 @@ $conn = conectar();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href='veterinario.css'>
+    <link rel="stylesheet" href='components/navListVeterinario.css'>
     <link rel="stylesheet" href='../Veterinario/editarVeterinario/estiloModalVeterinario.css'>
     <title>Pagina de Veterinario</title>
 </head>
