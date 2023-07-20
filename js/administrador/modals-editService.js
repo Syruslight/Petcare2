@@ -134,6 +134,21 @@ function openModalEdithCategory() {
   });
 }
 
+function openModalCreatePetiPunto() {
+  const open = document.getElementById("open-createPetiPunto");
+  const modal_container = document.getElementById("modal-createPetiPunto");
+  const close = document.getElementById("close");
+  open.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal_container.classList.add("show");
+  });
+
+  close.addEventListener("click", (e) => {
+    e.preventDefault();
+    modal_container.classList.remove("show");
+  });
+}
+
 function openModalEdithPetiPunto() {
   const open = document.getElementById("open-edithPetiPunto");
   const modal_container = document.getElementById("modal-edithPetiPunto");

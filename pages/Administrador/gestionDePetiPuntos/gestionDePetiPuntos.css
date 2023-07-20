@@ -20,6 +20,21 @@
     margin-right: 180px;
     width: 407px;
 }
+.new-Recompensa{
+  margin-right: 50px;
+    width: 225px;
+    height: 44px;
+    background: #ffffff;
+    border: 3px solid #49c1b3;
+    border-radius: 30px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    text-align: center;
+    color: #49c1b3;
+}
 .wrapper-tablePetiPuntos{
     background: #ffffff;
 }
@@ -224,7 +239,20 @@
     width: 100vw;
     transition: opacity 0.3s ease;
   }
-  
+  .modal-createPetiPunto{
+    display: flex;
+    background: rgba(0, 0, 0, 0.7);
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    pointer-events: none;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s ease;
+  }
   .show {
     pointer-events: auto;
     opacity: 1;
@@ -328,6 +356,7 @@
     margin-top: 60px;
     height: 420px;
     width: 778px;
+    justify-content: center;
   }
   .photos-Modals {
     width: 330px;
@@ -382,6 +411,16 @@
     line-height: 21px;
     color: rgba(57, 57, 57, 0.78);
   }
+  .select-petiPuntos{
+    background: #ffffff;
+    border-width: 0px 2px 2px 0px;
+    border-style: solid;
+    border-color: #df2573;
+    width: 368px;
+    height: 51px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding-left: 20px;
+  }
   .text-nameProduct {
     background: #ffffff;
     border-width: 0px 2px 2px 0px;
@@ -404,7 +443,10 @@
   }
   .second-group {
     display: flex;
-    margin-top: 26px;
+    flex-direction: column;
+    gap: 11px;
+    align-items: baseline;
+    margin-top: 17px;
   }
   .group-selects {
     display: flex;
@@ -475,10 +517,29 @@
     color: rgba(255, 255, 255, 0.78);
     margin-top: 120px;
   }
+  .add-button1{
+    width: 363px;
+    height: 64px;
+    background: #30bcac;
+    border-radius: 15px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 21px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.78);
+    margin-left: 300px;
+  }
   .footer-circle {
     display: flex;
     flex-direction: column;
     margin-left: 860px;
+  }
+  .footer-circle1 {
+    display: flex;
+    flex-direction: column;
+    margin-left: 201px;
   }
   .footer-rigth {
     background: #30bcac;

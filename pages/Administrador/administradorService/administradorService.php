@@ -308,7 +308,7 @@ $conn = conectar();
                             </div>
                     </div>
                     <div class="footer-modals">
-                <button class="add-button">Actualizar</button>
+                        <button class="add-button">Actualizar</button>
                     <div class="footer-circle">
                         <div class="footer-rigth"></div>
                         <div class="footer-center"></div>

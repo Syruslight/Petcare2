@@ -46,6 +46,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
         <div class="subwreapper-petiPuntos">
             <div class="header-petiPuntos">
                 <h1 class="tittle-petiPuntos">Recompensas</h1>
+                <button id="open-createPetiPunto" onclick="openModalCreatePetiPunto()" class="new-Recompensa">Nueva Recompensa</button>
             </div>
             <div class="wrapper-tablePetiPuntos">
                 <div class="header-tablePeti">
@@ -120,10 +121,9 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 
     </div>
 
-
- <!-- Inicia el terrible modal de editar  producto -->
+ <!-- Inicia el terrible modal de editar  Recompensa -->
  <section>
-        <div id="modal-edithPetiPunto" class="modal-edithPetiPunto">
+ <div id="modal-edithPetiPunto" class="modal-edithPetiPunto">  
             <div class="modals">
                 <div>
                     <div class="frame frame-1"></div>
@@ -140,24 +140,6 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                     <div>
     <form action="../../../llamadas/proceso_actualizarDatosProductos.php" method="post" enctype="multipart/form-data">
         <div class="wrapper-bodyModals">
-            <div class="photos-Modals">
-                <div class="image-modals">
-                <input class="text-nameProduct" type="text" name="nombrefotoProducto_PE" id="nombrefotoProductoEnvio" hidden>
-                    <img id="productoEnvio" class="producto-image"> <!--Aqui se obtiene la url del producto para mostrar el guardado-->
-                    <input id="fotoProductoEd" type="file" name="fotoNuevaProducto" hidden >
-                </div>
-                <div class="update-photos">
-                <!--En el evento previsualizarImagen, el primer parametro es el nombre del id obtenido anteriormente-->
-                <label class="text-updatePhoto" for="fotoProductoEd" onclick="previsualizarImagen('productoEnvio', 'fotoProductoEd', '../../../imagenes/sinImagen.jpg')">Subir Foto
-                                 <lord-icon
-                                    src="https://cdn.lordicon.com/wfadduyp.json"
-                                    trigger="click"
-                                    colors="primary:#ffffff"
-                                    state="hover-1"
-                                    style="width:39px;height:39px">
-                                </lord-icon></label>                            
-                </div>
-            </div>
             <div class="formu-modals">
                 <div class="first-group">
                     <label class="label-reuse" for="">Nombre del producto:</label>
@@ -184,6 +166,78 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
 </div>
 
     </section>
+
+
+ <!-- Inicia el terrible modal de crear  Recompensa -->
+ <section>
+    <div id="modal-createPetiPunto" class="modal-createPetiPunto">
+            <div class="modals">
+                <div>
+                    <div class="frame frame-1"></div>
+                    <div class="wrapper-headerModals">
+                        <div class="only-circle">
+                            <div class="circle-rigth"></div>
+                            <div class="circle-center"></div>
+                            <div class="circle-left"></div>
+                        </div>
+                        <h1 class="title-newProduct">Crear Producto</h1>
+                        <lord-icon class="close" id="close" src="https://cdn.lordicon.com/nhfyhmlt.json" trigger="hover" colors="primary:#121331" state="hover-2" style="width:40px;height:40px">
+                        </lord-icon>
+                    </div>
+                    <div>
+    <form action="../../../llamadas/proceso_actualizarDatosProductos.php" method="post" enctype="multipart/form-data">
+        <div class="wrapper-bodyModals">
+            <div class="formu-modals">
+                <div class="first-group">
+                    <label class="label-reuse" for="">Tipo de Producto:</label>
+                    <div class="button-selectPetiType">
+                        <select class="select-petiPuntos">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="second-group">
+                <label class="label-reuse" for="">Categoría de Producto:</label>
+                    <div class="button-selectPetiCategory">
+                        <select class="select-petiPuntos">
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="thirds-group">
+                    <label class="label-reuse" for="">Nombre de Producto:</label>
+                    <div class="button-selectPetiName">
+                        <select class="select-petiPuntos" >
+                        <option selected>Open this select menu</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <div class="footer-modals">
+    <button class="add-button1">Agregar</button>
+        <div class="footer-circle1">
+            <div class="footer-rigth"></div>
+            <div class="footer-center"></div>
+            <div class="footer-left"></div>
+        </div>
+    </div>
+    <div class="frame frame-2"></div>
+</div>
+
+    </section>
+
 
 <script>
 const toggle = document.getElementById('toggle');
