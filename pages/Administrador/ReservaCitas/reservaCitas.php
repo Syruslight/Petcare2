@@ -174,9 +174,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
-                                    <th>Veterinario</th>
-                                    <th>Horario</th>
                                     <th>Cliente</th>
+                                    <th>Horario</th>
+                                    <th>Correo</th>
 
                                     <th>Pago</th>
                                 </tr>
@@ -216,15 +216,14 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>N°</th>
+                                <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
-
-                                    <th>Horario</th>
                                     <th>Cliente</th>
-                                    <th>correo</th>
+                                    <th>Horario</th>
+                                    <th>Correo</th>
 
-                                    <th>Estado Pago</th>
+                                    <th>Pago</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -261,14 +260,14 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>N°</th>
+                                <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
-                                    <th>Veterinario</th>
-                                    <th>Horario</th>
                                     <th>Cliente</th>
-                                    <th>Mascota</th>
-                                    <th>Estado Pago</th>
+                                    <th>Horario</th>
+                                    <th>Correo</th>
+
+                                    <th>Pago</th>
                                 </tr>
                             </thead>
                             <tbody>

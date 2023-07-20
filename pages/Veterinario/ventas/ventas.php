@@ -46,8 +46,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
 
             <script>
-                $(document).ready(function() {
-                    $('#busqueda').keyup(function() {
+                $(document).ready(function () {
+                    $('#busqueda').keyup(function () {
                         var query = $(this).val();
 
                         if (query !== '') {
@@ -57,7 +57,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 data: {
                                     query: query
                                 },
-                                success: function(response) {
+                                success: function (response) {
                                     if (response !== 'No se encontraron resultados.') {
                                         // Separar la respuesta en ID y Nombre de mascota
                                         var result = response.split(';');
@@ -94,21 +94,28 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     <label for="clienteDNI">Cliente DNI:</label>
                                     <input type="number_formato" name="busqueda" id="busqueda" required>
                                     <label for="precio">Precio:</label>
-                                    <input type="text" name="precioP" id="precio" readonly >
+                                    <input type="text" name="precioP" id="precio" readonly>
 
                                     <label for="cantidad">Cantidad:</label>
-                                    <input type="number" name="cantidadP" id="cantidad">
+                                    <input type="number" name="cantidadP" id="cantidad" oninput="calcularTotal()">
+
+                                    <label for="total">Total:</label>
+                                    <input type="text" name="totalP" id="total" readonly>
+
 
                                     <input type="text" name="idCliente" id="idMascota" placeholder="ID Cliente" hidden>
                                 </div>
                                 <div class="col-2-form">
                                     <label for="nombreCliente">Nombre del Cliente:</label>
-                                    <input type="text" name="nombreMascota" class="nomMascota" id="nombreMascota" placeholder="Mascota" disabled>
+                                    <input type="text" name="nombreMascota" class="nomMascota" id="nombreMascota"
+                                        placeholder="Mascota" disabled>
 
                                     <label for="productoTipo">Especie : </label>
 
                                     <div class="select-RaEs">
-                                        <select name="especie" id="especie" class="form-select me-3" style="width: 203px; height: 42px;" onchange="limpiarProductos();cargarCategoria()">
+                                        <select name="especie" id="especie" class="form-select me-3"
+                                            style="width: 203px; height: 42px;"
+                                            onchange="limpiarProductos();cargarCategoria()">
                                             <option selected>Selecciona Especie</option>
                                             <?php
                                             // Obtener los datos de la tabla de la base de datos
@@ -124,7 +131,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                         </select>
                                         <label for="categoria">Categoría del Producto:</label>
                                         <!-- Combo de categorias -->
-                                        <select name="raza" id="categoria" class="form-select" style="width: 203px; height: 42px; margin-right: 8px;" onchange="limpiarProductos();cargarProductos()">
+                                        <select name="raza" id="categoria" class="form-select"
+                                            style="width: 203px; height: 42px; margin-right: 8px;"
+                                            onchange="limpiarProductos();cargarProductos()">
                                             <option selected>Selecciona categoria</option>
                                         </select>
                                     </div>
@@ -136,7 +145,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
                                             // Crear una instancia de XMLHttpRequest
                                             var xhr = new XMLHttpRequest();
-                                            xhr.onreadystatechange = function() {
+                                            xhr.onreadystatechange = function () {
                                                 if (xhr.readyState === XMLHttpRequest.DONE) {
                                                     if (xhr.status === 200) {
                                                         // Convertir la respuesta JSON en un objeto JavaScript
@@ -147,7 +156,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                                         razaSelect.innerHTML = '<option selected>Seleccionar tipo de producto </option>';
 
                                                         // Generar las opciones del combo de categorías utilizando los datos obtenidos
-                                                        razas.forEach(function(raza) {
+                                                        razas.forEach(function (raza) {
                                                             var option = document.createElement('option');
                                                             option.value = raza.idtipoproductoservicio; // Asignar directamente el idtipoproductoservicio como valor
                                                             option.text = raza.nombre;
@@ -178,7 +187,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                             </div>
                             <div class="col-2-form text">
                                 <label for="productos">Nombre de Producto:</label>
-                                <select name="producto" id="producto" class="form-select" style="width: 203px; height: 42px; margin-right: 8px;" onchange="cargarPrecio()">
+                                <select name="producto" id="producto" class="form-select"
+                                    style="width: 203px; height: 42px; margin-right: 8px;" onchange="cargarPrecio()">
                                     <option selected>Selecciona categoria</option>
                                 </select>
                                 <!-- JavaScript -->
@@ -188,7 +198,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
                                         // Crear una instancia de XMLHttpRequest
                                         var xhr = new XMLHttpRequest();
-                                        xhr.onreadystatechange = function() {
+                                        xhr.onreadystatechange = function () {
                                             if (xhr.readyState === XMLHttpRequest.DONE) {
                                                 if (xhr.status === 200) {
                                                     // Convertir la respuesta JSON en un objeto JavaScript
@@ -199,7 +209,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                                     productoSelect.innerHTML = '<option selected>Seleccionar categoria de producto </option>';
 
                                                     // Generar las opciones del combo de productos utilizando los datos obtenidos
-                                                    productos.forEach(function(producto) {
+                                                    productos.forEach(function (producto) {
                                                         var option = document.createElement('option');
                                                         option.value = producto.idproductoservicio; // Asignar directamente el idproductoservicio como valor
                                                         option.text = producto.nombre;
@@ -231,7 +241,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
                                         // Crear una instancia de XMLHttpRequest
                                         var xhr = new XMLHttpRequest();
-                                        xhr.onreadystatechange = function() {
+                                        xhr.onreadystatechange = function () {
                                             if (xhr.readyState === XMLHttpRequest.DONE) {
                                                 if (xhr.status === 200) {
                                                     // Convertir la respuesta JSON en un objeto JavaScript
@@ -250,7 +260,19 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                         xhr.send();
                                     }
                                 </script>
+                                <script>
+                                    function calcularTotal() {
+                
+                                        var precio = parseFloat(document.getElementById("precio").value);
+                                        var cantidad = parseFloat(document.getElementById("cantidad").value);
 
+                                        if (!isNaN(precio) && !isNaN(cantidad)) {
+                                            var total = precio * cantidad;
+
+                                            document.getElementById("total").value = total.toFixed(2);
+                                        } 
+                                    }
+                                </script>
                             </div>
                             <div class="btn-form">
                                 <button type="submit" id="ventaButton">REGISTRAR</button>
