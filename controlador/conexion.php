@@ -26,31 +26,50 @@ function validarUsuario($email, $pass, $conn)
     return $fila;
 }
 
-//Función para obtener el idUsuario y mostrar sus datos personales posteriormente 
-function obteneridUsuario($email, $pass, $conn)
-{
+//Función para obtener el idUsuario y mostrar sus datos personales posteriormente --> proceso
+function obteneridUsuario($email, $pass, $conn) {
+    //consulta preparada
     $sql = "SELECT usuario.idusuario
-    FROM tipousuario INNER JOIN
-         usuario on tipousuario.idtipousuario= usuario.idtipousuario
-         where usuario.email LIKE '$email' AND usuario.pass LIKE '$pass'";
-    $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-    $fila = mysqli_fetch_row($res);
-    return $fila[0];
+            FROM tipousuario
+            INNER JOIN usuario ON tipousuario.idtipousuario = usuario.idtipousuario
+            WHERE usuario.email = ? AND usuario.pass = ?";
+
+    $stmt = mysqli_prepare($conn, $sql);
+    if (!$stmt) {
+        die(mysqli_error($conn)); // Manejo de errores
+    }
+
+    // Vincular parametros 
+    mysqli_stmt_bind_param($stmt, "ss", $email, $pass);
+    mysqli_stmt_execute($stmt);
+    $res = mysqli_stmt_get_result($stmt);
+
+    // Si hay resultados
+    if ($fila = mysqli_fetch_row($res)) {
+        return $fila[0];
+    } else {
+        return null; // No hubo usuario
+    }
+}
+// Funcion para verificar si ya existe el correo 
+function correoExistente($correo, $conn) {
+    $sql = "SELECT * FROM usuario WHERE email = ?";
+    $stmt = mysqli_prepare($conn, $sql);
+    if (!$stmt) {
+        die(mysqli_error($conn)); // Manejo de errores
+    }
+
+    mysqli_stmt_bind_param($stmt, "s", $correo);
+    mysqli_stmt_execute($stmt);
+    $result = mysqli_stmt_get_result($stmt);
+
+    if (mysqli_num_rows($result) > 0) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
-//Funcion para verificar si ya existe el correo 
-function correoExistente($correo, $conn) {
-    $sql = "SELECT * FROM usuario WHERE email = '$correo'";
-    $result = mysqli_query($conn, $sql);
-  
-    if (mysqli_num_rows($result) > 0) {
-      // El correo ya existe en la base de datos
-      return true;
-    } else {
-      // El correo no existe en la base de datos
-      return false;
-    }
-  }
 
   //Funcion para crear cuenta de veterinario
   function agregarCuentaVeterinario($correo, $pass, $conn) {
