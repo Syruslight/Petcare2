@@ -70,7 +70,11 @@ function correoExistente($correo, $conn) {
     }
 }
 
+function agregarVenta($idcliente,$idproductoservicio,$cantidad,$importe,$conn){
+    $sql = "insert into detalleventa(idproductoservicio,idcliente,cantidad,importe) values('$idproductoservicio','$idcliente','$cantidad','$importe')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
+}
   //Funcion para crear cuenta de veterinario
   function agregarCuentaVeterinario($correo, $pass, $conn) {
     if (correoExistente($correo, $conn)) {

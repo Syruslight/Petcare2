@@ -88,18 +88,18 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                 <div class="container-form">
                     <h2>Registro de compra para el cliente</h2>
                     <div class="data-form">
-                        <form action="">
+                        <form action="../../../llamadas/proceso_generarventa.php" method="post">
                             <div class="group-text">
                                 <div class="col-1-form">
                                     <label for="clienteDNI">Cliente DNI:</label>
                                     <input type="number_formato" name="busqueda" id="busqueda" required>
                                     <label for="precio">Precio:</label>
-                                    <input type="text" id="precio" disabled>
+                                    <input type="text" name="precioP" id="precio" readonly >
 
                                     <label for="cantidad">Cantidad:</label>
-                                    <input type="number" id="cantidad">
+                                    <input type="number" name="cantidadP" id="cantidad">
 
-                                    <input type="text" name="idCliente" id="idMascota" placeholder="ID Cliente">
+                                    <input type="text" name="idCliente" id="idMascota" placeholder="ID Cliente" hidden>
                                 </div>
                                 <div class="col-2-form">
                                     <label for="nombreCliente">Nombre del Cliente:</label>
