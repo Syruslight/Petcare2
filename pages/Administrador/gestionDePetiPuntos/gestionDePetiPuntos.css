@@ -353,8 +353,15 @@
   .wrapper-bodyModals {
     display: flex;
     margin-left: 78px;
-    margin-top: 60px;
-    height: 420px;
+    margin-top: 165px;
+    width: 778px;
+    justify-content: center;
+  }
+  .wrapper-bodyModals1 {
+    display: flex;
+    margin-left: 78px;
+    margin-top: 25px;
+    height: 455px;
     width: 778px;
     justify-content: center;
   }
@@ -395,6 +402,13 @@
     margin-left: 58px;
     width: 395px;
     flex-direction: column;
+
+  }
+  .formu-modals1 {
+    display: flex;
+    margin-left: 58px;
+    width: 395px;
+    flex-direction: column;
     margin-top: 50px;
   }
   .first-group {
@@ -420,6 +434,13 @@
     height: 51px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding-left: 20px;
+  }
+  .four-group{
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    align-items: baseline;
+    margin-top: 17px;
   }
   .text-nameProduct {
     background: #ffffff;
@@ -515,7 +536,7 @@
     line-height: 21px;
     text-align: center;
     color: rgba(255, 255, 255, 0.78);
-    margin-top: 120px;
+    margin-top: 50px;
   }
   .add-button1{
     width: 363px;

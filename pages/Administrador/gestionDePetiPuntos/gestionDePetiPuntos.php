@@ -180,14 +180,14 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <div class="circle-center"></div>
                             <div class="circle-left"></div>
                         </div>
-                        <h1 class="title-newProduct">Crear Producto</h1>
+                        <h1 class="title-newProduct">Crear Recompensa</h1>
                         <lord-icon class="close" id="close" src="https://cdn.lordicon.com/nhfyhmlt.json" trigger="hover" colors="primary:#121331" state="hover-2" style="width:40px;height:40px">
                         </lord-icon>
                     </div>
                     <div>
     <form action="../../../llamadas/proceso_actualizarDatosProductos.php" method="post" enctype="multipart/form-data">
-        <div class="wrapper-bodyModals">
-            <div class="formu-modals">
+        <div class="wrapper-bodyModals1">
+            <div class="formu-modals1">
                 <div class="first-group">
                     <label class="label-reuse" for="">Tipo de Producto:</label>
                     <div class="button-selectPetiType">
@@ -221,7 +221,10 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         </select>
                     </div>
                 </div>
-
+                <div class="four-group">
+                <label class="label-reuse" for="">Puntos:</label>
+                    <input class="text-namePoints" type="text" name="nombre_PE" id="nombreProductoEnvio" placeHolder="Cantidad de puntos" >
+                </div>
             </div>
         </div>
     </form>
