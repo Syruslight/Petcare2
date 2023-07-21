@@ -5,12 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
     <link rel="stylesheet" href="estilos.css">
     <link rel="stylesheet" href="Estilos_modal_L&R.css">
 
     <title>LandingPage</title>
+
 </head>
+
 <body>
     <header class="header" id="Inicio">
         <!-- <nav class="navbar navbar-light bg-dark">
@@ -28,7 +31,9 @@
                 </a>
                 <!-- Fin Logo -->
                 <!--NavBarDesplegable -->
-                <button class="navbar-toggler border" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler border" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -50,7 +55,8 @@
                         </li>
                     </ul>
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <button class="boton-modal" role="button" onclick="openmodalLogin()" type="submit">Iniciar Sesión</button>
+                        <button class="boton-modal" role="button" onclick="openmodalLogin()" type="submit">Iniciar
+                            Sesión</button>
                     </ul>
                 </div>
             </div>
@@ -89,7 +95,8 @@
             <div class="tittle">
                 <h1 class="mb-5 shad">Atención 24H</h1>
                 <p>Nuestra pasión es trabajar juntos para la salud y<br>
-                    el bienestar de tu mascota <i class="fa-sharp fa-solid fa-shield-heart fa-beat fa-lg" style="color: #ffffff;"></i><br></p>
+                    el bienestar de tu mascota <i class="fa-sharp fa-solid fa-shield-heart fa-beat fa-lg"
+                        style="color: #ffffff;"></i><br></p>
 
                 <button type="button" class="btn mt-2">Registrate</button>
             </div>
@@ -113,8 +120,12 @@
                         <p>Somos una veterinaria especializada en el cuidado estético de
                             animales, nosdedicamos a proporcionar servicios de alta calidad
                             para mejorar la apariencia y el bienestar de sus mascotas.
-                            Nos esforzamos por mantener un ambiente amigable y cómodo para nuestros pacientes, y estamos comprometidos en brindar un servicio personalizado para satisfacer las necesidades individuales de cada uno. </p>
-                        <p>Como parte de nuestro compromiso con nuestros clientes y sus mascotas, ofrecemos servicios de urgencias las 24 horas del día para garantizar la tranquilidad y seguridad de nuestros pacientes en caso de emergencia.</p>
+                            Nos esforzamos por mantener un ambiente amigable y cómodo para nuestros pacientes, y estamos
+                            comprometidos en brindar un servicio personalizado para satisfacer las necesidades
+                            individuales de cada uno. </p>
+                        <p>Como parte de nuestro compromiso con nuestros clientes y sus mascotas, ofrecemos servicios de
+                            urgencias las 24 horas del día para garantizar la tranquilidad y seguridad de nuestros
+                            pacientes en caso de emergencia.</p>
                     </div>
                     <!-- Fin Texto y Titulo -->
                 </div>
@@ -135,7 +146,8 @@
                 <!-- Items Servicio-->
                 <div class="row mt-4 justify-content-center">
                     <div class="col-12 col-md-6 col-lg-3 card ">
-                        <img src="Imagenes/mujer-corta-perro-perro-sentado-sofa-raza-yorkshire-terrier.jpg" alt="Baño y Corte">
+                        <img src="Imagenes/mujer-corta-perro-perro-sentado-sofa-raza-yorkshire-terrier.jpg"
+                            alt="Baño y Corte">
                         <h4 class="mt-4">Baño y Corte</h4>
                         <p>Baño y cuidado del pelaje de su mascota, incluyendo el corte y arreglo del mismo.</p>
                     </div>
@@ -147,17 +159,22 @@
                     <div class="col-12 col-md-6 col-lg-3 card">
                         <img src="Imagenes/lavar-perro-mascota-casa.jpg" alt="Enmotado">
                         <h4 class="mt-4">Baño Medicado</h4>
-                        <p>Proporcionar cuidado adicional para la piel y el pelaje de su mascota con prodcutos medicados específicos para el tipo de affeción de la piel de su mascota.</p>
+                        <p>Proporcionar cuidado adicional para la piel y el pelaje de su mascota con prodcutos medicados
+                            específicos para el tipo de affeción de la piel de su mascota.</p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 card">
-                        <img src="Imagenes/veterinario-cepillo-animales-mujer-camiseta-negra-gato-sofa.jpg" alt="Enmotado">
+                        <img src="Imagenes/veterinario-cepillo-animales-mujer-camiseta-negra-gato-sofa.jpg"
+                            alt="Enmotado">
                         <h4 class="mt-4">Enmotado</h4>
-                        <p>Proporcionar una experiencia personalizada y lujosa para la mascota, que incluye un enfoque relajado y cómodo para el cuidado estético</p>
+                        <p>Proporcionar una experiencia personalizada y lujosa para la mascota, que incluye un enfoque
+                            relajado y cómodo para el cuidado estético</p>
                     </div>
                     <div class="col-12 col-md-6 col-lg-3 card">
-                        <img src="Imagenes/perro-negro-grande-obteniendo-procedimiento-salon-peluqueria-mujer-joven-camiseta-blanca-peinando-perro-perro-atado-mesa-azul.jpg" alt="Enmotado">
+                        <img src="Imagenes/perro-negro-grande-obteniendo-procedimiento-salon-peluqueria-mujer-joven-camiseta-blanca-peinando-perro-perro-atado-mesa-azul.jpg"
+                            alt="Enmotado">
                         <h4 class="mt-4">Deslanado</h4>
-                        <p>Eliminar la capa inferior de pelo muerto que a menudo queda atrapada en el pelaje de la mascota, lo que puede llevar a problemas de enredos</p>
+                        <p>Eliminar la capa inferior de pelo muerto que a menudo queda atrapada en el pelaje de la
+                            mascota, lo que puede llevar a problemas de enredos</p>
                     </div>
                 </div>
                 <!-- Fin Items Servicio-->
@@ -187,7 +204,10 @@
                     <div class="content">
                         <img src="Imagenes/ComidaIcono.png" alt="">
                         <h3>Comida</h3>
-                        <p>Proporcionamos a nuestros clientes una amplia variedad de opciones de alimentos para mascotas de alta calidad, saludables y nutritivas. Como profesionales trabajamos en conjunto con nuestros clientes para entender las necesidades nutricionales específicas de la mascota y recomendar productos que satisfagan sus necesidades.</p>
+                        <p>Proporcionamos a nuestros clientes una amplia variedad de opciones de alimentos para mascotas
+                            de alta calidad, saludables y nutritivas. Como profesionales trabajamos en conjunto con
+                            nuestros clientes para entender las necesidades nutricionales específicas de la mascota y
+                            recomendar productos que satisfagan sus necesidades.</p>
                     </div>
                 </div>
                 <!-- FIN Card #1 -->
@@ -197,7 +217,9 @@
                     <div class="content">
                         <img src="Imagenes/JugueteIcono.png" alt="">
                         <h3>Juguetes</h3>
-                        <p>Proporcionamos una amplia variedad de juguetes de alta calidad para sus mascotas. Estos juguetes están diseñados específicamente para satisfacer las necesidades de juego y entretenimiento de las mascotas, ayudando a mejorar su salud y bienestar general.</p>
+                        <p>Proporcionamos una amplia variedad de juguetes de alta calidad para sus mascotas. Estos
+                            juguetes están diseñados específicamente para satisfacer las necesidades de juego y
+                            entretenimiento de las mascotas, ayudando a mejorar su salud y bienestar general.</p>
                     </div>
                 </div>
                 <!-- FIN Card #2 -->
@@ -222,7 +244,8 @@
                         <b>
                             <h2 class="texto-h2">Iniciar sesión</h2>
                         </b>
-                        <p class="textoparrafo">Entérate de las novedades que tenemos en Pet&Care para tí y tus mascotas</p>
+                        <p class="textoparrafo">Entérate de las novedades que tenemos en Pet&Care para tí y tus mascotas
+                        </p>
                         <div class="input-group">
                             <input class="estilo-separado" type="text" name="email" required>
 
@@ -248,7 +271,8 @@
                         <b>
                             <h2 class="texto-h2">Registrar datos</h2>
                         </b>
-                        <p class="textoparrafo">Únete a la familia de Pet&Care para conocer todos los beneficios que tenemos</p>
+                        <p class="textoparrafo">Únete a la familia de Pet&Care para conocer todos los beneficios que
+                            tenemos</p>
                         <div class="input-group">
                             <input class="estilo-separado" type="text" name="email" required>
 
@@ -260,12 +284,13 @@
                             <label for=""><i class="fa-solid fa-lock icono-reg"></i> Contraseña</label>
                         </div>
                         <div class="terminos">
-                            <label for=""><input type="checkbox"> Estoy de acuerdo con los terminos & condiciones</label>
+                            <label for=""><input type="checkbox" required> Estoy de acuerdo con los <a href="#"
+                                    id="terminosLink">Términos y Condiciones</a></label>
                         </div>
                         <!-- Llamada por a la vista login por si tiene cuenta -->
                         <button class="btnregistro">REGISTRAR</button>
                         <div class="link">
-                            <p>¿Ya tienes cuenta? <a class="btnregistrolink" href="#">Iniciar sesión</a></p>
+                            <p>¿Ya tienes cuenta? <a class="btnregistrolink" href="#">Iniciar Sesión</a></p>
                         </div>
                     </form>
                 </div>
@@ -279,7 +304,8 @@
         <div class="container text-center mt-3">
             <div class="row">
                 <!-- Logo -->
-                <a href="#" class="col-md-3 col-lg-3 col-xl-3 mx-auto text-reset text-uppercase d-flex align-items-center mb-4">
+                <a href="#"
+                    class="col-md-3 col-lg-3 col-xl-3 mx-auto text-reset text-uppercase d-flex align-items-center mb-4">
                     <img src="Imagenes/PHlogo.png" alt="logo" class="logo">
                 </a>
                 <!-- Fin Logo -->
@@ -322,11 +348,71 @@
                 </div>
             </div>
         </div>
+        <div class="custom-modal" id="terminosModal">
+            <div class="custom-modal-content">
+                <span class="custom-close">&times;</span>
+                <h2>Términos y Condiciones de la Veterinaria</h2>
+                <div class="custom-scrollable-content">
+
+                    <p><strong>Términos y Condiciones de Pet&Care</strong></p>
+                    <p>Bienvenido a Pet&Care, una veterinaria comprometida con el cuidado y bienestar de tus mascotas. A
+                        continuación, detallamos los términos y condiciones que rigen el uso de nuestros servicios:</p>
+                    <p><strong>Responsabilidad y Cuidado:</strong> En Pet&Care nos comprometemos a proporcionar
+                        servicios de atención médica y cuidado de mascotas con el mayor grado de profesionalismo y
+                        dedicación. Nuestro equipo de médicos y personal capacitado trabajará para garantizar la salud y
+                        seguridad de todas las mascotas que atendemos.</p>
+                    <p><strong>Citas y Horarios:</strong> Para brindar un servicio óptimo, recomendamos programar citas
+                        con anticipación. Los horarios de atención serán establecidos y comunicados por la veterinaria
+                        para la comodidad de nuestros clientes.</p>
+                    <p><strong>Información del Propietario:</strong> Al utilizar nuestros servicios, es responsabilidad
+                        del propietario proporcionar información precisa y actualizada sobre la mascota, incluyendo
+                        historial médico, alergias y cualquier otra información relevante.</p>
+                    <p><strong>Consentimiento Informado:</strong> Antes de realizar cualquier procedimiento médico o
+                        tratamiento, obtendremos el consentimiento informado del propietario de la mascota, explicando
+                        los detalles del procedimiento y los posibles riesgos asociados.</p>
+                    <p><strong>Pago de Servicios:</strong> Los servicios prestados por Pet&Care deberán ser pagados en
+                        el momento de la prestación del servicio, a menos que se haya acordado previamente un plan de
+                        pago alternativo con la veterinaria.</p>
+                    <p><strong>Cancelación de Citas:</strong> Si necesitas cancelar una cita, te pedimos que nos avises
+                        con la mayor antelación posible. De esta manera, podremos programar a otros pacientes que
+                        necesiten atención médica.</p>
+                    <p><strong>Comportamiento de las Mascotas:</strong> Para garantizar un ambiente seguro para todos
+                        nuestros clientes, las mascotas deben estar bajo control y supervisión adecuada de sus
+                        propietarios en todo momento dentro de las instalaciones de Pet&Care.</p>
+                    <p><strong>Privacidad y Datos Personales:</strong> Respetamos la privacidad de nuestros clientes y
+                        sus mascotas. Toda la información proporcionada a Pet&Care será tratada de acuerdo con nuestra
+                        política de privacidad.</p>
+                    <p><strong>Responsabilidad Legal:</strong> A pesar de nuestros mejores esfuerzos para brindar
+                        atención de calidad, Pet&Care no se hace responsable por circunstancias fuera de nuestro control
+                        que puedan afectar la salud de las mascotas.</p>
+                    <p><strong>Modificaciones en los Términos y Condiciones:</strong> Pet&Care se reserva el derecho de
+                        realizar cambios en estos términos y condiciones en cualquier momento. Los cambios serán
+                        publicados en nuestro sitio web y entrarán en vigencia a partir de su publicación.</p>
+                    <p>Al hacer uso de los servicios de Pet&Care, aceptas y te comprometes a cumplir con estos términos
+                        y condiciones. Si tienes alguna pregunta o inquietud, no dudes en comunicarte con nosotros.</p>
+                    <p>Gracias por confiar en Pet&Care para el cuidado de tus queridas mascotas.</p>
+
+                </div>
+            </div>
+        </div>
     </footer>
 
+    <script>
+        // JavaScript
+        document.getElementById("terminosLink").addEventListener("click", function () {
+            document.getElementById("terminosModal").style.display = "block";
+        });
+
+        document.getElementsByClassName("custom-close")[0].addEventListener("click", function () {
+            document.getElementById("terminosModal").style.display = "none";
+        });
+
+    </script>
     <script src="js/Registro_Login_int.js"></script>
     <script src="js/Interacciones.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/b9a2b0c154.js" crossorigin="anonymous"></script>
 </body>
 
