@@ -1,0 +1,227 @@
+.subwreapper-petiPuntos{
+    width: 1075px;
+    margin-left: 43px;
+    display: flex;
+    gap: 53px;
+    justify-content: center;
+    flex-direction: column;
+}
+.header-petiPuntos{
+    display: flex;
+    align-items: center;
+}
+.tittle-petiPuntos{
+    margin: 0;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 21px;
+    margin-right: 180px;
+    width: 407px;
+}
+.new-Recompensa{
+  margin-right: 50px;
+    width: 225px;
+    height: 44px;
+    background: #ffffff;
+    border: 3px solid #49c1b3;
+    border-radius: 30px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    text-align: center;
+    color: #49c1b3;
+}
+.wrapper-tablePetiPuntos{
+    background: #ffffff;
+}
+.header-tablePeti{
+    display: flex;
+    background: rgba(73, 193, 179, 0.71);
+    height: 66px;
+    align-items: center;
+}
+.search-petiPunto{
+    margin-right: 400px;
+}
+.searching{
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 21px;
+    color: #ffffff;
+    margin-left: 48px;
+}
+.input-searching{
+    width: 410px;
+    height: 32px;
+    border-radius: 30px;
+    padding-left: 15px;
+
+}
+/* .wrapper-onlyTablePeti{
+
+} */
+.tittle-tablePeti{
+    display: flex;
+    margin-top: 11px;
+    flex-direction: column;
+    border-bottom: 2px solid black;
+}
+.row-tablePeti{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.tittle-textProductPeti{
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+    margin-right: 58px;
+}
+.tittle-textPointPeti{
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+    /* margin-right: 58px; */
+}
+.tittle-textPricePeti{
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+    margin-right: 58px;
+}
+.tittle-textActionPeti{
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+    margin-right: 58px;
+}
+.wrapper-tablePeti{
+    overflow-y: scroll;
+    height: 580px;
+}
+.result-itemtPeti{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 20px 0px 30px 0px;
+    border-bottom: 2px solid black;
+    height: 65px;
+    
+}
+.image-petiProduct{
+    margin-left: 65px;
+    margin-right: 10px;
+}
+.result-infoPeti{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 70px;
+}
+.table-nameFoodPeti{
+    width: 170px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 21px;
+    color: rgba(156, 156, 156, 0.78);
+}
+.table-pointsPeti{
+    width: 130px;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 21px;
+    color: rgba(156, 156, 156, 0.78);
+    margin-left: 75px;
+}
+.toogleBtn-petiPuntos{
+    display: flex;
+    align-items: center;
+    width: 150px;
+    margin-left: 140px;
+}
+.modal-imagenPeti{
+    margin-left: 155px;
+}
+/* Terrible tooglen buton */
+.toggle-btn {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  .toggle-btn input {
+    display: none;
+  }
+  
+  .slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+    cursor: pointer;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px);
+  }
+  
+  input:disabled + .slider {
+    background-color: #e5e5e5;
+    cursor: not-allowed;
+  }
+  
+  input:disabled + .slider:before {
+    background-color: #ccc;
+  }
+  
+  #estado {
+    display: inline-block;
+    margin-left: 10px;
+  }
