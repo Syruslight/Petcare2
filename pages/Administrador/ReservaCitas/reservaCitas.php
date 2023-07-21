@@ -315,11 +315,34 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             <?php
             include('../cerrarSesionAdmin/cerrarSessionAdm.php');
             ?>
-            <script>
-                function actualizarEstadoPago(selectElement) {
+     <script>
+    function enviarCorreoAJAX(correo,nombre) {
+        // Ejemplo de solicitud AJAX usando jQuery para enviar el correo
+        $.ajax({
+            url: 'enviarcorreo.php',
+            method: 'POST',
+            data: {
+                correo: correo,
+                nombre: nombre
+            },
+            success: function (response) {
+                if (response === 'success') {
+                    alert('El correo se ha enviado exitosamente a ' + correo);
+                } else {
+                    alert('Error al enviar el correo a ' + correo);
+                }
+            },
+            error: function () {
+                alert('Error en la solicitud AJAX para enviar el correo');
+            }
+        });
+    }
+
+    function actualizarEstadoPago(selectElement) {
                     var nuevoEstado = selectElement.value;
                     var idCita = selectElement.parentNode.parentNode.firstChild.innerText;
                     var correo = selectElement.parentNode.parentNode.querySelector('td:nth-child(6)').innerText; // Obtener el correo
+                    var nombre = selectElement.parentNode.parentNode.querySelector('td:nth-child(5)').innerText; // Obtener el nombre
 
                     if (confirm("¿Está seguro de cambiar el estado de pago de la cita?")) {
                         // Aquí puedes enviar una solicitud AJAX para actualizar el estado en la base de datos
@@ -335,16 +358,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                             },
                             success: function (response) {
                                 if (response === 'success') {
-                                    $.ajax({
-            url: 'enviarcorreo.php', // Ruta al archivo que envía el correo
-            method: 'POST',
-            data: {
-                correo: correo // Enviar el correo como parámetro al archivo
-            },});
-                                   
+                                    location.reload(); // Recargar la página después de la actualización exitosa
                                     if (nuevoEstado === '1') {
-                                        alert('El correo se ha enviado exitosamente a ' + correo);
-                                        
+                                        enviarCorreoAJAX(correo, nombre);
                                     } else if (nuevoEstado === '2') {
                                         alert('No se envió el correo a ' + correo);
                                     } else {

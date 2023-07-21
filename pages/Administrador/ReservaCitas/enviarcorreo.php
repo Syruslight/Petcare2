@@ -8,27 +8,25 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// obtener el correo del formulario AJAX
+// obtener el correo y el nombre del formulario AJAX
 $correo = $_POST['correo'];
-echo $correo;
-
-
+$nombre = $_POST['nombre'];
 
 $tuCorreo = 'anon.utp@gmail.com';  // Reemplaza con tu dirección de correo
 $tuPassword = 'ltbahbhvxcpbctzw';
 $mail = new PHPMailer();
 $mail->isSMTP();
-$mail->Host = 'servidor_smtp'; // Reemplaza con la dirección del servidor SMTP
+$mail->Host = 'smtp.gmail.com'; // Reemplaza con la dirección del servidor SMTP
 $mail->SMTPAuth = true;
 $mail->Username = $tuCorreo;
 $mail->Password = $tuPassword;
 $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
 $mail->Port = 587;
 
-$mail->setFrom($tuCorreo, 'Tu Nombre');
+$mail->setFrom($tuCorreo, 'Hola cliente');
 $mail->addAddress($correo);
-$mail->Subject = 'Asunto del correo';
-$mail->Body = 'Contenido del correo...';
+$mail->Subject = 'Reserva de cita - PetCare';
+$mail->Body = 'Estimado ' . $nombre . ', tu pago ha sido confirmado.';
 
 if ($mail->send()) {
     echo 'Correo enviado correctamente';
