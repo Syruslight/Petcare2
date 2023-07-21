@@ -48,63 +48,294 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                     <div class="header-products">
                         <h1 class="tittle-products">Recompensas</h1>
                     </div>
-                    <div class="wrapper-tableProducts">
-                        <div class="header-table">
-                            <div class="search-product">
-                                <span class="search">Buscar:</span>
-                                <input class="input-search" type="search" name="busqueadaDNI" placeholder="" id="busqueda">
-                            </div>
+            
+                </div>
+                <div class="header-petiPuntos">
+                    <div class="first-petiPuntos"> 
+                        <div class="wrapper-promoPeti">
+                            <span class="text-petiPuntos">
+                                LA COMIDA FAVORITA DE TU PERRO A SOLO A  UNOS PUNTOS DE DISTANCIA
+                            </span>
+                            <img class="image-petiPuntitos"src="/imagenes/perfilCliente/Promoootion.png" alt="promocion">
+                            <button class="button-petiPuntoss">Ver mas...</button>
                         </div>
-                        <div id="item-list" class="wrapper-onlyTable">
-                            <div class="tittle-table">
-                                <div class="row-table">
-
-                                    <span class="tittle-textProduct">Producto</span>
-                                    <span class="tittle-textDescription">Descripción</span>
-                                    <span class="tittle-textType">Puntos</span>
-                                    <span class="tittle-textAction">Accion</span>
-                                </div>
-                                <hr class="linea">
+                        <img class="image-promoPetii" src="/imagenes/perfilCliente/promoImage.png" alt="Promo">
+                    </div>
+                    <div class="second-petiPuntos">
+                        <div class="tittle-seconPeti">
+                            <h1 class="tittle-myPuntos">MIS PUNTOS</h1>
+                        </div>
+                        <div class="wrapper-myPetiPuntos">
+                            <img class="image-forPetiPig" src="/imagenes/perfilCliente/CHANCHITO1.png" alt="">
+                            <div class="puntos-usados">
+                                <span class="text-puntosUsados">Pts. Usados</span>
+                                <span class="puntaje-usadosPeti">85</span>
                             </div>
-                            <div id="resultados" class="wrapper-table">
-                                    <div class="result-item">
-                                        <img class="image-product" src="../../../imagenes/productos_servicios/productos/20253612.webp" width="60" height="60">
-                                        <div class="result-info">
-                                        <span class="table-nameFood">Comida de Perro 15kg </span>
-                                        <span class="table-description">XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXX</span>
-                                        <span class="item table-type">0 pts.</span>
-                                        </div>
-                                        <a class="button" href="#popup1">
-                                        <button>CANJEAR</button>
-                                    </a>
-                                    </div>
-                                    <hr class="linea">
-
-
-
-                                <div class="result-item">
-                                    <img class="image-product" src="../../../imagenes/productos_servicios/productos/20253612.webp" width="60" height="60">
-                                    <div class="result-info">
-                                    <span class="table-nameFood">Comida de Perro 15kg </span>
-                                    <span class="table-description">XXXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXX</span>
-                                    <span class="item table-type">100 pts.</span>
-                                    </div>
-                                    <a class="button" href="#popup1">
-                                        <button>CANJEAR</button>
-                                    </a>
-                                </div>
-                                <hr class="linea">
-
+                            <div class="puntos-acumulados">
+                                <span class="text-acumulados">Pts. Acumulados</span>
+                                <span class="puntaje-acumuladosPeti">145</span>
+                            </div>
+                            <div class="puntos-generados">
+                                <span class="text-generados">Cupones Generados</span>
+                                <span class="puntaje-generadosPeti">03</span>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="title-productPeti">
+                        <h1 class="tittle-Productoss">
+                            Productos
+                        </h1>
+                </div>
+                <div class="wrapper-drawer">
+                    <!-- Inicia el terrible swiper  -->
+
+                    <div class="swiper">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Inicia contenedor de swiper -->
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                   <!-- Chris ctmr desde aca pa abajo borras  -->
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <!-- Finaliza contenedor de swiper -->
+
+                            </div>
+
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                    </div> <!-- Finish Swiper -->
+
+                </div>
+                <div class="title-productPeti">
+                        <h1 class="tittle-Productoss">
+                            Servicios
+                        </h1>
+                </div>
+                <div class="wrapper-drawer">
+                    <!-- Inicia el terrible swiper  -->
+
+                    <div class="swiper">
+                            <div class="swiper-wrapper">
+                                
+                                <!-- Inicia contenedor de swiper -->
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                   <!-- Chris ctmr desde aca pa abajo borras  -->
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="swiper-slide">
+                                    <div class="cardpet-sup">
+                                        <div class="cardpet">
+                                            <div class="wrapper-imgButt">
+                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
+                                                <a class="button" href="#popup1">
+                                                <div class="buton-canjear">
+                                                    <span class="canjear-peti">Canjear</span>
+                                                </div>
+                                                </a>
+                                            </div>
+                                            <span class="text-canjePeti"> Pelota Antiestres</span>
+                                            <span class="text-canjePeti">32 pts</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            <!-- Finaliza contenedor de swiper -->
+
+                            </div>
+
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
+                    </div> <!-- Finish Swiper -->
+
+                </div>
+
+                
             </div>
 
 <!-- El POPUP para canjear -->
     <div id="popup1" class="overlay">
         <div class="popup">
-            <h2>Código canjeado exitosamente.!</h2>
+            <h2>Código canjeado exitosamente.</h2>
             <a class="close" href="#">✖</a>
             <div class="content">
             <input type="text" id="nombreCliente" disabled>

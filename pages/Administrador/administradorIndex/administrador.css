@@ -54,6 +54,7 @@
   line-height: 21px;
 }
 
+/* Aca inicia el swiper */
 .swiper {
   width: 1060px !important;
   margin-top: 13px;
@@ -91,35 +92,7 @@
   align-items: center;
   margin-left: 30px;
 }
-.semicrud-pet {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 15px;
-  flex-direction: column;
-  margin-left: 30px;
-}
-.cardpet-inf {
-  display: flex;
-  flex-direction: column;
-  margin-top: 10px;
-}
-.subtitle-sales {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 22px;
-  color: #8e8e8e;
-}
-.sales {
-  font-family: "Montserrat";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  color: #000000;
-}
+
 /* .swiper-slide img {
   display: block;
   object-fit: cover;
@@ -128,6 +101,9 @@
 .swiper-button-prev {
   color: #ffffff;
 }
+
+/* aca terminar el swiper */
+
 .wrapper-myclients {
   margin-right: 50px;
   margin-left: 50px;

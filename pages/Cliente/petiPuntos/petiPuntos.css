@@ -1,9 +1,9 @@
 /* Aca comienza el La lista de productos*/
 .wrapper-products {
     display: flex;
-    justify-content: center;
     width: 100%;
     height: 100%;
+    flex-direction: column;
   }
   .subwrapper-products {
     width: 1075px;
@@ -11,86 +11,300 @@
   }
   .header-products {
     margin-bottom: 35px;
+    margin-left: 57px;
   }
   .tittle-products {
     margin: 0;
-    font-family: "Poppins";
+    color: #212121;
+    font-family: Poppins;
+    font-size: 30px;
     font-style: normal;
     font-weight: 500;
-    font-size: 40px;
     line-height: 21px;
-    margin-right: 180px;
     width: 407px;
   }
-  .wrapper-tableProducts {
-    background: #ffffff;
-  }
-  .add-newProduct {
-    margin-right: 50px;
-    width: 225px;
-    height: 44px;
-    background: #ffffff;
-    border: 3px solid #49c1b3;
-    border-radius: 30px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 21px;
-    text-align: center;
-    color: #49c1b3;
-  }
-  .add-newCategory {
-    border: none;
-    width: 225px;
-    height: 44px;
-    background: #75cac0;
-    border-radius: 30px;
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 21px;
-    text-align: center;
-    color: #ffffff;
-  }
-  
-  .header-table {
-    display: flex;
-    background: rgba(73, 193, 179, 0.71);
-    height: 66px;
-    align-items: center;
-  }
-  .search {
-    font-family: "Poppins";
-    font-style: normal;
-    font-weight: 500;
+ .header-petiPuntos{
+  display: flex;
+ }
+ .first-petiPuntos{
+  display: flex;
+  /* flex-direction: column; */
+  width: 704px;
+  height: 312px;
+  margin-left: 57px;
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+ }
+ .text-petiPuntos{
+  width: 290px;
+    height: 77px;
+    color: #065350;
+    font-family: Acme;
     font-size: 22px;
-    line-height: 21px;
-    color: #ffffff;
-    margin-left: 48px;
-  }
-  /* terrible combo */
-  .input-search {
-    width: 410px;
-    height: 34px;
-    border-radius: 14px;
-    margin-left: 10px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.352px;
+    margin-top: 30px;
+    margin-left: 20px;
+ }
+ .wrapper-promoPeti{
+  display: flex;
+    flex-direction: column;
+ }
+ .image-petiPuntitos{
+  width: 280px;
+ }
+ .button-petiPuntoss{
+  width: 148.152px;
+    height: 29.509px;
+    flex-shrink: 0;
+    color: #FFF;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.21px;
+    border-radius: 3px;
+    background: #4284C4;
+    margin-top: 10px;
+    margin-left: 70px;
     border: none;
-    font-size: 18px;
-    text-indent: 5px;
-  }
-  .input-search:focus{
-    outline: none;
-  }
-  .image-container {
+ }
+ .image-promoPetii{
+  height: 270px;
+    margin-top: 40px;
+ }
+.second-petiPuntos{
+  flex-direction: column;
+  width: 306px;
+  display: flex;
+  height: 312px;
+  margin-left: 50px;
+}
+.tittle-seconPeti{
+  background: rgba(42, 157, 143, 0.88);
+  width: 306px;
+  height: 59px;
+  display: flex;
+}
+.tittle-myPuntos{
+  margin: 20px 25px;
+  color: #FFF;
+  font-family: Poppins;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 21px;
+}
+.wrapper-myPetiPuntos{
+  border-radius: 15px;
+  background: #FFF;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  height: 253px;
+}
+.image-forPetiPig{
+  height: 150px;
+  margin-left: 30px;
+}
+.puntos-usados{
+  width: 90px;
+    border-radius: 50%;
+    background: rgba(254, 233, 130, 0.99);
+    position: absolute;
+    height: 90px;
+    bottom: 580px;
+    margin-left: 190px;
+    display: flex;
+    flex-direction: column;
+}
+.text-puntosUsados{
+      display: flex;
+    color: #000;
+    text-align: center;
+    font-family: Acme;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: 0.192px;
+}
+.puntaje-usadosPeti{
+  color: #CA2889;
+    text-align: center;
+    font-family: Acme;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.512px;
+}
+.puntos-acumulados{
+  width: 114px;
+    height: 101px;
+    background: #76E9DB;
+    border-radius: 50%;
+    bottom: 500px;
+    margin-left: 130px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    font-weight: 400;
+}
+.text-acumulados{
+  color: #000;
+    text-align: center;
+    font-family: Acme;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: 0.192px;
+}
+.puntaje-acumuladosPeti{
+  font-family: Acme;
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.72px;
+    color: #CA4528;
+    text-align: center;
+}
+.puntos-generados{
+  background: #FCC0D9;
+    border-radius: 50%;
+    bottom: 520px;
+    margin-left: 55px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 85px;
+    height: 75px;
+}
+.text-generados{
+  color: #000;
+    text-align: center;
+    font-family: Acme;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: bold;
+    line-height: normal;
+    letter-spacing: 0.192px;
+    margin-top: 5px;
+}
+.puntaje-generadosPeti{
+  color: #1C3F84;
+    text-align: center;
+    font-family: Acme;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.576px;
+}
+.title-productPeti{
+  margin-left: 58px;
+  margin-top: 30px;
+}
+.tittle-Productoss{
+  margin: 0;
+  color: #0A5148;
+  font-family: Acme;
+  font-size: 23px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.368px;
+}
+.wrapper-drawer{
+  border-radius: 19px;
+    background: rgba(255, 255, 255, 0.85);
+    box-shadow: 0px 8px 4px 0px rgba(0, 0, 0, 0.25);
+    width: 1034px;
+    height: 183px;
+    margin-left: 58px;
+}
+
+/* Aca inicia el swiper */
+.swiper {
+  width: 1060px !important;
+  margin-top: 7px;
+}
+.swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  display: flex;
+}
+.swiper-slide {
+  white-space: nowrap;
+  text-align: center;
+  display: flex !important;
+  align-items: center;
+  margin-right: 0 !important;
+  flex-direction: column;
+  width: 355.667px;
+  height: 165px !important;
+  justify-content: center;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.cardpet-sup {
+  display: flex;
+  width: 165px;
+}
+.cardpet {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30px;
+}
+.image-swiper{
+  width: 161px !important;
+    height: 117px !important;
+}
+/* .swiper-slide img {
+  display: block;
+  object-fit: cover;
+} */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #ffffff;
+}
+.buton-canjear{
+  display: flex;
     position: relative;
-    display: inline-block;
-  }
-  
+    border-radius: 3px;
+    background: rgba(42, 157, 143, 0.79);
+    bottom: 23px;
+    width: 151px;
+    justify-content: center;
+    margin-left: 5px;
+}
+.wrapper-imgButt{
+  width: 161px !important;
+    height: 117px !important;
+}
+.text-canjePeti{
+  color: #000;
+text-align: center;
+font-family: Poppins;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+}
+/* aca terminar el swiper */
 
 
-  /* Aca termina el terrible combo */
   /* POP UP */
   .overlay {
     position: fixed;
@@ -102,10 +316,12 @@
     transition: opacity 500ms;
     visibility: hidden;
     opacity: 0;
+
   }
   .overlay:target {
     visibility: visible;
     opacity: 1;
+    z-index: 2;
   }
   
   .popup {
