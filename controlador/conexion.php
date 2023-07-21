@@ -483,14 +483,29 @@ function listarServicios($conn) {
 }
 
 //Funcion para crear servicios 
-function agregarServicios($idTipoProductoServicio,$fotProducto,$nombre,$descripcion,$precio,$conn){
-    $sql = "insert into productoservicio(idtipoproductoservicio,fotoProductoServicio,nombre,descripcion,precio,estado) values ('$idTipoProductoServicio,'$fotProducto','$nombre','$descripcion','$precio',1)";
-    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+function agregarServicios($idTipoProductoServicio, $fotProducto, $nombre, $descripcion, $precio, $conn) {
+    
+    $sql = "INSERT INTO productoservicio (idtipoproductoservicio, fotoProductoServicio, nombre, descripcion, precio, estado) VALUES (?, ?, ?, ?, ?, 1)";
+
+    
+    $stmt = mysqli_prepare($conn, $sql);
+    if (!$stmt) {
+        die(mysqli_error($conn));
+    }
+    mysqli_stmt_bind_param($stmt, "issss", $idTipoProductoServicio, $fotProducto, $nombre, $descripcion, $precio);
+    mysqli_stmt_execute($stmt);
 }
+
 
 //Funcion para crear Categoria desde administrador: 
 function agregarCategoria($nombre,$idEspecie,$tipoCategoria,$conn){
     $sql = "insert into tipoproductoservicio(nombre,idespecie, estado, tipocategoria) values ('$nombre','$idEspecie',1,'$tipoCategoria')";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+//Funcion para editar el nombre de la categoria
+function editarCategoria($idTipoProductoServicio, $nombre,$conn){
+    $sql = "UPDATE tipoproductoservicio SET nombre = '$nombre' WHERE idtipoproductoservicio = $idTipoProductoServicio;";
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 

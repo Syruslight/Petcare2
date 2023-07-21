@@ -15,7 +15,8 @@
 		copy($ruta, $fotServicio);
 	}
 
-    
-    agregarServicios($idCategoria,$foto,$nombre,$descripcion,$precio,$conn);
+ //   echo $idCategoria . " " . $foto . " " . $nombre . " " . $descripcion . " " . $precio ;
+
+ agregarServicios($idCategoria,$foto,$nombre,$descripcion,$precio,$conn);
     header('location:../pages/Administrador/administradorService/administradorService.php');
 ?>

@@ -118,21 +118,36 @@ function openModalCreateCategory() {
     modal_container.classList.remove("show");
   });
 }
-
 function openModalEdithCategory() {
-  const open = document.getElementById("open-edithCategory");
-  const modal_container = document.getElementById("modal-edithCategory");
-  const close = document.getElementById("close1");
-  open.addEventListener("click", (e) => {
-    e.preventDefault();
-    modal_container.classList.add("modalCategory--show");
+  const openButtons = document.querySelectorAll(".image-edit");
+  const modalContainer = document.getElementById("modal-edithCategory");
+  const closeModal = document.getElementById("close1");
+
+  openButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      e.preventDefault();
+      
+      // Obtener los atributos data del botón
+      const idCategoria = button.getAttribute("data-idtipoproductoservicio");
+      const nombreCategoria = button.getAttribute("data-nombrecategoria");
+
+      // Asignar los valores al modal de edición
+      document.querySelector("#idCategoria").value = idCategoria;
+      document.querySelector("#nombreCategoria").value = nombreCategoria;
+      
+      modalContainer.classList.add("modalCategory--show");
+    });
   });
 
-  close.addEventListener("click", (e) => {
+  closeModal.addEventListener("click", (e) => {
     e.preventDefault();
-    modal_container.classList.remove("modalCategory--show");
+    modalContainer.classList.remove("modalCategory--show");
   });
 }
+
+openModalEdithCategory();
+
+
 
 function openModalCreatePetiPunto() {
   const open = document.getElementById("open-createPetiPunto");

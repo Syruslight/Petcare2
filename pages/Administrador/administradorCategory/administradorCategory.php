@@ -96,7 +96,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                                 </div>
                                             </div>
                                             <!-- <img class="image-delete" src="../../../imagenes/perfilAdmin/delete.png" width="45" height="40"> -->
-                                            <img id="open-edithCategory" onclick="openModalEdithCategory()" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
+                                            <img id="open-edithCategory" data-idtipoproductoservicio="<?php echo $idtipoproductoservicio; ?>" data-nombrecategoria="<?php echo $f['nombre']; ?>" onclick="openModalEdithCategory()" class="image-edit" src="../../../imagenes/perfilAdmin/editedit.png" width="45" height="40">
                                         </div>
                                         <hr class="linea">
                                     <?php
@@ -236,17 +236,18 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                         <lord-icon class="close" id="close1" src="https://cdn.lordicon.com/nhfyhmlt.json" trigger="hover" colors="primary:#121331" state="hover-2" style="width:40px;height:40px">
                         </lord-icon>
                     </div>
+                    <form action="../../../llamadas/proceso_actualizarCategoria.php" method="post">
+
                     <div class="wrapper-bodyModals1">
 
-                        <form action="">
                             <div class="formu-modals">
                                 <div class="first-group">
                                     <label class="label-reuse" for="">Nombre de categoria</label>
-                                    <input class="text-nameProduct" type="text">
+                                    <input class="text-nameProduct" type="text" name="idCategoriaEnvio" id="idCategoria" hidden>
+                                    <input class="text-nameProduct" type="text" name="idNombreCategoriaEnvio" id="nombreCategoria" >
                                 </div>
-
                             </div>
-                        </form>
+                        
                     </div>
                     <div class="footer-modals1">
                         <button class="add-button">Editar</button>
@@ -256,6 +257,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                             <div class="footer-left"></div>
                         </div>
                     </div>
+                    </form>
                     <div class="frame frame-2"></div>
                 </div>
             </div>

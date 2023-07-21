@@ -22,7 +22,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
     <link rel="stylesheet" href='reservarCitas.css'>
     <link rel="stylesheet" href='../components/navListAdministrador.css'>
     <link rel="stylesheet" href='../cerrarSesionAdmin/cerrarSession.css'>
-    <title>Pagina de Veterinario</title>
+    <title>Pagina De Administrador</title>
 </head>
 
 <body>
@@ -151,7 +151,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             <div class="contenedorReservarCitas">
 
                 <div class="contenedorSuperiorCitas">
-                    <h2>Citas Programadas</h2>
+                    <h2>Reserva de citas </h2>
 
 
 
@@ -336,9 +336,16 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                             },
                             success: function (response) {
                                 if (response === 'success') {
-                                    location.reload(); // Recargar la página después de la actualización exitosa
+                                    $.ajax({
+            url: 'enviarcorreo.php', // Ruta al archivo que envía el correo
+            method: 'POST',
+            data: {
+                correo: correo // Enviar el correo como parámetro al archivo
+            },});
+                                   
                                     if (nuevoEstado === '1') {
                                         alert('El correo se ha enviado exitosamente a ' + correo);
+                                        
                                     } else if (nuevoEstado === '2') {
                                         alert('No se envió el correo a ' + correo);
                                     } else {
