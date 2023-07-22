@@ -98,4 +98,15 @@
     background: #2a9d8f;
   }
 }
+.categories a.active {
+  background-color: #2a9d8f;
+  border-radius: 10px;
+  color: white;
+  & span{
+    color: #ffff;
+  }
+  & img{
+    filter: brightness(0) invert(1);
+  }
+}
 /*Finish dashboar*/

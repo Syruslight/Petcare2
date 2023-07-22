@@ -30,12 +30,12 @@
     $current_page = basename($_SERVER['PHP_SELF']);
     ?>
 
-    <style>
+    <!-- <style>
         .categories a.active {
-            background-color: yellow;
+            background-color: #2a9d8f;
             border-radius: 10px;
         }
-    </style>
+    </style> -->
 
     <div class="categories">
         <a href="../administradorIndex/administrador.php" <?php echo ($current_page === "administrador.php") ? 'class="active"' : ''; ?>>
