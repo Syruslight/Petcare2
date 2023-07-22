@@ -304,8 +304,10 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
             <div id="modalDetalleComprobante" class="modal">
                 <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <img id="imagenComprobante" src="" alt="Comprobante de Pago">
+                    <div class="container-foto">
+                        <span class="close">&times;</span>
+                        <img id="imagenComprobante" src="" alt="Comprobante de Pago">
+                    </div>
                 </div>
             </div>
 

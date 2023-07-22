@@ -77,7 +77,6 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                     <div class="header-products">
                         <h1 class="tittle-products">Lista de Producto</h1>
                         <button id="open" onclick="openModalCreateProduct()" class="add-newProduct">+ Nuevo producto</button>
-                        <button class="add-newCategory">+ Nueva Categoria</button>
                     </div>
                     <div class="wrapper-tableProducts">
                         <div class="header-table">
