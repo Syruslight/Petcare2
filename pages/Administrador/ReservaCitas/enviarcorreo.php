@@ -8,10 +8,9 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-// obtener el correo y el nombre del formulario AJAX
+// Obtener los datos del formulario AJAX
 $correo = $_POST['correo'];
 $nombre = $_POST['nombre'];
-
 $fechaCita = $_POST['citaHora'];
 $nombreServicio = $_POST['nombreServicio'];
 
@@ -29,14 +28,41 @@ $mail->Port = 587;
 $mail->setFrom($tuCorreo, 'Hola cliente');
 $mail->addAddress($correo);
 $mail->Subject = 'Reserva de cita - PetCare';
-// ...
-$mail->Body = 'Estimado ' . $nombre . ', tu cita del servicio : ' . $nombreServicio .' con fecha : '. $fechaCita . ' ha sido confirmada.';
 
+// Formato del cuerpo del correo con HTML y estilos básicos
+$mail->isHTML(true);
+$mail->Body = '<html>
+<head>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  .titulo {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .texto {
+    font-size: 16px;
+  }
+  .destacado {
+    font-weight: bold;
+    color: #008000;
+  }
+</style>
+</head>
+<body>
+  <p class="titulo">Estimado ' . $nombre . '</p>
+  <p class="texto">Nos complace confirmar tu cita del servicio <span class="destacado">' . $nombreServicio . '</span> con fecha <span class="destacado">' . $fechaCita . '</span>.</p>
+  <p class="texto">Esperamos que tanto tú como tu mascota disfruten de la experiencia con nuestro servicio. Si tienes alguna pregunta o necesitas realizar cambios en la cita, no dudes en contactarnos.</p>
+  <p class="texto">¡Gracias por confiar en PetCare y esperamos verte pronto!</p>
+  <p class="texto">Atentamente,</p>
+  <p class="texto">El equipo de PetCare</p>
+</body>
+</html>';
 
 if ($mail->send()) {
-    echo 'Correo enviado correctamente';
+    echo 'Correo de confirmación enviado correctamente';
 } else {
-    echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
+    echo 'Correo de confirmación enviado correctamente';
 }
-
 ?>

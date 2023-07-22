@@ -333,9 +333,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             success: function (response) {
                 if (response === 'success') {
                     alert('El correo se ha enviado exitosamente a ' + correo);
-                } else {
-                    alert('Error al enviar el correo a ' + correo);
-                }
+                } 
             },
             error: function () {
                 alert('Error en la solicitud AJAX para enviar el correo');
@@ -357,9 +355,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             success: function (response) {
                 if (response === 'success') {
                     alert('El correo de "No Realizado" se ha enviado exitosamente a ' + correo);
-                } else {
-                    alert('Error al enviar el correo de "No Realizado" a ' + correo);
-                }
+                } 
             },
             error: function () {
                 alert('Error en la solicitud AJAX para enviar el correo de "No Realizado"');
