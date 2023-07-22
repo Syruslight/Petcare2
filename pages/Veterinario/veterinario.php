@@ -40,7 +40,23 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             ?>
             <?php
             // Obtener los estados de las citas
-            
+            $fechaHoy = date('Y-m-d');
+            $citasHoy = "SELECT COUNT(c.idcita) AS totalCitasHoy
+               FROM cita c
+               INNER JOIN horario h ON c.idhorario = h.idhorario   
+               INNER JOIN mascota m ON m.idmascota = c.idmascota
+               INNER JOIN productoservicio ps ON h.idproductoservicio = ps.idproductoservicio  
+               INNER JOIN cliente cli ON c.idcliente = cli.idcliente
+               WHERE c.estadoAtencion = 0 AND c.estadopago = 1 AND h.idveterinario = " . $value[7] . " AND DATE(h.fecha) = '$fechaHoy'";
+
+$resultadoHoy = mysqli_query($conn, $citasHoy);
+if ($resultadoHoy && mysqli_num_rows($resultadoHoy) > 0) {
+    $fila = mysqli_fetch_assoc($resultadoHoy);
+    $totalCitasHoy = $fila['totalCitasHoy'];
+} else {
+    $totalCitasHoy = 0;
+}
+
 
             $sentencia1 = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio, 
                 h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) 
@@ -69,9 +85,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             ?>
 
 
-            <p class='textoVeterinario'>Bienvenido a su reporte de citas, Dr. <?php echo $value[0] . " " . $value[1] ?>
+            <p class='textoVeterinario'>Bienvenido  Dr. <?php echo $value[0] . " " . $value[1] ?>
             </p>
-
+<p class="cantidadCitas">Citas para el dia <?php echo date('d-m-Y') ?> : <?php echo $totalCitasHoy?> citas </p>
             <div class="contenedorGeneralEstadisticas">
                 <div class="contenedorPrincipalCitas">
                     <div class="tab">
@@ -134,14 +150,14 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>N°</th>
+                                <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
-                                    <th>Hora</th>
+                                    <th>Horario</th>
                                     <th>Cliente</th>
-                                    <th>Correo</th>
-
+                                    <th>Mascota</th>
                                     <th>Pago</th>
+                                    <th>Atención</th>
                                 </tr>
                             </thead>
                             <tbody>
