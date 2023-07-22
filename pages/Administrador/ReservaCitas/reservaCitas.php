@@ -300,6 +300,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                         </table>
                     </div>
                 </div>
+            
             </div>
 
             <div id="modalDetalleComprobante" class="modal">

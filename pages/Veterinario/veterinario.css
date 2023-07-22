@@ -1282,3 +1282,64 @@ background-color: #aeecda79;
 }
 
 
+/*tabbed pane de atención de citas*/
+
+
+.contenedorPrincipalCitas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 550px;
+}
+.detalleBtn{
+  padding: 5px 10px;
+  border: none;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-radius: 10px;
+  background-color: #E96397;
+  color: white;
+  text-decoration: none;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.tab {
+  display: flex;
+}
+.contenedorSuperiorCitas {
+  justify-content: center !important;
+}
+.contenedorSuperiorCitas h2{
+  font-size: 44px;
+  margin: 0px 0px 20px 0px;
+}
+.tablinks {
+  padding: 10px;
+  cursor: pointer;
+  display: inline-block;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-size: 17px;
+  background-image: linear-gradient(to top, #dd3274, #db7ca2);
+}
+
+.tablinks.active {
+  background-color: #ccc;
+  font-weight: 600;
+  background-image: linear-gradient(to top, #c5318f, #e99181);
+  transform: translateY(-3px); 
+  transition: transform 0.3s; 
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+.tablaCitas {
+  display: none;
+  margin-top: 0px;
+}
+
+.tablaCitas.active {
+  display: block;
+}
