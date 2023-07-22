@@ -263,8 +263,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
-                                    <th>Cliente</th>
                                     <th>Horario</th>
+                                    <th>Cliente</th>
                                     <th>Correo</th>
                                     
                                     <th>Pago</th>
@@ -340,6 +340,27 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
         });
     }
 
+    function enviarCorreoNoRealizado(correo, nombre) {
+        // Ejemplo de solicitud AJAX usando jQuery para enviar el correo de "No Realizado"
+        $.ajax({
+            url: 'enviarcorreo_no_realizado.php',
+            method: 'POST',
+            data: {
+                correo: correo,
+                nombre: nombre
+            },
+            success: function (response) {
+                if (response === 'success') {
+                    alert('El correo de "No Realizado" se ha enviado exitosamente a ' + correo);
+                } else {
+                    alert('Error al enviar el correo de "No Realizado" a ' + correo);
+                }
+            },
+            error: function () {
+                alert('Error en la solicitud AJAX para enviar el correo de "No Realizado"');
+            }
+        });
+    }
     function actualizarEstadoPago(selectElement) {
                     var nuevoEstado = selectElement.value;
                     var idCita = selectElement.parentNode.parentNode.firstChild.innerText;
@@ -362,12 +383,12 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 if (response === 'success') {
                                     location.reload(); // Recargar la página después de la actualización exitosa
                                     if (nuevoEstado === '1') {
-                                        enviarCorreoAJAX(correo, nombre);
-                                    } else if (nuevoEstado === '2') {
-                                        alert('No se envió el correo a ' + correo);
-                                    } else {
-                                        alert('Se actualizó correctamente el estado de pago.');
-                                    }
+            enviarCorreoAJAX(correo, nombre); // Correo de "Realizado"
+        } else if (nuevoEstado === '2') {
+            enviarCorreoNoRealizado(correo, nombre); // Correo de "No Realizado"
+        } else {
+            alert('Se actualizó correctamente el estado de pago.');
+        }
                                 } else {
                                     alert('Error al actualizar el estado de pago');
                                 }
