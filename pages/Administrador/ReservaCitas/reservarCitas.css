@@ -102,15 +102,15 @@
   .modal-content {
     background-color: #fefefe;
     margin: 15% auto;
-    padding: 20px;
     border: 1px solid #888;
-    max-width: 600px;
+    max-width: 454px;
     position: relative;
     overflow: hidden;
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 10px 10px;
+    border-radius: 6px;
   }
   
   .close {
@@ -129,8 +129,8 @@
   
   .container-foto{
     display: flex;
-    width: 162px;
-    height: 166px;
+    width: 390px;
+    height: 410px;
     overflow: hidden;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   }
