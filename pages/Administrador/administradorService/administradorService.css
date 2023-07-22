@@ -101,6 +101,7 @@
   position: absolute;
   left: 270px;
   bottom: 132px;
+  cursor: pointer;
 }
 .card-img-top {
   width: 307px !important;
@@ -115,6 +116,9 @@
   align-items: center;
   flex-direction: column;
   margin: 2px;
+}
+.foto-back{
+  filter: brightness(90%);
 }
 /* Aca  comienza en Toogle status para cambiar el estado */
 .toggle-switch {

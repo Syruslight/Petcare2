@@ -136,6 +136,17 @@
   overflow-y: scroll;
   height: 679px;
 }
+.wrapper-cardService::-webkit-scrollbar {
+  width: 10px;
+}
+.wrapper-cardService::-webkit-scrollbar-thumb {
+  background: #c0dfd5;
+  border-radius: 2px;
+}
+.wrapper-cardService::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f;
+  border-radius: 2px;
+}
 .cards-service {
   width: 457px;
   height: 200px;
@@ -261,42 +272,60 @@ Inicia Modal de reserva */
   align-items: center;
   height: 100%;
 }
-
 .cuadro_modalReservar {
-  background-color: #fff;
-  border-radius: 5px;
+  width: 440px;
+  height: 478px;
   padding: 20px;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 500px;
-  height: 600px;
   width: 100%;
   box-sizing: border-box;
 }
-
 .top-formReservar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
-
 .tituloReservar h1 {
+  color: #E96397;
+  font-size: 27px;
   margin: 0;
 }
 
 #CloseModalReservar {
   cursor: pointer;
+  color: #2a9d8f;
+  font-size: 20px;
 }
 
 .container {
   margin-top: 20px;
 }
+.upload-confirmation img {
+  object-fit: cover;
+  transition: filter 0.3s ease; 
+}
+
+.iconoUpload{
+  width: 64px;
+  height: 64px;
+  position: absolute;
+  top: 473px;
+  margin-left: 165px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+.iconoUpload:hover {
+  opacity: 1; 
+}
 
 /* Resto de estilos del modal */
 
-/* Estilos de la página principal */
-.cards-service {
-  /* Estilos para las tarjetas de servicios */
-}
+
 
 /* Resto de estilos de la página principal */
 
@@ -397,6 +426,18 @@ form .page .btns button.next {
   margin: 8px 0;
   user-select: none;
 }
+
+
+
+
+
+
+
+
+
+
+
+
 .container .progress-bar .step {
   text-align: center;
   width: 100%;
@@ -480,8 +521,6 @@ form .page .btns button.next {
   border: 1px solid rgba(58, 58, 58, 0.473);
   display: flex;
   align-items: center;
-  height: 120px;
-  justify-content: space-around;
 }
 .info-upReser {
   margin-left: 10px;
@@ -493,7 +532,7 @@ form .page .btns button.next {
   font-family: Poppins;
   font-size: 16px;
   font-style: normal;
- 
+  padding-top: 15px;
   font-weight: 600;
   line-height: normal;
 }
@@ -502,6 +541,7 @@ form .page .btns button.next {
   gap: 10px;
   font-family: Poppins;
   justify-content: space-between;
+  gap: 10px;
 }
 .text-infoRese {
   color: rgba(226, 43, 131, 0.8);
@@ -539,10 +579,15 @@ padding: 3px;
 #resultadoFoto{
   border-radius: 20px 0px;
 }
+
+.image-upReser img{
+  border-radius: 20px 0px;
+}
 .wrapper-downReser1 {
   display: flex;
   margin-top: 27px;
   justify-content: space-between;
+  gap: 20px;
 }
 .wrapper-selectReser {
   display: flex;
@@ -559,13 +604,10 @@ padding: 3px;
   line-height: normal;
 }
 .select-reser {
-  padding: 10px;
-  border-radius: 10px;
+  border-radius: 15px;
   background: #e7e7e7;
   width: 200px;
-  height: 50px;
-  border: none;
-  border-bottom: 2px solid #E96397 ;
+  height: 38px;
 }
 .method-payment {
   display: flex;
@@ -588,8 +630,6 @@ padding: 3px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  background-color: transparent;
-  border: none;
 }
 .second-methodPay {
   display: flex;
@@ -610,23 +650,9 @@ padding: 3px;
   line-height: normal;
   cursor: pointer;
   margin-right: 10px;
-  background-color: transparent;
-  border: none;
 }
 .image-payment {
   margin-top: 30px;
-  width: 100%;
-  height: 250px;
-  display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  overflow: hidden; /* Oculta el contenido que exceda el tamaño del div */
-}
-
-#payment-image {
-  height: 100%; /* La imagen ocupará el 100% del alto del div */
-  width: auto; /* El ancho de la imagen se ajustará automáticamente */
-  display: block; /* Evita espacios no deseados alineando la imagen */
 }
 
 .text-confirmation {
@@ -639,6 +665,7 @@ padding: 3px;
   line-height: normal;
   display: flex;
   justify-content: center;
+  margin-bottom: 15px;
 }
 .upload-only {
   position: fixed;
@@ -688,39 +715,31 @@ padding: 3px;
 }
 
 .button-container {
-  display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  margin-top: 40px;
-  justify-content: space-around;
+  margin-top: 20px;
 }
 
 .button-container button {
   padding: 10px 20px;
-  background-color: #2A9D8F;
-  border: none;
-  height: 48px;
-  width:200px;
-
-  color: white;
 }
-
 .progress-bar {
   width: 100%;
+  height: 12px;
   background-color: #f1f1f1;
+  border-radius: 5px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
-  border-radius: 45px;
-  margin-bottom: 25px;
+  border-radius: 5px;
+  margin-bottom: 15px;
 }
-
 .progress {
   width: 0%;
   height: 20px;
   background-color: #E96397;
   border-radius: 5px;
+  height: 100%;
+  border-radius: 5px;
   transition: width 0.5s ease;
 }
-
 .progress-value {
   height: 100%;
   background-color: #E96397;
@@ -731,3 +750,4 @@ padding: 3px;
 .progress.complete .progress-value {
   background-color: #E96397;
 }
+

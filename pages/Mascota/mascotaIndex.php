@@ -116,7 +116,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                         <div class="card">
                             <div class="card-header">
                                 <h4>Mis mascotas
-                                    <a href="" class="butModal btn float-end sa" data-modal=".modalMascotaAgre" style="background-color:#399731;margin-right: 12px;">Agregar</a>
+                                    <a href="" class="btn-agre butModal float-end sa " data-modal=".modalMascotaAgre">Agregar</a>
                                 </h4>
                             </div>
                             <div class="six">

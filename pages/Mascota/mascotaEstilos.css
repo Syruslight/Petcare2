@@ -196,7 +196,26 @@ body::-webkit-scrollbar-thumb {
   padding: 15px;
   text-align: center;
 }
-
+.btn-agre{
+  margin-right: 12px;
+  padding-top: 6px;
+  width: 172px;
+  height: 44px;
+  background: #ffffff;
+  border: 3px solid #49c1b3;
+  border-radius: 30px;
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  text-align: center;
+  color: #49c1b3;
+}
+.btn-agre:hover {
+  background-color: rgba(73, 193, 179, 0.71);
+  color: #ffffff; 
+  border-color: #ffffff; 
+}
 /* Tabla mascotas */
 #row-tablaMascota {
   padding: 1rem 0rem 0rem 0rem;
@@ -231,7 +250,6 @@ body::-webkit-scrollbar-thumb {
   margin: 0rem 2rem 0rem 2rem;
 }
 #row-tablaMascota .card {
-  background-color: #c0dfd5;
   box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.2);
   max-height: 585px;
   height: 585px;
@@ -244,13 +262,12 @@ body::-webkit-scrollbar-thumb {
   color: #464e5f;
   margin-bottom: 0px !important;
 }
+#row-tablaMascota .card-header{
+  background-color:rgba(73, 193, 179, 0.71) ;
+}
 #row-tablaMascota .card-header a {
   margin: 4px;
-  color: white;
-  width: 105px;
-  height: 41px;
-  font-size: 18px;
-  font-weight: 600;
+  text-decoration: none;
 }
 #row-tablaMascota .six {
   margin: 1rem 0rem 0.5rem 1.2rem;

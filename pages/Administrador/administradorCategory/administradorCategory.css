@@ -138,7 +138,7 @@
   margin-left: 180px;
 }
 .linea {
-  width: 1000px;
+  width: 100%;
   margin-bottom: 0;
 }
 .wrapper-table {
@@ -160,6 +160,7 @@
   display: flex;
   align-items: center;
   height: 85px;
+  gap: 26px;
 }
 
 .table-nameFood {
@@ -181,11 +182,11 @@
   font-size: 22px;
   line-height: 21px;
   text-align: center;
-  margin-left: 60px;
+  margin-left: 48px;
   color: rgba(156, 156, 156, 0.78);
 }
 .table-price {
-  margin-left: 65px;
+  margin-left: 58px;
   font-family: "Poppins";
   font-style: normal;
   font-weight: 500;
@@ -197,7 +198,7 @@
 }
 .toogleStatus {
   width: 120px;
-  margin-left: 120px;
+  margin-left: 131px;
   display: flex;
   align-items: center;
 }
@@ -260,7 +261,7 @@
   margin-left: 175px;
 } */
 .image-edit {
-  margin-left: 175px;
+  margin-left: 168px;
 }
 
 .footer {

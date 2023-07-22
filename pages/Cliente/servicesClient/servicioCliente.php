@@ -238,7 +238,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     </div>
                                     <div class="image-payment">
                                         <img id="payment-image" src="../../../imagenes/perfilCliente/methodPayment.png"
-                                            alt="" width="400px" height="160px">
+                                            alt="">
                                     </div>
                                 </div>
                                 <div class="button-container">
@@ -258,6 +258,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     <div class="subirFoto">
                                         <label for="fotoComprobante">Subir Foto</label>
                                     </div>
+                                    
                                 </div>
                                 <div class="button-container">
                                     <button type="button" onclick="prevStep(3)">Anterior</button>
@@ -429,7 +430,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 modal.style.display = "none";
             }
         </script>
-
+        <script src="../../../js/previsualizarImagen.js"></script>
         <script src="../../../js/reservarCItaMulti.js"></script>
         <script src="../cerrarSesionCliente/closeSessionClient.js"></script>
 </body>

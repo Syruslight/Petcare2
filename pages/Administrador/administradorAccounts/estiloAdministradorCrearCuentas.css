@@ -129,7 +129,17 @@
     height: 600px;
     overflow: scroll;
   }
-  
+  .contenedorTablaCrearCuenta::-webkit-scrollbar {
+    width: 10px;
+  }
+  .contenedorTablaCrearCuenta::-webkit-scrollbar-thumb {
+    background: #c0dfd5;
+    border-radius: 2px;
+  }
+  .contenedorTablaCrearCuenta::-webkit-scrollbar-thumb:hover {
+    background: #2a9d8f;
+    border-radius: 2px;
+  }
   .top-formAdministradorCrearCuenta {
     height: 60px;
     width: 100%;
