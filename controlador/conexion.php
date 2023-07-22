@@ -424,6 +424,48 @@ function listarProductos( $conn) { //modificar para que sea el top 4 dependiendo
     return $vec;
 }
 
+function obtenerServicioRecompensa( $conn) { 
+    $sql = "SELECT p.idproductoservicio, p.nombre AS nombre_producto, p.precio, p.fotoProductoServicio, r.puntos
+    FROM productoservicio p
+    INNER JOIN tipoproductoservicio t ON p.idtipoproductoservicio = t.idtipoproductoservicio
+    INNER JOIN recompensas r ON p.idproductoservicio = r.idproductoservicio
+    WHERE t.tipocategoria = 'servicio'";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res)) {
+        $vec[] = array(
+            'idproductoservicio' => $f['idproductoservicio'],
+            'nombre_producto' => $f['nombre_producto'],
+            'fotoProductoServicio' => $f['fotoProductoServicio'],
+            'precio' => $f['precio'],
+            'puntos' => $f['puntos']
+        );
+    }
+    return $vec;
+}
+
+function obtenerProductosRecompensa( $conn) { 
+    $sql = "SELECT p.idproductoservicio, p.nombre AS nombre_producto, p.precio, p.fotoProductoServicio, r.puntos
+    FROM productoservicio p
+    INNER JOIN tipoproductoservicio t ON p.idtipoproductoservicio = t.idtipoproductoservicio
+    INNER JOIN recompensas r ON p.idproductoservicio = r.idproductoservicio
+    WHERE t.tipocategoria = 'producto'";
+    $res = mysqli_query($conn, $sql);
+    $vec = array();
+    while ($f = mysqli_fetch_array($res)) {
+        $vec[] = array(
+            'idproductoservicio' => $f['idproductoservicio'],
+            'nombre_producto' => $f['nombre_producto'],
+            'fotoProductoServicio' => $f['fotoProductoServicio'],
+            'precio' => $f['precio'],
+            'puntos' => $f['puntos']
+        );
+    }
+    return $vec;
+}
+
+
+
 function actualizarProductos($idproductoservicio, $nombre, $precio, $descripcion, $fotoProductoServicio, $tipoProducto, $conn)
 {
     $sql = "UPDATE productoservicio

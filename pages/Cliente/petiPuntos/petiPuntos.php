@@ -23,7 +23,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <link rel="stylesheet" href="../cerrarSesionCliente/closeSessionClient.css">
     <script src="https://cdn.lordicon.com/bhenfmcm.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-    <title>Pagina de administrador</title>
+    <title>Pagina de cliente</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 
@@ -91,118 +91,35 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                     <!-- Inicia el terrible swiper  -->
 
                     <div class="swiper">
-                            <div class="swiper-wrapper">
-                                
-                                <!-- Inicia contenedor de swiper -->
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                   <!-- Chris ctmr desde aca pa abajo borras  -->
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="swiper-wrapper">
 
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
+    <?php
+            $productos = obtenerProductosRecompensa($conn);
+            foreach ($productos as $producto) {
+                echo '<div class="swiper-slide">';
+                echo '<div class="cardpet-sup">';
+                echo '<div class="cardpet">';
+                echo '<div class="wrapper-imgButt">';
+                echo '<img class="image-swiper" src="../../../imagenes/productos_servicios/productservices/' . $producto['fotoProductoServicio'] . '" >';
+                echo '<a class="button" href="#" onclick="canjearProducto(' . $producto['idproductoservicio'] . ')">'; // Agregar el evento onclick aquí
+                echo '<div class="buton-canjear">';
+                echo '<span class="canjear-peti">Canjear</span>';
+                echo '</div>';
+                echo '</a>';
+                echo '</div>';
+                echo '<span class="text-canjePeti">' . $producto['nombre_producto'] . '</span>';
+                echo '<span class="text-canjePeti">' . $producto['puntos'] . ' pts</span>';
+                echo '</div>';
+                echo '</div>';
+                echo '</div>';
+            }
+            ?>
 
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
+    </div>
 
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <!-- Finaliza contenedor de swiper -->
-
-                            </div>
-
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                    </div> <!-- Finish Swiper -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
 
                 </div>
                 <div class="title-productPeti">
@@ -214,156 +131,89 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                     <!-- Inicia el terrible swiper  -->
 
                     <div class="swiper">
-                            <div class="swiper-wrapper">
-                                
-                                <!-- Inicia contenedor de swiper -->
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                   <!-- Chris ctmr desde aca pa abajo borras  -->
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="swiper-wrapper">
 
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
+        <?php
+      
+        $productos = obtenerServicioRecompensa($conn); 
+        
+        foreach ($productos as $producto) {
+            echo '<div class="swiper-slide">';
+            echo '<div class="cardpet-sup">';
+            echo '<div class="cardpet">';
+            echo '<div class="wrapper-imgButt">';
+            echo '<img class="image-swiper" src="../../../imagenes/productos_servicios/productservices/' . $producto['fotoProductoServicio'] . '" >';
+            echo '<a class="button" href="#popup1">';
+            echo '<div class="buton-canjear">';
+            echo '<span class="canjear-peti">Canjear</span>';
+            echo '</div>';
+            echo '</a>';
+            echo '</div>';
+            echo '<span class="text-canjePeti">' . $producto['nombre_producto'] . '</span>';
+            echo '<span class="text-canjePeti">' . $producto['puntos'] . ' pts</span>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
 
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
+    </div>
 
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="swiper-slide">
-                                    <div class="cardpet-sup">
-                                        <div class="cardpet">
-                                            <div class="wrapper-imgButt">
-                                                <img class="image-swiper"src="/imagenes/perfilCliente/ProductoDog.png" >
-                                                <a class="button" href="#popup1">
-                                                <div class="buton-canjear">
-                                                    <span class="canjear-peti">Canjear</span>
-                                                </div>
-                                                </a>
-                                            </div>
-                                            <span class="text-canjePeti"> Pelota Antiestres</span>
-                                            <span class="text-canjePeti">32 pts</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <!-- Finaliza contenedor de swiper -->
-
-                            </div>
-
-                                <div class="swiper-button-next"></div>
-                                <div class="swiper-button-prev"></div>
-                    </div> <!-- Finish Swiper -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
 
                 </div>
 
                 
             </div>
+<!-- ... Tu código HTML ... -->
+
+<script>
+   function canjearProducto(idProducto) {
+    // Realizar una solicitud AJAX para guardar el canje
+    $.ajax({
+        url: 'guardarCanje.php',
+        method: 'POST',
+        data: {
+            idProducto: idProducto
+        },
+        dataType: 'json', // Especificar que esperamos recibir un JSON como respuesta
+        success: function (response) {
+            // Verificar si la respuesta contiene el código generado
+            if (response.hasOwnProperty('codigoCanje')) {
+                // Si la solicitud AJAX fue exitosa, mostrar el popup con el código generado
+                document.getElementById('nombreCliente').value = response.codigoCanje; // Aquí se mostrará el código generado
+                document.getElementById('popup1').style.display = 'block'; // Mostrar el popup
+            } else {
+                alert('Error al guardar el canje');
+            }
+        },
+        error: function () {
+            alert('Error al guardar el canje');
+        }
+    });
+}
+
+</script>
 
 <!-- El POPUP para canjear -->
-    <div id="popup1" class="overlay">
-        <div class="popup">
-            <h2>Código canjeado exitosamente.</h2>
-            <a class="close" href="#">✖</a>
-            <div class="content">
+<div id="popup1" class="overlay">
+    <div class="popup">
+        <h2>Código canjeado exitosamente.</h2>
+        <a class="close" href="#">✖</a>
+        <div class="content">
             <input type="text" id="nombreCliente" disabled>
             <img src="../../../imagenes/perfilCliente/pulgares-hacia-arriba.gif" alt="GifPulgarArriba" width="90px" height="90">
-            </div>
         </div>
     </div>
-
+</div>
             <?php
             include('../components/footerCliente.php');
             ?>
         </div>
-
-
-
-
     </div>
-
-
-
-
-
     </section>
-
-
-
-
-
     <script src="../../../js/previsualizarImagen.js"></script>
     <script src="../../../js/Interacciones.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
