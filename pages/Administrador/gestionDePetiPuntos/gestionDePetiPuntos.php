@@ -98,9 +98,9 @@ function buscarRecompensas(query) {
 
 
 
-        <!-- <?php
+        <?php
             include('../components/footerAdministrador.php');
-            ?> -->
+            ?>
 
 
         </div>

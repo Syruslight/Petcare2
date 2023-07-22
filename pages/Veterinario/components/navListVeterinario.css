@@ -1,4 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 /* navlist */
 .logo {
   width: 100%;
@@ -46,22 +45,22 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 653px;
+  height: 647px;
 }
 .categories {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   row-gap: 40px;
-  padding-left: 32px;
   padding-top: 18px;
-  width: 653px;
+  height: 647px;
 }
 .icons {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-left: 32px;
 }
 .services {
   font-family: "Poppins";
@@ -99,16 +98,19 @@
     background: #2a9d8f;
   }
 }
-
 .categories a.active {
+  display: flex;
+  align-items: center;
   background-color: #2a9d8f;
   border-radius: 10px;
+  height: 40px;
+  width: 283px;
   color: white;
   & span{
     color: #ffff;
   }
-  & img{
+  & img{  
     filter: brightness(0) invert(1);
   }
+ 
 }
-/*Finish dashboar*/
