@@ -249,7 +249,6 @@ margin-left: 20px;
   padding: 15px;
   display: flex;
   justify-content: space-between;
- 
 }
 .barraBusqueda{
   padding-left: 15px;
@@ -327,7 +326,17 @@ height: 43px;
   border-collapse: collapse;
   overflow: scroll;
 }
-
+.tablaCitas::-webkit-scrollbar {
+  width: 10px;
+}
+.tablaCitas::-webkit-scrollbar-thumb {
+  background: #c0dfd5;
+  border-radius: 2px;
+}
+.tablaCitas::-webkit-scrollbar-thumb:hover {
+  background: #2a9d8f;
+  border-radius: 2px;
+}
 .tablaCitas th,
 .tablaCitas td {
   padding: 8px;

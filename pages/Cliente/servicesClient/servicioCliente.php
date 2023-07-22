@@ -152,11 +152,11 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     </div>
                                     <div class="part-downReser">
                                         <div class="wrapper-downReser1">
-                                            <input type="text" value="<?php echo $value[7] ?>" name="idClienteCita">
+                                            <input type="text" value="<?php echo $value[7] ?>" name="idClienteCita" hidden>
                                             <input type="text" id="idproductoServicio"
                                                 value="<?php echo isset($_POST['idproductoservicio']) ? $_POST['idproductoservicio'] : ''; ?>"
-                                                name="idProductoServicioCita">
-                                            <input type="text" id="inputIdHorario" name="inputIdHorario" />
+                                                name="idProductoServicioCita" hidden>
+                                            <input type="text" id="inputIdHorario" name="inputIdHorario" hidden/>
 
                                             <?php
                                             // Realizar la consulta a la base de datos para obtener las mascotas del cliente
@@ -238,7 +238,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     </div>
                                     <div class="image-payment">
                                         <img id="payment-image" src="../../../imagenes/perfilCliente/methodPayment.png"
-                                            alt="" width="400px" height="160px">
+                                            alt="">
                                     </div>
                                 </div>
                                 <div class="button-container">
@@ -251,10 +251,12 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                 <div class="wrapper-confirmation">
                                     <span class="text-confirmation">Por favor subir el comprobante de pago</span>
                                     <div class="upload-confirmation">
-                                        <img src="../../../imagenes/perfilCliente/sendConfirmation.png" alt=""
-                                            width="400px" height="210px">
-                                        <input type="file" name="fotoComprobantePago">
+                                        <img alt="" class="img-shadow"
+                                            width="400px" height="210px" id="img-preview">                                                           <input type="file" name="fotoComprobantePago" id="fotoPago" hidden>
+
+<label id="cambiar-foto" for="fotoPago" onclick="previsualizarImagen('img-preview','fotoPago','../../../imagenes/perfilCliente/sendConfirmation.png')"><img  class="iconoUpload" src="../../../imagenes/perfilCliente/upload.svg" alt="IconoUpload"></label>  
                                     </div>
+                                    
                                 </div>
                                 <div class="button-container">
                                     <button type="button" onclick="prevStep(3)">Anterior</button>
@@ -426,7 +428,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 modal.style.display = "none";
             }
         </script>
-
+        <script src="../../../js/previsualizarImagen.js"></script>
         <script src="../../../js/reservarCItaMulti.js"></script>
         <script src="../cerrarSesionCliente/closeSessionClient.js"></script>
 </body>

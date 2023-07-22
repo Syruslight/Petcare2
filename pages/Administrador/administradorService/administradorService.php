@@ -64,10 +64,10 @@ $conn = conectar();
         $statusID = 'status' . $idproductoservicio; // ID del elemento del texto de estado
         ?>
         <div class="card">
-            <img src="../../../imagenes/productos_servicios/servicios/<?php echo $servicio['foto']; ?>" class="card-img-top" alt="...">
+            <img src="../../../imagenes/productos_servicios/servicios/<?php echo $servicio['foto']; ?>" class="card-img-top foto-back" alt="...">
             <img class="edit-pencil openModalEdithService" data-nombre="<?php echo $servicio['nombre']; ?>" data-precio="<?php echo $servicio['precio']; ?>" 
                 data-descripcion="<?php echo $servicio['descripcion']; ?>" data-foto="<?php echo $servicio['foto']; ?>" 
-                data-idservicio="<?php echo $servicio['idproductoservicio']; ?>" src="../../../imagenes/perfilAdmin/editPencil.png" alt="" width="35" height="35">
+                data-idservicio="<?php echo $servicio['idproductoservicio']; ?>" src="../../../imagenes/perfilAdmin/edit3.png" alt="" width="35" height="35">
             <div class="card-body">
                 <div>
                     <h5 class="card-title"><?php echo $servicio['nombre']; ?></h5>
