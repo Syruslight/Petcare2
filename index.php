@@ -284,9 +284,7 @@
                             <label for=""><i class="fa-solid fa-lock icono-reg"></i> Contraseña</label>
                         </div>
                         <div class="terminos">
-                            <label for=""><input type="checkbox" required> Estoy de acuerdo con los <a href="#"
-                                    id="terminosLink">Términos y Condiciones</a></label>
-                        </div>
+                            <label for=""><input type="checkbox" required id="terminosLink"> Estoy de acuerdo con los términos y condiciones</label></div>
                         <!-- Llamada por a la vista login por si tiene cuenta -->
                         <button class="btnregistro">REGISTRAR</button>
                         <div class="link">
@@ -351,47 +349,60 @@
         <div class="custom-modal" id="terminosModal">
             <div class="custom-modal-content">
                 <span class="custom-close">&times;</span>
-                <h2>Términos y Condiciones de la Veterinaria</h2>
+                <h2 style="color: #308b84;">Términos y Condiciones de la Veterinaria</h2>
                 <div class="custom-scrollable-content">
 
-                    <p><strong>Términos y Condiciones de Pet&Care</strong></p>
+                    <p style="color: #E96397;"><strong>Términos y Condiciones de Pet&Care</strong></p>
                     <p>Bienvenido a Pet&Care, una veterinaria comprometida con el cuidado y bienestar de tus mascotas. A
                         continuación, detallamos los términos y condiciones que rigen el uso de nuestros servicios:</p>
-                    <p><strong>Responsabilidad y Cuidado:</strong> En Pet&Care nos comprometemos a proporcionar
+                    <p><strong style="color: #E96397;">Responsabilidad y Cuidado:</strong> En Pet&Care nos comprometemos
+                        a proporcionar
                         servicios de atención médica y cuidado de mascotas con el mayor grado de profesionalismo y
                         dedicación. Nuestro equipo de médicos y personal capacitado trabajará para garantizar la salud y
                         seguridad de todas las mascotas que atendemos.</p>
-                    <p><strong>Citas y Horarios:</strong> Para brindar un servicio óptimo, recomendamos programar citas
+                    <p><strong style="color: #E96397;">Citas y Horarios:</strong> Para brindar un servicio óptimo,
+                        recomendamos programar citas
                         con anticipación. Los horarios de atención serán establecidos y comunicados por la veterinaria
                         para la comodidad de nuestros clientes.</p>
-                    <p><strong>Información del Propietario:</strong> Al utilizar nuestros servicios, es responsabilidad
+                    <p><strong style="color: #E96397;">Información del Propietario:</strong> Al utilizar nuestros
+                        servicios, es responsabilidad
                         del propietario proporcionar información precisa y actualizada sobre la mascota, incluyendo
                         historial médico, alergias y cualquier otra información relevante.</p>
-                    <p><strong>Consentimiento Informado:</strong> Antes de realizar cualquier procedimiento médico o
+                    <p><strong style="color: #E96397;">Consentimiento Informado:</strong> Antes de realizar cualquier
+                        procedimiento médico o
                         tratamiento, obtendremos el consentimiento informado del propietario de la mascota, explicando
                         los detalles del procedimiento y los posibles riesgos asociados.</p>
-                    <p><strong>Pago de Servicios:</strong> Los servicios prestados por Pet&Care deberán ser pagados en
+                    <p><strong style="color: #E96397;">Pago de Servicios:</strong> Los servicios prestados por Pet&Care
+                        deberán ser pagados en
                         el momento de la prestación del servicio, a menos que se haya acordado previamente un plan de
                         pago alternativo con la veterinaria.</p>
-                    <p><strong>Cancelación de Citas:</strong> Si necesitas cancelar una cita, te pedimos que nos avises
+                    <p><strong style="color: #E96397;">Cancelación de Citas:</strong> Si necesitas cancelar una cita, te
+                        pedimos que nos avises
                         con la mayor antelación posible. De esta manera, podremos programar a otros pacientes que
                         necesiten atención médica.</p>
-                    <p><strong>Comportamiento de las Mascotas:</strong> Para garantizar un ambiente seguro para todos
+                    <p><strong style="color: #E96397;">Comportamiento de las Mascotas:</strong> Para garantizar un
+                        ambiente seguro para todos
                         nuestros clientes, las mascotas deben estar bajo control y supervisión adecuada de sus
                         propietarios en todo momento dentro de las instalaciones de Pet&Care.</p>
-                    <p><strong>Privacidad y Datos Personales:</strong> Respetamos la privacidad de nuestros clientes y
+                    <p><strong style="color: #E96397;">Privacidad y Datos Personales:</strong> Respetamos la privacidad
+                        de nuestros clientes y
                         sus mascotas. Toda la información proporcionada a Pet&Care será tratada de acuerdo con nuestra
                         política de privacidad.</p>
-                    <p><strong>Responsabilidad Legal:</strong> A pesar de nuestros mejores esfuerzos para brindar
+                    <p><strong style="color: #E96397;">Responsabilidad Legal:</strong> A pesar de nuestros mejores
+                        esfuerzos para brindar
                         atención de calidad, Pet&Care no se hace responsable por circunstancias fuera de nuestro control
                         que puedan afectar la salud de las mascotas.</p>
-                    <p><strong>Modificaciones en los Términos y Condiciones:</strong> Pet&Care se reserva el derecho de
+                    <p><strong style="color: #E96397;">Modificaciones en los Términos y Condiciones:</strong> Pet&Care
+                        se reserva el derecho de
                         realizar cambios en estos términos y condiciones en cualquier momento. Los cambios serán
                         publicados en nuestro sitio web y entrarán en vigencia a partir de su publicación.</p>
                     <p>Al hacer uso de los servicios de Pet&Care, aceptas y te comprometes a cumplir con estos términos
                         y condiciones. Si tienes alguna pregunta o inquietud, no dudes en comunicarte con nosotros.</p>
                     <p>Gracias por confiar en Pet&Care para el cuidado de tus queridas mascotas.</p>
 
+                    <div class="contenedorBoton">
+                        <button class="botonTerminosCondiciones">Cerrar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -404,6 +415,10 @@
         });
 
         document.getElementsByClassName("custom-close")[0].addEventListener("click", function () {
+            document.getElementById("terminosModal").style.display = "none";
+        });
+
+        document.getElementsByClassName("botonTerminosCondiciones")[0].addEventListener("click", function () {
             document.getElementById("terminosModal").style.display = "none";
         });
 
