@@ -127,11 +127,6 @@ function buscarRecompensas(query) {
                 <div>
                     <div class="frame frame-1"></div>
                     <div class="wrapper-headerModals">
-                        <div class="only-circle">
-                            <div class="circle-rigth"></div>
-                            <div class="circle-center"></div>
-                            <div class="circle-left"></div>
-                        </div>
                         <h1 class="title-newProduct">Editar Recompensa</h1>
                         <lord-icon class="close" id="close1" src="https://cdn.lordicon.com/nhfyhmlt.json" trigger="hover" colors="primary:#121331" state="hover-2" style="width:40px;height:40px">
                         </lord-icon>
@@ -158,11 +153,6 @@ function buscarRecompensas(query) {
     </form>
     <div class="footer-modals">
        
-        <div class="footer-circle">
-            <div class="footer-rigth"></div>
-            <div class="footer-center"></div>
-            <div class="footer-left"></div>
-        </div>
     </div>
     <div class="frame frame-2"></div>
 </div>
