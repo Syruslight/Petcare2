@@ -9,7 +9,7 @@ use Dompdf\Dompdf;
 
 $idmascota = $_GET['idmascota'];
 
-$sentencia = "SELECT vac.fecha as fecha, vac.lote as lote, vac.tipo as tipo, dv.proxFecha as proxima, dv.observacion as observacion, dv.restricciones as restriccion, v.nombres as nombreVeterinario 
+$sentencia = "SELECT vac.fecha as fecha, vac.lote as lote, vac.tipo as tipo, dv.proxFecha as proxima, dv.observacion as observacion, dv.restricciones as restriccion, CONCAT(v.nombres,' ',v.apellidos) as nombreVeterinario 
 FROM detallevacuna dv 
 JOIN mascota m on dv.idmascota= m.idmascota
 JOIN veterinario v ON dv.idveterinario= v.idveterinario

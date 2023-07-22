@@ -88,17 +88,16 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                 <div class="container-form">
                     <h2>Registro de compra para el cliente</h2>
                     <div class="data-form">
-                        <form action="../../../llamadas/proceso_generarventa.php" method="post">
+                        <form action="../../../llamadas/proceso_generarventa.php" method="post">                           
                             <div class="group-text">
                                 <div class="col-1-form">
                                     <label for="clienteDNI">Cliente DNI:</label>
-                                    <input type="number_formato" name="busqueda" id="busqueda" required>
-                                    <label for="precio">Precio:</label>
-                                    <input type="text" name="precioP" id="precio" readonly>
+                                    <input type="text" name="busqueda" id="busqueda" required>
 
                                     <label for="cantidad">Cantidad:</label>
                                     <input type="number" name="cantidadP" id="cantidad" oninput="calcularTotal()">
-
+                                    <label for="precio">Precio:</label>
+                                    <input type="text" name="precioP" id="precio" readonly>
                                     <label for="total">Total:</label>
                                     <input type="text" name="totalP" id="total" readonly>
 
@@ -107,15 +106,12 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 </div>
                                 <div class="col-2-form">
                                     <label for="nombreCliente">Nombre del Cliente:</label>
-                                    <input type="text" name="nombreMascota" class="nomMascota" id="nombreMascota"
-                                        placeholder="Mascota" disabled>
+                                    <input type="text" name="nombreMascota" id="nombreMascota" placeholder="Cliente Nombre" disabled>
 
                                     <label for="productoTipo">Especie : </label>
 
                                     <div class="select-RaEs">
-                                        <select name="especie" id="especie" class="form-select me-3"
-                                            style="width: 203px; height: 42px;"
-                                            onchange="limpiarProductos();cargarCategoria()">
+                                    <select name="especie" id="especie" onchange="limpiarProductos();cargarCategoria()">
                                             <option selected>Selecciona Especie</option>
                                             <?php
                                             // Obtener los datos de la tabla de la base de datos
@@ -131,12 +127,9 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                         </select>
                                         <label for="categoria">Categoría del Producto:</label>
                                         <!-- Combo de categorias -->
-                                        <select name="raza" id="categoria" class="form-select"
-                                            style="width: 203px; height: 42px; margin-right: 8px;"
-                                            onchange="limpiarProductos();cargarProductos()">
+                                        <select name="raza" id="categoria" onchange="limpiarProductos();cargarProductos()">
                                             <option selected>Selecciona categoria</option>
                                         </select>
-                                    </div>
 
                                     <!-- JavaScript -->
                                     <script>
@@ -176,23 +169,17 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
                                         function limpiarProductos() {
                                             var productoSelect = document.getElementById('producto');
-                                            productoSelect.innerHTML = '<option selected>Selecciona categoria de producto</option>';
+                                            productoSelect.innerHTML = '<option selected>Selecciona producto</option>';
                                             document.getElementById('precio').value = "";
 
                                         }
                                     </script>
-
-
-                                </div>
-                            </div>
-                            <div class="col-2-form text">
                                 <label for="productos">Nombre de Producto:</label>
-                                <select name="producto" id="producto" class="form-select"
-                                    style="width: 203px; height: 42px; margin-right: 8px;" onchange="cargarPrecio()">
-                                    <option selected>Selecciona categoria</option>
+                                <select name="producto" id="producto" style="width: 100%; height: 40px; margin-right: 8px;" onchange="cargarPrecio()">
+                                    <option selected>Selecciona Producto</option>
                                 </select>
-                                <!-- JavaScript -->
-                                <script>
+                                                                <!-- JavaScript -->
+                                                                <script>
                                     function cargarProductos() {
                                         var categoriaSeleccionada = document.getElementById('categoria').value;
 
@@ -206,7 +193,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
 
                                                     // Limpiar el combo de productos
                                                     var productoSelect = document.getElementById('producto');
-                                                    productoSelect.innerHTML = '<option selected>Seleccionar categoria de producto </option>';
+                                                    productoSelect.innerHTML = '<option selected>Selecciona producto </option>';
 
                                                     // Generar las opciones del combo de productos utilizando los datos obtenidos
                                                     productos.forEach(function (producto) {
@@ -273,20 +260,22 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                         } 
                                     }
                                 </script>
+                                </div>
                             </div>
                             <div class="btn-form">
                                 <button type="submit" id="ventaButton">REGISTRAR</button>
                             </div>
+                            <div class="gato-background">
+                                <img src="../../../imagenes/perfilVeterinario/GatoNegro.svg" alt="GatoNegro">
+                            </div>
                         </form>
                     </div>
-                </div>
-                <div class="gato-background">
-                    <img src="../../../imagenes/perfilVeterinario/GatoNegro.svg" alt="GatoNegro">
-                </div>
-                <div class="perro-background">
-                    <img src="../../../imagenes/perfilVeterinario/PerroDinero.svg" alt="GatoNegro">
-                </div>
+                </div>  
+            </div>                                <div class="perro-background">
+                        <img src="../../../imagenes/perfilVeterinario/PerroDinero.svg" alt="GatoNegro">
+                    </div>  
             </section>
+            
 
 
             <?php

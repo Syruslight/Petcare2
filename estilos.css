@@ -273,9 +273,102 @@ a{
 
 
 
+/*terminos y condiciones*/
+
+/* Estilos para el modal */
+.custom-modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.custom-modal-content {
+    padding: 15px;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 600px;
+    max-height: 80%;
+    overflow-y: auto;
+    color: #000000;
+    
+}
+
+.custom-close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.custom-scrollable-content {
+    max-height: 60%;
+    overflow-y: auto;
+}
+
+#terminosLink{
+    color: #E96397;
+}
+
+
+#botonTerminosCondiciones{
+    width: 200px;
+    height: 43px;
+    background-color:#E96397;;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.custom-scrollable-content {
+    overflow-y: auto; 
+    max-height: 400px; 
+    padding: 10px;
+
+    scrollbar-color: #E96397 #F7F7F7; 
+    scrollbar-width: thin; 
+}
+
+/* Estilos para el botón */
+.contenedorBoton {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.botonTerminosCondiciones {
+
+    background-color: #2d9780;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 200px;
+    transition: color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
 
 
 
+/* Estilos para el scrollbar en navegadores no compatibles (Firefox) */
+.custom-scrollable-content::-webkit-scrollbar {
+    width: 8px;
+}
 
+.custom-scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #E96397;
+    border-radius: 4px;
+}
 
-
+.custom-scrollable-content::-webkit-scrollbar-track {
+    background-color: #F7F7F7;
+}

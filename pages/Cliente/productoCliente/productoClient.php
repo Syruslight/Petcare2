@@ -25,6 +25,41 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     </head>
 <body>
 
+<script>
+    function toggleFiltroTodos(button) {
+        const isChecked = button.classList.toggle('active');
+
+        const checkboxes = document.querySelectorAll('.btn-categoria');
+        checkboxes.forEach(checkbox => {
+            if (checkbox !== button) {
+                if (isChecked) {
+                    checkbox.classList.add('active');
+                } else {
+                    checkbox.classList.remove('active');
+                }
+            }
+        });
+
+        filtrarProductos();
+    }
+
+    function filtrarProductos() {
+        const checkboxes = document.querySelectorAll('.btn-categoria');
+        const selectedCategories = Array.from(checkboxes).filter(checkbox => checkbox.classList.contains('active')).map(checkbox => checkbox.getAttribute('data-categoria'));
+
+        const products = document.querySelectorAll('.card-product');
+        products.forEach(product => {
+            const productCategoria = product.querySelector('span').textContent.trim();
+
+            if (selectedCategories.length === 0 || selectedCategories.includes(productCategoria)) {
+                product.style.display = 'block'; 
+            } else {
+                product.style.display = 'none';
+            }
+        });
+    }
+</script>
+
 
 <div class="wrapper">
         <div class="profile">
@@ -43,6 +78,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <section class="container-main">
         <div>
             <h2 class="mb-3">Catalogo de productos</h2>
+           
+
         </div>
         <div class="row wrapped-main">
             <div class="busqueda">
@@ -53,6 +90,11 @@ foreach (listarCliente($email, $conn) as $key => $value) {
             </div>
             <div class="main-data">
             <aside class="categorias-row">
+            <button class="btn" data-categoria="todos" onclick="toggleFiltroTodos(this)">
+            <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
+
+    <span>Todos los productos</span>
+</button>
         <div class="categoria-list">
             <?php
             $especies = array("Perro", "Gato", "Conejo");
@@ -62,7 +104,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             FROM especie e
                             LEFT JOIN tipoproductoservicio tp ON e.idespecie = tp.idespecie
                             LEFT JOIN productoservicio ps ON tp.idtipoproductoservicio = ps.idtipoproductoservicio
-                            WHERE tp.idtipoproductoservicio IS NOT NULL AND e.nombre = '$especie'
+                            WHERE e.nombre = '$especie' and tp.tipocategoria = 'Producto'
                             GROUP BY e.nombre";
                 $result = mysqli_query($conn, $query);
 
@@ -73,40 +115,47 @@ foreach (listarCliente($email, $conn) as $key => $value) {
             ?>
             <div class="card">
                 <div class="card-header-categoria">
+                    
                     <button class="title btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse<?php echo $nombre_especie; ?>" aria-expanded="false" aria-controls="collapse<?php echo $nombre_especie; ?>">
                         <span><?php echo $nombre_especie . " (" . $cantidad_productos . ")"; ?></span>
-                        <i class="fa-solid fa-chevron-down" style="color: #00423f; right: 26px"></i>
+                        <i class="fa-solid fa-chevron-down" style="color: #00423f; right: -45px"></i>
                     </button>
                 </div>
 
                 <div class="card-body-categoria collapse" id="collapse<?php echo $nombre_especie; ?>">
-                    <ul class="values">
-                        <?php
-                        $query_servicios = "SELECT tp.nombre AS nombre_categoria, COUNT(ps.idproductoservicio) AS cantidad_servicios
-                                            FROM tipoproductoservicio tp
-                                            LEFT JOIN productoservicio ps ON tp.idtipoproductoservicio = ps.idtipoproductoservicio
-                                            WHERE tp.idespecie = (SELECT idespecie FROM especie WHERE nombre = '$nombre_especie')
-                                            AND tp.idtipoproductoservicio NOT IN (3, 8, 13)
-                                            GROUP BY tp.nombre";
-                        $result_servicios = mysqli_query($conn, $query_servicios);
+    <ul class="values">
+        <?php
+        $query_servicios = "SELECT tp.nombre AS nombre_categoria, COUNT(ps.idproductoservicio) AS cantidad_servicios
+                            FROM tipoproductoservicio tp
+                            LEFT JOIN productoservicio ps ON tp.idtipoproductoservicio = ps.idtipoproductoservicio
+                            WHERE tp.idespecie = (SELECT idespecie FROM especie WHERE nombre = '$nombre_especie')
+                            AND tp.tipocategoria = 'Producto' and tp.estado=1
+                            GROUP BY tp.nombre";
+        $result_servicios = mysqli_query($conn, $query_servicios);
 
-                        if (mysqli_num_rows($result_servicios) > 0) {
-                            while ($row_servicios = mysqli_fetch_assoc($result_servicios)) {
-                                $nombre_categoria = $row_servicios['nombre_categoria'];
-                                $cantidad_servicios = $row_servicios['cantidad_servicios'];
-                        ?>
-                        <li>
-                            <button class="btn" onclick="remplazarCheckIcon(this)">
-                                <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
-                                <span><?php echo $nombre_categoria . " (" . $cantidad_servicios . ")"; ?></span>
-                            </button>
-                        </li>
-                        <?php
-                            }
-                        }
-                        ?>
-                    </ul>
-                </div>
+        if (mysqli_num_rows($result_servicios) > 0) {
+            while ($row_servicios = mysqli_fetch_assoc($result_servicios)) {
+                $nombre_categoria = $row_servicios['nombre_categoria'];
+                $cantidad_servicios = $row_servicios['cantidad_servicios'];
+        ?>
+<li >
+    <button class="btn btn-categoria" data-categoria="<?php echo $nombre_categoria; ?>" onclick="this.classList.toggle('active'); filtrarProductos();">
+        <i class="fa fa-square-o fa-xl" style="color: #00423f;"></i>
+        <span><?php echo $nombre_categoria . " (" . $cantidad_servicios . ")"; ?></span>
+    </button>
+</li>
+
+
+       
+
+        <?php
+            }
+        }
+        ?>
+    </ul>
+</div>
+
+
             </div>
             <?php
                     }
@@ -121,9 +170,12 @@ foreach (listarCliente($email, $conn) as $key => $value) {
         $productos = listarProductos($conn); // Reemplaza "obtenerProductos" con el nombre de tu función que realiza la consulta y obtiene los registros
 
         foreach ($productos as $producto) {
+            
         ?>
-            <div class="card-product">
+            <div class="card-product">         
+                <span hidden><?php echo $producto['tipo']; ?></span>
                 <div class="card-head-product">
+                   
                     <span><?php echo $producto['nombre']; ?></span>
                 </div>
                 <div class="card-img-product">
