@@ -589,3 +589,12 @@
   }
   /* Finaliza modal para editar Products */
   
+  .footer{
+    margin-top: 94px;
+    width: 1157px;
+    height: 47px;
+    background: #94d2bd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

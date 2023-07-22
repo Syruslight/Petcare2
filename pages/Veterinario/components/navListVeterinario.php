@@ -67,8 +67,8 @@
                 <span class="list">Ventas </span>
             </div>
         </a>
+        
         <a href="../../../pages/Veterinario/petiPuntosVet/petiPuntoVet.php" <?php echo ($current_page === "petiPuntoVet.php") ? 'class="active"' : ''; ?>>
-  
         <div class="icons">
             <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
             <span class="list">PetiPuntos</span>

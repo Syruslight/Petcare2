@@ -60,10 +60,13 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             <?php
                 include('../components/headerVeterinario.php');
                 ?>
+                 <?php
+                include('../cerrarSesionVet/closeSessionVet.php');
+                ?>
             <div class="wrapper-petiPuntos">
                     <div class="subwreapper-petiPuntos">
                     <div class="header-petiPuntos">
-                        <h1 class="tittle-petiPuntos">Caje</h1>
+                        <h1 class="tittle-petiPuntos">Canje</h1>
                     </div>
                     <div class="wrapper-tablePetiPuntos">
                         <div class="header-tablePeti">
@@ -89,6 +92,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 </div>
                             </div>
 
+                           
                         </div>
                     </div>
                 </div>

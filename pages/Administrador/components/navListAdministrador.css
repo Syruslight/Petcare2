@@ -3,7 +3,7 @@
 .logo {
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .image-logoPetcare {
   margin-right: 22px;
@@ -16,10 +16,11 @@
 .profile-information {
   width: 100%;
   display: flex;
-  padding-top: 7px;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
+  padding-top: 7px;
+  /* padding-right: 22px; */
 }
 .user {
   font-family: "Poppins";
@@ -45,21 +46,22 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 653px;
+  height: 647px;
 }
 .categories {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   row-gap: 40px;
-  padding-left: 32px;
   padding-top: 18px;
+  height: 647px;
 }
 .icons {
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-left: 32px;
 }
 .services {
   font-family: "Poppins";
@@ -89,7 +91,7 @@
 }
 .sign-off {
   display: flex;
-  margin-top: 60px;
+  margin-top: 55px;
   align-items: center;
   & button {
     margin-left: 5px;
@@ -98,8 +100,12 @@
   }
 }
 .categories a.active {
+  display: flex;
+  align-items: center;
   background-color: #2a9d8f;
   border-radius: 10px;
+  height: 40px;
+  width: 283px;
   color: white;
   & span{
     color: #ffff;
@@ -107,8 +113,8 @@
   & img{
     filter: brightness(0) invert(1);
   }
-}
-.btn.edit{
+ 
+}.btn.edit{
   cursor: pointer;
 }
 /*Finish dashboar*/
