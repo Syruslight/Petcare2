@@ -25,6 +25,29 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
     <link rel="stylesheet" href='../../Veterinario/editarVeterinario/estiloModalVeterinario.css'>
 
     <title>LandingPage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Ejecutar la búsqueda al cargar la página
+            buscarCanje('');
+
+            $('#busqueda').on('input', function () {
+                var query = $(this).val();
+                buscarCanje(query);
+            });
+        });
+
+        function buscarCanje(query) {
+            $.ajax({
+                url: '../../../../llamadas/proceso_busqueda_canje.php',
+                method: 'POST',
+                data: { query: query },
+                success: function (response) {
+                    $('#resultados').html(response);
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <div class="wrapper">
@@ -46,10 +69,10 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                         <div class="header-tablePeti">
                             <div class="search-petiPunto">
                                 <span class="searching">Buscar:</span>
-                                <input class="input-searching" type="search" name="busqueadaDNI" placeholder="">
+                                <input class="input-searching" id="busqueda" type="search" name="busqueadaDNI" placeholder="">
                             </div>
                         </div>
-                        <div class="wrapper-onlyTablePeti">
+                        <div class="wrapper-onlyTablePeti" id="resultados">
                             <div class="tittle-tablePeti">
                                 <div class="row-tablePeti">
                                             <span class="tittle-textProductPeti">Codigo</span>
@@ -61,18 +84,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                             <div class="wrapper-tablePeti">
                                 <div class="wrapper-resultPeti">
                                     <div class="result-itemtPeti">
-                                        <div class="result-infoPeti">
-                                            <span class="table-nameFoodPeti">xxxxxxx</span>
-                                            <span class="table-pointsPeti">Christian</span>
-                                            <span class="table-pointsPeti">Nombre producto</span>
-                                        </div>
-                                        <div class="toogleBtn-petiPuntos">
-                                            <label class="toggle-btn">
-                                                <input type="checkbox" id="toggle">
-                                                <span class="slider"></span>
-                                                </label>
-                                                <span id="estado">No canjeado</span>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
