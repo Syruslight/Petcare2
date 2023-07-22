@@ -64,7 +64,11 @@
   width: 229px;
   height: 44px;
 }
-
+.add-newService:hover {
+  background-color: #49c1b3;
+  color: #ffffff; 
+  border-color: #ffffff; 
+}
 .wrapper-deck {
   display: grid;
   grid-template-columns: auto auto auto;

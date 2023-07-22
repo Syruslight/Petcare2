@@ -98,6 +98,9 @@
   margin-left: 10px;
 }
 .input-search {
+  background-color: transparent;
+  border: none;
+  outline: none;
   color: #000;
   font-family: Poppins;
   font-size: 15.239px;
@@ -262,7 +265,7 @@ Inicia Modal de reserva */
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.644);
+  background-color: rgba(0, 0, 0, 0.733);
 }
 
 .modalReservar__container {
@@ -273,8 +276,8 @@ Inicia Modal de reserva */
   height: 100%;
 }
 .cuadro_modalReservar {
-  width: 440px;
-  height: 478px;
+  width: 450px;
+  height: 530PX;
   padding: 20px;
   border-radius: 10px;
   background-color: #fff;
@@ -289,12 +292,20 @@ Inicia Modal de reserva */
   align-items: center;
   margin-bottom: 15px;
 }
-.tituloReservar h1 {
-  color: #E96397;
-  font-size: 27px;
-  margin: 0;
+.tituloReservar {
+  display: flex; /* Utilizamos flexbox para centrar verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  text-align: center;
+  width: 450px;
 }
 
+.tituloReservar h1 {
+  
+  color: #000000;
+  font-size: 30px;
+  margin: 0;
+}
 #CloseModalReservar {
   cursor: pointer;
   color: #2a9d8f;
@@ -304,9 +315,30 @@ Inicia Modal de reserva */
 .container {
   margin-top: 20px;
 }
+
+
+
 .upload-confirmation img {
   object-fit: cover;
   transition: filter 0.3s ease; 
+}
+
+.subirFoto {
+  display: flex; /* Utilizamos flexbox para centrar verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  font-size: 16px;
+  top: 0;
+  left: 0;
+  width: 370px;
+  margin: auto;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.637);
+}
+
+.subirFoto label {
+  margin: 0; /* Quitamos el margen para ocupar todo el espacio disponible */
+  color: white;
 }
 
 .iconoUpload{
@@ -518,14 +550,17 @@ form .page .btns button.next {
 
 } */
 .part-upReser {
-  border: 1px solid rgba(58, 58, 58, 0.473);
+  border: 1px solid rgba(87, 86, 86, 0.473);
   display: flex;
   align-items: center;
+  height: 120px;
+  justify-content: space-around;
 }
 .info-upReser {
   margin-left: 10px;
 }
 .title-Reserva {
+
   margin: 0;
   color: #027466;
   text-align: left;
@@ -595,7 +630,8 @@ padding: 3px;
   align-items: flex-start;
 }
 .subtitle-reser {
-  color: rgba(0, 0, 0, 0.64);
+  margin-bottom: 10px;
+  color: #027466;
   text-align: center;
   font-family: Poppins;
   font-size: 15px;
@@ -604,11 +640,16 @@ padding: 3px;
   line-height: normal;
 }
 .select-reser {
-  border-radius: 15px;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
   background: #e7e7e7;
   width: 200px;
-  height: 38px;
+  height: 45px;
+border: none;
+border-bottom: 2px solid #E96397;
 }
+
 .method-payment {
   display: flex;
   justify-content: space-around;
@@ -630,6 +671,8 @@ padding: 3px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  background-color: transparent;
+  border: none;
 }
 .second-methodPay {
   display: flex;
@@ -650,9 +693,23 @@ padding: 3px;
   line-height: normal;
   cursor: pointer;
   margin-right: 10px;
+  background-color: transparent;
+  border: none;
 }
 .image-payment {
   margin-top: 30px;
+  height: 250px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  overflow: hidden; /* Oculta el contenido que exceda el tamaño del div */
+}
+
+#payment-image {
+
+  height: 100%; /* La imagen ocupará el 100% del alto del div */
+  width: auto; /* El ancho de la imagen se ajustará automáticamente */
+  display: block; /* Evita espacios no deseados alineando la imagen */
 }
 
 .text-confirmation {
@@ -665,7 +722,7 @@ padding: 3px;
   line-height: normal;
   display: flex;
   justify-content: center;
-  margin-bottom: 15px;
+
 }
 .upload-only {
   position: fixed;
@@ -692,16 +749,23 @@ padding: 3px;
 }
 
 .upload-confirmation{
-  margin-top: 30px;
-  width: 100%;
-  height: 250px;
+border: 1px solid rgb(167, 167, 167);
+  margin-top: 10px;
+  width: 370px;
+  height: 258px;
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  overflow: hidden; /* Oculta el contenido que exceda el tamaño del div */
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
+.upload-confirmation img{
+height: 100%;
+    width: auto;
+    display: block;
 
+}
 
 
 
@@ -715,8 +779,30 @@ padding: 3px;
 }
 
 .button-container {
-  margin-top: 20px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+ 
+  justify-content: space-around;
 }
+
+.button-container button {
+  padding: 10px 20px;
+  background-color: #2A9D8F;
+  border: none;
+  width: 200px;
+  color: #fff; /* Color del texto */
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+.button-container button:hover {
+  background-color: #247c6c; /* Nuevo color de fondo en hover */
+}
+
 
 .button-container button {
   padding: 10px 20px;
@@ -751,3 +837,7 @@ padding: 3px;
   background-color: #E96397;
 }
 
+.textoReserva{
+  margin: 0;
+
+}

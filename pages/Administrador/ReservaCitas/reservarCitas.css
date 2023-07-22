@@ -32,6 +32,7 @@
     color: white;
     text-decoration: none;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .tab {
     display: flex;
@@ -105,6 +106,11 @@
     border: 1px solid #888;
     max-width: 600px;
     position: relative;
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px 10px;
   }
   
   .close {
@@ -121,3 +127,20 @@
     height: auto;
   }
   
+  .container-foto{
+    display: flex;
+    width: 162px;
+    height: 166px;
+    overflow: hidden;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+  }
+  #imagenComprobante{
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    margin-right: auto;
+    display: block;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+  }

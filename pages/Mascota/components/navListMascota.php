@@ -30,12 +30,12 @@
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
-<style>
+<!-- <style>
 .categories a.active {
     background-color: yellow;
     border-radius: 10px;
 }
-</style>
+</style> -->
 
                     <div class="categories">
                     <a href="../Cliente/clienteIndex/cliente.php" <?php echo ($current_page === "cliente.php") ? 'class="active"' : ''; ?>>
@@ -67,11 +67,14 @@ $current_page = basename($_SERVER['PHP_SELF']);
                         </div>
                         </a>
                         
+                        <a href="../../Cliente/petiPuntos/petiPuntos.php"  <?php echo ($current_page === "petiPuntos.php") ? 'class="active"' : ''; ?> >
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/appointment-reminders--v1.png" width="25"
                                 height="25" />
                             <span class="list">PetiPuntos </span>
                         </div>
+                        </a>
+<!-- 
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/settings--v1.png" width="25" height="25" />
                             <span class="list">Reserva una cita</span>
@@ -79,7 +82,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
                         <div class="icons">
                             <img src="https://img.icons8.com/ios/50/null/help--v1.png" width="25" height="25" />
                             <span class="list">Ayuda</span>
-                        </div>
+                        </div> -->
 
                         <div class="sign-off">
 

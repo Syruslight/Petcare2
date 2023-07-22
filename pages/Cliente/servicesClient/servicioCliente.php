@@ -151,6 +151,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                         </div>
                                     </div>
                                     <div class="part-downReser">
+                                        
                                         <div class="wrapper-downReser1">
                                             <input type="text" value="<?php echo $value[7] ?>" name="idClienteCita" hidden>
                                             <input type="text" id="idproductoServicio"
@@ -169,7 +170,8 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                                 // Generar las opciones del select con los datos de las mascotas
                                                 echo '<div class="wrapper-selectReser">
                                                 <span class="subtitle-reser">Mascota</span>
-                                                <select name="idMascotaCita" class="select-reser">';
+                                                <select name="idMascotaCita" class="select-reser">
+                                                <option value="">Seleccionar</option>';
                                                 while ($row = mysqli_fetch_assoc($result)) {
                                                     $idMascota = $row['idmascota'];
                                                     $nombreMascota = $row['nombre'];
@@ -192,7 +194,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                                 <span class="subtitle-reser">Fecha de reserva</span>
                                                 <select name="selectFecha" class="select-reser"
                                                     onchange="mostrarFechaSeleccionada(this)" id="selectFecha">
-                                                    <option value="">Seleccionar fecha</option>
+                                                    <option value="">Seleccionar</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -204,16 +206,17 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                             <select name="selectVeterinario"
                                                 onchange="mostrarVeterinarioSeleccionado(this)" id="selectVeterinario"
                                                 class="select-reser">
-                                                <option value="">Seleccionar fecha</option>
+                                                <option value="">Seleccionar</option>
                                             </select>
                                         </div>
 
                                         <div class="wrapper-selectReser">
-                                            <span class="subtitle-reser">Tiempo de servicio</span>
+                                            <span class="subtitle-reser">Horarios Disponibles</span>
                                             <select name="selectTiempoServicio" id="selectTiempoServicio"
                                                 onchange="mostrarIdHorario(this)" class="select-reser">
-                                                <option value="">Seleccionar fecha</option>
+                                                <option value="">Seleccionar</option>
                                             </select>
+                                            
                                         </div>
                                     </div>
                                 </div>
@@ -251,15 +254,21 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                 <div class="wrapper-confirmation">
                                     <span class="text-confirmation">Por favor subir el comprobante de pago</span>
                                     <div class="upload-confirmation">
-                                        <img src="../../../imagenes/perfilCliente/sendConfirmation.png" alt=""
+                                        <img id="imgComprobante" src="../../../imagenes/perfilCliente/sendConfirmation.png" alt=""
                                             width="400px" height="210px">
                                         
-                                    </div><input type="file" name="fotoComprobantePago" id="fotoComprobante" hidden>
+                                    </div>
+                                    <input type="file" name="fotoComprobantePago" id="fotoComprobante" hidden>
+
+            </div>
+            
+           
                                     <div class="subirFoto">
-                                        <label for="fotoComprobante">Subir Foto</label>
+                                    <label id="cambiar-foto" onclick="previsualizarImagen('imgComprobante', 'fotoComprobante', '../../../imagenes/perfilCliente/sendConfirmation.png')"  for="fotoComprobante">Subir Foto</label>
+
                                     </div>
                                     
-                                </div>
+                              
                                 <div class="button-container">
                                     <button type="button" onclick="prevStep(3)">Anterior</button>
                                     <button type="submit">Enviar</button>

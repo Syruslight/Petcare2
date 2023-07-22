@@ -15,7 +15,7 @@
                 <?= $value[0] ?>
                 <?= $value[1] ?>
             </span>
-            <img class="openModalAdministrador" src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32"
+            <img class="openModalAdministrador btn-edit" src="../../../imagenes/perfilAdmin/pencil.png" alt="pencil" width="32"
                 height="30" onclick="openModalAdministrador()">
         </div>
         <span class="id">DNI:
@@ -30,12 +30,12 @@
     $current_page = basename($_SERVER['PHP_SELF']);
     ?>
 
-    <style>
+    <!-- <style>
         .categories a.active {
-            background-color: yellow;
+            background-color: #2a9d8f;
             border-radius: 10px;
         }
-    </style>
+    </style> -->
 
     <div class="categories">
         <a href="../administradorIndex/administrador.php" <?php echo ($current_page === "administrador.php") ? 'class="active"' : ''; ?>>
