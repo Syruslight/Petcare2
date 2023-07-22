@@ -38,10 +38,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             ?>
                  <?php
 // Obtener los estados de las citas
-$citasTotales = 0;
-$citasRealizadas = 0;
-$citasPendientes = 0;
-$citasCanceladas = 0;
+
 
 $sentencia1 = "SELECT c.idcita, h.fecha AS fecha, m.nombre AS nombreMascota, ps.nombre AS servicio, 
                 h.horarioinicio, h.horariofin, CONCAT(cli.nombres, ' ', cli.apellidos) 
@@ -58,78 +55,13 @@ $resultado = mysqli_query($conn, $sentencia1);
 if ($resultado) {
     $registros = mysqli_fetch_all($resultado, MYSQLI_ASSOC);
 
-    // Obtener la cantidad de citas en cada estado
-    foreach ($registros as $registro) {
-        $estadop = $registro['estadopago'];
-        if($estadop==='1'){
-        $estado = $registro['estadoAtencion'];
-        if ($estado == '1') {
-            $citasRealizadas++;
-        } elseif ($estado == '0') {
-            $citasPendientes++;
-        } elseif ($estado == '2') {
-            $citasCanceladas++;
-        }
-        $citasTotales++;
-    }
-    }
+  
+  
     echo "<p class='textoVeterinario'>Bienvenido a su reporte de citas, Dr. " . $value[0] ." ".  $value[1] .".</p>";// Mostrar las estadísticas y la tabla de citas en el código HTML
     echo '
-    <div class="contenedorGeneralEstadisticas">';
+    <div class="contenedorGeneralEstadisticas">
     
-      echo' <div id="citasTotales" class="contenedorUnitario">
-            <div id="citasTotales" class="contenedorImg">
-                <img src="../../imagenes/citasTotales.png" alt="citasTotalesImagen">
-            </div>
-            <div class="contenedorKPICitas">
-                <p class="tituloCitas">
-                    Mis Citas Totales
-                </p>
-                <p class="numeroCitas">
-                    ' . $citasTotales . '
-                </p>
-            </div>
-        </div>
-        <div id="citasRealizadas" class="contenedorUnitario">
-            <div id="citasRealizadas" class="contenedorImg">
-                <img src="../../imagenes/citasRealizadas.png" alt="citasRealizadas">
-            </div>
-            <div class="contenedorKPICitas">
-                <p class="tituloCitas">
-                    Mis Citas Realizadas
-                </p>
-                <p class="numeroCitas">
-                    ' . $citasRealizadas . '
-                </p>
-            </div>
-        </div>
-        <div id="citasPendientes" class="contenedorUnitario">
-            <div id="citasPendientes" class="contenedorImg">
-                <img src="../../imagenes/citasPendientes.png" alt="citasPendientes" width="69px" height="69px">
-            </div>
-            <div class="contenedorKPICitas">
-                <p class="tituloCitas">
-                    Mis Citas Pendientes
-                </p>
-                <p class="numeroCitas">
-                    ' . $citasPendientes . '
-                </p>
-            </div>
-        </div>
-        <div id="citasCanceladas" class="contenedorUnitario">
-        <div id="citasCanceladas" class="contenedorImg">
-            <img src="../../imagenes/citasCanceladas.png" alt="citasCanceladas">
-        </div>
-        <div class="contenedorKPICitas">
-            <p class="tituloCitas">
-                Mis Citas Canceladas
-            </p>
-            <p class="numeroCitas">
-            ' . $citasCanceladas . '
-        </p>
-        </div>
-    </div>
-    </div>
+     
 <div class="contenedorCitas">
  <h2>Citas Programadas</h2>
                 <div class="contenedorSuperiorCitas">
@@ -199,7 +131,7 @@ if ($resultado) {
     // Manejar el error en caso de que la consulta falle
     echo 'Error al obtener los registros de la base de datos.';
 }
-echo '</div>'
+echo '</div></div>'
 ?>
 
                 <?php
