@@ -12,6 +12,9 @@ use PHPMailer\PHPMailer\Exception;
 $correo = $_POST['correo'];
 $nombre = $_POST['nombre'];
 
+$fechaCita = $_POST['citaHora'];
+$nombreServicio = $_POST['nombreServicio'];
+
 $tuCorreo = 'anon.utp@gmail.com';  // Reemplaza con tu dirección de correo
 $tuPassword = 'ltbahbhvxcpbctzw';
 $mail = new PHPMailer();
@@ -26,7 +29,9 @@ $mail->Port = 587;
 $mail->setFrom($tuCorreo, 'Hola cliente');
 $mail->addAddress($correo);
 $mail->Subject = 'Reserva de cita - PetCare';
-$mail->Body = 'Estimado ' . $nombre . ', tu pago ha sido confirmado.';
+// ...
+$mail->Body = 'Estimado ' . $nombre . ', tu cita del servicio : ' . $nombreServicio .' con fecha : '. $fechaCita . ' ha sido confirmada.';
+
 
 if ($mail->send()) {
     echo 'Correo enviado correctamente';
