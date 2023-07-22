@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-07-2023 a las 07:55:32
+-- Tiempo de generación: 22-07-2023 a las 02:45:26
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -59,7 +59,8 @@ CREATE TABLE `canje` (
   `idcanje` int(11) NOT NULL,
   `idrecompensa` int(11) NOT NULL,
   `idcliente` int(11) NOT NULL,
-  `codigo` varchar(7) NOT NULL
+  `codigo` varchar(7) NOT NULL,
+  `estado` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -88,9 +89,9 @@ INSERT INTO `cita` (`idcita`, `idcliente`, `idmascota`, `idhorario`, `estadopago
 (3, 5, 5, 8, 1, '2023-07-08 03:39:45', 'plin2.png', 1),
 (4, 3, 3, 18, 1, '2023-07-08 03:39:45', 'yape1.png', 1),
 (5, 12, 12, 19, 1, '2023-07-08 03:40:07', 'yape1.png', 0),
-(6, 5, 5, 8, 1, '2023-07-08 03:40:07', 'yape2.png', 1),
-(7, 3, 3, 18, 1, '2023-07-08 03:40:07', 'yape2.png', 1),
-(8, 1, 1, 5, 1, '2023-07-08 04:00:05', 'yape2.png', 0),
+(6, 5, 5, 8, 0, '2023-07-08 03:40:07', 'yape2.png', 1),
+(7, 3, 3, 18, 0, '2023-07-08 03:40:07', 'yape2.png', 1),
+(8, 1, 1, 5, 0, '2023-07-08 04:00:05', 'yape2.png', 0),
 (9, 6, 6, 6, 0, '2023-07-08 04:00:05', 'yape3.jpg', 0);
 
 -- --------------------------------------------------------
@@ -140,7 +141,7 @@ INSERT INTO `cliente` (`idcliente`, `idusuario`, `nombres`, `apellidos`, `dni`, 
 (19, 19, 'Mirtha', 'Reyes', '78945612', '998877552', 'Av. Venezuela 3210', 'cliente19_m.jpg', 'Femenino', '1996-06-17', 6, 0),
 (20, 20, 'Teresa', 'Moreno', '74185236', '998822550', 'Jr. Las Casuarinas 5230', 'cliente20_m.jpg', 'Femenino', '1997-02-04', 6, 0),
 (22, 33, 'Clara', 'vaallejo', '47896558', '956856523', 'Jr. 300', 'playology-dri-tech.jpg', 'Femenino', '2001-05-01', 0, 0),
-(23, 34, 'Alfonso', 'Carrasco', '12345678', '941297309', 'Av. Brasil 543', 'predeterminadoHombre.jpg', 'Masculino', '1999-04-12', 0, 0),
+(23, 34, 'Alfonso', 'Carrasco', '784525', '941297309', 'Av. Brasil 543', 'predeterminadoHombre.jpg', 'Masculino', '1999-04-12', 0, 0),
 (24, 35, 'Aurelio', 'Olaechea', '79845612', '958426351', 'Lima', 'renato.jpg', 'Masculino', '1992-08-18', 0, 0);
 
 -- --------------------------------------------------------
@@ -401,7 +402,8 @@ INSERT INTO `productoservicio` (`idproductoservicio`, `idtipoproductoservicio`, 
 (60, 11, 'comida coneplus adulto', 36.00, 'comida coneplus adulto', 'Coneplus adulto.jpg', '1'),
 (61, 11, 'comida hasen heno', 75.00, 'comida hasen heno', 'Hasen heno.jpg', '1'),
 (62, 11, 'comida hasen junior', 20.00, 'comida hasen junior', 'Hasen junior.jpg', '1'),
-(63, 11, 'comida heno pure hay', 50.00, 'comida heno pure hay', 'Heno Pure hay.jpg', '1');
+(63, 11, 'comida heno pure hay', 50.00, 'comida heno pure hay', 'Heno Pure hay.jpg', '1'),
+(64, 2, 'comboservicio', 25.00, 'descripcion', 'footerperro.jpg', '1');
 
 -- --------------------------------------------------------
 
@@ -492,6 +494,16 @@ CREATE TABLE `recompensas` (
   `estado` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `recompensas`
+--
+
+INSERT INTO `recompensas` (`idrecompensa`, `idproductoservicio`, `puntos`, `estado`) VALUES
+(1, 45, 40, '1'),
+(2, 30, 10, '1'),
+(4, 31, 75, '1'),
+(5, 27, 400, '1');
+
 -- --------------------------------------------------------
 
 --
@@ -567,9 +579,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idusuario`, `idtipousuario`, `email`, `pass`, `fechaCre`, `estado`) VALUES
-(1, 1, 'cristhian@gmail.com', '123', '2023-05-16 23:11:20', '2'),
+(1, 1, 'cmvc99@gmail.com', '123', '2023-05-16 23:11:20', '2'),
 (2, 1, 'jorgecortez@gmail.com', 'jorge', '2023-05-19 14:57:41', '2'),
-(3, 1, 'alexisperez@gmail.com', 'alexis', '2023-05-19 15:00:06', '2'),
+(3, 1, 'rukm_hcuyw98@xupiv.com', 'alexis', '2023-05-19 15:00:06', '2'),
 (4, 1, 'alexisperez@outlook.com', 'alexis', '2023-05-19 15:19:36', '2'),
 (5, 1, 'dylanpacheco@gmail.com', 'dylan', '2023-05-19 15:22:44', '2'),
 (6, 1, 'celiacruz@gmail.com', 'celia', '2023-05-19 15:24:58', '2'),
@@ -925,7 +937,7 @@ ALTER TABLE `mascota`
 -- AUTO_INCREMENT de la tabla `productoservicio`
 --
 ALTER TABLE `productoservicio`
-  MODIFY `idproductoservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `idproductoservicio` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT de la tabla `puntoscliente`
@@ -943,7 +955,7 @@ ALTER TABLE `raza`
 -- AUTO_INCREMENT de la tabla `recompensas`
 --
 ALTER TABLE `recompensas`
-  MODIFY `idrecompensa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idrecompensa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `tipoproductoservicio`

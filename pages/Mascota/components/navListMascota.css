@@ -46,14 +46,13 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  height: 653px;
+  height: 647px;
 }
 .categories {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   row-gap: 40px;
-  padding-left: 32px;
   padding-top: 18px;
   height: 647px;
 }
@@ -62,6 +61,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
+  padding-left: 32px;
 }
 .services {
   font-family: "Poppins";
@@ -91,7 +91,7 @@
 }
 .sign-off {
   display: flex;
-  margin-top: 245px;
+  margin-top: 250px;
   align-items: center;
   & button {
     margin-left: 5px;
@@ -100,8 +100,12 @@
   }
 }
 .categories a.active {
+  display: flex;
+  align-items: center;
   background-color: #2a9d8f;
   border-radius: 10px;
+  height: 40px;
+  width: 283px;
   color: white;
   & span{
     color: #ffff;
@@ -109,5 +113,6 @@
   & img{
     filter: brightness(0) invert(1);
   }
+ 
 }
 /*Finish dashboar*/

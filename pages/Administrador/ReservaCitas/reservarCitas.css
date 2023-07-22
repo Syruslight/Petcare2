@@ -129,14 +129,14 @@
   
   .container-foto{
     display: flex;
-    width: 390px;
+    /* width: 390px; */
     height: 410px;
     overflow: hidden;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
   }
   #imagenComprobante{
     border-radius: 8px;
-    width: 100%;
+    width: auto;
     height: 100%;
     margin: 0px;
     margin-right: auto;
