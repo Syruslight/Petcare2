@@ -17,7 +17,8 @@ if (mysqli_num_rows($fechasResult) > 0) {
         $options .= "<option value='{$fechaRow['fecha']}'>$fecha</option>";
     }
 } else {
-    $options = '<option value="">No hay fechas disponibles</option>';
+    $options = ' <option value="">Seleccionar</option>
+                <option value="">No hay fechas</option>';
 }
 
 echo $options;

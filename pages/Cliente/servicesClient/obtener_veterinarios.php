@@ -24,7 +24,7 @@ if (isset($_POST['fechaSeleccionada']) && isset($_POST['idproductoservicio'])) {
             echo "<option value='$idVeterinario'>$nombres $apellidos</option>";
         }
     } else {
-        echo '<option value="">No se encontraron veterinarios disponibles</option>';
+        echo '<option value="">No hay veterinarios</option> <option value="">Seleccionar</option>';
     }
 }
 ?>

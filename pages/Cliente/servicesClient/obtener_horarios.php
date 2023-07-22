@@ -21,7 +21,7 @@ if (isset($_POST['veterinarioSeleccionado'])) {
             echo "<option value='$horarioInicio-$horarioFin'>$horarioInicio-$horarioFin</option>";
         }
     } else {
-        echo '<option value="">No se encontraron horarios disponibles</option>';
+        echo '<option value="">No hay horarios </option> <option value="">Seleccionar</option>';
     }
 }
 ?>
