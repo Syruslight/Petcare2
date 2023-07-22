@@ -97,7 +97,6 @@
     background: #2a9d8f;
   }
 }
-<<<<<<< Updated upstream
 .categories a.active {
   background-color: #2a9d8f;
   border-radius: 10px;
@@ -108,9 +107,8 @@
   & img{
     filter: brightness(0) invert(1);
   }
-=======
-.btn-edit{
+}
+.btn.edit{
   cursor: pointer;
->>>>>>> Stashed changes
 }
 /*Finish dashboar*/
