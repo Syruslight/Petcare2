@@ -186,3 +186,66 @@ ul {
   height: 100%;
   padding: 5px 0px;
 }
+
+
+
+.btn-categoria {
+  position: relative;
+}
+
+.btn-categoria.active .fa-square-o::before {
+  content: "\f14a"; /* Unicode del icono de casilla con check de Font Awesome */
+}
+
+/* Estilos para el icono de casilla con check */
+.fa-check-square-o::before {
+  font-family: "Font Awesome"; /* Asegúrate de tener la fuente Font Awesome cargada */
+  content: "\f046"; /* Unicode del icono de casilla con check de Font Awesome */
+  display: inline-block;
+}
+/* Estilo para el botón en su estado normal */
+.btn-categoria {
+  position: relative;
+  padding-left: 30px; /* Ajusta este valor según el tamaño del icono */
+  border: none; /* Elimina el borde */
+  background-color: transparent; /* Establece el fondo transparente */
+}
+
+/* Estilo para el botón cuando está activo (clicado) */
+.btn-categoria.active {
+  border: none; /* Elimina el borde cuando está activo */
+  outline: none; /* Elimina el contorno de enfoque al hacer clic */
+}
+
+
+
+
+
+
+.btn {
+  position: relative;
+}
+
+.btn.active .fa-square-o::before {
+  content: "\f14a"; /* Unicode del icono de casilla con check de Font Awesome */
+}
+
+/* Estilos para el icono de casilla con check */
+.fa-check-square-o::before {
+  font-family: "Font Awesome"; /* Asegúrate de tener la fuente Font Awesome cargada */
+  content: "\f046"; /* Unicode del icono de casilla con check de Font Awesome */
+  display: inline-block;
+}
+/* Estilo para el botón en su estado normal */
+.btn {
+  position: relative;
+  padding-left: 30px; /* Ajusta este valor según el tamaño del icono */
+  border: none; /* Elimina el borde */
+  background-color: transparent; /* Establece el fondo transparente */
+}
+
+/* Estilo para el botón cuando está activo (clicado) */
+.btn.active {
+  border: none; /* Elimina el borde cuando está activo */
+  outline: none; /* Elimina el contorno de enfoque al hacer clic */
+}

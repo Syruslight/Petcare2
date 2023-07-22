@@ -52,7 +52,7 @@
 	}
 	else if ($tipoUsuario=="Cliente"){
 		agregarDatosCliente($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$conn);
-		header("location:../pages/Cliente/cliente.php");
+		header("location:../pages/Cliente/clienteIndex/cliente.php");
 	}
 	else if($tipoUsuario=="Veterinario"){
 		agregarDatosVeterinario($idusuario,$nombres,$apellidos,$dni,$telefono,$direccion,$foto,$sexo,$fechaBD,$conn);
