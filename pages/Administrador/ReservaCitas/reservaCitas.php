@@ -194,7 +194,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     echo '<td>' . $horarioInicio . ' - ' . $horarioFin . '</td>';
                                     echo '<td>' . $registro['cliente'] . ' (' . $registro['nombreMascota'] . ')' . '</td>';
                                     echo '<td>' . $registro['correo'] . '</td>';
-
+                                    echo '<td hidden>' . $registro['servicio'] . '</td>';    
                                     echo '<td>';
                                     echo '<div class="detalleButton"><button class="detalleBtn" data-img-src="../../../imagenes/comprobanteFoto/' . $registro['fotoComprobante'] . '">Detalle</button></div>';
 
@@ -263,8 +263,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
-                                    <th>Cliente</th>
                                     <th>Horario</th>
+                                    <th>Cliente</th>
                                     <th>Correo</th>
                                     
                                     <th>Pago</th>
@@ -300,6 +300,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                         </table>
                     </div>
                 </div>
+            
             </div>
 
             <div id="modalDetalleComprobante" class="modal">
@@ -318,14 +319,16 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             include('../cerrarSesionAdmin/cerrarSessionAdm.php');
             ?>
      <script>
-    function enviarCorreoAJAX(correo,nombre) {
+    function enviarCorreoAJAX(correo,nombre,citaHora,nombreServicio ) {
         // Ejemplo de solicitud AJAX usando jQuery para enviar el correo
         $.ajax({
             url: 'enviarcorreo.php',
             method: 'POST',
             data: {
                 correo: correo,
-                nombre: nombre
+                nombre: nombre,
+                citaHora: citaHora,
+                nombreServicio: nombreServicio 
             },
             success: function (response) {
                 if (response === 'success') {
@@ -340,12 +343,38 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
         });
     }
 
+    function enviarCorreoNoRealizado(correo, nombre,citaHora,nombreServicio ) {
+        // Ejemplo de solicitud AJAX usando jQuery para enviar el correo de "No Realizado"
+        $.ajax({
+            url: 'enviarcorreo_no_realizado.php',
+            method: 'POST',
+            data: {
+                correo: correo,
+                nombre: nombre,
+                citaHora: citaHora,
+                nombreServicio: nombreServicio 
+            },
+            success: function (response) {
+                if (response === 'success') {
+                    alert('El correo de "No Realizado" se ha enviado exitosamente a ' + correo);
+                } else {
+                    alert('Error al enviar el correo de "No Realizado" a ' + correo);
+                }
+            },
+            error: function () {
+                alert('Error en la solicitud AJAX para enviar el correo de "No Realizado"');
+            }
+        });
+    }
     function actualizarEstadoPago(selectElement) {
                     var nuevoEstado = selectElement.value;
                     var idCita = selectElement.parentNode.parentNode.firstChild.innerText;
                     var correo = selectElement.parentNode.parentNode.querySelector('td:nth-child(6)').innerText; // Obtener el correo
                     var nombre = selectElement.parentNode.parentNode.querySelector('td:nth-child(5)').innerText; // Obtener el nombre
-
+                    var citaHora = selectElement.parentNode.parentNode.querySelector('td:nth-child(2)').innerText; // Obtener el nombre
+                    var nombreServicio = selectElement.parentNode.parentNode.querySelector('td:nth-child(7)').innerText; // Obtener el nombre
+                    
+                    
                     if (confirm("¿Está seguro de cambiar el estado de pago de la cita?")) {
                         // Aquí puedes enviar una solicitud AJAX para actualizar el estado en la base de datos
                         // y luego recargar la página para mostrar el nuevo estado actualizado
@@ -362,12 +391,12 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 if (response === 'success') {
                                     location.reload(); // Recargar la página después de la actualización exitosa
                                     if (nuevoEstado === '1') {
-                                        enviarCorreoAJAX(correo, nombre);
-                                    } else if (nuevoEstado === '2') {
-                                        alert('No se envió el correo a ' + correo);
-                                    } else {
-                                        alert('Se actualizó correctamente el estado de pago.');
-                                    }
+            enviarCorreoAJAX(correo, nombre,citaHora, nombreServicio); // Correo de "Realizado"
+        } else if (nuevoEstado === '2') {
+            enviarCorreoNoRealizado(correo, nombre,citaHora, nombreServicio); // Correo de "No Realizado"
+        } else {
+            alert('Se actualizó correctamente el estado de pago.');
+        }
                                 } else {
                                     alert('Error al actualizar el estado de pago');
                                 }

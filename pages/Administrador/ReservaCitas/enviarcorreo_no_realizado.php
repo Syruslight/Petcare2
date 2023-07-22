@@ -15,6 +15,7 @@ $nombre = $_POST['nombre'];
 $fechaCita = $_POST['citaHora'];
 $nombreServicio = $_POST['nombreServicio'];
 
+
 $tuCorreo = 'anon.utp@gmail.com';  // Reemplaza con tu dirección de correo
 $tuPassword = 'ltbahbhvxcpbctzw';
 $mail = new PHPMailer();
@@ -29,14 +30,12 @@ $mail->Port = 587;
 $mail->setFrom($tuCorreo, 'Hola cliente');
 $mail->addAddress($correo);
 $mail->Subject = 'Reserva de cita - PetCare';
-// ...
-$mail->Body = 'Estimado ' . $nombre . ', tu cita del servicio : ' . $nombreServicio .' con fecha : '. $fechaCita . ' ha sido confirmada.';
-
+$mail->Body = 'Estimado ' . $nombre . ', tu cita del servicio : ' . $nombreServicio .' con fecha : '. $fechaCita . ' no ha sido confirmada.
+Por favor, ponte en contacto con nosotros para más información.<br>Contáctanos al 912380129 para resolver cualquier duda que tengas.';
 
 if ($mail->send()) {
-    echo 'Correo enviado correctamente';
+    echo 'Correo de "No Realizado" enviado correctamente';
 } else {
-    echo 'Error al enviar el correo: ' . $mail->ErrorInfo;
+    echo 'Error al enviar el correo de "No Realizado": ' . $mail->ErrorInfo;
 }
-
 ?>
