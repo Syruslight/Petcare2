@@ -69,15 +69,15 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                             <img class="image-forPetiPig" src="/imagenes/perfilCliente/CHANCHITO1.png" alt="">
                             <div class="puntos-usados">
                                 <span class="text-puntosUsados">Pts. Usados</span>
-                                <span class="puntaje-usadosPeti">85</span>
+                                <span class="puntaje-usadosPeti"><?= $value[8] ?> </span>
                             </div>
                             <div class="puntos-acumulados">
                                 <span class="text-acumulados">Pts. Acumulados</span>
-                                <span class="puntaje-acumuladosPeti">145</span>
+                                <span class="puntaje-acumuladosPeti"><?= $value[9] ?> </span>
                             </div>
                             <div class="puntos-generados">
                                 <span class="text-generados">Cupones Generados</span>
-                                <span class="puntaje-generadosPeti">03</span>
+                                <span class="puntaje-generadosPeti">0 </span>
                             </div>
                         </div>
                     </div>

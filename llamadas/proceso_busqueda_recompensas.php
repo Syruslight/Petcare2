@@ -26,12 +26,12 @@ if ($result->num_rows > 0) {
         <span class="table-nameFoodPeti">' . $row['nombre_producto'] . '</span>
                       <span class="table-pointsPeti">' . $row['puntos'] . ' Pts.</span>
                       <div class="toogleBtn-petiPuntos">
-                          <label class="toggle-btn">
-                              <input type="checkbox" id="toggle' . $row['idrecompensa'] . '">
-                              <span class="slider"></span>
-                          </label>
-                          <span id="estado' . $row['idrecompensa'] . '">Desactivado</span>
-                      </div>
+                      <label class="toggle-btn">
+                          <input type="checkbox" id="toggle>" checked>
+                          <span class="slider"></span>
+                      </label>
+                      <span id="estado">Activado</span>
+                  </div>
                   </div>
                   <img onclick="openModalEdithPetiPunto(' . $row['idrecompensa'] . ', \'' . $row['nombre_producto'] . '\', ' . $row['puntos'] . ')" id="open-edithPetiPunto" class="modal-imagenPeti" src="../../../imagenes/perfilAdmin/editedit.png" alt="edit">
                     </div>

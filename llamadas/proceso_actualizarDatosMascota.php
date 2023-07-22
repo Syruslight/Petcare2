@@ -37,7 +37,7 @@ if($envio==1){
 	header('Location: ../pages/Mascota/mascotaIndex.php');
 }
 else if ($envio==2){
-	header('Location: ../pages/Cliente/cliente.php');
+	header('Location: ../pages/Cliente/clienteIndex/cliente.php');
 }
 
 	
