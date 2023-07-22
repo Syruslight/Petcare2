@@ -387,9 +387,9 @@ height: 43px;
 
 .textoVeterinario{
   margin-bottom: 0px;
-  margin-top: 10px;
-  font-size: 24px;
-  margin-left: 30px;
+  margin-top: 40px;
+  font-size: 30px;
+  margin-left: 40px;
   font-weight: bold;
 }
 
@@ -1289,7 +1289,8 @@ background-color: #aeecda79;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 550px;
+  height: 730px;
+  background-color: white;
 }
 .detalleBtn{
   padding: 5px 10px;
@@ -1304,7 +1305,9 @@ background-color: #aeecda79;
   cursor: pointer;
 }
 .tab {
+  margin-top: 20px;
   display: flex;
+  
 }
 .contenedorSuperiorCitas {
   justify-content: center !important;
@@ -1342,4 +1345,19 @@ background-color: #aeecda79;
 
 .tablaCitas.active {
   display: block;
+}
+.tablaCitas{
+  padding-left: 20px;
+  padding-right: 20px;
+  background-color: white;
+
+  justify-content: center;
+margin-left: 30px;
+  width: 1000px;
+}
+
+.cantidadCitas{
+  margin-top: 10px;
+margin-left: 40px;
+font-size: 18px;
 }

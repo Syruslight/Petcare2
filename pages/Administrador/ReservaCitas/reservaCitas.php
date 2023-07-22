@@ -183,9 +183,11 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
+                                $contadorFilas =1;
                                 while ($registro = mysqli_fetch_assoc($resultado)) {
                                     echo '<tr>';
-                                    echo '<td>' . $registro['idcita'] . '</td>';
+                                    echo '<td>' . $contadorFilas . '</td>';
+                                    echo '<td hidden>' . $registro['idcita'] . '</td>';
                                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                                     echo '<td>' . $fechaFormateada . '</td>';
                                     echo '<td>' . $registro['servicio'] . '(' . $registro['nombres'] . ' ' . $registro['apellidos'] . ')' . '</td>';
@@ -205,6 +207,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     echo '</select>';
                                     echo '</td>';
                                     echo '</tr>';
+                                    $contadorFilas ++;
                                 }
                                 ?>
 
@@ -228,9 +231,11 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
+                                $contadorFilas =1;
                                 while ($registro = mysqli_fetch_assoc($resultadoRealizado)) {
                                     echo '<tr>';
-                                    echo '<td>' . $registro['idcita'] . '</td>';
+                                    echo '<td>' . $contadorFilas . '</td>';
+                                    echo '<td hidden>' . $registro['idcita'] . '</td>';
                                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                                     echo '<td>' . $fechaFormateada . '</td>';
                                     echo '<td>' . $registro['servicio'] . '(' . $registro['nombres'] . ' ' . $registro['apellidos'] . ')' . '</td>';
@@ -250,6 +255,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     echo '</select>';
                                     echo '</td>';
                                     echo '</tr>';
+                                    $contadorFilas ++;
                                 }
                                 ?>
                             </tbody>
@@ -272,9 +278,11 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                             </thead>
                             <tbody>
                                 <?php
+                                $contadorFilas =1;
                                 while ($registro = mysqli_fetch_assoc($resultadoCanceladas)) {
                                     echo '<tr>';
-                                    echo '<td>' . $registro['idcita'] . '</td>';
+                                    echo '<td>' . $contadorFilas . '</td>';
+                                    echo '<td hidden>' . $registro['idcita'] . '</td>';
                                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                                     echo '<td>' . $fechaFormateada . '</td>';
                                     echo '<td>' . $registro['servicio'] . '(' . $registro['nombres'] . ' ' . $registro['apellidos'] . ')' . '</td>';
@@ -294,6 +302,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     echo '</select>';
                                     echo '</td>';
                                     echo '</tr>';
+                                    $contadorFilas ++;
                                 }
                                 ?>
                             </tbody>

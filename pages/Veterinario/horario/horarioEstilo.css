@@ -61,18 +61,20 @@
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
   
-  .contenedorTablaHorario{
-    padding: 20px;
+  /* Estilos para el contenedor de la tabla con scroll */
+.contenedorTablaHorario {
+  padding: 20px;
+  max-height: 833px; /* Ajusta el tamaño máximo según tus necesidades */
+  overflow-y: auto; /* Añade scroll vertical cuando el contenido exceda el tamaño del contenedor */
+}
 
-    max-height: 833px; /* Ajusta el tamaño máximo según tus necesidades */
-    overflow-y: auto; 
-   
-  }
-  .tablaHorario {
-    width: 100%;
-    height: auto;
-    border-collapse: collapse;
-  }
+/* Estilos para la tabla */
+.tablaHorario {
+  width: 100%;
+  height: auto;
+  border-collapse: collapse;
+}
+
   .tablaHorario th,
   .tablaHorario td {
     padding: 8px;

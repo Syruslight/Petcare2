@@ -411,10 +411,7 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                 var tiempoServicioSeleccionado = select.value;
                 var fechaSeleccionada = document.getElementById('selectFecha').value;
                 var veterinarioSeleccionado = document.getElementById('selectVeterinario').value;
-                var idProductoServicio = document.querySelector('input[name="idProductoServicioCita"]').value
-
-                alert('id del producto: ' + idProductoServicio + ' - fecha: ' + fechaSeleccionada + ' - id veterinario: ' + veterinarioSeleccionado + ' - horario: ' + tiempoServicioSeleccionado);
-
+                var idProductoServicio = document.querySelector('input[name="idProductoServicioCita"]').value;
                 // Realiza una nueva solicitud AJAX para obtener el idhorario
                 fetch('obtener_idhorario.php', {
                     method: 'POST',
