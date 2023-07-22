@@ -174,8 +174,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
+                                    <th>Hora</th>
                                     <th>Cliente</th>
-                                    <th>Horario</th>
                                     <th>Correo</th>
 
                                     <th>Pago</th>
@@ -219,8 +219,8 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                 <th>N°</th>
                                     <th>Fecha</th>
                                     <th>Servicio</th>
+                                    <th>Hora</th>
                                     <th>Cliente</th>
-                                    <th>Horario</th>
                                     <th>Correo</th>
 
                                     <th>Pago</th>
@@ -266,7 +266,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                                     <th>Cliente</th>
                                     <th>Horario</th>
                                     <th>Correo</th>
-
+                                    
                                     <th>Pago</th>
                                 </tr>
                             </thead>

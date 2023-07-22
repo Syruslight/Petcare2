@@ -94,27 +94,27 @@ foreach (listarCliente($email, $conn) as $key => $value) {
     <div class="swiper-wrapper">
 
     <?php
-            $productos = obtenerProductosRecompensa($conn);
-            foreach ($productos as $producto) {
-                echo '<div class="swiper-slide">';
-                echo '<div class="cardpet-sup">';
-                echo '<div class="cardpet">';
-                echo '<div class="wrapper-imgButt">';
-                echo '<img class="image-swiper" src="../../../imagenes/productos_servicios/productservices/' . $producto['fotoProductoServicio'] . '" >';
-                echo '<a class="button" href="#" onclick="canjearProducto(' . $producto['idproductoservicio'] . ')">'; // Agregar el evento onclick aquí
-                echo '<div class="buton-canjear">';
-                echo '<span class="canjear-peti">Canjear</span>';
-                echo '</div>';
-                echo '</a>';
-                echo '</div>';
-                echo '<span class="text-canjePeti">' . $producto['nombre_producto'] . '</span>';
-                echo '<span class="text-canjePeti">' . $producto['puntos'] . ' pts</span>';
-                echo '</div>';
-                echo '</div>';
-                echo '</div>';
-            }
-            ?>
-
+        $productos = obtenerProductosRecompensa($conn);
+        foreach ($productos as $producto) {
+            echo '<div class="swiper-slide">';
+            echo '<div class="cardpet-sup">';
+            echo '<div class="cardpet">';
+            echo '<div class="wrapper-imgButt">';
+            echo '<img class="image-swiper" src="../../../imagenes/productos_servicios/productservices/' . $producto['fotoProductoServicio'] . '" >';
+            echo '<a class="button" href="#" onclick="canjearProducto(' . $producto['idproductoservicio'] . ')">'; // Agregar el evento onclick aquí
+            echo '<div class="buton-canjear">';
+            echo '<span class="canjear-peti">Canjear</span>';
+            echo '</div>';
+            echo '</a>'; // Cerrar la etiqueta <a> aquí
+            echo '</div>';
+            echo '<span class="text-canjePeti">' . $producto['nombre_producto'] . '</span>';
+            echo '<span class="text-canjePeti">' . $producto['puntos'] . ' pts</span>';
+            echo '</div>';
+            echo '</div>';
+            echo '</div>';
+        }
+        ?>
+        
     </div>
 
     <div class="swiper-button-next"></div>
