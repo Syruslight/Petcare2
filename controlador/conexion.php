@@ -509,6 +509,17 @@ function editarCategoria($idTipoProductoServicio, $nombre,$conn){
     mysqli_query($conn, $sql) or die(mysqli_error($conn));
 }
 
+//Funcion para crear recompensas 
+function crearRecompensas($idProductoServicio, $puntos, $conn){
+    $sql = "insert into recompensas(idproductoservicio,puntos, estado) values ('$idProductoServicio','$puntos',1)";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
+function actualizarRecompensa($idRecompensa, $puntos, $conn){
+    $sql = "UPDATE recompensas SET puntos = '$puntos' WHERE idrecompensa = $idRecompensa;";
+    mysqli_query($conn, $sql) or die(mysqli_error($conn));
+}
+
 //Funcion para listar servicios pero con parametros para editarlo posteriormente
 function listarServiciosPorId($idServicio, $conn) {
     $sql = "SELECT nombre,precio,descripcion,fotoProductoServicio,estado FROM `productoservicio` WHERE idproductoservicio = '$idServicio'";

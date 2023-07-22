@@ -164,14 +164,27 @@ function openModalCreatePetiPunto() {
   });
 }
 
-function openModalEdithPetiPunto() {
-  const open = document.getElementById("open-edithPetiPunto");
+
+
+//GLOBAL EDITAS PUNTOS 
+
+document.querySelectorAll(".modal-imagenPeti").forEach((button) => {
+  button.addEventListener("click", (e) => {
+    // Pasa el evento (e) como parámetro a la función
+    openModalEdithPetiPunto(e);
+  });
+});
+
+
+function openModalEdithPetiPunto(idRecompensa, nombreRecompensa, puntosRecompensa) {
   const modal_container = document.getElementById("modal-edithPetiPunto");
   const close = document.getElementById("close1");
-  open.addEventListener("click", (e) => {
-    e.preventDefault();
-    modal_container.classList.add("modalPetiPunto--show");
-  });
+  
+  document.querySelector("#idRecompensa").value = idRecompensa;
+  document.querySelector("#nombreRecompensa").value = nombreRecompensa;
+  document.querySelector("#puntosRecompensa").value = puntosRecompensa;
+
+  modal_container.classList.add("modalPetiPunto--show");
 
   close.addEventListener("click", (e) => {
     e.preventDefault();
