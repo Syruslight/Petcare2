@@ -68,7 +68,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
       
           // Verifica si se obtuvieron resultados
           if ($result->num_rows > 0) {
-            $numero = $result->num_rows;
+            $numero = 1;
               echo "<table class='tablaDetalleVacuna'>";
               echo "<tr>";
               echo "<th >N°</th>";
@@ -96,7 +96,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                   echo "<td>" . $row['restricciones'] . "</td>";
                   echo "</tr>";
           
-                  $numero--; // Desincrementar el contador en cada iteración
+                  $numero++; // Desincrementar el contador en cada iteración
               }
           
               echo "</table>";

@@ -66,11 +66,12 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
               echo '</tr>';
               echo '</thead>';
               echo '<tbody>';
-
+              $contadorFilas =1;
               // Iterar sobre los registros y mostrarlos en la tabla
               while ($row = $result->fetch_assoc()) {
                 echo '<tr>';
-                echo '<td>' . $row['idvacuna'] . '</td>';
+                echo '<td>' . $contadorFilas . '</td>';
+                echo '<td hidden>' . $row['idvacuna'] . '</td>';
                 echo '<td>' . $row['lote'] . '</td>';
                 echo '<td>' . $row['tipo'] . '</td>';
                 echo '<td>' . $row['descripcion'] . '</td>';
@@ -109,6 +110,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
                 echo '</div>';
                 echo '</td>';
                 echo '</tr>';
+                $contadorFilas++;
               }
 
               echo '</tbody>';

@@ -159,10 +159,11 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             </tr>
         </thead>
         <tbody>';
-
+        $contadorFilas = 1;
                 foreach ($registros as $registro) {
                     echo '<tr>';
-                    echo '<td id="fecha">' . $registro['idhorario'] . '</td>';
+                    echo '<td>' . $contadorFilas . '</td>';
+                    echo '<td hidden>' . $registro['idhorario'] . '</td>';
                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                     echo '<td>' . $fechaFormateada . '</td>';
                     echo '<td>' . date('h:i A', strtotime($registro['horarioinicio'])) . '</td>';
@@ -177,6 +178,7 @@ foreach (listarVeterinario($email, $conn) as $key => $value) {
             </select>
           </td>';
                     echo '</tr>';
+                    $contadorFilas++;
                 }
 
                 echo '</tbody>

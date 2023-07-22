@@ -116,7 +116,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                 $cuentasVeterinarios = listarCuentasVeterinarios($conn);
 
                 if (!empty($cuentasVeterinarios)) {
-                    $numero = count($cuentasVeterinarios);
+                    $numero = 1;
 
                     echo "<div class='contenedorTablaCrearCuenta'><table class='tablaCuentasCreadas'>
                         <thead>
@@ -154,7 +154,7 @@ foreach (listarAdministrador($email, $conn) as $key => $value) {
                                 </tr>
                             </tbody>";
 
-                        $numero--;
+                        $numero++;
                     }
 
                     echo "</table>";

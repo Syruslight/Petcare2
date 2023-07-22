@@ -115,10 +115,11 @@ if ($resultadoHoy && mysqli_num_rows($resultadoHoy) > 0) {
                             </thead>
                             <tbody>
                                 <?php
-                              
+                              $contadorFilas =1;
                               while ($registro = mysqli_fetch_assoc($resultado)) {
     echo '<tr>';
-    echo '<td>' . $registro['idcita'] . '</td>';
+    echo '<td>' . $contadorFilas . '</td>';
+    echo '<td hidden>' . $registro['idcita'] . '</td>';
     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
     echo '<td>' . $fechaFormateada . '</td>';
     echo '<td>' . $registro['servicio'] . '</td>';
@@ -138,6 +139,7 @@ if ($resultadoHoy && mysqli_num_rows($resultadoHoy) > 0) {
     }
 
     echo '</tr>';
+    $contadorFilas ++;
 }
 
                                 ?>
@@ -162,9 +164,11 @@ if ($resultadoHoy && mysqli_num_rows($resultadoHoy) > 0) {
                             </thead>
                             <tbody>
                                 <?php
+                                 $contadorFilas=1;
                                 while ($registro = mysqli_fetch_assoc($resultado2)) {
                                     echo '<tr>';
-                                    echo '<td >' . $registro['idcita'] . '</td>';
+                                    echo '<td>' . $contadorFilas . '</td>';
+                                    echo '<td hidden>' . $registro['idcita'] . '</td>';
                                     $fechaFormateada = date('d/m/Y', strtotime($registro['fecha']));
                                     echo '<td>' . $fechaFormateada . '</td>';
                                     echo '<td>' . $registro['servicio'] . '</td>';
@@ -182,6 +186,7 @@ if ($resultadoHoy && mysqli_num_rows($resultadoHoy) > 0) {
                                         echo '</select>';
                                         echo '</td>';
                                         echo '</tr>';
+                                        $contadorFilas++;
                                     } else {
                                         echo 'No se encontraron Registros';
                                     }
