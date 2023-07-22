@@ -268,7 +268,7 @@ body::-webkit-scrollbar-thumb {
 #row-tablaMascota tbody a {
   font-size: 13px;
   font-weight: 680;
-  height: 32px;
+  height: 35px;
 }
 #row-tablaMascota .btn:hover {
   /* transform: translate(-3%); */
@@ -286,10 +286,10 @@ tbody tr:hover {
 }
 .td {
   padding: 8px 0px 8px 0px;
-  width: 18%;
+  width: 22%;
 }
 .th {
-  width: 5%;
+  width: 0%;
 }
 #row-tablaMascota table tbody td {
   padding: 14px 0px 14px 0px;
