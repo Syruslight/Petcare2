@@ -251,10 +251,11 @@ Inicia Modal de reserva */
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.644);
 }
 
 .modalReservar__container {
+ 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -266,6 +267,7 @@ Inicia Modal de reserva */
   border-radius: 5px;
   padding: 20px;
   max-width: 500px;
+  height: 600px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -299,8 +301,8 @@ Inicia Modal de reserva */
 /* Resto de estilos de la página principal */
 
 ::selection {
-  color: #fff;
-  background: #9237e7;
+  color: #ffffff;
+  background: #ec6ea9c0;
 }
 
 .containerModalService {
@@ -475,9 +477,11 @@ form .page .btns button.next {
 
 } */
 .part-upReser {
-  border: 1px solid rgba(0, 0, 0, 0.8);
+  border: 1px solid rgba(58, 58, 58, 0.473);
   display: flex;
   align-items: center;
+  height: 120px;
+  justify-content: space-around;
 }
 .info-upReser {
   margin-left: 10px;
@@ -485,23 +489,25 @@ form .page .btns button.next {
 .title-Reserva {
   margin: 0;
   color: #027466;
-  text-align: center;
+  text-align: left;
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 16px;
   font-style: normal;
-  padding-top: 15px;
+ 
   font-weight: 600;
   line-height: normal;
 }
 .wrapper-textReser {
   display: flex;
+  gap: 10px;
+  font-family: Poppins;
   justify-content: space-between;
 }
 .text-infoRese {
   color: rgba(226, 43, 131, 0.8);
   text-align: center;
   font-family: Poppins;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
@@ -509,7 +515,7 @@ form .page .btns button.next {
 .result-rese {
   color: rgba(0, 9, 8, 0.62);
   font-family: Poppins;
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 15px;
@@ -517,7 +523,7 @@ form .page .btns button.next {
 .info-textRese {
   color: rgba(0, 9, 8, 0.62);
   font-family: Poppins;
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: 15px;
@@ -526,8 +532,12 @@ form .page .btns button.next {
   border-radius: 20px 0px;
   border: 2px solid #088778;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-  margin-right: 10px;
-  margin-left: 10px;
+padding: 3px;
+ 
+}
+
+#resultadoFoto{
+  border-radius: 20px 0px;
 }
 .wrapper-downReser1 {
   display: flex;
@@ -549,10 +559,13 @@ form .page .btns button.next {
   line-height: normal;
 }
 .select-reser {
-  border-radius: 15px;
+  padding: 10px;
+  border-radius: 10px;
   background: #e7e7e7;
   width: 200px;
-  height: 38px;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid #E96397 ;
 }
 .method-payment {
   display: flex;
@@ -571,10 +584,12 @@ form .page .btns button.next {
   color: #820e94;
   text-align: center;
   font-family: Poppins;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+  background-color: transparent;
+  border: none;
 }
 .second-methodPay {
   display: flex;
@@ -589,16 +604,31 @@ form .page .btns button.next {
   color: #28e1df;
   text-align: center;
   font-family: Poppins;
-  font-size: 18px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 600;
   line-height: normal;
   cursor: pointer;
   margin-right: 10px;
+  background-color: transparent;
+  border: none;
 }
 .image-payment {
   margin-top: 30px;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  overflow: hidden; /* Oculta el contenido que exceda el tamaño del div */
 }
+
+#payment-image {
+  height: 100%; /* La imagen ocupará el 100% del alto del div */
+  width: auto; /* El ancho de la imagen se ajustará automáticamente */
+  display: block; /* Evita espacios no deseados alineando la imagen */
+}
+
 .text-confirmation {
   color: rgba(0, 0, 0, 0.73);
   text-align: center;
@@ -634,6 +664,18 @@ form .page .btns button.next {
   line-height: normal;
 }
 
+.upload-confirmation{
+  margin-top: 30px;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  overflow: hidden; /* Oculta el contenido que exceda el tamaño del div */
+}
+
+
+
 
 
 /*multipasos*/
@@ -646,19 +688,29 @@ form .page .btns button.next {
 }
 
 .button-container {
-  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  margin-top: 40px;
+  justify-content: space-around;
 }
 
 .button-container button {
   padding: 10px 20px;
+  background-color: #2A9D8F;
+  border: none;
+  height: 48px;
+  width:200px;
+
+  color: white;
 }
 
 .progress-bar {
   width: 100%;
   background-color: #f1f1f1;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-bottom: 15px;
+  border-radius: 45px;
+  margin-bottom: 25px;
 }
 
 .progress {
@@ -672,7 +724,7 @@ form .page .btns button.next {
 .progress-value {
   height: 100%;
   background-color: #E96397;
-  border-radius: 5px;
+  border-radius: 45px;
 }
 
 /* Ejemplo de estilo adicional para cambiar el color del progress bar al completarse */

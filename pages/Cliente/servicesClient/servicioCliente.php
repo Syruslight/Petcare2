@@ -152,11 +152,11 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     </div>
                                     <div class="part-downReser">
                                         <div class="wrapper-downReser1">
-                                            <input type="text" value="<?php echo $value[7] ?>" name="idClienteCita">
+                                            <input type="text" value="<?php echo $value[7] ?>" name="idClienteCita" hidden>
                                             <input type="text" id="idproductoServicio"
                                                 value="<?php echo isset($_POST['idproductoservicio']) ? $_POST['idproductoservicio'] : ''; ?>"
-                                                name="idProductoServicioCita">
-                                            <input type="text" id="inputIdHorario" name="inputIdHorario" />
+                                                name="idProductoServicioCita" hidden>
+                                            <input type="text" id="inputIdHorario" name="inputIdHorario" / hidden>
 
                                             <?php
                                             // Realizar la consulta a la base de datos para obtener las mascotas del cliente
@@ -253,7 +253,10 @@ foreach (listarCliente($email, $conn) as $key => $value) {
                                     <div class="upload-confirmation">
                                         <img src="../../../imagenes/perfilCliente/sendConfirmation.png" alt=""
                                             width="400px" height="210px">
-                                        <input type="file" name="fotoComprobantePago">
+                                        
+                                    </div><input type="file" name="fotoComprobantePago" id="fotoComprobante" hidden>
+                                    <div class="subirFoto">
+                                        <label for="fotoComprobante">Subir Foto</label>
                                     </div>
                                 </div>
                                 <div class="button-container">
