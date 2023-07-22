@@ -7,8 +7,9 @@
     flex-direction: column;
 }
 .header-petiPuntos{
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 .tittle-petiPuntos{
     margin: 0;
@@ -34,6 +35,12 @@
     line-height: 21px;
     text-align: center;
     color: #49c1b3;
+}
+.new-Recompensa:hover {
+  background-color: #49c1b3;
+  color: #ffffff; 
+  border-color: #ffffff; 
+  cursor: pointer;
 }
 .wrapper-tablePetiPuntos{
     background: #ffffff;
@@ -270,8 +277,8 @@
     position: relative;
   }
   .modals > div {
-    width: 920px;
-    height: 654px;
+    width: 650px;
+    height: 610px;
     background: #f5f5f5;
     max-width: 100%;
     border-radius: 15px;
@@ -299,7 +306,7 @@
     align-items: center;
     width: 920px;
     height: 72px;
-    margin-left: 10px;
+    margin-left: 79px;
   }
   .only-circle {
     display: flex;
@@ -348,7 +355,7 @@
     margin: 0;
   }
   .close {
-    margin-left: 150px;
+    margin-left: 30px;
   }
   .wrapper-bodyModals {
     display: flex;
@@ -359,10 +366,9 @@
   }
   .wrapper-bodyModals1 {
     display: flex;
-    margin-left: 78px;
     margin-top: 25px;
     height: 455px;
-    width: 778px;
+    width: 100%;
     justify-content: center;
   }
   .photos-Modals {
@@ -406,7 +412,6 @@
   }
   .formu-modals1 {
     display: flex;
-    margin-left: 58px;
     width: 395px;
     flex-direction: column;
     margin-top: 50px;
@@ -437,10 +442,9 @@
   }
   .four-group{
     display: flex;
-    flex-direction: column;
     gap: 11px;
-    align-items: baseline;
-    margin-top: 17px;
+    align-items: flex-start;
+    flex-direction: column;
   }
   .text-nameProduct {
     background: #ffffff;
@@ -523,6 +527,7 @@
   .footer-modals {
     display: flex;
     margin-top: 30px;
+    align-items: center;
   }
   .add-button {
     width: 363px;
@@ -539,18 +544,19 @@
     margin-top: 50px;
   }
   .add-button1{
-    width: 363px;
-    height: 64px;
+    width: 174px;
+    height: 56px;
     background: #30bcac;
     border-radius: 15px;
     font-family: "Poppins";
     font-style: normal;
     font-weight: 700;
-    font-size: 30px;
+    font-size: 22px;
     line-height: 21px;
     text-align: center;
     color: rgba(255, 255, 255, 0.78);
-    margin-left: 300px;
+    margin-top: 27px;
+    margin-left: 20px;
   }
   .footer-circle {
     display: flex;

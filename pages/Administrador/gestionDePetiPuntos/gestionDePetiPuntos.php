@@ -177,11 +177,6 @@ function buscarRecompensas(query) {
                 <div>
                     <div class="frame frame-1"></div>
                     <div class="wrapper-headerModals">
-                        <div class="only-circle">
-                            <div class="circle-rigth"></div>
-                            <div class="circle-center"></div>
-                            <div class="circle-left"></div>
-                        </div>
                         <h1 class="title-newProduct">Crear Recompensa</h1>
                         <lord-icon class="close" id="close" src="https://cdn.lordicon.com/nhfyhmlt.json" trigger="hover" colors="primary:#121331" state="hover-2" style="width:40px;height:40px">
                         </lord-icon>
@@ -191,7 +186,7 @@ function buscarRecompensas(query) {
         <div class="wrapper-bodyModals1">
             <div class="formu-modals1">
                 <div class="first-group">
-                    <label class="productoTipo" for="">Especie : </label>
+                    <label class="productoTipo label-reuse" for="">Especie : </label>
                     <div class="button-selectPetiType">
                         <select name="especie" id="especie" class="select-petiPuntos"  onchange="limpiarProductos();cargarCategoria()">
                         <option selected>Selecciona Especie</option>
@@ -308,19 +303,16 @@ function buscarRecompensas(query) {
                                     }
                                     </script>
                     </div>
-                <div class="four-group">
-                <label class="label-reuse" for="">Puntos:</label>
-                    <input class="text-namePoints" type="text" name="puntosRecompensa" id="nombreProductoEnvio" placeHolder="Cantidad de puntos" >
-                </div>
+
+
             </div>
         </div>
     <div class="footer-modals">
-    <button class="add-button1">Agregar</button>
-        <div class="footer-circle1">
-            <div class="footer-rigth"></div>
-            <div class="footer-center"></div>
-            <div class="footer-left"></div>
-        </div>
+                <div class="four-group">
+                    <label   label class="label-reuse" for="">Puntos:</label>
+                    <input class="text-namePoints" type="text" name="puntosRecompensa" id="nombreProductoEnvio" placeHolder="Cantidad de puntos" >
+                </div>
+                <button class="add-button1">Agregar</button>
     </div>
     <div class="frame frame-2"></div>
 </div>
